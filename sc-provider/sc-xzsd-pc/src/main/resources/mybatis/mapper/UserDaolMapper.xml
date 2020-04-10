@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.pc.user.dao.UserDao">
+
+    <!--统计用户账号数量,判断是否用户名存在,【 邮箱 和 手机号 和 账号昵称】-->
+    <select id="countUserAcct" parameterType="com.xzsd.pc.user.entity.User" resultType="int">
+        select
+            count(*)
+        from
+            t_user_infomation
+        where
+            is_delete = 0
+        and
+            user_account = #{userAccount}
+        <!--&lt;!&ndash;<if test="userCode != null and userCode != ''">&ndash;&gt;</if>-->
+    </select>
+    <!--统计手机号是否已经注册过-->
+    <select id="countUserPhone" parameterType="com.xzsd.pc.user.entity.User" resultType="int">
+        select
+            count(*)
+        from
+            t_user_infomation
+        where
+            is_delete = 0
+        and
+            user_phone = #{userPhone}
+        <!--&lt;!&ndash;<if test="userCode != null and userCode != ''">&ndash;&gt;</if>-->
+    </select>
+
+
+    <!--新增用户-->
+    <insert id="addUser" parameterType="com.xzsd.pc.user.entity.User">
+     INSERT INTO `t_user_infomation` (
+        `user_code`,
+        `user_name`,
+        `user_account`,
+        `user_pass`,
+        `user_id_card`,
+        `user_sex`,
+        `user_role`,
+        `user_tel`,
+        `user_phone`,
+        `user_integral`,
+        `user_email`,
+        `is_delete`,
+        `create_time`,
+        `create_user`,
+        `version`
+    )
+    VALUES
+        (
+            #{userCode},
+            #{userName},
+            #{userAccount},
+            #{userPass},
+            #{userIdCard},
+            #{userSex},
+            #{userRole},
+            #{userTel},
+            #{userPhone},
+            #{userIntegral},
+            #{userEmail},
+            0,
+            now(),
+            #{createUser},
+            0
+        )
+    </insert>
+    <!--查询用户详情-->
+    <select id="queryUserData" resultType="com.xzsd.pc.user.entity.User">
+        select
+            user_code userCode,
+            user_name userName,
+            user_account userAccount,
+            user_pass userPass,
+            user_id_card userIdCard,
+            user_sex userSex,
+            user_role userRole,
+            user_tel userTel,
+            user_phone userPhone,
+            user_integral userIntegral,
+            user_email userEmail,
+            is_delete isDelete,
+            version version
+        from
+            t_user_infomation
+        where
+            is_delete = 0
+        and user_code=#{userCode}
+    </select>
+
+    <!--修改用户-->
+    <update id="updateUser" parameterType="com.xzsd.pc.user.entity.User">
+     UPDATE
+        `t_user_infomation`
+    SET
+        `user_name` = #{userName},
+        `user_account`=#{userAccount},
+        `user_pass`=#{userPass},
+        `user_id_card`=#{userIdCard},
+        `user_sex` = #{userSex},
+        `user_role`=#{userRole},
+        `user_tel`=#{userTel},
+        `user_phone` = #{userPhone},
+        `user_integral`=#{userIntegral},
+        `user_email`= #{userEmail},
+        `update_time` = now(),
+        `update_user` = #{updateUser},
+        `version`=version+1
+      WHERE
+          user_code = #{userCode}
+    </update>
+    <!--删除用户,-->
+    <update id="deleteUser" parameterType="com.xzsd.pc.user.entity.User">
+        update t_user_infomation
+        set
+        is_delete = 1,
+        update_time = now(),
+        update_user = #{updateUser},
+        version = version + 1
+        where user_code in
+        <foreach item="item" index="index" collection="listCode" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+    <!--用户列表查询-->
+    <select id="listUsersByPage" parameterType="com.xzsd.pc.user.entity.User" resultType="com.xzsd.pc.user.entity.User">
+      select
+        user_code userCode,
+        user_account userAccount,
+        user_name userName,
+        user_sex userSex,
+        user_phone userPhone,
+        user_email userEmail,
+        user_id_card userIdCard,
+        user_integral userIntegral,
+        user_role userRole
+      from
+         t_user_infomation
+      where
+           is_delete = 0
+        <if test="userAccount != null and userAccount != ''">
+          and user_account like concat('%', #{userAccount}, '%')
+        </if>
+        <if test="userName != null and userName != ''">
+            and user_name like concat('%', #{userName}, '%')
+        </if>
+        <if test="userRole !=null and userRole !=''">
+            and user_role =#{userRole}
+        </if>
+    </select>
+</mapper>

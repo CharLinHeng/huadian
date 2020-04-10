@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzsd.app.register.dao.RegisterDao">
+        <!--新增用户  Role 2-->
+    <insert id="addRegister" parameterType="com.xzsd.app.register.entity.Register">
+        INSERT
+            INTO
+              `t_user_infomation`(
+                `user_code`,
+                `user_name`,
+                `user_account`,
+                `user_pass`,
+                `user_id_card`,
+                `user_sex`,
+                `user_role`,
+                `user_phone`,
+                `user_integral`,
+                `user_email`,
+                `is_delete`,
+                `create_time`,
+                `create_user`,
+                `version`
+              )
+            VALUES(
+              #{userCode},
+              #{userName},
+              #{userAcc},
+              #{userPass},
+              #{userIdCard},
+              CAST(#{userSex} AS SIGNED),
+              2,
+              #{userPhone},
+              0,
+              #{userEmail},
+              0,
+              now(),
+              #{userCode},
+              0
+              )
+    </insert>
+</mapper>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.pc.goodsManage.dao.GoodDao">
+
+    <!--查询商品名称是否存在-->
+    <select id="countGood" parameterType="com.xzsd.pc.goodsManage.entity.Good" resultType="int">
+        select count(good_name)
+        from
+           t_good_manage
+        where
+            good_name = #{good_name}
+    </select>
+    <!--查询商品书号是否存在-->
+    <select id="countGoodBookSize" parameterType="com.xzsd.pc.goodsManage.entity.Good" resultType="int">
+        select count(good_isbn_bookSize)
+        from
+           t_good_manage
+        where
+            good_isbn_bookSize = #{good_isbn_bookSize}
+    </select>
+    <!--查询商品详情-->
+    <select id="queryDetail" resultType="com.xzsd.pc.goodsManage.entity.Good">
+        select
+          good_code,
+          good_name,
+          good_isbn_bookSize,
+          good_second_clas,
+          good_ad,
+          good_prec,
+          good_commodity_press,
+          good_author,
+          good_lib_save,
+          good_price,
+          good_selling_price,
+          good_image_url
+        from
+           t_good_manage
+        where
+           good_code = #{good_code}
+    </select>
+    <!--增加商品-->
+    <insert id="addGood" parameterType="com.xzsd.pc.goodsManage.entity.Good">
+        INSERT INTO
+            `t_good_manage`(
+            `good_code`,
+            `good_name`,
+            `good_price`,
+            `good_selling_price`,
+            `good_saleNum`,
+            `good_second_clas`,
+            `good_ad`,
+            `good_prec`,
+            `good_state`,
+            `good_sale_time`,
+            `good_sale_end`,
+            `good_eva_rank`,
+            `good_through_num`,
+            `good_lib_save`,
+            `good_author`,
+            `good_commodity_press`,
+            `good_isbn_bookSize`,
+            `good_image_url`,
+            `good_createTime`,
+            `good_update_time`,
+            `create_user`,
+            `update_user`,
+            `is_delete`,
+            `version`
+            )
+         VALUES
+        (
+           #{good_code},
+           #{good_name},
+           #{good_price},
+           #{good_selling_price},
+           0,
+           #{good_second_clas},
+           #{good_ad},
+           #{good_prec},
+           2,
+           #{good_sale_time},
+           #{good_sale_end},
+           0,
+           #{good_through_num},
+           #{good_lib_save},
+           #{good_author},
+           #{good_commodity_press},
+           #{good_isbn_bookSize},
+           #{good_image_url},
+           NOW(),
+           '',
+           #{create_user},
+           '',
+           0,
+           0
+        )
+    </insert>
+    <!--删除商品-->
+    <update id="deleteGood" parameterType="com.xzsd.pc.goodsManage.entity.Good">
+        update
+           t_good_manage
+        set
+           is_delete = 1,
+           update_user=#{updateUserCode}
+        where
+          <foreach collection="listGoodCode" index="index" item="item" open="(" close=")" separator=",">
+              good_code = #{item}
+          </foreach>
+    </update>
+    <!--修改商品-->
+    <update id="updateGood" parameterType="com.xzsd.pc.goodsManage.entity.Good">
+        UPDATE
+          `t_good_manage`
+        SET
+            `good_name`=#{good_name},
+            `good_price`=#{good_price},
+            `good_selling_price`=#{good_selling_price},
+            `good_saleNum`=#{good_saleNum},
+            `good_second_clas`=#{good_second_clas},
+            `good_ad`=#{good_ad},
+            `good_prec`=#{good_prec},
+            `good_state`=#{good_state},
+            `good_lib_save`=#{good_lib_save},
+            `good_author`=#{good_author},
+            `good_commodity_press`=#{good_commodity_press},
+            `good_isbn_bookSize`=#{good_isbn_bookSize},
+            `good_image_url`=#{good_image_url},
+            `good_update_time`=now(),
+            `update_user`=#{update_user}
+        WHERE
+            `good_code`=#{good_code}
+    </update>
+    <!--商品列表查询-->
+    <select id="queryGoodList" parameterType="com.xzsd.pc.goodsManage.entity.Good" resultType="com.xzsd.pc.goodsManage.entity.Good">
+        select
+            good_name,
+            good_state,
+            good_ad,
+            good_commodity_press,
+            good_author
+        from
+             t_good_manage
+        where
+            is_delete = 0
+        <if test="good_name !=null and good_name !=''">
+            and good_name like concat('%',#{good_name},'%')
+        </if>
+
+        <if test="good_ad != null and good_ad != ''">
+            and good_ad like concat('%',#{good_ad},'%')
+        </if>
+        <if test="good_commodity_press !=null and good_commodity_press !=''">
+            and good_commodity_press like concat('%',#{good_commodity_press},'%')
+        </if>
+        <if test="good_author !=null and good_author !=''">
+            and good_author like concat('%',#{good_author},'%')
+        </if>
+        <if test="null !=good_state and good_state!=''">
+            and good_state = #{good_state}
+        </if>
+        order  by
+            good_createTime
+        desc
+    </select>
+<!--上架下架修改-->
+    <update id="updateGoodState" parameterType="com.xzsd.pc.goodsManage.entity.Good">
+        update
+            t_good_manage
+        set
+            good_state = #{good_state},
+            update_user = #{update_user}
+        where
+          good_code in
+          <foreach collection="listGoodCode" item="item"  open="(" separator="," close=")" index="index">
+              #{item}
+          </foreach>
+
+    </update>
+</mapper>
