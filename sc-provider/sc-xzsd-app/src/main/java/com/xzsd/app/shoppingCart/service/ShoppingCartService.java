@@ -10,6 +10,7 @@ import com.xzsd.app.util.RandomCode;
 import com.xzsd.app.util.ResponceData;
 import com.xzsd.app.util.ResponceDataState;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Arrays;
@@ -26,6 +27,7 @@ public class ShoppingCartService {
      * @param addShoppingCart
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData addShoppingCart(AddShoppingCart addShoppingCart) {
         //判断请求参数
         if (null == addShoppingCart.getGoodCode() || addShoppingCart.getGoodCode() == "") {
@@ -69,6 +71,7 @@ public class ShoppingCartService {
      * @param addShoppingCart
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData updateShoppingCartGoods(AddShoppingCart addShoppingCart) {
         //先判断参数是否齐全
         if (null == addShoppingCart.getCartCode() || addShoppingCart.getCartCode() == "") {
@@ -104,6 +107,7 @@ public class ShoppingCartService {
      * @param addShoppingCart
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData deleteShoppingCartGoods(AddShoppingCart addShoppingCart){
         if (null == addShoppingCart.getCartCode() || addShoppingCart.getCartCode() == "") {
             return new ResponceData(ResponceDataState.values()[3].getCode(), "购物车编号参数缺失!", null);

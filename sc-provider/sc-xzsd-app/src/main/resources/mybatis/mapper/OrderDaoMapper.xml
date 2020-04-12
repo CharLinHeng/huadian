@@ -3,7 +3,32 @@
 <mapper namespace="com.xzsd.app.order.dao.OrderDao">
     <!--增加订单-->
     <insert id="addUserOrder" parameterType="com.xzsd.app.order.entity.AddOrder">
+        INSERT
+            INTO
+              `t_order_manage`(
+                `order_code`,
+                `user_code`,
 
+                `order_state`,
+                `order_play_state`,
+
+                `order_sure_pay_time`,
+                `create_time`,
+                `create_user`,
+
+                `is_delete`,
+                `version`
+              )
+            VALUES(
+                  #{orderCode},
+                  #{userCode},
+                  1,
+                  now(),
+                  now(),
+                  #{userCode},
+                  0,
+                  0,
+            )
     </insert>
     <!--判断购物车中的每种商品库存是否充足,如果存在购物车中某一商品数量大于库存，那么返回这个商品编号-->
     <select id="judgementStock" parameterType="com.xzsd.app.order.entity.AddOrder" resultType="com.xzsd.app.order.entity.GoodBigThanLibs">

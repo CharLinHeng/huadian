@@ -34,12 +34,9 @@ public class UserServices {
      * @Author zhc
      * @Date 2020-03-24
      */
-    @Transactional(rollbackFor = Exception.class)
     public ResponceData queryUser(User user){
         try {
-
             User appResponse = userDao.queryUserData(user);
-
             if(null == appResponse){
                 responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空",null);
                 return responceData;
@@ -50,19 +47,14 @@ public class UserServices {
 //            System.out.println(e.toString());
             throw e;
         }
-
     }
-
     /**
      * 增加用户
      * author: zhc
      * 2020年3月24日19:05:18
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData addUser(User user){
-        try {
-            //先判断有没有空值
-//            (#{user_code},#{user_name},#{user_account},#{user_pass},#{user_id_card},#{user_sex},#{user_role},#{user_tel},#{user_phone},#{user_integral},
-//      #{user_email},0,#{create_time}
             if(null == user.getUserEmail()){
                 responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"用户邮箱参数为空!",null);
                 return responceData;
@@ -79,20 +71,10 @@ public class UserServices {
                 responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"用户账号为空!",null);
                 return responceData;
             }
-//            if(0 == user.getUser_sex()){
-//                responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"用户性别没有选择!",null);
-//                return responceData;
-//            }
-//            if(0 == user.getUser_role()){
-//                responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"用户角色为空!",null);
-//                return responceData;
-//            }
             if(null == user.getUserPhone()){
                 responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"用户手机号为空!",null);
                 return responceData;
             }
-            //
-
             //先查询 是否存在账号、手机
             if(userDao.countUserAcct(user)>0){
                 responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"用户账号已存在!",null);
@@ -110,12 +92,6 @@ public class UserServices {
             }
             responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"增加成功",null);
             return responceData;
-        } catch (Exception e) {
-//            logger.error("用户新增失败", e);
-            System.out.println(e.toString());
-            throw e;
-        }
-
     }
 
     /**
@@ -123,51 +99,47 @@ public class UserServices {
      * author: zhc
      * 2020年3月24日22:52:47
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData updateUser(User user){
         if(null == user.getUserCode()){
-            responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"error,No userCode",null);
+            responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"用户编号为空!",null);
             return responceData;
         }
         int result = userDao.updateUser(user);
         if(0 == result){
-            responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"error,update fail",null);
+            responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"更新失败",null);
             return responceData;
         }
-
-        responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"success",null);
+        responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"更新成功",null);
         return responceData;
-
     }
     /**
      * 删除用户
      * author: zhc
      * 2020年3月25日09:16:14
      */
+    @Transactional(rollbackFor = Exception.class)
      public ResponceData deleteUser(User user){
          //如果有逗号，那么是分割开来
-
-//         user.setUser_code("123456789"); // 暂时没有
          List<String> listCode =new ArrayList<>();
          int result = 0;
          if(user.getUserCode().indexOf(",")!=-1){
              //批量删除
-
              String set[] = user.getUserCode().split(",");
              for(String s:set){
                  listCode.add(s);
              }
            result =  userDao.deleteUser(listCode,user.getUserCode());
-
          }
          else{
              listCode.add(user.getUserCode());
              result =  userDao.deleteUser(listCode,user.getUpdateUser());
          }
          if(result >0){
-             responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"success",null);
+             responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功",null);
          }
          else{
-             responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"failor",null);
+             responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败",null);
          }
          return responceData;
      }
@@ -177,21 +149,14 @@ public class UserServices {
      * 2020年3月25日10:56:26
      */
     public ResponceData queryUserList(User user){
-
         //逻辑判断
         if(user.getPageNum() == 0 || user.getPageSize() == 0){
             return  new ResponceData(ResponceDataState.values()[3].getCode(),"页号或者页数量参数不能为空",null);
         }
-        System.out.println("----------------------------------------");
-        System.out.println(user.toString());
         //分页
         PageHelper.startPage(user.getPageSize(),user.getPageNum());
         List<User> userInfoList = userDao.listUsersByPage(user);
-//        List<User> userInfoList = userDao.listUsersByPage(user);
-//        // 包装Page对象
-
         PageInfo<User> pageData = new PageInfo<User>(userInfoList);
-
         if(userInfoList.size() == 0){
             responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空",userInfoList);
         }

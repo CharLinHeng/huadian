@@ -26,11 +26,9 @@ public class CustomerService {
         if(customer.getPageNum() == 0 || customer.getPageSize() == 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"页号或者页数量不能为空!",null);
         }
-
         PageHelper.startPage(customer.getPageNum(),customer.getPageSize());
         List<Customer> customerList= customerDao.queryCustomer(customer);
         PageInfo<Customer>customerPageInfo = new PageInfo<>(customerList);
-
         if(customerList.size()>0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",customerPageInfo);
         }else{

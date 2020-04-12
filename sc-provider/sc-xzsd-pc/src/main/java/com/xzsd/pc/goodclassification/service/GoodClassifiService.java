@@ -9,6 +9,7 @@ import com.xzsd.pc.goodclassification.entity.GoodClassificationSon;
 import com.xzsd.pc.util.RandomCode;
 import com.xzsd.pc.util.ResponceData;
 import com.xzsd.pc.util.ResponceDataState;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -21,35 +22,29 @@ import java.util.List;
  * 2020年4月4日15:03:01
  */
 @Service
-
 public class GoodClassifiService {
-
     private ResponceData responceData;
     @Resource
     GoodClassifiDao goodClassifiDao;
-
     final static int MAXNODE = 100000;
     /**
      * 新增一级分类
      * @param goodClassification
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData addFirstClass(GoodClassification goodClassification){
         //判断是否缺少参数
         if(null == goodClassification.getClassName() ||goodClassification.getClassName().length() == 0 ){
             responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"参数不能为空!",null);
             return responceData;
         }
-
         //判断是否已经含有名称
         int count = goodClassifiDao.countClassName(goodClassification.getClassName());
-
         if(count > 0 ){
             responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"分类名称已经存在!",null);
             return responceData;
         }
-
-
         //生成随机分类编号
          goodClassification.setClassCode(RandomCode.random_GoodClassifiCationCode());
          goodClassification.setCreateUser("administrator");
@@ -70,6 +65,7 @@ public class GoodClassifiService {
      * @param goodClassification
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData addSecondClass(GoodClassification goodClassification){
         //判断是否缺少参数
         if(null == goodClassification.getClassName() ||goodClassification.getClassName().length() == 0 ||null == goodClassification.getFirstClassCode()||goodClassification.getFirstClassCode().length() == 0){
@@ -78,17 +74,13 @@ public class GoodClassifiService {
         }
         //判断是否已经含有名称
         int count = goodClassifiDao.countClassName(goodClassification.getClassName());
-
         if(count > 0 ){
             responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"分类名称已经存在!",null);
             return responceData;
         }
-
-
         //生成随机分类编号
         goodClassification.setClassCode(RandomCode.random_GoodClassifiCationCode());
         goodClassification.setCreateUser("administrator");
-
         int result = goodClassifiDao.addSecondClass(goodClassification);
         if(result >0){
             responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",null);
@@ -98,8 +90,6 @@ public class GoodClassifiService {
         }
         //判断结果
         return responceData;
-
-
     }
 
     /**
@@ -109,11 +99,6 @@ public class GoodClassifiService {
      */
     public ResponceData updateGoodClass(GoodClassification goodClassification){
         //判断参数是否齐全
-//        classCode	string	y	分类编号
-//        className	string	y	分类名称
-//        classRemark	string	y	分类备注
-//        classRank	string	y	分类等级
-//        firstClassCode	string	n	如果分类等级是二级，那么需要知道所属的一级分类编号
         if( null == goodClassification.getClassCode()){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"编号参数缺失!",null);
         }
@@ -132,10 +117,7 @@ public class GoodClassifiService {
         if(null == goodClassification.getVersion()){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"版本号未之指定!",null);
         }
-
         //修改
-
-
         int result = goodClassifiDao.updateGoodClass(goodClassification);
         if(result >0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"修改成功!",null);
@@ -151,6 +133,7 @@ public class GoodClassifiService {
      * @param updateUser
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData deleteGoodClass(String code,String rank,String updateUser){
         //判断分类是否有
         if(null == rank || rank.length() == 0){
@@ -162,12 +145,10 @@ public class GoodClassifiService {
         }
         //切割
         List<String> codesList = Arrays.asList(code.split(","));
-
         //判断是否一个
         if(codesList.size()>1){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"每次最多删除一个分类!",null);
         }
-
         int result = goodClassifiDao.deleteGoodClass(codesList,updateUser);
         if(result >0){
             String msg = "";
@@ -181,9 +162,7 @@ public class GoodClassifiService {
                 else{
                     msg = "该一级分类附属没有二级分类，故只删除其本身。";
                 }
-
             }
-
             return new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功!"+msg,null);
         }
         else{
@@ -203,14 +182,12 @@ public class GoodClassifiService {
         }
         //查询
         GoodClassification goodClassification = goodClassifiDao.queryGoodClass(code);
-
         if(null == goodClassification){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
         }
         else{
             return new ResponceData(ResponceDataState.values()[3].getCode(),"查询成功!",goodClassification);
         }
-
     }
 
     /**
@@ -238,22 +215,16 @@ public class GoodClassifiService {
                         for(int j = 0;j< goodClassificationLists.size();j++){
                             if(j == i){ continue;}
                             if(null == goodClassificationLists.get(j).getFirstClassCode()){continue;}
-
-
                             if(goodClassificationLists.get(j).getFirstClassCode().equals(goodClassificationLists.get(i).getClassCode())){
-
                                 GoodClassificationSon goodClassificationSon = new GoodClassificationSon();
                                 goodClassificationSon.setClassCode(goodClassificationLists.get(j).getClassCode());
                                 goodClassificationSon.setClassName(goodClassificationLists.get(j).getClassName());
                                 goodClassificationSonList.add(goodClassificationSon);
-
                             }
                         }
                 goodClassificationList.setListGoodClassificationSon(goodClassificationSonList);
                 goodClassificationLists1.add(goodClassificationList);
-
             }
-
         }
         //接下来，释放原来的，然后将剩余的二级插进去
         //此时，一级的分类已经全部新增好，我们只需要查找就ok
@@ -264,6 +235,5 @@ public class GoodClassifiService {
         else{
             return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
         }
-
     }
 }

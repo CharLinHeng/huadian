@@ -6,6 +6,7 @@ import com.xzsd.app.util.RandomCode;
 import com.xzsd.app.util.ResponceData;
 import com.xzsd.app.util.ResponceDataState;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -19,6 +20,7 @@ public class RegisterService {
      * @param register
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData register(Register register){
         //判断参数是否齐全
         if(null == register.getUserAcc() || register.getUserAcc() == ""){

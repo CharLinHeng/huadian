@@ -2,1074 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c8584e3-c1ce-4b77-932f-464935fa490b" name="Default" comment="上传xzsd项目">
-      <change afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileContent/annotation-processors.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileContent/fileContent.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.3.1/taskHistory/taskHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.3.1/taskHistory/taskHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.3/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.3/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__antlr_antlr_2_7_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__aopalliance_aopalliance_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__ch_qos_logback_logback_classic_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__ch_qos_logback_logback_classic_1_1_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__ch_qos_logback_logback_core_1_1_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_alibaba_druid_1_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_alibaba_druid_spring_boot_starter_1_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_alibaba_fastjson_1_2_29.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_amazonaws_aws_java_sdk_autoscaling_1_11_125.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_amazonaws_aws_java_sdk_core_1_11_125.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_amazonaws_aws_java_sdk_ec2_1_11_125.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_amazonaws_aws_java_sdk_route53_1_11_125.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_amazonaws_aws_java_sdk_sts_1_11_125.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_amazonaws_jmespath_java_1_11_125.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_classmate_1_3_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_core_2_8_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_databind_2_8_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_8_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_dataformat_jackson_dataformat_xml_2_8_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_8_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_8_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_9_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_module_jackson_module_afterburner_2_8_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_2_8_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_woodstox_woodstox_core_5_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_botaruibo_xvcode_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_jsqlparser_jsqlparser_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_pagehelper_pagehelper_5_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_pagehelper_pagehelper_spring_boot_autoconfigure_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_pagehelper_pagehelper_spring_boot_starter_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_3_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_guava_guava_18_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_inject_guice_4_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_googlecode_javaewah_JavaEWAH_0_7_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jayway_jsonpath_json_path_2_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jcraft_jsch_0_1_54.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_mchange_c3p0_0_9_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_mchange_mchange_commons_java_0_2_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_archaius_archaius_core_0_7_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_eureka_eureka_client_1_7_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_eureka_eureka_core_1_7_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_hystrix_hystrix_core_1_5_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_hystrix_hystrix_javanica_1_5_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_hystrix_hystrix_metrics_event_stream_1_5_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_hystrix_hystrix_serialization_1_5_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_netflix_commons_netflix_commons_util_0_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_netflix_commons_netflix_eventbus_0_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_netflix_commons_netflix_infix_0_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_netflix_commons_netflix_statistics_0_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_ribbon_ribbon_2_2_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_ribbon_ribbon_core_2_2_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_ribbon_ribbon_eureka_2_2_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_ribbon_ribbon_httpclient_2_2_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_ribbon_ribbon_loadbalancer_2_2_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_ribbon_ribbon_transport_2_2_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_servo_servo_core_0_10_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_servo_servo_internal_0_10_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_turbine_turbine_core_1_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_netflix_zuul_zuul_core_1_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_sun_jersey_contribs_jersey_apache_client4_1_19_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_sun_jersey_jersey_client_1_19_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_sun_jersey_jersey_core_1_19_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_sun_jersey_jersey_server_1_19_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_sun_jersey_jersey_servlet_1_19_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_thoughtworks_xstream_xstream_1_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_zaxxer_HikariCP_java6_2_3_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_beanutils_commons_beanutils_1_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_codec_commons_codec_1_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_configuration_commons_configuration_1_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_io_commons_io_2_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_jxpath_commons_jxpath_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_lang_commons_lang_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_codecentric_spring_boot_admin_client_1_5_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_codecentric_spring_boot_admin_server_1_5_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_codecentric_spring_boot_admin_server_ui_1_5_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_codecentric_spring_boot_admin_server_ui_activiti_1_5_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_codecentric_spring_boot_admin_server_ui_hystrix_1_5_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_codecentric_spring_boot_admin_server_ui_login_1_5_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_codecentric_spring_boot_admin_server_ui_turbine_1_5_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_codecentric_spring_boot_admin_starter_client_1_5_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__dom4j_dom4j_1_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_github_openfeign_feign_core_9_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_github_openfeign_feign_hystrix_9_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_github_openfeign_feign_slf4j_9_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_netty_netty_all_4_0_42_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_netty_netty_buffer_4_0_27_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_netty_netty_codec_4_0_27_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_netty_netty_codec_http_4_0_27_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_netty_netty_common_4_0_27_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_netty_netty_handler_4_0_27_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_netty_netty_transport_4_0_27_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_netty_netty_transport_native_epoll_4_0_27_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_reactivex_rxjava_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_reactivex_rxnetty_0_4_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_reactivex_rxnetty_contexts_0_4_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_reactivex_rxnetty_servo_0_4_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_shardingjdbc_sharding_jdbc_core_2_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_springfox_springfox_core_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_springfox_springfox_schema_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_springfox_springfox_spi_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_springfox_springfox_spring_web_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_springfox_springfox_swagger2_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_springfox_springfox_swagger_common_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_springfox_springfox_swagger_ui_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_swagger_swagger_annotations_1_5_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_swagger_swagger_models_1_5_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_undertow_undertow_core_1_4_22_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_undertow_undertow_servlet_1_4_22_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_undertow_undertow_websockets_jsr_1_4_22_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_zipkin_java_zipkin_2_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_zipkin_java_zipkin_autoconfigure_ui_2_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_zipkin_java_zipkin_server_2_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_zipkin_java_zipkin_ui_2_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_zipkin_reporter2_zipkin_reporter_2_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_zipkin_reporter2_zipkin_sender_amqp_client_2_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_zipkin_reporter2_zipkin_sender_kafka11_2_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_zipkin_zipkin2_zipkin_2_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_inject_javax_inject_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_servlet_javax_servlet_api_3_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_transaction_javax_transaction_api_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_validation_validation_api_1_1_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_ws_rs_javax_ws_rs_api_2_0_m02.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_ws_rs_jsr311_api_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_xml_stream_stax_api_1_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__joda_time_joda_time_2_9_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__mysql_mysql_connector_java_5_1_38.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_bytebuddy_byte_buddy_1_7_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_minidev_accessors_smart_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_minidev_json_smart_2_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__nl_bitwalker_UserAgentUtils_1_2_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_antlr_antlr_runtime_3_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_antlr_stringtemplate_3_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_lang3_3_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_lang3_3_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_math_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_pool2_2_4_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpclient_4_5_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpcore_4_4_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_rocketmq_rocketmq_client_4_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_rocketmq_rocketmq_common_4_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_rocketmq_rocketmq_logappender_4_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_rocketmq_rocketmq_remoting_4_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_core_8_5_27.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_el_8_5_27.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_27.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_tomcat_annotations_api_8_5_27.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_tomcat_jdbc_8_5_27.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_tomcat_juli_8_5_27.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_aspectj_aspectjrt_1_8_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_aspectj_aspectjweaver_1_8_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_assertj_assertj_core_2_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bouncycastle_bcpkix_jdk15on_1_55.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bouncycastle_bcpkix_jdk15on_1_56.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bouncycastle_bcprov_jdk15on_1_55.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bouncycastle_bcprov_jdk15on_1_56.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_groovy_groovy_indy_2_4_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_jackson_jackson_core_asl_1_9_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_jackson_jackson_core_asl_1_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_jackson_jackson_mapper_asl_1_9_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_jackson_jackson_mapper_asl_1_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_jettison_jettison_1_3_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_woodstox_stax2_api_3_1_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_woodstox_woodstox_core_asl_4_4_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jgit_org_eclipse_jgit_3_6_1_201501031845_r.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_freemarker_freemarker_2_3_27_incubating.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_glassfish_javax_el_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hdrhistogram_HdrHistogram_2_1_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_common_hibernate_commons_annotations_5_0_1_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_hibernate_core_5_0_12_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_hibernate_entitymanager_5_0_12_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_hibernate_validator_5_3_6_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_javassist_javassist_3_21_0_GA.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_jandex_2_0_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_logging_jboss_logging_3_3_1_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_spec_javax_annotation_jboss_annotations_api_1_2_spec_1_0_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_spec_javax_websocket_jboss_websocket_api_1_1_spec_1_1_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_xnio_xnio_api_3_3_8_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_xnio_xnio_nio_3_3_8_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jolokia_jolokia_core_1_3_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jsoup_jsoup_1_11_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jvnet_animal_sniffer_annotation_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mapstruct_mapstruct_1_2_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mockito_mockito_core_1_10_19.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mybatis_mybatis_3_4_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mybatis_mybatis_spring_1_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_1_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mybatis_spring_boot_mybatis_spring_boot_starter_1_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_objenesis_objenesis_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_5_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_5_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_quartz_scheduler_quartz_2_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_quartz_scheduler_quartz_jobs_2_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_reflections_reflections_0_9_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_skyscreamer_jsonassert_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_jcl_over_slf4j_1_7_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_jul_to_slf4j_1_7_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_log4j_over_slf4j_1_7_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_slf4j_api_1_7_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_actuator_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_autoconfigure_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_configuration_processor_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_devtools_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_actuator_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_aop_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_data_jpa_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_data_redis_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_freemarker_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_jdbc_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_logging_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_security_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_test_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_tomcat_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_undertow_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_web_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_autoconfigure_1_5_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_commons_1_3_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_config_client_1_4_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_config_server_1_4_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_context_1_3_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_netflix_core_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_netflix_eureka_client_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_netflix_eureka_server_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_netflix_hystrix_dashboard_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_netflix_turbine_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_security_1_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_sleuth_core_1_3_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_sleuth_zipkin_1_3_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_1_3_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_eureka_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_eureka_server_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_feign_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_hystrix_dashboard_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_netflix_archaius_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_netflix_eureka_client_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_netflix_eureka_server_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_netflix_hystrix_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_netflix_hystrix_dashboard_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_netflix_ribbon_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_netflix_turbine_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_netflix_zuul_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_oauth2_1_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_openfeign_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_ribbon_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_security_1_2_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_sleuth_1_3_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_turbine_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_cloud_spring_cloud_starter_zuul_1_4_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_data_spring_data_commons_1_13_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_data_spring_data_jpa_1_11_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_data_spring_data_keyvalue_1_2_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_data_spring_data_redis_1_8_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_security_oauth_spring_security_oauth2_2_0_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_security_spring_security_config_4_2_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_security_spring_security_core_4_2_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_security_spring_security_crypto_4_2_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_security_spring_security_data_4_2_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_security_spring_security_jwt_1_0_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_security_spring_security_rsa_1_0_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_security_spring_security_web_4_2_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_session_spring_session_1_3_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_session_spring_session_data_redis_1_3_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_aop_4_3_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_aspects_4_3_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_beans_4_3_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_context_4_3_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_context_support_4_3_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_core_4_3_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_expression_4_3_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_jdbc_4_3_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_orm_4_3_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_oxm_4_3_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_test_4_3_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_tx_4_3_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_web_4_3_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_webmvc_4_3_14_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_webjars_d3js_3_4_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_webjars_jquery_2_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_yaml_snakeyaml_1_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__redis_clients_jedis_2_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__software_amazon_ion_ion_java_1_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__stax_stax_api_1_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__xmlpull_xmlpull_1_1_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__xpp3_xpp3_min_1_1_4c.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-api-gateway/sc-api-gateway_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-api-gateway/sc-api-gateway_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-common/sc-common-base/sc-common-base_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-common/sc-common-base/sc-common-base_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-common/sc-common-client/sc-common-client_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-common/sc-common-client/sc-common-client_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-common/sc-common-log/sc-common-log_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-common/sc-common-log/sc-common-log_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-common/sc-common-util/sc-common-util_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-common/sc-common-util/sc-common-util_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-common/sc-common_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-common/sc-common_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-common/sc-core/sc-core_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-common/sc-core/sc-core_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-config-server/sc-config-server_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-config-server/sc-config-server_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-eureka-server/sc-eureka-server_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-eureka-server/sc-eureka-server_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-monitor/sc-admin-server/sc-admin-server_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-monitor/sc-admin-server/sc-admin-server_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-monitor/sc-monitor_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-monitor/sc-monitor_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-monitor/sc-zipkin-server/sc-zipkin-server_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-monitor/sc-zipkin-server/sc-zipkin-server_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider-api/sc-provider-api_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider-api/sc-provider-api_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider-api/sc-service-api/sc-service-api_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider-api/sc-service-api/sc-service-api_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-project/sc-project_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-project/sc-project_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-provider_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-provider_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-service/sc-service_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-service/sc-service_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-web-auth/sc-web-auth_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-web-auth/sc-web-auth_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-web/sc-web_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-web/sc-web_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-xzsd-app/sc-xzsd-app.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-xzsd-app/sc-xzsd-app_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-xzsd-app/sc-xzsd-app_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-xzsd-pc/sc-xzsd-pc_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-provider/sc-xzsd-pc/sc-xzsd-pc_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-security/sc-security-client/sc-security-client_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-security/sc-security-client/sc-security-client_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-security/sc-security-core/sc-security-core_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-security/sc-security-core/sc-security-core_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-security/sc-security-uaa/sc-security-uaa_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-security/sc-security-uaa/sc-security-uaa_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-security/sc-security_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-security/sc-security_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-support/sc-job/sc-job_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-support/sc-job/sc-job_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-support/sc-log/sc-log_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-support/sc-log/sc-log_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-support/sc-shardingjdbc/sc-shardingjdbc_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-support/sc-shardingjdbc/sc-shardingjdbc_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-support/sc-support_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-support/sc-support_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-web-static/sc-web-static_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/sc-web-static/sc-web-static_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dependencies.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/sql/cloud_2018-01-31.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/项目启动说明.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/项目说明.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/build/classes/java/main/com/neusoft/gateway/ScApiGatewayApplication$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/build/classes/java/main/com/neusoft/gateway/ScApiGatewayApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/build/classes/java/main/com/neusoft/gateway/config/RedisSessionConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/build/classes/java/main/com/neusoft/gateway/config/SecurityConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/build/classes/java/main/com/neusoft/gateway/fallbacks/ServiceFallbackProvider$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/build/classes/java/main/com/neusoft/gateway/fallbacks/ServiceFallbackProvider.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/build/classes/java/main/com/neusoft/gateway/filter/AuthFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/build/classes/java/main/com/neusoft/gateway/filter/RequestLimitFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/build/resources/main/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/build/resources/main/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/build/resources/main/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/build/resources/main/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/out/production/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/out/production/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/out/production/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/out/production/resources/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/sc-api-gateway.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/src/main/java/com/neusoft/gateway/ScApiGatewayApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/src/main/java/com/neusoft/gateway/config/RedisSessionConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/src/main/java/com/neusoft/gateway/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/src/main/java/com/neusoft/gateway/fallbacks/ServiceFallbackProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/src/main/java/com/neusoft/gateway/filter/AuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/src/main/java/com/neusoft/gateway/filter/RequestLimitFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-api-gateway/src/main/resources/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-base/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-base/build/classes/java/main/com/neusoft/common/base/constant/Symbol.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-base/build/libs/sc-common-base-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-base/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-base/sc-common-base.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-base/src/main/java/com/neusoft/common/base/constant/Symbol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-client/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-client/build/libs/sc-common-client-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-client/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-client/sc-common-client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-log/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-log/build/classes/java/main/com/neusoft/common/log/logback/appender/RocketmqLogbackAppender.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-log/build/classes/java/main/com/neusoft/common/log/logback/entity/LogEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-log/build/libs/sc-common-log-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-log/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-log/sc-common-log.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-log/src/main/java/com/neusoft/common/log/logback/appender/RocketmqLogbackAppender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-log/src/main/java/com/neusoft/common/log/logback/entity/LogEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/build/classes/java/main/com/neusoft/util/AuthUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/build/classes/java/main/com/neusoft/util/JsonUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/build/classes/java/main/com/neusoft/util/RandomUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/build/classes/java/main/com/neusoft/util/StringUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/build/classes/java/main/com/neusoft/util/UUIDUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/build/classes/java/main/com/neusoft/util/request/RequestUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/build/classes/java/main/com/neusoft/util/time/TimestampUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/build/libs/sc-common-util-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/build/resources/main/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/out/production/resources/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/sc-common-util.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/src/main/java/com/neusoft/util/AuthUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/src/main/java/com/neusoft/util/JsonUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/src/main/java/com/neusoft/util/RandomUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/src/main/java/com/neusoft/util/StringUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/src/main/java/com/neusoft/util/UUIDUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/src/main/java/com/neusoft/util/request/RequestUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/src/main/java/com/neusoft/util/time/TimestampUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common-util/src/main/resources/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-common.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/config/AsyncTaskExecutorConfiguration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/config/CoreAutoConfigure.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/config/JacksonConfig$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/config/JacksonConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/config/SwaggerConfiguration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/config/ValidatorConfiguration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/exception/FrameworkException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/exception/ScBizException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/exception/ScClientException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/exception/ScExceptionHandle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/exception/ScParameterException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/exception/ScRuntimeException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/exception/ScServerException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/log/logback/entity/LogInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/page/PageAdvices.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/page/PageInterceptor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/page/PageUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/page/PaginationContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/property/AsyncTaskProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/property/ScCloudProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/property/SwaggerProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/restful/AppResponse$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/restful/AppResponse$AppResponseBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/restful/AppResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/restful/AppResponseStatus.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/security/constant/SecurityConstants.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/task/ScAsyncTaskExecutor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/validate/RemoveGroup.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/validate/SaveGroup.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/validate/SelectGroup.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/classes/java/main/com/neusoft/core/validate/UpdateGroup.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/libs/sc-core-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/resources/main/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/out/production/resources/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/sc-core.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/config/AsyncTaskExecutorConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/config/CoreAutoConfigure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/config/JacksonConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/config/SwaggerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/config/ValidatorConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/exception/FrameworkException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/exception/ScBizException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/exception/ScClientException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/exception/ScExceptionHandle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/exception/ScParameterException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/exception/ScRuntimeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/exception/ScServerException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/log/logback/entity/LogInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/page/PageAdvices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/page/PageInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/page/PageUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/page/PaginationContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/property/AsyncTaskProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/property/ScCloudProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/property/SwaggerProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/restful/AppResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/restful/AppResponseStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/security/constant/SecurityConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/task/ScAsyncTaskExecutor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/validate/RemoveGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/validate/SaveGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/validate/SelectGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/validate/UpdateGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-common/sc-core/src/main/resources/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-config-server/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-config-server/sc-config-server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-config-server/src/main/java/app/ScConfigServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-config-server/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-eureka-server/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-eureka-server/build/classes/java/main/app/ScEurekaApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-eureka-server/build/resources/main/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-eureka-server/build/resources/main/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-eureka-server/out/production/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-eureka-server/out/production/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-eureka-server/sc-eureka-server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-eureka-server/src/main/java/app/ScEurekaApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-eureka-server/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-eureka-server/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-monitor/sc-admin-server/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-monitor/sc-admin-server/sc-admin-server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-monitor/sc-admin-server/src/main/java/com/neusoft/admin/server/ScAdminServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-monitor/sc-admin-server/src/main/java/com/neusoft/admin/server/config/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-monitor/sc-admin-server/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-monitor/sc-monitor.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-monitor/sc-zipkin-server/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-monitor/sc-zipkin-server/sc-zipkin-server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-monitor/sc-zipkin-server/src/main/java/com/neusoft/zipkin/ScZipkinApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-monitor/sc-zipkin-server/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider-api/sc-provider-api.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider-api/sc-service-api/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider-api/sc-service-api/sc-service-api.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider-api/sc-service-api/src/main/java/com/neusoft/service/api/helloservice/entity/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider-api/sc-service-api/src/main/java/com/neusoft/service/api/helloservice/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider-api/sc-service-api/src/main/java/com/neusoft/service/api/helloservice/service/HelloServiceRemoteApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/.idea/sc-provider.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/sc-project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/src/main/java/com/neusoft/project/ScProjectApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/src/main/java/com/neusoft/project/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/src/main/java/com/neusoft/project/demo/controller/DemoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/src/main/java/com/neusoft/project/demo/dao/DemoDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/src/main/java/com/neusoft/project/demo/entity/StudentEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/src/main/java/com/neusoft/project/demo/service/DemoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/src/main/resources/mybatis/mapper/demo/DemoDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/src/main/resources/mybatis/mapper/schoolmanage/TBDataSchoolInfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-project/src/main/resources/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-provider.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-service/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-service/sc-service.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-service/src/main/java/com/neusoft/service/ScServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-service/src/main/java/com/neusoft/service/hello/entity/HelloUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-service/src/main/java/com/neusoft/service/hello/service/HelloServiceRemoteApiImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-service/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-service/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/ScWebAuthApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/base/constant/GlobalConstant.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/base/entity/Tree.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/config/WebConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/menu/controller/MenuBtnController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/menu/controller/MenuController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/menu/dao/MenuBtnDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/menu/dao/MenuDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/menu/entity/Menu.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/menu/entity/MenuBtn.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/menu/service/MenuBtnService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/menu/service/MenuService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/user/controller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/user/dao/UserDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/user/entity/AddUserGroup.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/user/entity/UserInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/user/entity/UserParams.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/user/entity/UserSettingDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/user/service/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/classes/java/main/com/neusoft/webauth/utils/PasswordUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/mybatis/mapper/MenuBtnDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/mybatis/mapper/MenuDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/mybatis/mapper/UserDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/html/login/css/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/html/login/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/html/login/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/html/login/img/loading-upload.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/html/login/img/locked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/html/login/img/login-background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/html/login/img/login.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/html/login/img/user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/html/login/js/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/html/login/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/html/regist/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/js/common/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/build/resources/main/static/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/mybatis/mapper/DepartmentDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/mybatis/mapper/MenuBtnDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/mybatis/mapper/MenuDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/mybatis/mapper/PostDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/mybatis/mapper/RoleDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/mybatis/mapper/UserDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/html/login/css/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/html/login/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/html/login/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/html/login/img/loading-upload.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/html/login/img/locked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/html/login/img/login-background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/html/login/img/login.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/html/login/img/user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/html/login/js/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/html/login/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/html/regist/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/js/common/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/out/production/resources/static/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/sc-web-auth.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/ScWebAuthApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/base/constant/GlobalConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/base/entity/Tree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/menu/controller/MenuBtnController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/menu/controller/MenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/menu/dao/MenuBtnDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/menu/dao/MenuDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/menu/entity/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/menu/entity/MenuBtn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/menu/service/MenuBtnService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/menu/service/MenuService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/user/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/user/dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/user/entity/AddUserGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/user/entity/UserInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/user/entity/UserParams.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/user/entity/UserSettingDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/user/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/utils/PasswordUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/mybatis/mapper/MenuBtnDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/mybatis/mapper/MenuDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/mybatis/mapper/UserDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/html/login/css/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/html/login/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/html/login/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/html/login/img/loading-upload.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/html/login/img/locked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/html/login/img/login-background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/html/login/img/login.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/html/login/img/user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/html/login/js/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/html/login/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/html/regist/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/js/common/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/static/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web/sc-web.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web/src/main/java/com/neusoft/web/ScWebApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web/src/main/java/com/neusoft/web/config/RedisSessionConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web/src/main/java/com/neusoft/web/hello/controller/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web/src/main/java/com/neusoft/web/hello/service/HelloBackgroundFallbackService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web/src/main/java/com/neusoft/web/hello/service/HelloBackgroundService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-web/src/main/resources/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/build/classes/java/main/com/xzsd/app/ScXzsdAppApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/build/classes/java/main/com/xzsd/app/config/WebConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/build/resources/main/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/build/resources/main/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/build/resources/main/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/build/resources/main/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/build/resources/main/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/out/production/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/out/production/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/out/production/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/out/production/resources/mybatis/mapper/RegisterDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/out/production/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/out/production/resources/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/sc-xzsd-pc.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/ScXzsdAppApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/register/controller/RegisterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/register/dao/RegisterDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/register/entity/Register.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/register/service/RegisterService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/util/ChangeBeMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/util/RandomCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/util/RedisUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/util/ResponceData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/util/ResponceDataState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/util/ResponceListData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/RegisterDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build/classes/java/main/com/xzsd/pc/ScXzsdPcApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build/classes/java/main/com/xzsd/pc/config/WebConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build/resources/main/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build/resources/main/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build/resources/main/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build/resources/main/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build/resources/main/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/out/production/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/out/production/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/out/production/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/out/production/resources/mybatis/mapper/DriverDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/out/production/resources/mybatis/mapper/GoodsMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/out/production/resources/mybatis/mapper/UserDaolMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/out/production/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/out/production/resources/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/sc-xzsd-pc.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/ScXzsdPcApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/driver/controller/DriverController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/driver/dao/DriverDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/driver/entity/Driver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/driver/entity/DriverDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/driver/entity/DriverList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/driver/entity/DriverListParamter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/driver/entity/UpdateDriver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/driver/service/DriverService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goodsManage/controller/GoodController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goodsManage/dao/GoodDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goodsManage/entity/Good.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goodsManage/service/GoodService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/controller/HandleUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/services/RedisService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/services/UserServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/ChangeBeMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/RandomCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/RedisUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/ResponceData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/ResponceDataState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/ResponceListData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/DriverDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/GoodsMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/UserDaolMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/classes/java/main/com/neusoft/security/client/ScSecurityClientAutoConfigure.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/classes/java/main/com/neusoft/security/client/authorize/ActuatorAuthorizeConfigProvider.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/classes/java/main/com/neusoft/security/client/authorize/AuthorizeConfigManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/classes/java/main/com/neusoft/security/client/authorize/AuthorizeConfigProvider.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/classes/java/main/com/neusoft/security/client/authorize/NoAuthorizeConfigProvider.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/classes/java/main/com/neusoft/security/client/authorize/ScAuthorizeConfigManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/classes/java/main/com/neusoft/security/client/authorize/StaticAuthorizeConfigProvider.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/classes/java/main/com/neusoft/security/client/config/Oauth2FeignConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/classes/java/main/com/neusoft/security/client/config/Oauth2RestTemplateConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/classes/java/main/com/neusoft/security/client/config/ResourceServerConfiguration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/classes/java/main/com/neusoft/security/client/oauth/ScWebResponseExceptionTranslator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/classes/java/main/com/neusoft/security/client/template/customizer/ScRibbonUserInfoRestTemplateCustomizer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/classes/java/main/com/neusoft/security/client/utils/SecurityUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/libs/sc-security-client-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/resources/main/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/out/production/resources/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/sc-security-client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/ScSecurityClientAutoConfigure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/authorize/ActuatorAuthorizeConfigProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/authorize/AuthorizeConfigManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/authorize/AuthorizeConfigProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/authorize/NoAuthorizeConfigProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/authorize/ScAuthorizeConfigManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/authorize/StaticAuthorizeConfigProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/config/Oauth2FeignConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/config/Oauth2RestTemplateConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/config/ResourceServerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/oauth/ScWebResponseExceptionTranslator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/template/customizer/ScRibbonUserInfoRestTemplateCustomizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/utils/SecurityUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-client/src/main/resources/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/ScSecurityCoreAutoConfigure.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/config/ActuatorSecurityConfigure.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/constant/SecurityConstants.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/entity/LoginInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/entity/SecurityUser.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/filter/ScAbstractSecurityConfigurerAdapter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/listener/AuthenticationFailureListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/listener/AuthenticationProcessorHolder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/listener/AuthenticationSuccessListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/listener/processor/AbstractAuthenticationFailureProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/listener/processor/AbstractAuthenticationSuccessProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/listener/processor/AuthenticationProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/maxfail/MaxFailAuthenticationFailureProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/maxfail/MaxFailAuthenticationSuccessProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/maxfail/MaxFailConfiguration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/maxfail/MaxFailException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/maxfail/MaxFailFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/maxfail/MaxFailSecurityConfigureAdapter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/properties/BrowserProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/properties/ImageProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/properties/LoginProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/properties/MaxFailProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/properties/Oauth2Properties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/properties/SecurityProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/properties/ValidateCodeProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/token/ScOAuth2Authentication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/token/ScTokenEnhancer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/util/RedisAtomicIntegerUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/ValidateCodeProcessorHolder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/ValidateCodeSecurityConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/ValidateCodeType$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/ValidateCodeType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/controller/ValidateCodeController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/entity/ValidateCode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/exception/ValidateCodeException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/filter/ValidateCodeFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/generator/ValidateCodeGenerator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/image/ImageCodeGenerator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/image/ImageResponseBody.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/image/ImageValidateCode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/image/ImageValidateCodeProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/processor/AbstractValidateCodeProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/processor/ValidateCodeHolder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/processor/ValidateCodeProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/repository/RedisValidateCodeRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/classes/java/main/com/neusoft/security/core/validate/repository/ValidateCodeRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/libs/sc-security-core-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/resources/main/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/out/production/resources/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/sc-security-core.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/ScSecurityCoreAutoConfigure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/config/ActuatorSecurityConfigure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/constant/SecurityConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/entity/LoginInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/entity/SecurityUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/filter/ScAbstractSecurityConfigurerAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/listener/AuthenticationFailureListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/listener/AuthenticationProcessorHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/listener/AuthenticationSuccessListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/listener/processor/AbstractAuthenticationFailureProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/listener/processor/AbstractAuthenticationSuccessProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/listener/processor/AuthenticationProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/maxfail/MaxFailAuthenticationFailureProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/maxfail/MaxFailAuthenticationSuccessProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/maxfail/MaxFailConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/maxfail/MaxFailException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/maxfail/MaxFailFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/maxfail/MaxFailSecurityConfigureAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/properties/BrowserProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/properties/ImageProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/properties/LoginProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/properties/MaxFailProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/properties/Oauth2Properties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/properties/SecurityProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/properties/ValidateCodeProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/token/ScOAuth2Authentication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/token/ScTokenEnhancer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/util/RedisAtomicIntegerUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/ValidateCodeProcessorHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/ValidateCodeSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/ValidateCodeType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/controller/ValidateCodeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/entity/ValidateCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/exception/ValidateCodeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/filter/ValidateCodeFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/generator/ValidateCodeGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/image/ImageCodeGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/image/ImageResponseBody.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/image/ImageValidateCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/image/ImageValidateCodeProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/processor/AbstractValidateCodeProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/processor/ValidateCodeHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/processor/ValidateCodeProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/repository/RedisValidateCodeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/validate/repository/ValidateCodeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-core/src/main/resources/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/ScSecurityUaaApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/config/AuthorizationServerConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/config/ResourceServerConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/config/SecurityConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/controller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/dao/SysUserDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/dao/UacLogDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/endpoint/RevokeTokenEndpoint.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/entity/SysUser.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/entity/UaaLog.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/enums/LogTypeEnum.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/security/ScAccessDeniedHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/security/ScAuthenticationFailureHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/security/ScAuthenticationSuccessHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/security/ScAuthorizationTokenServices.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/service/UaaUserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/service/UacLogService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/service/UserDetailsServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/classes/java/main/com/neusoft/oauth/util/SecurityUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/resources/main/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/resources/main/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/resources/main/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/resources/main/mybatis/mapper/SysUserDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/resources/main/mybatis/mapper/UacLogDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/build/resources/main/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/out/production/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/out/production/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/out/production/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/out/production/resources/mybatis/mapper/SysUserDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/out/production/resources/mybatis/mapper/UacLogDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/out/production/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/sc-security-uaa.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/ScSecurityUaaApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/config/AuthorizationServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/config/ResourceServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/dao/SysUserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/dao/UacLogDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/endpoint/RevokeTokenEndpoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/entity/SysUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/entity/UaaLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/enums/LogTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/security/ScAccessDeniedHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/security/ScAuthenticationFailureHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/security/ScAuthenticationSuccessHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/security/ScAuthorizationTokenServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/service/UaaUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/service/UacLogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/service/UserDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/util/SecurityUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/resources/mybatis/mapper/SysUserDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/resources/mybatis/mapper/UacLogDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-security/sc-security.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/sc-job.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/ScJobApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/config/QuartzConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/controller/JobController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/dao/JobDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/entity/JobExecutionLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/entity/RemoteAppResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/entity/RemoteHttpJobBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/entity/ScRemoteHttpAsyncJobBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/entity/ScRemoteHttpSyncJobBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/entity/ScheduleJob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/listener/ScSchedulerListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/service/ISchedulerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/service/JobService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/service/impl/SchedulerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/util/ScRemoteHttpJobBeanUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/resources/mybatis/mapper/JobDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/resources/quartz.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-job/src/main/resources/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-log/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-log/sc-log.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-log/src/main/java/com/neusoft/log/ScLogApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-log/src/main/java/com/neusoft/log/consumer/LogConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-log/src/main/java/com/neusoft/log/consumer/LogMessageListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-log/src/main/java/com/neusoft/log/dao/LogDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-log/src/main/java/com/neusoft/log/entity/LogEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-log/src/main/java/com/neusoft/log/service/LogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-log/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/sc-shardingjdbc.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/java/com/neusoft/support/sharding/ScShardingApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/java/com/neusoft/support/sharding/config/ShardingDataSourceConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/java/com/neusoft/support/sharding/config/ShardingMasterSlaveConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/java/com/neusoft/support/sharding/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/java/com/neusoft/support/sharding/demo/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/java/com/neusoft/support/sharding/demo/dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/java/com/neusoft/support/sharding/demo/entity/UserInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/java/com/neusoft/support/sharding/demo/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/java/com/neusoft/support/sharding/utils/PasswordUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/resources/mybatis/mapper/UserDaoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-shardingjdbc/src/main/resources/static/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-support/sc-support.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/sc-web-static.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/java/com/neusoft/webstatic/ScWebStaticApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/css/app.a190a7494caf49bb1a41c794d4376e8e.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/css/color-dark.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/css/datasource.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/css/theme-green/color-green.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/css/theme-green/fonts/element-icons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/css/theme-green/fonts/element-icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/css/theme-green/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/fonts/element-icons.6f0a763.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/img/img.2aab7b4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/img/img.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/js/0.a0fa78578306acae4f47.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/js/1.9059b046415afdbbe84b.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/js/2.a9e4272683162b0aedf2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/js/3.78f7be8e36f375a91fd2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/js/4.58d1452516144a8af2cf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/js/5.1bbf4803129a1542c231.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/js/6.b12b12e1d901372bc293.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/js/7.1b993fe6e005003b29f8.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/js/8.31d398f9c8bd808f4401.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/js/9.d16ef53f609f6e985ac1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/js/app.03994311b0281d3fe112.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/js/manifest.0525b5a3aa0200e41b24.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/js/vendor.c0433bccecea83a5c891.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc-web-static/src/main/resources/static/static/js/vendor.dll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sc2019.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/service/OrderService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/sc-api-gateway/.gradle/" />
@@ -1202,8 +137,8 @@
           <entry key="class" value="1" />
           <entry key="gradle" value="11" />
           <entry key="iml" value="1" />
-          <entry key="java" value="246" />
-          <entry key="xml" value="38" />
+          <entry key="java" value="263" />
+          <entry key="xml" value="39" />
           <entry key="yml" value="20" />
         </counts>
       </usages-collector>
@@ -1212,27 +147,27 @@
           <entry key="CLASS" value="1" />
           <entry key="Groovy" value="11" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="246" />
-          <entry key="XML" value="38" />
+          <entry key="JAVA" value="263" />
+          <entry key="XML" value="39" />
           <entry key="YAML" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="4" />
-          <entry key="java" value="11295" />
+          <entry key="java" value="11603" />
           <entry key="txt" value="31" />
-          <entry key="xml" value="4116" />
+          <entry key="xml" value="4168" />
           <entry key="yml" value="90" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="4" />
-          <entry key="JAVA" value="11295" />
+          <entry key="JAVA" value="11603" />
           <entry key="PLAIN_TEXT" value="31" />
-          <entry key="SQL" value="785" />
-          <entry key="XML" value="3331" />
+          <entry key="SQL" value="791" />
+          <entry key="XML" value="3377" />
           <entry key="YAML" value="90" />
         </counts>
       </usages-collector>
@@ -1247,7 +182,56 @@
     <favorites_list name="sc2019" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/controller/OrderController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="24" column="39" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/service/OrderService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="619">
+              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/dao/OrderDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="20" column="20" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/OrderDaoMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+              <folding>
+                <element signature="e#966#970#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -8156,10 +7140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodDetail/entity/GoodEva.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodDetail/entity/GoodEvaParam.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodDetail/entity/UserParam.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodDetail/entity/UserBindStore.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodDetail/entity/UserBindData.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodDetail/dao/GoodDetailDao.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodDetail/controller/GoodDetailController.java" />
@@ -8169,7 +7149,6 @@
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodClassification/entity/GoodClassiSecond.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodClassification/entity/Good.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodClassification/dao/GoodClassiDao.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodClassification/service/GoodClassificationService.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodClassification/controller/GoodClassificationController.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/GoodClassiDaoMapper.xml" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/shoppingCart/entity/ShoppingCart.java" />
@@ -8177,36 +7156,41 @@
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/shoppingCart/entity/CartGoodList.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/shoppingCart/entity/CartGoodUserParam.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/shoppingCart/dao/ShoppingCartDao.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/shoppingCart/service/ShoppingCartService.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/shoppingCart/controller/ShoppingCartController.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/ShoppingCartDaoMapper.xml" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/Order.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/AddOrder.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/controller/OrderController.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/GoodBigThanLibs.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/OrderDaoMapper.xml" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/dao/OrderDao.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/service/OrderService.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goodclassification/dao/GoodClassifiDao.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goodclassification/service/GoodClassifiService.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/GoodClassifiDaoMapper.xml" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/CustomerDaoMapper.xml" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/customerManage/dao/CustomerDao.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/customerManage/controller/CustomerController.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/customerManage/service/CustomerService.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goodclassification/controller/GoodClassifiController.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/hotGoodManage/service/HotGoodService.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/hotGoodManage/controller/HotGoodController.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/hotGoodManage/dao/HotGoodDao.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/HotGoodDaoMapper.xml" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/storeManage/dao/StoreDao.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/storeManage/controller/StoreController.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/storeManage/service/StoreService.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/controller/RotaChartController.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/dao/RotaChartDao.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/service/RotService.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/RotaChartMapper.xml" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/StoreDaoMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/Order.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/dao/OrderDao.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/OrderDaoMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/services/UserServices.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/storeManage/service/StoreService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/service/RotService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/hotGoodManage/service/HotGoodService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goodsManage/service/GoodService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goodclassification/service/GoodClassifiService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/driver/service/DriverService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/customerManage/service/CustomerService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodClassification/service/GoodClassificationService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/register/service/RegisterService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/shoppingCart/service/ShoppingCartService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/service/OrderService.java" />
       </list>
     </option>
   </component>
@@ -8310,7 +7294,18 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
@@ -8382,36 +7377,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="pc" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -8430,7 +7395,7 @@
     <property name="SearchEverywhereHistoryKey" value="addInterCep&#9;PSI&#9;JAVA://com.xzsd.app.config.WebConfig#addInterceptors&#10;PageInterceptor&#9;PSI&#9;JAVA://com.github.pagehelper.autoconfigure.PageHelperAutoConfiguration#addPageInterceptor&#10;addInterceptors&#9;PSI&#9;JAVA://com.neusoft.support.sharding.config.WebConfig#addInterceptors&#10;addInter&#9;PSI&#9;JAVA://com.neusoft.job.config.WebConfig#addInterceptors" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586666144817" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586704617538" />
     <property name="dynamic.classpath" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -8659,15 +7624,16 @@
       <workItem from="1586398860988" duration="22110000" />
       <workItem from="1586501095769" duration="21248000" />
       <workItem from="1586583282617" duration="2965000" />
-      <workItem from="1586599582974" duration="18835000" />
+      <workItem from="1586599582974" duration="24383000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103188000" />
+    <option name="totallyTimeSpent" value="108736000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -8677,10 +7643,11 @@
       <window_info id="Designer" order="5" />
       <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.26706827" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="SVN Repositories" weight="0.32909605" />
       <window_info anchor="bottom" id="Build" order="0" weight="0.32909605" />
       <window_info anchor="bottom" id="Spring" order="1" weight="0.32909605" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.32909605" />
-      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49933067" weight="0.32909605" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50066936" side_tool="true" weight="0.32909605" />
       <window_info anchor="bottom" id="Messages" order="4" weight="0.32909605" />
       <window_info anchor="bottom" id="Java Enterprise" order="5" weight="0.32909605" />
       <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
@@ -8732,61 +7699,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodClassification/entity/GoodClassiSecond.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodClassification/dao/GoodClassiDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="57" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodClassification/entity/Good.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" column="27" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/GoodClassiDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="37" column="50" lean-forward="true" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/shoppingCart/entity/ShoppingCart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/driver/controller/DriverController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-806">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/shoppingCart/entity/AddShoppingCart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="27" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="27" />
-          <folding>
-            <element signature="e#354#355#0" expanded="true" />
-            <element signature="e#385#386#0" expanded="true" />
-            <element signature="e#433#434#0" expanded="true" />
-            <element signature="e#473#474#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/shoppingCart/entity/CartGoodUserParam.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -8851,16 +7763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/shoppingCart/service/ShoppingCartService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="123" column="45" selection-start-line="123" selection-start-column="24" selection-end-line="123" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/shoppingCart/controller/ShoppingCartController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
@@ -8875,23 +7777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="467">
           <caret line="128" column="17" selection-start-line="128" selection-start-column="17" selection-end-line="128" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/controller/OrderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="39" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -8921,46 +7806,6 @@
             <element signature="e#209#210#0" expanded="true" />
             <element signature="e#257#258#0" expanded="true" />
             <element signature="e#297#298#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/OrderDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="136" selection-start-line="8" selection-start-column="121" selection-end-line="8" selection-end-column="136" />
-          <folding>
-            <element signature="e#830#834#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/dao/OrderDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/service/OrderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goodclassification/service/GoodClassifiService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -9020,13 +7865,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/customerManage/service/CustomerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goodclassification/controller/GoodClassifiController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -9080,16 +7918,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/hotGoodManage/service/HotGoodService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/HotGoodDaoMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -9108,13 +7936,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/storeManage/service/StoreService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -9139,16 +7960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/service/RotService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-          <folding>
-            <element signature="e#2610#2621#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/RotaChartMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1653">
@@ -9167,6 +7978,177 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
           <caret line="121" column="29" lean-forward="true" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#187#188#0" expanded="true" />
+            <element signature="e#219#220#0" expanded="true" />
+            <element signature="e#269#270#0" expanded="true" />
+            <element signature="e#311#312#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+            <element signature="e#377#378#0" expanded="true" />
+            <element signature="e#425#426#0" expanded="true" />
+            <element signature="e#465#466#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#579#580#0" expanded="true" />
+            <element signature="e#619#620#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/dao/OrderDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/OrderDaoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <element signature="e#966#970#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/services/UserServices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="150" column="49" selection-start-line="150" selection-start-column="49" selection-end-line="150" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/storeManage/service/StoreService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="923">
+          <caret line="227" column="5" lean-forward="true" selection-start-line="227" selection-start-column="5" selection-end-line="227" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/service/RotService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="136" column="28" lean-forward="true" selection-start-line="136" selection-start-column="28" selection-end-line="136" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2610#2621#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/hotGoodManage/service/HotGoodService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="191" column="9" selection-start-line="191" selection-start-column="9" selection-end-line="191" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goodsManage/service/GoodService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="165" column="49" lean-forward="true" selection-start-line="165" selection-start-column="49" selection-end-line="165" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goodclassification/service/GoodClassifiService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="236" column="9" selection-start-line="236" selection-start-column="9" selection-end-line="236" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/driver/service/DriverService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="193" column="9" selection-start-line="193" selection-start-column="9" selection-end-line="193" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/customerManage/service/CustomerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodClassification/service/GoodClassificationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodDetail/service/GoodDetailService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/homepage/service/HomePageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/register/service/RegisterService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/shoppingCart/service/ShoppingCartService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="39" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/service/OrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

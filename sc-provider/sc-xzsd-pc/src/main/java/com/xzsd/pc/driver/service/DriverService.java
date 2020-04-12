@@ -9,6 +9,7 @@ import com.xzsd.pc.util.RandomCode;
 import com.xzsd.pc.util.ResponceData;
 import com.xzsd.pc.util.ResponceDataState;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Arrays;
@@ -24,10 +25,13 @@ public class DriverService {
     private ResponceData responceData;
     @Resource
     private DriverDao driverDao;
-
-
+    /**
+     * 新增司机
+     * @param driver
+     * @return
+     */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData addDriver(Driver driver){
-
         //判断参数是否齐没
         if(null == driver.getDriverName() || driver.getDriverName() == ""){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"司机名字为空！",null);
@@ -61,27 +65,16 @@ public class DriverService {
         if( driverDao.countDriverAcct(null,driver.getDriverIdCard()) > 0 ){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"司机身份证已经存在！",null);
         }
-
-
-
         //给司机随机生成编号
-
         driver.setDriverCode(RandomCode.radmonkey());
-
         //密码md5加密,后面再说
-
-
-
         //新增
-//        System.out.println("?>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-//        System.out.println(driver.toString());
         int result = driverDao.addDriver(driver);
         //结果
         if(result > 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功！",result);
         }
         return new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败！",result);
-
     }
 
     /**
@@ -89,6 +82,7 @@ public class DriverService {
      * @param updateDriver
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData updateDriver(UpdateDriver updateDriver){
         //判断参数是否齐全
         if(null == updateDriver.getDriverCode() || updateDriver.getDriverCode() == ""){
@@ -132,14 +126,11 @@ public class DriverService {
         }
         //修改
         int result = driverDao.updateDriver(updateDriver);
-
         //结果
         if(result > 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"修改成功！",result);
         }
         return new ResponceData(ResponceDataState.values()[3].getCode(),"修改失败！"+msg,result);
-
-
     }
 
     /**
@@ -147,15 +138,12 @@ public class DriverService {
      * @param updateDriver
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData deleteDriver(UpdateDriver updateDriver){
-
-
-
         //判断
         if(null == updateDriver.getDriverCode() || updateDriver.getDriverCode() == ""){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"司机编号不能为空！",null);
         }
-
         List<String> listCodes = Arrays.asList(updateDriver.getDriverCode().split(","));
         if(listCodes.size() == 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"编号不能为空！",null);
@@ -167,8 +155,6 @@ public class DriverService {
             return new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功！",result);
         }
         return new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败！",result);
-
-
     }
 
     /**
@@ -198,20 +184,14 @@ public class DriverService {
         if(driver.getPageSize() == 0 || driver.getPageNum() == 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"页号或者页数量参数不能为空!",null);
         }
-
-
         //查找
-        System.out.println("---------------------------------------------------------");
-        System.out.println(driver.getPageNum()+","+driver.getPageSize());
-
         PageHelper.startPage(driver.getPageNum(),driver.getPageSize());
         List<DriverListParamter>driverLists = driverDao.dqueryDriverList(driver);
         PageInfo<DriverListParamter>driverListPageInfo = new PageInfo<>(driverLists);
         //结果
         if(driverLists.size()>0){
-          return   responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",driverListPageInfo);
+          return responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",driverListPageInfo);
         }
-
         return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空！",null);
     }
 }

@@ -4,6 +4,7 @@ package com.xzsd.pc.storeManage.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.xzsd.pc.storeManage.dao.StoreDao;
 import com.xzsd.pc.storeManage.entity.Dict;
@@ -23,20 +24,17 @@ public class StoreService {
     private ResponceData responceData;
     @Resource
     private StoreDao storeDao;
-
-
     /**
      * 插入门店
      * @param store
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData addStore(Store store){
-
         //判断参数
         if(null == store.getStoreName() || store.getStoreName() == ""){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"门店名称不能为空!",null);
         }
-
         if(null == store.getStorePhone() || store.getStorePhone() == ""){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"联系电话不能为空!",null);
         }
@@ -67,10 +65,8 @@ public class StoreService {
         if(storeDao.count(null,store.getStoreBusinessLicense()) > 0 ){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"门店营业执照已经存在！",null);
         }
-
         //邀请码
         store.setInvestCode(RandomCode.random_GoodClassifiCationCode());
-//        store.setc
         store.setStoreCode(RandomCode.radmonkey());
         //插入
         int result = storeDao.addStore(store);
@@ -89,7 +85,6 @@ public class StoreService {
     public ResponceData queryProvince(){
         return new ResponceData(ResponceDataState.values()[0].getCode(),"省数据",storeDao.queryProvince());
     }
-
     /**
      * 市区查询
      * @param dict
@@ -101,7 +96,6 @@ public class StoreService {
         }
         List<Dict> dictList = storeDao.queryCityOrDistrict(dict.getAreaCode());
         if(dictList.size() > 0){
-
             String msg = "";
             if(dictList.get(0).getDictType().equals("2")){
                 msg = "市数据";
@@ -121,6 +115,7 @@ public class StoreService {
      * @param store
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData updateStore(Store store){
         //各种判断
         if(null == store.getStoreCode() || store.getStoreCode() =="" ){
@@ -138,9 +133,6 @@ public class StoreService {
         if(null == store.getStoreBusinessLicense() || store.getStoreBusinessLicense() =="" ){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"营业执照参数为空!",null);
         }
-//        if(null == store.getStoreCode() || store.getStoreCode() =="" ){
-//            return new ResponceData(ResponceDataState.values()[3].getCode(),"门店编号参数为空!",null);
-//        }
         if(null == store.getStoreProvinceCode() || store.getStoreProvinceCode() =="" ){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"省编号参数为空!",null);
         }
@@ -165,9 +157,7 @@ public class StoreService {
         if(storeDao.count(null,store.getStoreBusinessLicense()) > 0 ){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"门店营业执照已经存在！",null);
         }
-
         int result = storeDao.updateStore(store);
-
         if(result > 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"修改成功！",result);
         }
@@ -182,15 +172,13 @@ public class StoreService {
      * @param store
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData deleteStore(Store store){
-
         if(null == store.getStoreCode() || store.getStoreCode() == ""){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"编号参数为空",null);
         }
-
         List<String>stringList = Arrays.asList(store.getStoreCode().split(","));
         int result = storeDao.deleteStore(stringList,store.getUpdateUser());
-
         if(result > 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功！",result);
         }
@@ -220,13 +208,14 @@ public class StoreService {
      */
     public ResponceData queryStoreList(StoreListQueryEntity storeListQueryEntity, HttpServletRequest httpServletRequest){
         //判断参数
-        if(null == httpServletRequest.getParameter("pageNum") || httpServletRequest.getParameter("pageNum") == "" || Integer.parseInt(httpServletRequest.getParameter("pageNum")) == 0){
+        if(null == httpServletRequest.getParameter("pageNum") || httpServletRequest.getParameter("pageNum") == ""
+                || Integer.parseInt(httpServletRequest.getParameter("pageNum")) == 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"页号参数不正确",null);
         }
-        if(null == httpServletRequest.getParameter("pageSize") || httpServletRequest.getParameter("pageSize") == "" || Integer.parseInt(httpServletRequest.getParameter("pageSize")) == 0){
+        if(null == httpServletRequest.getParameter("pageSize") || httpServletRequest.getParameter("pageSize") == ""
+                || Integer.parseInt(httpServletRequest.getParameter("pageSize")) == 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"页显示数量参数不正确",null);
         }
-
         //开始
         PageHelper.startPage(Integer.parseInt(httpServletRequest.getParameter("pageNum")),Integer.parseInt(httpServletRequest.getParameter("pageSize")));
         List<StoreListQueryEntity>listQueryEntities = storeDao.queryStoreList(storeListQueryEntity);

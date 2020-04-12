@@ -17,7 +17,6 @@ import java.util.List;
 public class GoodClassificationService {
     @Resource
     private GoodClassiDao goodClassiDao;
-
     /**
      * 商品一级分类查询
      *
@@ -31,7 +30,6 @@ public class GoodClassificationService {
         }
         return new ResponceData(ResponceDataState.values()[3].getCode(), "查询为空", null);
     }
-
     /**
      * 商品二级分类及其对应的商品集合
      * @param goodClassification
@@ -48,7 +46,6 @@ public class GoodClassificationService {
         if(goodClassiSeconds.size() > 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(), "查询成功!", goodClassiSeconds);
         }
-
         return new ResponceData(ResponceDataState.values()[3].getCode(), "查询为空", null);
     }
 }

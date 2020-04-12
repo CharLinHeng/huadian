@@ -12,6 +12,7 @@ import com.xzsd.pc.util.ChangeBeMap;
 import com.xzsd.pc.util.ResponceData;
 import com.xzsd.pc.util.ResponceDataState;
 import com.xzsd.pc.util.ResponceListData;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.*;
@@ -26,22 +27,15 @@ public class RotService {
      * @param rotaChart
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData addRotaChart(RotaChart rotaChart){
-
-        System.out.println("-----------------------------------------------");
-        System.out.println(rotaChart.getRotaChartCode());
         int result = rotaChartDao.addRotaChart(rotaChart);
-
-
         if(result > 0 ){
             responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",result);
-
         }
         else{
             responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败!",result);
         }
-
-
         return responceData;
     }
 
@@ -50,10 +44,10 @@ public class RotService {
      * @param rotaCode
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData deleteRotaChart(RotaChart rotaCode){
         List<String> codelist = Arrays.asList(rotaCode.getRotaChartCode().split(","));
         int reuslt = rotaChartDao.deleteRotaChart(codelist,"administrator");
-
         if(reuslt > 0 ){
             responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功!",reuslt);
         }
@@ -70,14 +64,12 @@ public class RotService {
      */
     public ResponceListData queryRotaChartList(RotaChart rotaChart){
         ResponceListData responceListData;
-        //用来装Map
         //如果没有pageSize和pageNum，那么返回错误
         if(rotaChart.getPageNum() == 0||rotaChart.getPageSize() == 0){
             responceListData = new ResponceListData(ResponceDataState.values()[3].getCode(),"页号或者页数量不能为空!",0,0,
                     0,null);
             return responceListData;
         }
-
         PageHelper.startPage(rotaChart.getPageNum(),rotaChart.getPageSize());
         List<RotaChart> rotaCharts = rotaChartDao.queryRotaChartList(rotaChart);
         PageInfo<RotaChart>data = new PageInfo<RotaChart>(rotaCharts);
@@ -103,8 +95,8 @@ public class RotService {
      * @param state
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData updateRotaChartState(String rotaChartCode,String state){
-
         //如果参数不完整
         if(null == rotaChartCode || state.length() == 0){
             responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"参数不能为空!",null);
@@ -139,7 +131,6 @@ public class RotService {
         PageHelper.startPage(good.getPageNum(),good.getPageSize());
         List<Good>goods = rotaChartDao.querylistGoods2(good);
         PageInfo<Good>pageInfo = new PageInfo<>(goods);
-
         //返回判断
         String msg = "查询为空!";
         int index = 3;

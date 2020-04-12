@@ -9,6 +9,7 @@ import com.xzsd.pc.hotGoodManage.entity.*;
 import com.xzsd.pc.util.RandomCode;
 import com.xzsd.pc.util.ResponceData;
 import com.xzsd.pc.util.ResponceDataState;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -20,13 +21,12 @@ public class HotGoodService {
     private ResponceData responceData;
     @Resource
     private HotGoodDao hotGoodDao;
-
-
     /**
      * 热门商品位新增
      * @param hotGood
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData addHotGood(HotGood hotGood) {
         if(null == hotGood.getGoodCode() || hotGood.getGoodCode()==""){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"商品编号参数需指定",null);
@@ -34,16 +34,13 @@ public class HotGoodService {
         if(hotGood.getHotGoodSort() == 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"位排序需指定在大于0",null);
         }
-
         //增加之前，查看商品的未排序是否已经存在
         if(hotGoodDao.countSort(hotGood.getHotGoodSort()) > 0 ){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"位排序已经存在!",null);
         }
-
         //增加
         hotGood.setHotGoodCode(RandomCode.radmonkey());
         int result = hotGoodDao.addHotGood(hotGood);
-
         if( result > 0 ){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",null);
         }
@@ -66,16 +63,10 @@ public class HotGoodService {
             return new ResponceData(ResponceDataState.values()[3].getCode(),"分页显示数量不能为空或者为0!",null);
         }
         //查询
-
-
         PageHelper.startPage(Integer.parseInt(httpServletRequestrequest.getParameter("pageNum")),Integer.parseInt(httpServletRequestrequest.getParameter("pageSize")));
         //设置
-
-
-
         List<HotGoodQuery> hotGoodQueryList = hotGoodDao.queryGoodsList(hotGoodQuery.getGoodName(),hotGoodQuery.getGoodCode());
         PageInfo<HotGoodQuery>hotGoodQueryPageInfo = new PageInfo<>(hotGoodQueryList);
-
         if(hotGoodQueryList.size() == 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"查询结果为空!",null);
         }
@@ -87,8 +78,8 @@ public class HotGoodService {
      * @param hotGood
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData updateHotGood(HotGood hotGood){
-
         //判断参数
         if(null == hotGood.getHotGoodCode() || hotGood.getHotGoodCode() ==""){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"热们商品编号不能为空!",null);
@@ -103,15 +94,12 @@ public class HotGoodService {
         if(hotGoodDao.countSort(hotGood.getHotGoodSort())>0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"位排序已经存在!",null);
         }
-
         String msg = "";
         if(null == hotGood.getVersion() || hotGood.getVersion() == ""){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"缺失版本号参数!",null);
         }
-
         //修改
         int result = hotGoodDao.updateHotGood(hotGood);
-
         if(result > 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"修改成功!",null);
         }
@@ -125,6 +113,7 @@ public class HotGoodService {
      * @param hotGood
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData deleteHotGood(HotGood hotGood){
         if(null == hotGood.getHotGoodCode() || hotGood.getHotGoodCode() == ""){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"热门编号参数为空!",null);
@@ -134,7 +123,6 @@ public class HotGoodService {
             return new ResponceData(ResponceDataState.values()[3].getCode(),"待删除的数量为空",null);
         }
         int result = hotGoodDao.deleteHotGood(stringList,hotGood.getUpdateUser());
-
         if(result > 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功!",result);
         }
@@ -148,20 +136,19 @@ public class HotGoodService {
      * @param showNum
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public ResponceData showHotGoodsNum(ShowNum showNum){
         if(showNum.getHotGoodNum() == 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"数量不能为空",null);
         }
         showNum.setId(RandomCode.radmonkey());
         int result = hotGoodDao.showHotGoodsNum(showNum);
-
         if(result > 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"更改成功!",result);
         }
         else{
             return new ResponceData(ResponceDataState.values()[0].getCode(),"更改失败",result);
         }
-
     }
 
     /**
@@ -173,14 +160,12 @@ public class HotGoodService {
         if(null == httpServletRequest.getParameter("pageNum") || httpServletRequest.getParameter("pageNum") == ""){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"页号不能为空",null);
         }
-
         if(null == httpServletRequest.getParameter("pageSize") || httpServletRequest.getParameter("pageSize") =="" || Integer.parseInt(httpServletRequest.getParameter("pageSize")) == 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"分页显示数量不能为空或者为0!",null);
         }
         PageHelper.startPage(Integer.parseInt(httpServletRequest.getParameter("pageNum")),Integer.parseInt(httpServletRequest.getParameter("pageSize")));
         List<HotGoodList>hotGoodLists = hotGoodDao.queryHotGoodsList(hotGoodList);
         PageInfo<HotGoodList>hotGoodListPageInfo = new PageInfo<>(hotGoodLists);
-
         if(hotGoodLists.size() == 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"查询为空!",null);
         }
@@ -205,7 +190,5 @@ public class HotGoodService {
         else{
             return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功",hotGoodDetail);
         }
-
-
     }
 }
