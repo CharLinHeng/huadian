@@ -61,7 +61,10 @@ public class User {
      * 用户是否删除
      */
     private int isDelete;
-
+    /**
+     * 默认头像
+     */
+    private String defaultImageUrl;
     /**
      * 创建作者
      */
@@ -83,9 +86,18 @@ public class User {
      * 每页显示条数
      */
     private int pageNum;
-
-
+    /**
+     * 版本号
+     */
     private int version;
+
+    public String getDefaultImageUrl() {
+        return defaultImageUrl;
+    }
+
+    public void setDefaultImageUrl(String defaultImageUrl) {
+        this.defaultImageUrl = defaultImageUrl;
+    }
 
     public String getUserCode() {
         return userCode;

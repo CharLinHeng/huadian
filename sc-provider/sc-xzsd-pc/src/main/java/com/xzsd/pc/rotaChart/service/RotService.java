@@ -29,6 +29,10 @@ public class RotService {
      */
     @Transactional(rollbackFor = Exception.class)
     public ResponceData addRotaChart(RotaChart rotaChart){
+        //判断轮播图图片地址
+        if(null == rotaChart.getRotaChartImageUrl() || rotaChart.getRotaChartImageUrl() == ""){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图图片地址参数缺失!",null);
+        }
         int result = rotaChartDao.addRotaChart(rotaChart);
         if(result > 0 ){
             responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",result);

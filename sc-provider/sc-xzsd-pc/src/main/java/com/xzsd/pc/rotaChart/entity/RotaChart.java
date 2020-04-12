@@ -71,6 +71,10 @@ public class RotaChart {
      */
     private String version;
     /**
+     * 轮播图图片地址
+     */
+    private String rotaChartImageUrl;
+    /**
      * 一页显示多少
      */
     private int pageSize;
@@ -78,6 +82,14 @@ public class RotaChart {
      * 页号数
      */
     private int pageNum;
+
+    public String getRotaChartImageUrl() {
+        return rotaChartImageUrl;
+    }
+
+    public void setRotaChartImageUrl(String rotaChartImageUrl) {
+        this.rotaChartImageUrl = rotaChartImageUrl;
+    }
 
     public int getPageSize() {
         return pageSize;

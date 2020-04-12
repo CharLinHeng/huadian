@@ -45,7 +45,8 @@
         `is_delete`,
         `create_time`,
         `create_user`,
-        `version`
+        `version`,
+        `user_image`
     )
     VALUES
         (
@@ -63,7 +64,8 @@
             0,
             now(),
             #{createUser},
-            0
+            0,
+            #{defaultImageUrl}
         )
     </insert>
     <!--查询用户详情-->

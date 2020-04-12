@@ -2,6 +2,7 @@ package com.xzsd.pc.user.services;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.xzsd.pc.util.RandomCode;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.xzsd.pc.user.dao.UserDao;
@@ -84,6 +85,8 @@ public class UserServices {
                 responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"用户手机号已存在!",null);
                 return responceData;
             }
+            //设置默认头像
+            user.setDefaultImageUrl(RandomCode.defaultImageUrl());
             //如果有，返回结果
             int result = userDao.addUser(user);
             if(result <1){ //增加失败

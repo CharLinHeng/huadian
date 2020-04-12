@@ -18,7 +18,8 @@
             `update_time`,
             `update_user`,
             `is_delete`,
-            `version`
+            `version`,
+            `rotaChart_image_url`
               )
         VALUES
          (
@@ -35,7 +36,8 @@
             '',
             '',
             0,
-            0
+            0,
+            #{rotaChartImageUrl}
             )
     </insert>
     <!--轮播图批量删除-->

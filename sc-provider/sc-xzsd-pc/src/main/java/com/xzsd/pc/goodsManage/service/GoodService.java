@@ -78,6 +78,10 @@ public class GoodService {
         //新增 ,先获取编号
         String goodCode = RandomCode.radmonkey();
         good.setGood_code(goodCode);
+        //如果商品图片地址没有，那么设置默认图片地址
+        if(null == good.getGood_image_url() || good.getGood_image_url() == ""){
+            good.setGood_image_url(RandomCode.defaultImageUrl());
+        }
         int result = goodDao.addGood(good);
         if(result>0){
             responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",result);
