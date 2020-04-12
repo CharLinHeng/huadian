@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzsd.app.shoppingCart.dao.ShoppingCartDao">
+    <!--新增购物车时,查询该商品库存数量-->
+
+    <select id="checkGoodNumEnough" parameterType="com.xzsd.app.shoppingCart.entity.AddShoppingCart" resultType="int">
+        select
+            good_lib_save goodsNum
+        from
+            t_good_manage
+        where
+            good_code = #{goodCode}
+    </select>
+    <!--查找商品编号-->
+    <select id="findGoodCodeFromCart" parameterType="com.xzsd.app.shoppingCart.entity.AddShoppingCart" resultType="java.lang.String">
+        select
+            good_code
+        from
+            t_good_shopping_cart
+        where
+            cart_code = #{cartCode}
+    </select>
+    <!--新增购物车-->
+    <insert id="addShoppingCart" parameterType="com.xzsd.app.shoppingCart.entity.AddShoppingCart">
+        INSERT
+            INTO
+              `t_good_shopping_cart`(
+                `cart_code`,
+                `user_code`,
+                `good_code`,
+                `good_num`,
+                `create_time`,
+                `create_author`,
+                `is_delete`,
+                `version`
+              )
+            VALUES(
+                  #{cartCode},
+                  #{userCode},
+                  #{goodCode},
+                  #{goodsNum},
+                  now(),
+                  #{userCode},
+                  0,
+                  0
+            )
+    </insert>
+    <!--查询购物车是否已经有此种商品-->
+    <select id="checkHasThisGoodInShoppingCart" parameterType="com.xzsd.app.shoppingCart.entity.AddShoppingCart"
+            resultType="java.lang.String">
+        select
+            cart_code cartCode
+        from
+            t_good_shopping_cart
+        where
+            is_delete = 0
+        and
+            user_code = #{userCode}
+        and
+            good_code = #{goodCode}
+    </select>
+    <!--新增购物车之更新商品数量-->
+    <update id="updateCartGoodNum" parameterType="com.xzsd.app.shoppingCart.entity.AddShoppingCart">
+        update
+            t_good_shopping_cart
+        set
+            update_time = now(),
+            update_user = #{userCode},
+            good_num = #{goodsNum}
+        where
+            user_code = #{userCode}
+        and
+            is_delete = 0
+        and
+            good_code = #{goodCode}
+    </update>
+    <!--商品数量修改-->
+    <update id="updateCartGood" parameterType="com.xzsd.app.shoppingCart.entity.AddShoppingCart">
+        update
+            t_good_shopping_cart
+        set
+            update_time = now(),
+            update_user = #{userCode},
+            good_num = #{goodsNum}
+        where
+            cart_code = #{cartCode}
+        and
+            is_delete = 0
+    </update>
+    <!--删除-->
+    <update id="deleteCartGood" parameterType="com.xzsd.app.shoppingCart.entity.AddShoppingCart">
+        update
+            t_good_shopping_cart
+        set
+            update_time = now(),
+            update_user = #{userCode},
+            is_delete = 1
+        where
+            is_delete = 0
+        and
+            cart_code = #{cartCode}
+    </update>
+    <!--删除购物车商品-->
+    <update id="deleteCartGoodNum" parameterType="com.xzsd.app.shoppingCart.entity.AddShoppingCart">
+        update
+            t_good_shopping_cart
+        set
+            is_delete = 1
+        where
+            cart_code in
+            <foreach collection="cartCodeList" item="item" open="(" separator="," close=")" index="index">
+                #{item}
+            </foreach>
+    </update>
+    <!--购物车商品列表查询-->
+    <select id="queryShoppingCartList" parameterType="com.xzsd.app.shoppingCart.entity.CartGoodUserParam" resultType="com.xzsd.app.shoppingCart.entity.CartGoodList">
+        select
+          cart.cart_code cartCode,
+          cart.good_code goodCode,
+          goods.good_name goodName,
+          cart.good_num goodNum,
+          goods.good_selling_price goodSale
+        from
+            t_good_shopping_cart cart,
+            t_good_manage goods
+        where
+            cart.good_code = goods.good_code
+        and
+            cart.is_delete = 0
+        and
+            cart.user_code = #{userCode}
+    </select>
+</mapper>

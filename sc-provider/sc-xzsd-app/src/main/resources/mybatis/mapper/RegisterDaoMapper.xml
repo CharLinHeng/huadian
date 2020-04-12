@@ -38,4 +38,19 @@
               0
               )
     </insert>
+  <!--判断重复-->
+  <select id="countActOrPhone" parameterType="com.xzsd.app.register.entity.Register" resultType="int">
+      select
+          count(*)
+      from
+          t_user_infomation
+      where
+          is_delete = 0
+          <if test="userAcc != null and userAcc !=''">
+            and  user_account = #{userAcc}
+          </if>
+        <if test="userPhone != null and userPhone !=''">
+            and  user_phone = #{userPhone}
+        </if>
+      </select>
 </mapper>

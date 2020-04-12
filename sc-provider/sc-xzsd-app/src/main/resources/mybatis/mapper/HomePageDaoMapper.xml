@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzsd.app.homepage.dao.HomePageDao">
+    <!--轮播图列表-->
+    <select id="queryRotateChartsList" resultType="com.xzsd.app.homepage.entity.TurnsImage">
+        select
+            rotaChart_code rotateChartCode,
+            rotaChart_sort rotateChartSort,
+            rotaChart_image_url rotateChartImageUrl
+        from
+            t_turns_images
+        where
+            is_delete = 0
+        and
+            rotaChart_use_time &lt;= now()
+        and
+            rotaChart_end_time &gt;= now()
+    </select>
+    <!--轮播图更新-->
+    <update id="deleteOverdue" parameterType="com.xzsd.app.homepage.entity.TurnsImage">
+        update
+            t_turns_images
+        set
+            is_delete = 1,
+            update_user = 'administrator',
+            update_time = now()
+        where
+            is_delete = 0
+        and
+            rotaChart_code not in
+        <foreach collection="list" index="index" close=")" separator="," open="(" item="item">
+            #{item}
+        </foreach>
+    </update>
+    <!--查询热门商品列表-->
+    <select id="queryHotGoodsList" resultType="com.xzsd.app.homepage.entity.HotGoods">
+         select
+            thot.hot_good_code hotGoodCode,
+            tgood.good_name hotGoodName,
+            tgood.good_image_url hotGoodUrl,
+            thot.hot_good_sort hotGoodCSort,
+            tgood.good_price hotGoodPric,
+            tgood.good_selling_price hotGoodSale
+        from
+            t_hot_goods_manage thot,
+            t_good_manage tgood
+        where
+            thot.is_delete = 0
+        and
+            thot.good_code = tgood.good_code
+
+        limit 0,#{num}
+    </select>
+    <!--查询展示数量-->
+    <select id="queryNum" resultType="int">
+        SELECT
+            num
+        FROM
+            t_hot_goods_show_num
+        ORDER BY id desc
+        LIMIT 0,1
+    </select>
+</mapper>

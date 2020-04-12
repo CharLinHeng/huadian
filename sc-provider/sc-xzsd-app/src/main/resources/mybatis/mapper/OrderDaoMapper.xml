@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzsd.app.order.dao.OrderDao">
+    <!--增加订单-->
+    <insert id="addUserOrder" parameterType="com.xzsd.app.order.entity.AddOrder">
+
+    </insert>
+    <!--判断购物车中的每种商品库存是否充足,如果存在购物车中某一商品数量大于库存，那么返回这个商品编号-->
+    <select id="judgementStock" parameterType="com.xzsd.app.order.entity.AddOrder" resultType="com.xzsd.app.order.entity.GoodBigThanLibs">
+        select
+            tcart.good_code goodCode
+        from
+            t_good_manage tgood,
+            t_good_shopping_cart tcart
+        where
+            tcart.good_code = tgood.good_code
+        and
+            tgood.
+        and
+            tcart.good_code in
+        <foreach collection="cartCodeList" index="index"  open="(" separator="," close=")"  item="item">
+            #{item}
+        </foreach>
+        and
+            tcart.good_num &gt; tgood.good_lib_save
+    </select>
+</mapper>

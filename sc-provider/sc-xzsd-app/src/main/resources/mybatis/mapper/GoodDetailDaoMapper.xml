@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzsd.app.goodDetail.dao.GoodDetailDao">
+    <!--app端商品详情页的商品详情-->
+    <select id="queryGoodDetail" parameterType="com.xzsd.app.goodDetail.entity.GoodParam" resultType="com.xzsd.app.goodDetail.entity.Good">
+        select
+            good_name goodName,
+            good_prec goodPric,
+            good_lib_save goodNum,
+            good_price goodPrice,
+            good_selling_price goodSale,
+            good_image_url goodImageList
+        from
+            t_good_manage
+        where
+             is_delete = 0
+        and
+            good_code = #{goodCode}
+    </select>
+    <!--查询商品评价列表-->
+    <select id="queryGoodComEvaList" parameterType="com.xzsd.app.goodDetail.entity.GoodEvaParam" resultType="com.xzsd.app.goodDetail.entity.GoodEva">
+        select
+            comment_code evaCode,
+            comment_rank evaRank,
+            tuser.user_name evaUserName,
+            teva.comment_content evaContent,
+            teva.comment_time evaTime
+        from
+            t_goods_goodseva teva,
+            t_user_infomation tuser
+        where
+            teva.user_code = tuser.user_code
+        and
+            teva.is_delete = 0
+        <if test="evaRank == 1">
+            and ( teva.comment_rank &gt;= 0 and teva.comment_rank &lt;= 2)
+        </if>
+        <if test="evaRank == 2">
+            and ( teva.comment_rank &gt; 2 and teva.comment_rank &lt;= 3)
+        </if>
+        <if test="evaRank == 3">
+            and ( teva.comment_rank &gt; 3 and teva.comment_rank &lt;= 5)
+        </if>
+    </select>
+    <!--客户绑定店铺查询,先查找 省市区编号-->
+    <select id="queryUserBindStore" parameterType="com.xzsd.app.goodDetail.entity.UserParam" resultType="com.xzsd.app.goodDetail.entity.UserBindStore">
+        SELECT
+            tstore.shop_name storeName,
+            tstore.shop_detail_address storeAddress,
+            tstore.provinceCode provinceCode,
+            tstore.cityCode cityCode,
+            distinctCode distinctCode
+        FROM
+            t_store_bind tbind,
+            t_store_information tstore
+        WHERE
+            tbind.shop_code = tstore.shop_code
+        and
+            tbind.user_code = #{userCode}
+        and
+            tbind.is_delete = 0
+    </select>
+
+    <select id="queryPCD" parameterType="com.xzsd.app.goodDetail.entity.UserBindStore" resultType="com.xzsd.app.goodDetail.entity.UserBindStore">
+        SELECT
+         t3.name1 provinceCode,
+         t3.code1 pro,
+         t3.name2 cityCode,
+         t3.code2 cit,
+         t4.dict_name distinctCode,
+         t4.dict_code dis
+        FROM
+         (
+          SELECT
+           t1.dict_code code1,
+           t1.dict_name name1,
+           t1.dict_parent_node parentcode1,
+           t2.dict_code code2,
+           t2.dict_name name2,
+           t2.dict_parent_node parentcode2
+          FROM
+           t_dict t1
+          LEFT JOIN t_dict t2 ON t1.dict_code = t2.dict_parent_node
+          WHERE
+           t1.dict_parent_node is null
+         ) t3
+        LEFT JOIN t_dict t4 ON t3.code2 = t4.dict_parent_node
+        having
+            pro = #{provinceCode}
+        and
+            cit = #{cityCode}
+        and
+            dis = #{distinctCode}
+    </select>
+</mapper>

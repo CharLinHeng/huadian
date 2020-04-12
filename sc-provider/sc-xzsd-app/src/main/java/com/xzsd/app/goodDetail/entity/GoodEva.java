@@ -1,0 +1,67 @@
+package com.xzsd.app.goodDetail.entity;
+
+/**
+ * 商品评价实体类
+ */
+public class GoodEva {
+    /**
+     *评价编号
+     */
+    private String evaCode;
+    /**
+     *评价星级
+     */
+    private String evaRank;
+    /**
+     *评价用户名称
+     */
+    private String evaUserName;
+    /**
+     *评价者评论
+     */
+    private String evaContent;
+    /**
+     *评价时间
+     */
+    private String evaTime;
+
+    public String getEvaCode() {
+        return evaCode;
+    }
+
+    public void setEvaCode(String evaCode) {
+        this.evaCode = evaCode;
+    }
+
+    public String getEvaRank() {
+        return evaRank;
+    }
+
+    public void setEvaRank(String evaRank) {
+        this.evaRank = evaRank;
+    }
+
+    public String getEvaUserName() {
+        return evaUserName;
+    }
+
+    public void setEvaUserName(String evaUserName) {
+        this.evaUserName = evaUserName;
+    }
+
+    public String getEvaContent() {
+        return evaContent;
+    }
+
+    public void setEvaContent(String evaContent) {
+        this.evaContent = evaContent;
+    }
+
+    public String getEvaTime() {
+        return evaTime;
+    }
+
+    public void setEvaTime(String evaTime) {
+        this.evaTime = evaTime;
+    }
+}

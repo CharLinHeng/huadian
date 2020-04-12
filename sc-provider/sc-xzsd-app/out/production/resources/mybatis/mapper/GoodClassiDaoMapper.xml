@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzsd.app.goodClassification.dao.GoodClassiDao">
+    <!--一级分类查询-->
+    <select id="queryOneClass" resultType="com.xzsd.app.goodClassification.entity.GoodClassification">
+        select
+           clas_code classCode,
+           clas_name className
+        from
+            t_goods_classification_manage
+        where
+            clas_rank = 1
+        and
+            is_delete = 0
+    </select>
+    <!--二级分类及其商品查询-->
+    <select id="queryTwoClass" parameterType="com.xzsd.app.goodClassification.entity.GoodClassification" resultMap="querySecondResultMap">
+        select
+            tgoodclass.clas_code,
+            tgoodclass.clas_name
+        from
+            t_goods_classification_manage tgoodclass
+        where
+            tgoodclass.is_delete = 0
+        and
+            tgoodclass.parent_node = #{classCode}
+    </select>
+    <select id="selectList" resultType="com.xzsd.app.goodClassification.entity.Good">
+        select
+            tgoods.good_code goodCode,
+            tgoods.good_name goodName,
+            tgoods.good_image_url goodImageUrl,
+            tgoods.good_price goodPrice,
+            tgoods.good_selling_price goodSale
+        from
+            t_good_manage tgoods
+        where
+            tgoods.good_second_clas = #{classCode}
+    </select>
+    <!--映射resultMapp-->
+    <resultMap id="querySecondResultMap" type="com.xzsd.app.goodClassification.entity.GoodClassiSecond">
+        <id property="classCode" column="clas_code"/>
+        <result property="className" column="clas_name"/>
+        <collection property="goodsList" javaType="list"  column="classCode=clas_code"  select="selectList" ofType="com.xzsd.app.goodClassification.entity.Good">
+
+        </collection>
+    </resultMap>
+
+</mapper>
