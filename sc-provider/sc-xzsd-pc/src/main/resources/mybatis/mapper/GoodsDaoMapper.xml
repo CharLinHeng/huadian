@@ -8,7 +8,7 @@
         from
            t_good_manage
         where
-            good_name = #{good_name}
+            good_name = #{goodName}
     </select>
     <!--查询商品书号是否存在-->
     <select id="countGoodBookSize" parameterType="com.xzsd.pc.goodsManage.entity.Good" resultType="int">
@@ -16,7 +16,7 @@
         from
            t_good_manage
         where
-            good_isbn_bookSize = #{good_isbn_bookSize}
+            good_isbn_bookSize = #{goodIsbnBookSize}
     </select>
     <!--查询商品详情-->
     <select id="queryDetail" resultType="com.xzsd.pc.goodsManage.entity.Good">
@@ -38,9 +38,9 @@
            t_good_manage tgood,
            t_goods_classification_manage tclass
         where
-            good_code = #{good_code}
+            tgood.good_code = #{goodCode}
         and
-            is_delete = 0
+            tgood.is_delete = 0
         and
             tgood.good_second_clas = tclass.clas_code
     </select>

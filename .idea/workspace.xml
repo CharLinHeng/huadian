@@ -7365,7 +7365,7 @@
     <property name="SearchEverywhereHistoryKey" value="addInterCep&#9;PSI&#9;JAVA://com.xzsd.app.config.WebConfig#addInterceptors&#10;PageInterceptor&#9;PSI&#9;JAVA://com.github.pagehelper.autoconfigure.PageHelperAutoConfiguration#addPageInterceptor&#10;addInterceptors&#9;PSI&#9;JAVA://com.neusoft.support.sharding.config.WebConfig#addInterceptors&#10;addInter&#9;PSI&#9;JAVA://com.neusoft.job.config.WebConfig#addInterceptors" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586707993094" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586708180063" />
     <property name="dynamic.classpath" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
