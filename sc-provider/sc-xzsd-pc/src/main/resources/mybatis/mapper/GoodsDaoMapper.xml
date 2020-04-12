@@ -21,22 +21,28 @@
     <!--查询商品详情-->
     <select id="queryDetail" resultType="com.xzsd.pc.goodsManage.entity.Good">
         select
-          good_code,
-          good_name,
-          good_isbn_bookSize,
-          good_second_clas,
-          good_ad,
-          good_prec,
-          good_commodity_press,
-          good_author,
-          good_lib_save,
-          good_price,
-          good_selling_price,
-          good_image_url
+          tgood.good_code goodCode,
+          tgood.good_name goodName,
+          tgood.good_isbn_bookSize goodIsbnBookSize,
+          tclass.parent_node goodFirstClas,
+          tgood.good_second_clas goodSecondClas,
+          tgood.good_ad goodAd,
+          tgood.good_prec goodPrec,
+          tgood.good_commodity_press goodCommodityPress,
+          tgood.good_author goodAuthor,
+          tgood.good_lib_save goodLibSave,
+          tgood.good_price goodPrice,
+          tgood.good_selling_price goodSellingPrice,
+          tgood.good_image_url goodImageUrl
         from
-           t_good_manage
+           t_good_manage tgood,
+           t_goods_classification_manage tclass
         where
-           good_code = #{good_code}
+            good_code = #{good_code}
+        and
+            is_delete = 0
+        and
+            tgood.good_second_clas = tclass.clas_code
     </select>
     <!--增加商品-->
     <insert id="addGood" parameterType="com.xzsd.pc.goodsManage.entity.Good">
@@ -69,27 +75,27 @@
             )
          VALUES
         (
-           #{good_code},
-           #{good_name},
-           #{good_price},
-           #{good_selling_price},
+           #{goodCode},
+           #{goodName},
+           #{goodPrice},
+           #{goodSellingPrice},
            0,
-           #{good_second_clas},
-           #{good_ad},
-           #{good_prec},
+           #{goodSecondClas},
+           #{goodAd},
+           #{goodPrec},
            2,
-           #{good_sale_time},
-           #{good_sale_end},
+           #{goodSaleTime},
+           #{goodSaleEnd},
            0,
-           #{good_through_num},
-           #{good_lib_save},
-           #{good_author},
-           #{good_commodity_press},
-           #{good_isbn_bookSize},
-           #{good_image_url},
+           #{goodThroughNum},
+           #{goodLibSave},
+           #{goodAuthor},
+           #{goodCommodityPress},
+           #{goodIsbnBookSize},
+           #{goodImageUrl},
            NOW(),
            '',
-           #{create_user},
+           #{createUser},
            '',
            0,
            0
@@ -101,7 +107,7 @@
            t_good_manage
         set
            is_delete = 1,
-           update_user=#{updateUserCode}
+           update_user=#{updateUser}
         where
           <foreach collection="listGoodCode" index="index" item="item" open="(" close=")" separator=",">
               good_code = #{item}
@@ -112,51 +118,51 @@
         UPDATE
           `t_good_manage`
         SET
-            `good_name`=#{good_name},
-            `good_price`=#{good_price},
-            `good_selling_price`=#{good_selling_price},
-            `good_saleNum`=#{good_saleNum},
-            `good_second_clas`=#{good_second_clas},
-            `good_ad`=#{good_ad},
-            `good_prec`=#{good_prec},
-            `good_state`=#{good_state},
-            `good_lib_save`=#{good_lib_save},
-            `good_author`=#{good_author},
-            `good_commodity_press`=#{good_commodity_press},
-            `good_isbn_bookSize`=#{good_isbn_bookSize},
-            `good_image_url`=#{good_image_url},
+            `good_name`=#{goodName},
+            `good_price`=#{goodPrice},
+            `good_selling_price`=#{goodSellingPrice},
+            `good_saleNum`=#{goodSaleNum},
+            `good_second_clas`=#{goodSecondClas},
+            `good_ad`=#{goodAd},
+            `good_prec`=#{goodPrec},
+            `good_state`=#{goodState},
+            `good_lib_save`=#{goodLibSave},
+            `good_author`=#{goodAuthor},
+            `good_commodity_press`=#{goodCommodityPress},
+            `good_isbn_bookSize`=#{goodIsbnBookSize},
+            `good_image_url`=#{goodImageUrl},
             `good_update_time`=now(),
-            `update_user`=#{update_user}
+            `update_user`=#{updateUser}
         WHERE
-            `good_code`=#{good_code}
+            `good_code`=#{goodCode}
     </update>
     <!--商品列表查询-->
     <select id="queryGoodList" parameterType="com.xzsd.pc.goodsManage.entity.Good" resultType="com.xzsd.pc.goodsManage.entity.Good">
         select
-            good_name,
-            good_state,
-            good_ad,
-            good_commodity_press,
-            good_author
+            good_name goodName,
+            good_state goodState,
+            good_ad good_Ad,
+            good_commodity_press goodCommodityPress,
+            good_author goodAuthor
         from
              t_good_manage
         where
             is_delete = 0
-        <if test="good_name !=null and good_name !=''">
-            and good_name like concat('%',#{good_name},'%')
+        <if test="goodName !=null and goodName !=''">
+            and good_name like concat('%',#{goodName},'%')
         </if>
 
-        <if test="good_ad != null and good_ad != ''">
-            and good_ad like concat('%',#{good_ad},'%')
+        <if test="goodAd != null and goodAd != ''">
+            and good_ad like concat('%',#{goodAd},'%')
         </if>
-        <if test="good_commodity_press !=null and good_commodity_press !=''">
-            and good_commodity_press like concat('%',#{good_commodity_press},'%')
+        <if test="goodCommodityPress !=null and goodCommodityPress !=''">
+            and good_commodity_press like concat('%',#{goodCommodityPress},'%')
         </if>
-        <if test="good_author !=null and good_author !=''">
-            and good_author like concat('%',#{good_author},'%')
+        <if test="goodAuthor !=null and goodAuthor !=''">
+            and good_author like concat('%',#{goodAuthor},'%')
         </if>
-        <if test="null !=good_state and good_state!=''">
-            and good_state = #{good_state}
+        <if test="null !=goodState and goodState!=''">
+            and good_state = #{goodState}
         </if>
         order  by
             good_createTime
@@ -167,8 +173,8 @@
         update
             t_good_manage
         set
-            good_state = #{good_state},
-            update_user = #{update_user}
+            good_state = #{goodState},
+            update_user = #{updateUser}
         where
           good_code in
           <foreach collection="listGoodCode" item="item"  open="(" separator="," close=")" index="index">

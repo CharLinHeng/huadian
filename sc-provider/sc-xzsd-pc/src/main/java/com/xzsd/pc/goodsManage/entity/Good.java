@@ -10,90 +10,90 @@ public class Good {
     /**
      * 货物编号
      */
-    private String good_code;
+    private String goodCode;
 
     /**
      * 货物名称
      */
-    private String good_name;
+    private String goodName;
 
     /**
      * 商品价格
      */
-    private double good_price;
+    private double goodPrice;
 
     /**
      * 商品销售价格
      */
-    private double good_selling_price;
+    private double goodSellingPrice;
 
     /**
      * 商品销售的数量
      */
-    private int good_saleNum;
+    private int goodSaleNum;
 
     /**
      * 商品一级分类
      */
-    private String good_first_clas;
+    private String goodFirstClas;
     /**
      * 商品二级分类
      */
-    private String good_second_clas;
+    private String goodSecondClas;
 
     /**
      * 商品广告
      */
-    private String good_ad;
+    private String goodAd;
     /**
      * 商品描述
      */
-    private String good_prec;
+    private String goodPrec;
     /**
      * 商品状态
      */
-    private int good_state;
+    private int goodState;
     /**
      * 商品销售时间
      */
-    private String good_sale_time;
+    private String goodSaleTime;
     /**
      * 商品下架时间
      */
-    private String good_sale_end;
+    private String goodSaleEnd;
     /**
      * 商品评价等级
      */
-    private double good_eva_rank;
+    private double goodEvaRank;
     /**
      * 商品浏览量
      */
-    private int good_through_num;
+    private int goodThroughNum;
     /**
      * 商品库存
      */
-    private int good_lib_save;
+    private int goodLibSave;
     /**
      * 商品作者
      */
-    private String good_author;
+    private String goodAuthor;
     /**
      * 商品出版社
      */
-    private  String good_commodity_press;
+    private  String goodCommodityPress;
     /**
      * 商品书号
      */
-    private String good_isbn_bookSize;
+    private String goodIsbnBookSize;
     /**
      * 商品图片地址
      */
-    private String good_image_url;
+    private String goodImageUrl;
 
     /**
      * 商品是否弃用
      */
-    private int is_delete;
+    private int isDelete;
     /**
      * 页分页号
      */
@@ -107,170 +107,186 @@ public class Good {
      * 商品创建用户
      *
      */
-    private String create_user;
+    private String createUser;
     /**
      * 商品更新用户
      */
-    private String update_user;
+    private String updateUser;
 
-    public String getGood_code() {
-        return good_code;
+    public String getUpdateUser() {
+        return updateUser;
     }
 
-    public void setGood_code(String good_code) {
-        this.good_code = good_code;
+    public void setUpdateUser(String updateUser) {
+        this.updateUser = updateUser;
     }
 
-    public String getGood_name() {
-        return good_name;
+    public String getGoodCode() {
+        return goodCode;
     }
 
-    public void setGood_name(String good_name) {
-        this.good_name = good_name;
+    public void setGoodCode(String goodCode) {
+        this.goodCode = goodCode;
     }
 
-    public double getGood_price() {
-        return good_price;
+    public String getGoodName() {
+        return goodName;
     }
 
-    public void setGood_price(double good_price) {
-        this.good_price = good_price;
+    public void setGoodName(String goodName) {
+        this.goodName = goodName;
     }
 
-    public double getGood_selling_price() {
-        return good_selling_price;
+    public String getCreateUser() {
+        return createUser;
     }
 
-    public void setGood_selling_price(double good_selling_price) {
-        this.good_selling_price = good_selling_price;
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser;
     }
 
-    public int getGood_saleNum() {
-        return good_saleNum;
+    public double getGoodPrice() {
+        return goodPrice;
     }
 
-    public void setGood_saleNum(int good_saleNum) {
-        this.good_saleNum = good_saleNum;
+    public void setGoodPrice(double goodPrice) {
+        this.goodPrice = goodPrice;
     }
 
-    public String getGood_first_clas() {
-        return good_first_clas;
+    public double getGoodSellingPrice() {
+        return goodSellingPrice;
     }
 
-    public void setGood_first_clas(String good_first_clas) {
-        this.good_first_clas = good_first_clas;
+    public void setGoodSellingPrice(double goodSellingPrice) {
+        this.goodSellingPrice = goodSellingPrice;
     }
 
-    public String getGood_second_clas() {
-        return good_second_clas;
+    public int getGoodSaleNum() {
+        return goodSaleNum;
     }
 
-    public void setGood_second_clas(String good_second_clas) {
-        this.good_second_clas = good_second_clas;
+    public void setGoodSaleNum(int goodSaleNum) {
+        this.goodSaleNum = goodSaleNum;
     }
 
-    public String getGood_ad() {
-        return good_ad;
+    public String getGoodFirstClas() {
+        return goodFirstClas;
     }
 
-    public void setGood_ad(String good_ad) {
-        this.good_ad = good_ad;
+    public void setGoodFirstClas(String goodFirstClas) {
+        this.goodFirstClas = goodFirstClas;
     }
 
-    public String getGood_prec() {
-        return good_prec;
+    public String getGoodSecondClas() {
+        return goodSecondClas;
     }
 
-    public void setGood_prec(String good_prec) {
-        this.good_prec = good_prec;
+    public void setGoodSecondClas(String goodSecondClas) {
+        this.goodSecondClas = goodSecondClas;
     }
 
-    public int getGood_state() {
-        return good_state;
+    public String getGoodAd() {
+        return goodAd;
     }
 
-    public void setGood_state(int good_state) {
-        this.good_state = good_state;
+    public void setGoodAd(String goodAd) {
+        this.goodAd = goodAd;
     }
 
-    public String getGood_sale_time() {
-        return good_sale_time;
+    public String getGoodPrec() {
+        return goodPrec;
     }
 
-    public void setGood_sale_time(String good_sale_time) {
-        this.good_sale_time = good_sale_time;
+    public void setGoodPrec(String goodPrec) {
+        this.goodPrec = goodPrec;
     }
 
-    public String getGood_sale_end() {
-        return good_sale_end;
+    public int getGoodState() {
+        return goodState;
     }
 
-    public void setGood_sale_end(String good_sale_end) {
-        this.good_sale_end = good_sale_end;
+    public void setGoodState(int goodState) {
+        this.goodState = goodState;
     }
 
-    public double getGood_eva_rank() {
-        return good_eva_rank;
+    public String getGoodSaleTime() {
+        return goodSaleTime;
     }
 
-    public void setGood_eva_rank(double good_eva_rank) {
-        this.good_eva_rank = good_eva_rank;
+    public void setGoodSaleTime(String goodSaleTime) {
+        this.goodSaleTime = goodSaleTime;
     }
 
-    public int getGood_through_num() {
-        return good_through_num;
+    public String getGoodSaleEnd() {
+        return goodSaleEnd;
     }
 
-    public void setGood_through_num(int good_through_num) {
-        this.good_through_num = good_through_num;
+    public void setGoodSaleEnd(String goodSaleEnd) {
+        this.goodSaleEnd = goodSaleEnd;
     }
 
-    public int getGood_lib_save() {
-        return good_lib_save;
+    public double getGoodEvaRank() {
+        return goodEvaRank;
     }
 
-    public void setGood_lib_save(int good_lib_save) {
-        this.good_lib_save = good_lib_save;
+    public void setGoodEvaRank(double goodEvaRank) {
+        this.goodEvaRank = goodEvaRank;
     }
 
-    public String getGood_author() {
-        return good_author;
+    public int getGoodThroughNum() {
+        return goodThroughNum;
     }
 
-    public void setGood_author(String good_author) {
-        this.good_author = good_author;
+    public void setGoodThroughNum(int goodThroughNum) {
+        this.goodThroughNum = goodThroughNum;
     }
 
-    public String getGood_commodity_press() {
-        return good_commodity_press;
+    public int getGoodLibSave() {
+        return goodLibSave;
     }
 
-    public void setGood_commodity_press(String good_commodity_press) {
-        this.good_commodity_press = good_commodity_press;
+    public void setGoodLibSave(int goodLibSave) {
+        this.goodLibSave = goodLibSave;
     }
 
-    public String getGood_isbn_bookSize() {
-        return good_isbn_bookSize;
+    public String getGoodAuthor() {
+        return goodAuthor;
     }
 
-    public void setGood_isbn_bookSize(String good_isbn_bookSize) {
-        this.good_isbn_bookSize = good_isbn_bookSize;
+    public void setGoodAuthor(String goodAuthor) {
+        this.goodAuthor = goodAuthor;
     }
 
-    public String getGood_image_url() {
-        return good_image_url;
+    public String getGoodCommodityPress() {
+        return goodCommodityPress;
     }
 
-    public void setGood_image_url(String good_image_url) {
-        this.good_image_url = good_image_url;
+    public void setGoodCommodityPress(String goodCommodityPress) {
+        this.goodCommodityPress = goodCommodityPress;
     }
 
-    public int getIs_delete() {
-        return is_delete;
+    public String getGoodIsbnBookSize() {
+        return goodIsbnBookSize;
     }
 
-    public void setIs_delete(int is_delete) {
-        this.is_delete = is_delete;
+    public void setGoodIsbnBookSize(String goodIsbnBookSize) {
+        this.goodIsbnBookSize = goodIsbnBookSize;
+    }
+
+    public String getGoodImageUrl() {
+        return goodImageUrl;
+    }
+
+    public void setGoodImageUrl(String goodImageUrl) {
+        this.goodImageUrl = goodImageUrl;
+    }
+
+    public int getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(int isDelete) {
+        this.isDelete = isDelete;
     }
 
     public int getPageSize() {
@@ -289,49 +305,5 @@ public class Good {
         this.pageNum = pageNum;
     }
 
-    public String getCreate_user() {
-        return create_user;
-    }
 
-    public void setCreate_user(String create_user) {
-        this.create_user = create_user;
-    }
-
-    public String getUpdate_user() {
-        return update_user;
-    }
-
-    public void setUpdate_user(String update_user) {
-        this.update_user = update_user;
-    }
-
-    @Override
-    public String toString() {
-        return "Good{" +
-                "good_code='" + good_code + '\'' +
-                ", good_name='" + good_name + '\'' +
-                ", good_price=" + good_price +
-                ", good_selling_price=" + good_selling_price +
-                ", good_saleNum=" + good_saleNum +
-                ", good_first_clas='" + good_first_clas + '\'' +
-                ", good_second_clas='" + good_second_clas + '\'' +
-                ", good_ad='" + good_ad + '\'' +
-                ", good_prec='" + good_prec + '\'' +
-                ", good_state=" + good_state +
-                ", good_sale_time='" + good_sale_time + '\'' +
-                ", good_sale_end='" + good_sale_end + '\'' +
-                ", good_eva_rank=" + good_eva_rank +
-                ", good_through_num=" + good_through_num +
-                ", good_lib_save=" + good_lib_save +
-                ", good_author='" + good_author + '\'' +
-                ", good_commodity_press='" + good_commodity_press + '\'' +
-                ", good_isbn_bookSize='" + good_isbn_bookSize + '\'' +
-                ", good_image_url='" + good_image_url + '\'' +
-                ", is_delete=" + is_delete +
-                ", pageSize=" + pageSize +
-                ", pageNum=" + pageNum +
-                ", create_user='" + create_user + '\'' +
-                ", update_user='" + update_user + '\'' +
-                '}';
-    }
 }

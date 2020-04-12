@@ -63,24 +63,24 @@ public class GoodService {
     @Transactional(rollbackFor = Exception.class)
     public ResponceData addGood(Good good){
         //查询商品名称是否存在
-        int countGood_name = goodDao.countGood(good.getGood_name());
+        int countGood_name = goodDao.countGood(good.getGoodName());
         System.out.println(countGood_name);
         if(countGood_name>0){
             responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"商品名称已存在！",null);
             return responceData;
         }
         //查询商品书号是否已经存在
-        int countGoodBookSIzeNum = goodDao.countGoodBookSize(good.getGood_isbn_bookSize());
+        int countGoodBookSIzeNum = goodDao.countGoodBookSize(good.getGoodIsbnBookSize());
         if(countGoodBookSIzeNum>0){
             responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"商品书号已存在！",null);
             return responceData;
         }
         //新增 ,先获取编号
         String goodCode = RandomCode.radmonkey();
-        good.setGood_code(goodCode);
+        good.setGoodCode(goodCode);
         //如果商品图片地址没有，那么设置默认图片地址
-        if(null == good.getGood_image_url() || good.getGood_image_url() == ""){
-            good.setGood_image_url(RandomCode.defaultImageUrl());
+        if(null == good.getGoodImageUrl() || good.getGoodImageUrl() == ""){
+            good.setGoodImageUrl(RandomCode.defaultImageUrl());
         }
         int result = goodDao.addGood(good);
         if(result>0){
@@ -135,19 +135,6 @@ public class GoodService {
      * @return
      */
     public ResponceData queryGoodList(Good good){
-        //检查，条件 在 如果在Redis中没有数据，那么就 新增
-        //查询的条件
-        //拼接条件，如果拼接后条件，从Redis中查询，如果是空的，那么就先从数据库查询，然后往Redis中增加。
-        //否则直接从Redis中进行查询并返回。
-        String goodName = good.getGood_name();
-        String goodState = String.format("%d",good.getGood_state());
-        String goodAd = good.getGood_ad();
-        String goodCommodityPress = good.getGood_commodity_press();
-        String goodAuthor = good.getGood_author();
-        String pageSize_queryGood = String.format("%d",good.getPageSize());
-        String pageNum_queryGood = String.format("%d",good.getPageNum());
-        String keyName = goodName+","+goodState+","+goodAd+","+goodCommodityPress+","+goodAuthor+","+pageNum_queryGood+","+pageSize_queryGood;
-        //查询redis中是否有此条件数据
         if(good.getPageNum() ==0 || good.getPageSize() == 0){
             responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"页号参数不能为空!",null);
         }
@@ -169,12 +156,12 @@ public class GoodService {
      */
     @Transactional(rollbackFor = Exception.class)
     public ResponceData updateGoodState(Good good,String updateUser){
-        if(null == good.getGood_code()){
+        if(null == good.getGoodCode()){
             responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"参数空",null);
             return responceData;
         }
-        List<String>goodCodeList = Arrays.asList(good.getGood_code().split(","));
-        int result = goodDao.updateGoodState(goodCodeList,updateUser,good.getGood_state());
+        List<String>goodCodeList = Arrays.asList(good.getGoodCode().split(","));
+        int result = goodDao.updateGoodState(goodCodeList,updateUser,good.getGoodState());
         if(result > 0){
             responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"修改状态成功!",result);
         }
