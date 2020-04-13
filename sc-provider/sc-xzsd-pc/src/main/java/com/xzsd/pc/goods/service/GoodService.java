@@ -1,6 +1,7 @@
 package com.xzsd.pc.goods.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.xzsd.pc.goods.entity.GoodClassifi;
 import com.xzsd.pc.goods.entity.GoodList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -153,5 +154,27 @@ public class GoodService {
            return new ResponceData(ResponceDataState.values()[0].getCode(),"修改状态成功!",result);
         }
         return responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"修改状态失败!",null);
+    }
+
+    /**
+     * 商品一级分类查询
+     * @return
+     */
+    public ResponceData queryFirstClass(){
+        List<GoodClassifi>goodClassifiList = goodDao.queryFirstClass();
+        return responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",goodClassifiList);
+    }
+
+    /**
+     * 商品二级分类查询
+     * @param goodClassifi
+     * @return
+     */
+    public ResponceData querySecondClass(GoodClassifi goodClassifi){
+        if(null == goodClassifi.getClassCode() || goodClassifi.getClassCode() == ""){
+            return responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"父级编号参数未指定!",null);
+        }
+        List<GoodClassifi>goodClassifiList = goodDao.querySecondClass(goodClassifi.getClassCode());
+        return responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",goodClassifiList);
     }
 }

@@ -1,4 +1,5 @@
 package com.xzsd.pc.goods.controller;
+import com.xzsd.pc.goods.entity.GoodClassifi;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -101,8 +102,6 @@ public class GoodController {
 
         }
 
-
-
     }
 
     /**
@@ -116,6 +115,34 @@ public class GoodController {
 
         try{
             responceData = goodService.updateGoodState(good,RandomCode.radmonkey());
+            return responceData;
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+    /**
+     * 商品一级分类查询
+     * @return
+     */
+    @PostMapping("queryFirstClass")
+    public ResponceData queryFirstClass(){
+        try{
+            responceData = goodService.queryFirstClass();
+            return responceData;
+        }catch (Exception e){
+            throw e;
+        }
+    }
+    /**
+     * 商品二级分类查询
+     * @param goodClassifi
+     * @return
+     */
+    @PostMapping("querySecondClass")
+    public ResponceData querySecondClass(GoodClassifi goodClassifi){
+        try{
+            responceData = goodService.querySecondClass(goodClassifi);
             return responceData;
         }catch (Exception e){
             throw e;

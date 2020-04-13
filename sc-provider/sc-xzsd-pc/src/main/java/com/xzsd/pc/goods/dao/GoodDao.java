@@ -1,6 +1,7 @@
 package com.xzsd.pc.goods.dao;
 
 
+import com.xzsd.pc.goods.entity.GoodClassifi;
 import com.xzsd.pc.goods.entity.GoodList;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -48,11 +49,11 @@ public interface GoodDao {
     /**
      *商品一级分类查询
      */
-
+      List<GoodClassifi>queryFirstClass();
     /**
      *商品二级分类
      */
-
+    List<GoodClassifi>querySecondClass(@Param("classCode")String classCode);
     /**
      *商品上架下架修改
      */
@@ -76,4 +77,5 @@ public interface GoodDao {
      * @return
      */
     int deleteHotGoods(@Param("list")List<String>listCodes);
+
 }

@@ -227,4 +227,28 @@
         and
             is_delete = 0
     </update>
+    <!--商品一级分类查询-->
+    <select id="queryFirstClass" resultType="com.xzsd.pc.goods.entity.GoodClassifi">
+        select
+            clas_code classCode,
+            clas_name className
+        from
+            t_goods_classification_manage
+        where
+            is_delete = 0
+        and
+            parent_node is null
+    </select>
+    <!--商品二级分类查询-->
+    <select id="queryFirstClass" parameterType="com.xzsd.pc.goods.entity.GoodClassifi" resultType="com.xzsd.pc.goods.entity.GoodClassifi">
+        select
+            clas_code classCode,
+            clas_name className
+        from
+            t_goods_classification_manage
+        where
+            is_delete = 0
+        and
+            parent_node = #{classCode}
+    </select>
 </mapper>
