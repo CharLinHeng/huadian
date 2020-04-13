@@ -13,13 +13,14 @@ import com.xzsd.pc.util.ResponceDataState;
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 import static com.neusoft.core.page.PageUtils.getPageInfo;
 
 /**
- * @DescriptionDemo 用户实现类
+ * @DescriptionDemo 用户管理Service
  * @Author zhc
  * @Date 2020-03-24
  */
@@ -109,25 +110,12 @@ public class UserServices {
     @Transactional(rollbackFor = Exception.class)
      public ResponceData deleteUser(User user){
          //如果有逗号，那么是分割开来
-         List<String> listCode =new ArrayList<>();
-         int result = 0;
-         if(user.getUserCode().indexOf(",")!=-1){
-             //批量删除
-             String set[] = user.getUserCode().split(",");
-             for(String s:set){
-                 listCode.add(s);
-             }
-           result =  userDao.deleteUser(listCode,user.getUserCode());
-         }else{
-             listCode.add(user.getUserCode());
-             result =  userDao.deleteUser(listCode,user.getUpdateUser());
-         }
-         if(result >0){
+         List<String> listCode = Arrays.asList(user.getUserCode().split(","));
+         int result =  userDao.deleteUser(listCode,user.getUserCode());
+         if(result > 0){
              responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功",null);
-         }else{
-             responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败",null);
          }
-         return responceData;
+         return new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败",null);
      }
     /**
      * 用户列表查询
@@ -146,9 +134,6 @@ public class UserServices {
         if(userInfoList.size() == 0){
             responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空",userInfoList);
         }
-        else{
-            responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功",pageData);
-        }
-        return responceData;
+        return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功",pageData);
     }
 }
