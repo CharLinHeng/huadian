@@ -5,22 +5,37 @@
     <select id="queryCustomer" parameterType="com.xzsd.pc.customerManage.entity.Customer"
             resultType="com.xzsd.pc.customerManage.entity.Customer">
       select
-          customer_code customerCode,
-          customer_name customerName,
-          customer_acct customerAcc,
-          customer_sex customerSex,
-          customer_phone customerPhone,
-          customer_email customerEmail,
-          customer_id_card customerIdCard
+        tcustomer.customer_code customerCode,
+        tcustomer.customer_name customerName,
+        tcustomer.customer_acct customerAcc,
+        tcustomer.customer_sex customerSex,
+        tcustomer.customer_phone customerPhone,
+        tcustomer.customer_email customerEmail,
+        tcustomer.customer_id_card customerIdCard
       from
-          t_order_customer
+          t_order_customer tcustomer,
+          t_store_information tstore
       where
-          is_delete = 0
+          tcustomer.is_delete = 0
       <if test="customerName != null and customerName != ''">
-          and customer_name like  concat('%',#{customerName},'%')
+          and tcustomer.customer_name like  concat('%',#{customerName},'%')
       </if>
       <if test="customerAcc != null and customerAcc != ''">
-          and customer_acct like  concat('%',#{customerAcc},'%')
+          and tcustomer.customer_acct like  concat('%',#{customerAcc},'%')
       </if>
+      <if test="userRole == 1">
+          and tcustomer.shop_code = tstore.shop_code
+          and tstore.shop_con_user = #{userCode}
+      </if>
+    </select>
+    <!--查询用户信息-->
+    <select id="queryCurrUser" parameterType="com.xzsd.pc.customerManage.entity.User" resultType="com.xzsd.pc.customerManage.entity.User">
+        select
+            user_code userCode,
+            user_role userRole
+        from
+            t_user_infomation
+        where
+            user_code = #{userCode}
     </select>
 </mapper>

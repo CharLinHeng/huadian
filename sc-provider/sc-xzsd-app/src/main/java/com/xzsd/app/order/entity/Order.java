@@ -10,7 +10,30 @@ public class Order {
      * 用户编号
      */
     private String userCode;
-
+    /**
+     * 商品名称
+     */
+    private String goodName;
+    /**
+     * 商品编号
+     */
+    private String goodCode;
+    /**
+     * 商品购买的数量
+     */
+    private int goodNum;
+    /**
+     * 商品价格
+     */
+    private String goodPre;
+    /**
+     * 商品图片地址
+     */
+    private String goodImage;
+    /***
+     * 创建用户
+     */
+    private String createUser;
     /**
      * 支付状态
      */

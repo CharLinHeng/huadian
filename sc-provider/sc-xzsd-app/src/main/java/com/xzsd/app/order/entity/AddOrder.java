@@ -10,6 +10,18 @@ public class AddOrder {
      * 购物车编号集合
      */
     private String cartCode;
+    /**
+     * 订单编号
+     */
+    private String orderCode;
+
+    public String getOrderCode() {
+        return orderCode;
+    }
+
+    public void setOrderCode(String orderCode) {
+        this.orderCode = orderCode;
+    }
 
     public String getUserCode() {
         return userCode;

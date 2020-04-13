@@ -137,7 +137,7 @@ public class GoodService {
      */
     public ResponceData queryGoodList(Good good){
         if(good.getPageNum() ==0 || good.getPageSize() == 0){
-            responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"页号参数不能为空!",null);
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"页号参数不能为空!",null);
         }
         //分页
         PageHelper.startPage(good.getPageNum(),good.getPageSize());

@@ -40,17 +40,40 @@ public class Customer {
     /**
      * 是否删除
      */
-    private int is_delete;
+    private int isDelete;
 
     /**
      * 页号
      */
     private int pageNum;
-
+    /**
+     * 当前用户编号
+     */
+    private String userCode;
     /**
      * 页数量
      */
     private int pageSize;
+    /**
+     * 用户角色
+     */
+    private int userRole;
+
+    public int getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(int userRole) {
+        this.userRole = userRole;
+    }
+
+    public String getUserCode() {
+        return userCode;
+    }
+
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
+    }
 
     public int getPageNum() {
         return pageNum;
@@ -124,11 +147,11 @@ public class Customer {
         this.customerIdCard = customerIdCard;
     }
 
-    public int getIs_delete() {
-        return is_delete;
+    public int getIsDelete() {
+        return isDelete;
     }
 
-    public void setIs_delete(int is_delete) {
-        this.is_delete = is_delete;
+    public void setIsDelete(int isDelete) {
+        this.isDelete = isDelete;
     }
 }

@@ -74,14 +74,6 @@ public class GoodList {
      * 商品书号
      */
     private String goodIsbnBookSize;
-    /**
-     * 页分页号
-     */
-    private int pageSize;
-    /**
-     * 分页数量
-     */
-    private int pageNum;
 
     public String getGoodCode() {
         return goodCode;
@@ -204,19 +196,5 @@ public class GoodList {
         this.goodIsbnBookSize = goodIsbnBookSize;
     }
 
-    public int getPageSize() {
-        return pageSize;
-    }
 
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public int getPageNum() {
-        return pageNum;
-    }
-
-    public void setPageNum(int pageNum) {
-        this.pageNum = pageNum;
-    }
 }

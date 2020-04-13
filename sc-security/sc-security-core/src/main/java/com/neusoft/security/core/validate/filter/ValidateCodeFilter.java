@@ -85,16 +85,16 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
      *
      * @throws ServletException the servlet exception
      */
-    @Override
-    public void afterPropertiesSet() throws ServletException {
-
-        super.afterPropertiesSet();
-        urlMap.put(SecurityConstants.DEFAULT_SIGN_IN_PROCESSING_URL_FORM, ValidateCodeType.IMAGE);
-        //放入自己配置的需要拦截的url
-//        addUrlToMap(securityProperties.getCode().getImage().getUrl(), ValidateCodeType.IMAGE);
-
-
-    }
+//    @Override
+//    public void afterPropertiesSet() throws ServletException {
+//
+//        super.afterPropertiesSet();
+//        urlMap.put(SecurityConstants.DEFAULT_SIGN_IN_PROCESSING_URL_FORM, ValidateCodeType.IMAGE);
+//        //放入自己配置的需要拦截的url
+////        addUrlToMap(securityProperties.getCode().getImage().getUrl(), ValidateCodeType.IMAGE);
+//
+//
+//    }
 
     /**
      * 讲系统中配置的需要校验验证码的URL根据校验的类型放入map

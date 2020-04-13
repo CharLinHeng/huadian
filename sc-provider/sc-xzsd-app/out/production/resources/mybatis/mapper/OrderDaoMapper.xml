@@ -61,7 +61,7 @@
     <!--查询哪些商品已下架-->
     <select id="goodsExpired" parameterType="com.xzsd.app.order.entity.AddOrder" resultType="com.xzsd.app.order.entity.GoodsExpired">
         select
-            tcart.cart_code cartCode
+            good_code goodCode
         from
             t_good_manage tgood,
             t_good_shopping_cart tcart
@@ -76,29 +76,5 @@
           <foreach collection="list" item="item" open="(" separator="," close=")" index="index">
               #{item}
           </foreach>
-    </select>
-    <!--修改物品数量-->
-    <update id="updateGoodNum" parameterType="com.xzsd.app.order.entity.GoodBigThanLibs" >
-          update
-              t_good_shopping_cart tcart,
-              t_good_manage tgood
-          set
-              tcart.good_num = tgood.good_lib_save
-          where
-              tgood.is_delete = 0
-        and
-              tcart.good_code = tgood.good_code
-          and
-              tcart.cart_code in
-          <foreach collection="list" index="index" open="(" separator="," close=")" item="item">
-              #{item}
-          </foreach>
-    </update>
-    <!--查询-->
-    <select id="queryOrderList" parameterType="com.xzsd.app.order.entity.AddOrder" resultType="com.xzsd.app.order.entity.Order">
-        select
-
-        from
-
     </select>
 </mapper>

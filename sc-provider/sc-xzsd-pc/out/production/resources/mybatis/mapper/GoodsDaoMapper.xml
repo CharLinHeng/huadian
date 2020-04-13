@@ -152,7 +152,8 @@
             tgood.good_state goodState,
             tgood.good_ad goodAd,
             tgood.good_commodity_press goodCommodityPress,
-            tgood.good_author goodAuthor
+            tgood.good_author goodAuthor,
+            tgood.good_isbn_bookSize goodIsbnBookSize
         from
             t_good_manage tgood,
             t_goods_classification_manage tclass,
