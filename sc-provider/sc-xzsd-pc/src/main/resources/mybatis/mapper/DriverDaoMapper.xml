@@ -137,29 +137,36 @@
     <!--列表查询-->
     <select id="dqueryDriverList" parameterType="com.xzsd.pc.driver.entity.DriverListParamter" resultType="com.xzsd.pc.driver.entity.DriverListParamter">
           select
-                t_driver_information_manage.driver_code driverCode,
-        t_driver_information_manage.name driverName,
-        t_driver_information_manage.driver_acc driverAcct,
-        t_driver_information_manage.phone driverPhone,
-        t_driver_information_manage.driver_idcard driverIdCard
+            tdriver.driver_code driverCode,
+            tdriver.name driverName,
+            tdriver.driver_acc driverAcct,
+            tdriver.phone driverPhone,
+            tdriver.driver_idcard driverIdCard
           from
-              t_driver_information_manage
+            t_driver_information_manage tdriver,
+            t_store_information tstore
           where
-               t_driver_information_manage.is_delete = 0
+            tdriver.is_delete = 0
           <if test="driverName !=null and driverName != ''">
-              and t_driver_information_manage.name like concat('%',#{driverName},'%')
+              and tdriver.name like concat('%',#{driverName},'%')
           </if>
         <if test="driverCode !=null and driverCode != ''">
-            and t_driver_information_manage.driver_code like concat('%',#{driverCode},'%')
+            and tdriver.driver_code like concat('%',#{driverCode},'%')
         </if>
         <if test="driverProvincCode !=null and driverProvincCode != ''">
-            and t_driver_information_manage.provinceCode like concat('%',#{driverProvincCode},'%')
+            and tdriver.provinceCode like concat('%',#{driverProvincCode},'%')
         </if>
         <if test="driverCityCode !=null and driverCityCode != ''">
-            and t_driver_information_manage.cityCode like concat('%',#{driverCityCode},'%')
+            and tdriver.cityCode like concat('%',#{driverCityCode},'%')
         </if>
         <if test="driverDistinctCode !=null and driverDistinctCode != ''">
-            and t_driver_information_manage.distinctCode like concat('%',#{driverDistinctCode},'%')
+            and tdriver.distinctCode like concat('%',#{driverDistinctCode},'%')
+        </if>
+        <if test="userRole == 1">
+            and tstore.shop_con_user = #{currUserCode}
+            and tdriver.provinceCode = tstore.provinceCode
+            and tdriver.cityCode = tstore.cityCode
+            and tdriver.distinctCode = tstore.distinctCode
         </if>
     </select>
 </mapper>

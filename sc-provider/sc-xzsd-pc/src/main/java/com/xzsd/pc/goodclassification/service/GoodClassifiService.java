@@ -122,9 +122,7 @@ public class GoodClassifiService {
         if(result >0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"修改成功!",null);
         }
-        else{
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"修改失败!",null);
-        }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"修改失败!",null);
     }
 
     /**
@@ -165,11 +163,8 @@ public class GoodClassifiService {
             }
             return new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功!"+msg,null);
         }
-        else{
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败!",null);
-        }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败!",null);
     }
-
     /**
      * 查询分类详情
      * @param code
@@ -185,11 +180,8 @@ public class GoodClassifiService {
         if(null == goodClassification){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
         }
-        else{
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"查询成功!",goodClassification);
-        }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询成功!",goodClassification);
     }
-
     /**
      * 所有树状关系查询
      * @return

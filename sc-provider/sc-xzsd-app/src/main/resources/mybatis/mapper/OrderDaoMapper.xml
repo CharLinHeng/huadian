@@ -17,15 +17,15 @@
                 `version`
               )
             VALUES(
-                  #{orderCode},
-                  #{userCode},
-                  1,
-                  1,
-                  now(),
-                  now(),
-                  #{userCode},
-                  0,
-                  0,
+                #{orderCode},
+                #{userCode},
+                1,
+                1,
+                now(),
+                now(),
+                #{userCode},
+                0,
+                0,
             )
     </insert>
     <!--清空购物车-->

@@ -3,6 +3,8 @@ package com.xzsd.pc.driver.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.neusoft.core.restful.AppResponse;
+import com.xzsd.pc.customerManage.dao.CustomerDao;
+import com.xzsd.pc.customerManage.entity.User;
 import com.xzsd.pc.driver.dao.DriverDao;
 import com.xzsd.pc.driver.entity.*;
 import com.xzsd.pc.util.RandomCode;
@@ -25,6 +27,8 @@ public class DriverService {
     private ResponceData responceData;
     @Resource
     private DriverDao driverDao;
+    @Resource
+    private CustomerDao customerDao;
     /**
      * 新增司机
      * @param driver
@@ -67,7 +71,7 @@ public class DriverService {
         }
         //给司机随机生成编号
         driver.setDriverCode(RandomCode.radmonkey());
-        //密码md5加密,后面再说
+        //密码md5加密,后面认证再说
         //新增
         int result = driverDao.addDriver(driver);
         //结果
@@ -184,6 +188,12 @@ public class DriverService {
         if(driver.getPageSize() == 0 || driver.getPageNum() == 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"页号或者页数量参数不能为空!",null);
         }
+        //获取当前登入用户的编号和角色 ,如果是店长，那么只查找它的店的地址
+        //从Redis中根据token获取，但是没做登入，这里先指定一个账号进行测试
+        String userCode = "20200324222349013251934814478747";
+        User user = customerDao.queryCurrUser(userCode);
+        driver.setUserCode(user.getUserCode());
+        driver.setUserRole(user.getUserRole());
         //查找
         PageHelper.startPage(driver.getPageNum(),driver.getPageSize());
         List<DriverListParamter>driverLists = driverDao.dqueryDriverList(driver);

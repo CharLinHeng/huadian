@@ -54,10 +54,38 @@ public class DriverListParamter {
      */
     private String createUser;
 
-
+    /**
+     * 页数量
+     */
     private int pageSize;
-
+    /**
+     * 页号
+     */
     private int pageNum;
+    /**
+     * 当前登入的用户编号
+     */
+    private String currUserCode;
+    /**
+     * 当前登入的用户角色
+     */
+    private int userRole;
+
+    public String getCurrUserCode() {
+        return currUserCode;
+    }
+
+    public void setCurrUserCode(String currUserCode) {
+        this.currUserCode = currUserCode;
+    }
+
+    public int getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(int userRole) {
+        this.userRole = userRole;
+    }
 
     public String getDriverCode() {
         return driverCode;

@@ -32,7 +32,12 @@ public class CustomerService {
             return new ResponceData(ResponceDataState.values()[3].getCode(),"页号或者页数量不能为空!",null);
         }
         //查询用户角色
-        customer.setUserRole(customerDao.queryCurrUser(customer.getUserCode()).getUserRole());
+        User queryUser = customerDao.queryCurrUser(customer.getUserCode());
+        //如果查询不到当前用户，则返回错误
+        if(null == queryUser){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"查询用户为空!",null);
+        }
+        customer.setUserRole(queryUser.getUserRole());
         //分页查询
         PageHelper.startPage(customer.getPageNum(),customer.getPageSize());
         List<Customer> customerList= customerDao.queryCustomer(customer);

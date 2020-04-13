@@ -21,11 +21,6 @@ import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-//import javax.jms.Destination;
-//import javax.jms.Queue;
-//import javax.jms.Topic;
-
 /**
  * @DescriptionDemo 商品管理服务
  * @Author zhc
@@ -151,22 +146,21 @@ public class GoodService {
         return  responceData;
     }
     /**
-     * 商品修改状态service
+     * 商品修改状态
      * @param good
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
     public ResponceData updateGoodState(Good good,String updateUser){
         if(null == good.getGoodCode()){
-            responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"参数空",null);
+            responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"商品编号参数为空",null);
             return responceData;
         }
         List<String>goodCodeList = Arrays.asList(good.getGoodCode().split(","));
         int result = goodDao.updateGoodState(goodCodeList,updateUser,good.getGoodState());
         if(result > 0){
             responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"修改状态成功!",result);
-        }
-        else{
+        }else{
             responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"修改状态失败!",null);
         }
         return responceData;
