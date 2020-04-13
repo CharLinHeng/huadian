@@ -1,6 +1,7 @@
 package com.xzsd.pc.goodsManage.dao;
 
 
+import com.xzsd.pc.goodsManage.entity.GoodList;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -43,7 +44,7 @@ public interface GoodDao {
     /**
      *商品列表查询
      */
-    List<Good> queryGoodList(Good good);
+    List<GoodList> queryGoodList(Good good);
     /**
      *商品一级分类查询
      */

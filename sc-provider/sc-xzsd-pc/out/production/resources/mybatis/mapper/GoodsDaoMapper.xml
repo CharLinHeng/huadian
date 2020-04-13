@@ -8,7 +8,7 @@
         from
            t_good_manage
         where
-            good_name = #{good_name}
+            good_name = #{goodName}
     </select>
     <!--查询商品书号是否存在-->
     <select id="countGoodBookSize" parameterType="com.xzsd.pc.goodsManage.entity.Good" resultType="int">
@@ -16,7 +16,7 @@
         from
            t_good_manage
         where
-            good_isbn_bookSize = #{good_isbn_bookSize}
+            good_isbn_bookSize = #{goodIsbnBookSize}
     </select>
     <!--查询商品详情-->
     <select id="queryDetail" resultType="com.xzsd.pc.goodsManage.entity.Good">
@@ -137,35 +137,50 @@
             `good_code`=#{goodCode}
     </update>
     <!--商品列表查询-->
-    <select id="queryGoodList" parameterType="com.xzsd.pc.goodsManage.entity.Good" resultType="com.xzsd.pc.goodsManage.entity.Good">
+    <select id="queryGoodList" parameterType="com.xzsd.pc.goodsManage.entity.Good" resultType="com.xzsd.pc.goodsManage.entity.GoodList">
         select
-            good_name goodName,
-            good_state goodState,
-            good_ad good_Ad,
-            good_commodity_press goodCommodityPress,
-            good_author goodAuthor
+            tgood.good_code goodCode,
+            tgood.good_name goodName,
+            tgood.good_price goodPrice,
+            tgood.good_selling_price goodSellingPrice,
+            tgood.good_saleNum goodSaleNum,
+            tclassFitst.clas_name goodFirstClasName,
+            tclass.clas_name goodSecondClasName,
+            tgood.good_prec goodPrec,
+            tgood.good_sale_time goodSaleTime,
+            tgood.good_through_num goodThroughNum,
+            tgood.good_state goodState,
+            tgood.good_ad goodAd,
+            tgood.good_commodity_press goodCommodityPress,
+            tgood.good_author goodAuthor
         from
-             t_good_manage
+            t_good_manage tgood,
+            t_goods_classification_manage tclass,
+            (select clas_code,clas_name from t_goods_classification_manage)tclassFitst
         where
-            is_delete = 0
+            tgood.is_delete = 0
+        and
+            tgood.good_second_clas = tclass.clas_code
+        and
+            tclass.parent_node = tclassFitst.clas_code
         <if test="goodName !=null and goodName !=''">
-            and good_name like concat('%',#{goodName},'%')
+            and tgood.good_name like concat('%',#{goodName},'%')
         </if>
 
         <if test="goodAd != null and goodAd != ''">
-            and good_ad like concat('%',#{goodAd},'%')
+            and tgood.good_ad like concat('%',#{goodAd},'%')
         </if>
         <if test="goodCommodityPress !=null and goodCommodityPress !=''">
-            and good_commodity_press like concat('%',#{goodCommodityPress},'%')
+            and tgood.good_commodity_press like concat('%',#{goodCommodityPress},'%')
         </if>
         <if test="goodAuthor !=null and goodAuthor !=''">
-            and good_author like concat('%',#{goodAuthor},'%')
+            and tgood.good_author like concat('%',#{goodAuthor},'%')
         </if>
         <if test="null !=goodState and goodState!=''">
-            and good_state = #{goodState}
+            and tgood.good_state = #{goodState}
         </if>
         order  by
-            good_createTime
+            tgood.good_createTime
         desc
     </select>
 <!--上架下架修改-->
