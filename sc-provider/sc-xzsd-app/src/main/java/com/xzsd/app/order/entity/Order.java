@@ -5,7 +5,10 @@ public class Order {
      * 订单编号
      */
     private String orderCode;
-
+    /**
+     * 订单详情列表编号
+     */
+    private String orderGCode;
     /**
      * 用户编号
      */
@@ -25,7 +28,7 @@ public class Order {
     /**
      * 商品价格
      */
-    private String goodPre;
+    private String goodPrice;
     /**
      * 商品图片地址
      */
@@ -47,12 +50,68 @@ public class Order {
         this.orderCode = orderCode;
     }
 
+    public String getOrderGCode() {
+        return orderGCode;
+    }
+
+    public void setOrderGCode(String orderGCode) {
+        this.orderGCode = orderGCode;
+    }
+
     public String getUserCode() {
         return userCode;
     }
 
     public void setUserCode(String userCode) {
         this.userCode = userCode;
+    }
+
+    public String getGoodName() {
+        return goodName;
+    }
+
+    public void setGoodName(String goodName) {
+        this.goodName = goodName;
+    }
+
+    public String getGoodCode() {
+        return goodCode;
+    }
+
+    public void setGoodCode(String goodCode) {
+        this.goodCode = goodCode;
+    }
+
+    public int getGoodNum() {
+        return goodNum;
+    }
+
+    public void setGoodNum(int goodNum) {
+        this.goodNum = goodNum;
+    }
+
+    public String getGoodPrice() {
+        return goodPrice;
+    }
+
+    public void setGoodPrice(String goodPrice) {
+        this.goodPrice = goodPrice;
+    }
+
+    public String getGoodImage() {
+        return goodImage;
+    }
+
+    public void setGoodImage(String goodImage) {
+        this.goodImage = goodImage;
+    }
+
+    public String getCreateUser() {
+        return createUser;
+    }
+
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser;
     }
 
     public String getPayState() {

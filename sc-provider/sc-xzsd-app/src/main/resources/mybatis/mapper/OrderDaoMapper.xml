@@ -25,7 +25,7 @@
                 now(),
                 #{userCode},
                 0,
-                0,
+                0
             )
     </insert>
     <!--清空购物车-->
@@ -35,23 +35,26 @@
         set
             is_delete = 1
         where
-            user_code = #{userCode}
+            cart_code in
+            <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
         and
             is_delete = 0
     </update>
     <!--判断购物车中的每种商品库存是否充足,如果存在购物车中某一商品数量大于库存，那么返回这个商品编号-->
     <select id="judgementStock" parameterType="com.xzsd.app.order.entity.AddOrder" resultType="com.xzsd.app.order.entity.GoodBigThanLibs">
         select
-            tcart.good_code goodCode
+            tcart.cart_code goodCode
         from
             t_good_manage tgood,
             t_good_shopping_cart tcart
         where
             tcart.good_code = tgood.good_code
         and
-            tgood.
+            tgood.is_delete = 0
         and
-            tcart.good_code in
+            tcart.cart_code in
         <foreach collection="cartCodeList" index="index"  open="(" separator="," close=")"  item="item">
             #{item}
         </foreach>
@@ -72,7 +75,7 @@
         and
             tgood.good_sale_end &lt; now()
         and
-            tgood.good_code in
+            tcart.cart_code in
           <foreach collection="list" item="item" open="(" separator="," close=")" index="index">
               #{item}
           </foreach>
@@ -97,8 +100,111 @@
     <!--查询-->
     <select id="queryOrderList" parameterType="com.xzsd.app.order.entity.AddOrder" resultType="com.xzsd.app.order.entity.Order">
         select
-
+            tcart.user_code userCode,
+            tgood.good_name goodName,
+            tcart.good_code goodCode,
+            tcart.good_num goodNum,
+            tgood.good_selling_price goodPrice
         from
-
+            t_good_shopping_cart tcart,
+            t_good_manage tgood
+        where
+            tcart.cart_code in
+        <foreach collection="list" index="index" open="(" separator="," close=")" item="item">
+            #{item}
+        </foreach>
+        and
+            tcart.is_delete = 0
+        and
+            tcart.good_num &gt; 0
+        and
+            tcart.good_code = tgood.good_code
+    </select>
+    <!--新增订单详情表-->
+    <insert id="addOrderList" parameterType="com.xzsd.app.order.entity.Order" >
+        INSERT
+            INTO
+                `t_order_ordergoods`(
+                `orderG_code`,
+                `order_code`,
+                `orderG_name`,
+                `good_code`,
+                `orderG_num`,
+                `orderG_s_price`,
+                `orderG_image`,
+                `create_time`,
+                `create_user`,
+                `is_delete`,
+                `version`
+                )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.orderGCode},
+            #{item.orderCode},
+            #{item.goodName},
+            #{item.goodCode},
+            #{item.goodNum},
+            #{item.goodPrice},
+            #{item.goodImage},
+            now(),
+            #{item.createUser},
+            0,
+            0
+            )
+        </foreach>
+    </insert>
+    <!--新增顾客-->
+    <insert id="addCustomer" parameterType="com.xzsd.app.order.entity.Customer" >
+        INSERT
+            INTO
+              `t_order_customer`(
+                `customer_code`,
+                `shop_code`,
+                `user_code`,
+                `customer_order`,
+                `customer_name`,
+                `customer_acct`,
+                `customer_sex`,
+                `customer_phone`,
+                `customer_email`,
+                `create_time`,
+                `create_user`,
+                `customer_id_card`,
+                `is_delete`
+              )
+            VALUES(
+              #{customerCode},
+              #{shopCode},
+              #{userCode},
+              #{customerOrder},
+              #{customerName},
+              #{customerAcct},
+              #{customerSex},
+              #{customerPhone},
+              #{customerEmail},
+              now(),
+              #{userCode},
+              #{customerIdCard},
+              0,
+            )
+    </insert>
+    <!--查询顾客信息-->
+    <select id="queryCustomerData" parameterType="com.xzsd.app.order.entity.Customer" resultType="com.xzsd.app.order.entity.Customer">
+        select
+            tbind.shop_code shopCode,
+            tuser.user_name customerName,
+            tuser.user_account customerAcct,
+            tuser.user_sex customerSex,
+            tuser.user_phone customerPhone,
+            tuser.user_email customerEmail,
+            tuser.user_id_card customerIdCard
+        from
+            t_store_bind tbind,
+            t_user_infomation tuser
+        where
+            tuser.user_code = tbind.user_code
+        and
+            tuser.user_code = #{userCode}
     </select>
 </mapper>
