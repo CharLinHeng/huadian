@@ -85,8 +85,18 @@ public class GoodService {
     public ResponceData deleteGoods(String goodsCode,String updateUserCode){
         List<String> listCodes = Arrays.asList(goodsCode.split(","));
         int result = goodDao.deleteGoods(listCodes,updateUserCode);
+        //删除商品的时候，需要删除对应的轮播图和热热门商品编号
+        String msg = "";
+        int deleteTurns = goodDao.deleteTurns(listCodes);
+        int deleteHotGoods = goodDao.deleteHotGoods(listCodes);
+        if(deleteTurns > 0){
+            msg = "已删除对应的轮播图"+deleteTurns+"个";
+        }
+        if(deleteHotGoods > 0){
+            msg = msg + "已删除对应的热门商品"+deleteHotGoods+"个";
+        }
         if(result > 0){
-            responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功!",result);
+            responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功!"+msg,result);
         }
         return new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败!",result);
     }

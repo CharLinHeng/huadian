@@ -58,9 +58,22 @@ public interface GoodDao {
      */
       int updateGoodState(@Param("listGoodCode") List<String> goodCodes, @Param("update_user") String updateUser, @Param("good_state") int good_state);
 
-
     /**
      * 消息队列 增加消息到数据库
      */
 //    int insertToActiveMq(QueueEntity queueEntity);
+
+    /**
+     * 删除商品对应的轮播图
+     * @param listCodes
+     * @return
+     */
+    int deleteTurns(@Param("list")List<String>listCodes);
+
+    /**
+     * 删除对应的热门商品
+     * @param listCodes
+     * @return
+     */
+    int deleteHotGoods(@Param("list")List<String>listCodes);
 }
