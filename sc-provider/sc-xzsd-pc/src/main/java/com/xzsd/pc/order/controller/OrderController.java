@@ -1,14 +1,14 @@
-package com.xzsd.pc.orderManage.controller;
+package com.xzsd.pc.order.controller;
 
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.xzsd.pc.orderManage.entity.OrderQuery;
-import com.xzsd.pc.orderManage.entity.OrderUpdate;
-import com.xzsd.pc.orderManage.entity.PageEntity;
-import com.xzsd.pc.orderManage.service.OrderService;
+import com.xzsd.pc.order.entity.OrderQuery;
+import com.xzsd.pc.order.entity.OrderUpdate;
+import com.xzsd.pc.order.entity.PageEntity;
+import com.xzsd.pc.order.service.OrderService;
 import com.xzsd.pc.util.ResponceData;
 
 import javax.annotation.Resource;

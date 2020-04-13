@@ -3,7 +3,7 @@ package com.xzsd.pc.rotaChart.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import com.xzsd.pc.goodsManage.entity.Good;
+import com.xzsd.pc.goods.entity.Good;
 import com.xzsd.pc.rotaChart.entity.RotaChart;
 
 import java.util.List;

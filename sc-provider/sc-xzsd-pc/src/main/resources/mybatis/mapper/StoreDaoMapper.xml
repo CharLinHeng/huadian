@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xzsd.pc.storeManage.dao.StoreDao">
+<mapper namespace="com.xzsd.pc.store.dao.StoreDao">
 
 
 
     <!--查找 是否重复-->
-    <select id="count" parameterType="com.xzsd.pc.storeManage.entity.Store" resultType="int">
+    <select id="count" parameterType="com.xzsd.pc.store.entity.Store" resultType="int">
         select
             count(*)
         from
@@ -19,7 +19,7 @@
             </if>
     </select>
     <!--插-->
-    <insert id="addStore" parameterType="com.xzsd.pc.storeManage.entity.Store">
+    <insert id="addStore" parameterType="com.xzsd.pc.store.entity.Store">
         INSERT INTO t_store_information (
             shop_code,
             shop_name,
@@ -56,7 +56,7 @@
     </insert>
 
     <!--省查询-->
-    <select id="queryProvince" parameterType="com.xzsd.pc.storeManage.entity.Dict" resultType="com.xzsd.pc.storeManage.entity.Dict">
+    <select id="queryProvince" parameterType="com.xzsd.pc.store.entity.Dict" resultType="com.xzsd.pc.store.entity.Dict">
        select
             dict_code areaCode,
             dict_name areaName,
@@ -68,7 +68,7 @@
             dict_type = "1"
     </select>
     <!--市区查询-->
-    <select id="queryCityOrDistrict" parameterType="com.xzsd.pc.storeManage.entity.Dict" resultType="com.xzsd.pc.storeManage.entity.Dict">
+    <select id="queryCityOrDistrict" parameterType="com.xzsd.pc.store.entity.Dict" resultType="com.xzsd.pc.store.entity.Dict">
        select
             dict_code areaCode,
             dict_name areaName,
@@ -80,7 +80,7 @@
             dict_parent_node = #{dictCode}
     </select>
     <!--门店信息修改-->
-    <update id="updateStore" parameterType="com.xzsd.pc.storeManage.entity.Store">
+    <update id="updateStore" parameterType="com.xzsd.pc.store.entity.Store">
         update
               t_store_information
         set
@@ -101,7 +101,7 @@
               version =  CAST(#{version} AS SIGNED)
     </update>
     <!--门店删除-->
-    <update id="deleteStore" parameterType="com.xzsd.pc.storeManage.entity.Store">
+    <update id="deleteStore" parameterType="com.xzsd.pc.store.entity.Store">
         update
              t_store_information
         set
@@ -115,7 +115,7 @@
             </foreach>
     </update>
     <!--门店信息详情-->
-    <select id="queryStoreDetail" parameterType="com.xzsd.pc.storeManage.entity.Store" resultType="com.xzsd.pc.storeManage.entity.Store">
+    <select id="queryStoreDetail" parameterType="com.xzsd.pc.store.entity.Store" resultType="com.xzsd.pc.store.entity.Store">
         select
             shop_code storeCode,
             shop_name storeName,
@@ -133,7 +133,7 @@
             shop_code = #{storeCode}
     </select>
     <!--门店信息列表查询-->
-    <select id="queryStoreList" parameterType="com.xzsd.pc.storeManage.entity.StoreListQueryEntity" resultType="com.xzsd.pc.storeManage.entity.StoreListQueryEntity">
+    <select id="queryStoreList" parameterType="com.xzsd.pc.store.entity.StoreListQueryEntity" resultType="com.xzsd.pc.store.entity.StoreListQueryEntity">
         select
             tstore.shop_code storeCode,
             tstore.shop_name storeName,

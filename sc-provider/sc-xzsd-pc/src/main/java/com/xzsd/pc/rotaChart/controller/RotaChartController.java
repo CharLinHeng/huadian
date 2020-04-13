@@ -1,12 +1,11 @@
 package com.xzsd.pc.rotaChart.controller;
 
 
-        import org.apache.ibatis.annotations.Param;
         import org.springframework.web.bind.annotation.PostMapping;
         import org.springframework.web.bind.annotation.RequestMapping;
         import org.springframework.web.bind.annotation.ResponseBody;
         import org.springframework.web.bind.annotation.RestController;
-        import com.xzsd.pc.goodsManage.entity.Good;
+        import com.xzsd.pc.goods.entity.Good;
         import com.xzsd.pc.rotaChart.entity.RotaChart;
         import com.xzsd.pc.rotaChart.service.RotService;
         import com.xzsd.pc.util.RandomCode;

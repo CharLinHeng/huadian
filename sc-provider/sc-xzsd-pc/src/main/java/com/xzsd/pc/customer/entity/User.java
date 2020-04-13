@@ -1,4 +1,4 @@
-package com.xzsd.pc.customerManage.entity;
+package com.xzsd.pc.customer.entity;
 
 public class User {
     /**

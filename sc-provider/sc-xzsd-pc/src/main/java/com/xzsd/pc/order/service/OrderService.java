@@ -1,11 +1,11 @@
-package com.xzsd.pc.orderManage.service;
+package com.xzsd.pc.order.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.xzsd.pc.customerManage.dao.CustomerDao;
+import com.xzsd.pc.customer.dao.CustomerDao;
 import org.springframework.stereotype.Service;
-import com.xzsd.pc.orderManage.dao.OrderDao;
-import com.xzsd.pc.orderManage.entity.*;
+import com.xzsd.pc.order.dao.OrderDao;
+import com.xzsd.pc.order.entity.*;
 import com.xzsd.pc.util.ResponceData;
 import com.xzsd.pc.util.ResponceDataState;
 

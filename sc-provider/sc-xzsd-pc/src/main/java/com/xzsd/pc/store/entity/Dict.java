@@ -1,4 +1,4 @@
-package com.xzsd.pc.storeManage.entity;
+package com.xzsd.pc.store.entity;
 
 /**
  * 省市区实体

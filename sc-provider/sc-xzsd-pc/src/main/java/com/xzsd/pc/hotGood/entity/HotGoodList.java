@@ -1,4 +1,4 @@
-package com.xzsd.pc.hotGoodManage.entity;
+package com.xzsd.pc.hotGood.entity;
 
 /**
  * 热门商品位列表查询实体

@@ -1,4 +1,4 @@
-package com.xzsd.pc.goodsManage.entity;
+package com.xzsd.pc.goods.entity;
 
 
 /**

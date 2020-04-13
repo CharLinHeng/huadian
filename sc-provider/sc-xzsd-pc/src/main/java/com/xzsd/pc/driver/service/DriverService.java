@@ -2,9 +2,8 @@ package com.xzsd.pc.driver.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.neusoft.core.restful.AppResponse;
-import com.xzsd.pc.customerManage.dao.CustomerDao;
-import com.xzsd.pc.customerManage.entity.User;
+import com.xzsd.pc.customer.dao.CustomerDao;
+import com.xzsd.pc.customer.entity.User;
 import com.xzsd.pc.driver.dao.DriverDao;
 import com.xzsd.pc.driver.entity.*;
 import com.xzsd.pc.util.RandomCode;
@@ -16,8 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
-
-import static com.neusoft.core.page.PageUtils.getPageInfo;
 
 /**
  * 司机

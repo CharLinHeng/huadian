@@ -1,4 +1,4 @@
-package com.xzsd.pc.orderManage.entity;
+package com.xzsd.pc.order.entity;
 
 
 /**

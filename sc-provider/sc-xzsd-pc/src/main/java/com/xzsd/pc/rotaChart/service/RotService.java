@@ -1,11 +1,8 @@
 package com.xzsd.pc.rotaChart.service;
-
-
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import javafx.beans.binding.ObjectExpression;
 import org.springframework.stereotype.Service;
-import com.xzsd.pc.goodsManage.entity.Good;
+import com.xzsd.pc.goods.entity.Good;
 import com.xzsd.pc.rotaChart.dao.RotaChartDao;
 import com.xzsd.pc.rotaChart.entity.RotaChart;
 import com.xzsd.pc.util.ChangeBeMap;
@@ -13,10 +10,8 @@ import com.xzsd.pc.util.ResponceData;
 import com.xzsd.pc.util.ResponceDataState;
 import com.xzsd.pc.util.ResponceListData;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
 import java.util.*;
-
 @Service
 public class RotService {
     private ResponceData responceData;
@@ -35,12 +30,9 @@ public class RotService {
         }
         int result = rotaChartDao.addRotaChart(rotaChart);
         if(result > 0 ){
-            responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",result);
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",result);
         }
-        else{
-            responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败!",result);
-        }
-        return responceData;
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败!",result);
     }
 
     /**
@@ -53,12 +45,9 @@ public class RotService {
         List<String> codelist = Arrays.asList(rotaCode.getRotaChartCode().split(","));
         int reuslt = rotaChartDao.deleteRotaChart(codelist,"administrator");
         if(reuslt > 0 ){
-            responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功!",reuslt);
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功!",reuslt);
         }
-        else{
-            responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败!",reuslt);
-        }
-        return responceData;
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败!",reuslt);
     }
 
     /**
@@ -68,7 +57,7 @@ public class RotService {
      */
     public ResponceListData queryRotaChartList(RotaChart rotaChart){
         ResponceListData responceListData;
-        //如果没有pageSize和pageNum，那么返回错误
+        //如果没有pageSize和pageNum，那么返回参数错误
         if(rotaChart.getPageNum() == 0||rotaChart.getPageSize() == 0){
             responceListData = new ResponceListData(ResponceDataState.values()[3].getCode(),"页号或者页数量不能为空!",0,0,
                     0,null);
@@ -103,24 +92,22 @@ public class RotService {
     public ResponceData updateRotaChartState(String rotaChartCode,String state){
         //如果参数不完整
         if(null == rotaChartCode || state.length() == 0){
-            responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"参数不能为空!",null);
-            return responceData;
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"参数不能为空!",null);
         }
         //查询
         List<String>codesList = Arrays.asList(rotaChartCode.split(","));
         int result = rotaChartDao.updateRotaChartState(codesList,Integer.parseInt(state));
         String msg = "修改失败!";
         int index = 3;
-        if(result >0){
+        if(result > 0){
             index = 0;
             msg = "修改成功!";
         }
-        responceData = new ResponceData(ResponceDataState.values()[index].getCode(),msg,result);
-        return responceData;
+        return new ResponceData(ResponceDataState.values()[index].getCode(),msg,result);
     }
 
     /**
-     * 轮播图新增之 商品编号列表查询
+     * 轮播图新增 商品编号列表查询
      * @param good
      * @return
      */
@@ -128,8 +115,7 @@ public class RotService {
         //查询参数是否为空
         //如果参数不完整
         if(good.getPageNum() == 0||good.getPageSize() == 0){
-            responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"页号或者页数量不能为空!",null);
-            return responceData;
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"页号或者页数量不能为空!",null);
         }
         //查询数据列表
         PageHelper.startPage(good.getPageNum(),good.getPageSize());
@@ -142,7 +128,6 @@ public class RotService {
             index = 0;
             msg = "查询成功!";
         }
-        responceData = new ResponceData(ResponceDataState.values()[index].getCode(),msg,pageInfo);
-        return responceData;
+        return new ResponceData(ResponceDataState.values()[index].getCode(),msg,pageInfo);
     }
 }

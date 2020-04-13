@@ -1,4 +1,4 @@
-package com.xzsd.pc.hotGoodManage.entity;
+package com.xzsd.pc.hotGood.entity;
 
 public class HotGoodDetail {
     private String goodCode;

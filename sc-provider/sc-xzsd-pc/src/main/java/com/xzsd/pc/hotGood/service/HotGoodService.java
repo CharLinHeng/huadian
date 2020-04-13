@@ -1,11 +1,11 @@
-package com.xzsd.pc.hotGoodManage.service;
+package com.xzsd.pc.hotGood.service;
 
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
-import com.xzsd.pc.hotGoodManage.dao.HotGoodDao;
-import com.xzsd.pc.hotGoodManage.entity.*;
+import com.xzsd.pc.hotGood.dao.HotGoodDao;
+import com.xzsd.pc.hotGood.entity.*;
 import com.xzsd.pc.util.RandomCode;
 import com.xzsd.pc.util.ResponceData;
 import com.xzsd.pc.util.ResponceDataState;

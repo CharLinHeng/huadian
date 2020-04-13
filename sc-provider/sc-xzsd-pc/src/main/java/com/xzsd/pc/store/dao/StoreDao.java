@@ -1,11 +1,11 @@
-package com.xzsd.pc.storeManage.dao;
+package com.xzsd.pc.store.dao;
 
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import com.xzsd.pc.storeManage.entity.Dict;
-import com.xzsd.pc.storeManage.entity.Store;
-import com.xzsd.pc.storeManage.entity.StoreListQueryEntity;
+import com.xzsd.pc.store.entity.Dict;
+import com.xzsd.pc.store.entity.Store;
+import com.xzsd.pc.store.entity.StoreListQueryEntity;
 
 import java.util.List;
 

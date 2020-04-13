@@ -1,4 +1,4 @@
-package com.xzsd.pc.hotGoodManage.controller;
+package com.xzsd.pc.hotGood.controller;
 
 
 import org.springframework.transaction.annotation.Transactional;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.xzsd.pc.hotGoodManage.entity.*;
-import com.xzsd.pc.hotGoodManage.service.HotGoodService;
+import com.xzsd.pc.hotGood.entity.*;
+import com.xzsd.pc.hotGood.service.HotGoodService;
 import com.xzsd.pc.util.ResponceData;
 
 import javax.annotation.Resource;

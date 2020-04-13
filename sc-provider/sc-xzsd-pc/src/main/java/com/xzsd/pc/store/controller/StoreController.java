@@ -1,14 +1,14 @@
-package com.xzsd.pc.storeManage.controller;
+package com.xzsd.pc.store.controller;
 
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.xzsd.pc.storeManage.entity.Dict;
-import com.xzsd.pc.storeManage.entity.Store;
-import com.xzsd.pc.storeManage.entity.StoreListQueryEntity;
-import com.xzsd.pc.storeManage.service.StoreService;
+import com.xzsd.pc.store.entity.Dict;
+import com.xzsd.pc.store.entity.Store;
+import com.xzsd.pc.store.entity.StoreListQueryEntity;
+import com.xzsd.pc.store.service.StoreService;
 import com.xzsd.pc.util.ResponceData;
 
 import javax.annotation.Resource;

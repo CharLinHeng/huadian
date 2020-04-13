@@ -1,15 +1,14 @@
-package com.xzsd.pc.storeManage.service;
+package com.xzsd.pc.store.service;
 
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.ResponseBody;
-import com.xzsd.pc.storeManage.dao.StoreDao;
-import com.xzsd.pc.storeManage.entity.Dict;
-import com.xzsd.pc.storeManage.entity.Store;
-import com.xzsd.pc.storeManage.entity.StoreListQueryEntity;
+import com.xzsd.pc.store.dao.StoreDao;
+import com.xzsd.pc.store.entity.Dict;
+import com.xzsd.pc.store.entity.Store;
+import com.xzsd.pc.store.entity.StoreListQueryEntity;
 import com.xzsd.pc.util.RandomCode;
 import com.xzsd.pc.util.ResponceData;
 import com.xzsd.pc.util.ResponceDataState;

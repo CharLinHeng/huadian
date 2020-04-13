@@ -1,11 +1,11 @@
-package com.xzsd.pc.goodsManage.dao;
+package com.xzsd.pc.goods.dao;
 
 
-import com.xzsd.pc.goodsManage.entity.GoodList;
+import com.xzsd.pc.goods.entity.GoodList;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.xzsd.pc.goodsManage.entity.Good;
+import com.xzsd.pc.goods.entity.Good;
 
 import java.util.List;
 

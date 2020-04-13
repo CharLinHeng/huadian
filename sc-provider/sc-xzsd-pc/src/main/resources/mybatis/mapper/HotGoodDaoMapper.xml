@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xzsd.pc.hotGoodManage.dao.HotGoodDao">
+<mapper namespace="com.xzsd.pc.hotGood.dao.HotGoodDao">
 
     <!--计数 商品未排序-->
-    <select id="countSort" parameterType="com.xzsd.pc.hotGoodManage.entity.HotGood" resultType="int">
+    <select id="countSort" parameterType="com.xzsd.pc.hotGood.entity.HotGood" resultType="int">
        SELECT
             count(*)
         FROM
@@ -12,7 +12,7 @@
             hot_good_sort = #{hotGoodSort}
     </select>
     <!--增加-->
-    <insert id="addHotGood" parameterType="com.xzsd.pc.hotGoodManage.entity.HotGood">
+    <insert id="addHotGood" parameterType="com.xzsd.pc.hotGood.entity.HotGood">
        INSERT INTO t_hot_goods_manage(
             hot_good_code,
             hot_good_sort,
@@ -35,7 +35,7 @@
     </insert>
 
     <!--热门商品位新增之商品列表查询-->
-    <select id="queryGoodsList" parameterType="com.xzsd.pc.hotGoodManage.entity.HotGoodQuery" resultType="com.xzsd.pc.hotGoodManage.entity.HotGoodQuery">
+    <select id="queryGoodsList" parameterType="com.xzsd.pc.hotGood.entity.HotGoodQuery" resultType="com.xzsd.pc.hotGood.entity.HotGoodQuery">
         select
           tgood.good_code goodCode,
           tgood.good_name goodName,
@@ -56,7 +56,7 @@
         </if>
     </select>
     <!-- 热门商品位修改-->
-    <update id="updateHotGood" parameterType="com.xzsd.pc.hotGoodManage.entity.HotGood">
+    <update id="updateHotGood" parameterType="com.xzsd.pc.hotGood.entity.HotGood">
         update
             t_hot_goods_manage
         set
@@ -71,7 +71,7 @@
             version =  CAST(#{version} AS SIGNED)
     </update>
     <!--热门商品位删除-->
-    <update id="deleteHotGood" parameterType="com.xzsd.pc.hotGoodManage.entity.HotGood">
+    <update id="deleteHotGood" parameterType="com.xzsd.pc.hotGood.entity.HotGood">
         update
           t_hot_goods_manage
         set
@@ -85,12 +85,12 @@
 
     </update>
     <!--展示数量,如果没有，新增-->
-    <insert id="showHotGoodsNum" parameterType="com.xzsd.pc.hotGoodManage.entity.ShowNum">
+    <insert id="showHotGoodsNum" parameterType="com.xzsd.pc.hotGood.entity.ShowNum">
         insert into t_hot_goods_show_num(id,num)values (#{id},#{hotGoodNum});
     </insert>
     
     <!--热门商品位列表查询-->
-    <select id="queryHotGoodsList" parameterType="com.xzsd.pc.hotGoodManage.entity.HotGoodList" resultType="com.xzsd.pc.hotGoodManage.entity.HotGoodList">
+    <select id="queryHotGoodsList" parameterType="com.xzsd.pc.hotGood.entity.HotGoodList" resultType="com.xzsd.pc.hotGood.entity.HotGoodList">
         select
             thotgood.hot_good_sort hotGoodSort,
             thotgood.hot_good_code hotGoodCode,
@@ -113,7 +113,7 @@
         </if>
     </select>
     <!--热门商品位详情-->
-    <select id="queryHotGoodDetail" parameterType="com.xzsd.pc.hotGoodManage.entity.HotGood" resultType="com.xzsd.pc.hotGoodManage.entity.HotGoodDetail">
+    <select id="queryHotGoodDetail" parameterType="com.xzsd.pc.hotGood.entity.HotGood" resultType="com.xzsd.pc.hotGood.entity.HotGoodDetail">
         select
             good_code goodCode,
             hot_good_sort hotGoodSort

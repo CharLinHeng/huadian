@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xzsd.pc.customerManage.dao.CustomerDao">
+<mapper namespace="com.xzsd.pc.customer.dao.CustomerDao">
     <!--客户列表查询-->
-    <select id="queryCustomer" parameterType="com.xzsd.pc.customerManage.entity.Customer"
-            resultType="com.xzsd.pc.customerManage.entity.Customer">
+    <select id="queryCustomer" parameterType="com.xzsd.pc.customer.entity.Customer"
+            resultType="com.xzsd.pc.customer.entity.Customer">
       select
         tcustomer.customer_code customerCode,
         tcustomer.customer_name customerName,
@@ -29,7 +29,7 @@
       </if>
     </select>
     <!--查询用户信息-->
-    <select id="queryCurrUser" parameterType="com.xzsd.pc.customerManage.entity.User" resultType="com.xzsd.pc.customerManage.entity.User">
+    <select id="queryCurrUser" parameterType="com.xzsd.pc.customer.entity.User" resultType="com.xzsd.pc.customer.entity.User">
         select
             user_code userCode,
             user_role userRole

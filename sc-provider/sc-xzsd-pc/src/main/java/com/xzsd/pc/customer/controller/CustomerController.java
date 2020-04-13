@@ -1,11 +1,11 @@
-package com.xzsd.pc.customerManage.controller;
+package com.xzsd.pc.customer.controller;
 
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.xzsd.pc.customerManage.entity.Customer;
-import com.xzsd.pc.customerManage.service.CustomerService;
+import com.xzsd.pc.customer.entity.Customer;
+import com.xzsd.pc.customer.service.CustomerService;
 import com.xzsd.pc.util.ResponceData;
 
 import javax.annotation.Resource;

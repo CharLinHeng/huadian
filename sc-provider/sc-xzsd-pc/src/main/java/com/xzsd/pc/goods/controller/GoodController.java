@@ -1,10 +1,10 @@
-package com.xzsd.pc.goodsManage.controller;
+package com.xzsd.pc.goods.controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.xzsd.pc.goodsManage.entity.Good;
-import com.xzsd.pc.goodsManage.service.GoodService;
+import com.xzsd.pc.goods.entity.Good;
+import com.xzsd.pc.goods.service.GoodService;
 import com.xzsd.pc.util.RandomCode;
 import com.xzsd.pc.util.ResponceData;
 

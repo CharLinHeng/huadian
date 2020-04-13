@@ -1,11 +1,11 @@
-package com.xzsd.pc.orderManage.dao;
+package com.xzsd.pc.order.dao;
 
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import com.xzsd.pc.orderManage.entity.Order;
-import com.xzsd.pc.orderManage.entity.OrderDetail;
-import com.xzsd.pc.orderManage.entity.OrderQuery;
+import com.xzsd.pc.order.entity.Order;
+import com.xzsd.pc.order.entity.OrderDetail;
+import com.xzsd.pc.order.entity.OrderQuery;
 
 import java.util.List;
 

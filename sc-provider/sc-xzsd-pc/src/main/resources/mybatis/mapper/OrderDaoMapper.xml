@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xzsd.pc.orderManage.dao.OrderDao">
+<mapper namespace="com.xzsd.pc.order.dao.OrderDao">
     <!--订单列表查询-->
-    <select id="queryOrderList" parameterType="com.xzsd.pc.orderManage.entity.OrderQuery" resultType="com.xzsd.pc.orderManage.entity.Order">
+    <select id="queryOrderList" parameterType="com.xzsd.pc.order.entity.OrderQuery" resultType="com.xzsd.pc.order.entity.Order">
         select
           torder.order_code orderCode,
           torder.order_price orderCountPrice,
@@ -47,7 +47,7 @@
         </if>
     </select>
     <!--订单状态修改-->
-    <update id="updateOrderState" parameterType="com.xzsd.pc.orderManage.entity.OrderUpdate">
+    <update id="updateOrderState" parameterType="com.xzsd.pc.order.entity.OrderUpdate">
           update
               t_order_manage
           set
@@ -65,7 +65,7 @@
     </update>
 
     <!--订单详情查询-->
-    <select id="queryOrderDetail" parameterType="com.xzsd.pc.orderManage.entity.OrderDetail" resultType="com.xzsd.pc.orderManage.entity.OrderDetail">
+    <select id="queryOrderDetail" parameterType="com.xzsd.pc.order.entity.OrderDetail" resultType="com.xzsd.pc.order.entity.OrderDetail">
         select
             tOrder.user_code userCode,
             tOrderGoods.order_code orderCode,

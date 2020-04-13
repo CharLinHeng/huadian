@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xzsd.pc.goodclassification.dao.GoodClassifiDao">
-        
     <!--计数，是否含有同类名称的分了-->
     <select id="countClassName" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification" resultType="int">
         select count(*) from t_goods_classification_manage
@@ -38,8 +37,7 @@
     <!--新增二级分类-->
     <insert id="addSecondClass" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification">
         insert into
-          t_goods_classification_manage
-          (
+          t_goods_classification_manage(
             clas_code,
             clas_name,
             clas_rank,
@@ -112,11 +110,7 @@
             t_goods_classification_manage
         where
             clas_code = #{classCode}
-
     </select>
-
-
-
     <!--商品列表查询-->
     <select id="queryGoodClassList" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification"  resultType="com.xzsd.pc.goodclassification.entity.GoodClassification">
       select

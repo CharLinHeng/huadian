@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xzsd.pc.goodsManage.dao.GoodDao">
+<mapper namespace="com.xzsd.pc.goods.dao.GoodDao">
 
     <!--查询商品名称是否存在-->
-    <select id="countGood" parameterType="com.xzsd.pc.goodsManage.entity.Good" resultType="int">
-        select count(good_name)
+    <select id="countGood" parameterType="com.xzsd.pc.goods.entity.Good" resultType="int">
+        select
+            count(good_name)
         from
            t_good_manage
         where
             good_name = #{goodName}
     </select>
     <!--查询商品书号是否存在-->
-    <select id="countGoodBookSize" parameterType="com.xzsd.pc.goodsManage.entity.Good" resultType="int">
-        select count(good_isbn_bookSize)
+    <select id="countGoodBookSize" parameterType="com.xzsd.pc.goods.entity.Good" resultType="int">
+        select
+            count(good_isbn_bookSize)
         from
-           t_good_manage
+            t_good_manage
         where
             good_isbn_bookSize = #{goodIsbnBookSize}
     </select>
     <!--查询商品详情-->
-    <select id="queryDetail" resultType="com.xzsd.pc.goodsManage.entity.Good">
+    <select id="queryDetail" resultType="com.xzsd.pc.goods.entity.Good">
         select
           tgood.good_code goodCode,
           tgood.good_name goodName,
@@ -45,7 +47,7 @@
             tgood.good_second_clas = tclass.clas_code
     </select>
     <!--增加商品-->
-    <insert id="addGood" parameterType="com.xzsd.pc.goodsManage.entity.Good">
+    <insert id="addGood" parameterType="com.xzsd.pc.goods.entity.Good">
         INSERT INTO
             `t_good_manage`(
             `good_code`,
@@ -75,34 +77,34 @@
             )
          VALUES
         (
-           #{goodCode},
-           #{goodName},
-           #{goodPrice},
-           #{goodSellingPrice},
-           0,
-           #{goodSecondClas},
-           #{goodAd},
-           #{goodPrec},
-           2,
-           #{goodSaleTime},
-           #{goodSaleEnd},
-           0,
-           #{goodThroughNum},
-           #{goodLibSave},
-           #{goodAuthor},
-           #{goodCommodityPress},
-           #{goodIsbnBookSize},
-           #{goodImageUrl},
-           NOW(),
-           '',
-           #{createUser},
-           '',
-           0,
-           0
+            #{goodCode},
+            #{goodName},
+            #{goodPrice},
+            #{goodSellingPrice},
+            0,
+            #{goodSecondClas},
+            #{goodAd},
+            #{goodPrec},
+            2,
+            #{goodSaleTime},
+            #{goodSaleEnd},
+            0,
+            #{goodThroughNum},
+            #{goodLibSave},
+            #{goodAuthor},
+            #{goodCommodityPress},
+            #{goodIsbnBookSize},
+            #{goodImageUrl},
+            NOW(),
+            '',
+            #{createUser},
+            '',
+            0,
+            0
         )
     </insert>
     <!--删除商品-->
-    <update id="deleteGood" parameterType="com.xzsd.pc.goodsManage.entity.Good">
+    <update id="deleteGood" parameterType="com.xzsd.pc.goods.entity.Good">
         update
            t_good_manage
         set
@@ -114,7 +116,7 @@
           </foreach>
     </update>
     <!--修改商品-->
-    <update id="updateGood" parameterType="com.xzsd.pc.goodsManage.entity.Good">
+    <update id="updateGood" parameterType="com.xzsd.pc.goods.entity.Good">
         UPDATE
           `t_good_manage`
         SET
@@ -137,7 +139,7 @@
             `good_code`=#{goodCode}
     </update>
     <!--商品列表查询-->
-    <select id="queryGoodList" parameterType="com.xzsd.pc.goodsManage.entity.Good" resultType="com.xzsd.pc.goodsManage.entity.GoodList">
+    <select id="queryGoodList" parameterType="com.xzsd.pc.goods.entity.Good" resultType="com.xzsd.pc.goods.entity.GoodList">
         select
             tgood.good_code goodCode,
             tgood.good_name goodName,
@@ -185,7 +187,7 @@
         desc
     </select>
 <!--上架下架修改-->
-    <update id="updateGoodState" parameterType="com.xzsd.pc.goodsManage.entity.Good">
+    <update id="updateGoodState" parameterType="com.xzsd.pc.goods.entity.Good">
         update
             t_good_manage
         set
@@ -193,9 +195,8 @@
             update_user = #{updateUser}
         where
           good_code in
-          <foreach collection="listGoodCode" item="item"  open="(" separator="," close=")" index="index">
-              #{item}
-          </foreach>
-
+      <foreach collection="listGoodCode" item="item"  open="(" separator="," close=")" index="index">
+          #{item}
+      </foreach>
     </update>
 </mapper>
