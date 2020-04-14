@@ -1,6 +1,7 @@
 package com.xzsd.app.driver.dao;
 
 import com.xzsd.app.driver.entity.Driver;
+import com.xzsd.app.driver.entity.DriverVO;
 import com.xzsd.app.driver.entity.Store;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -25,4 +26,10 @@ public interface DriverDao {
      * @return
      */
     Store queryStoreDetail(@Param("storeCode")String storeCode);
+
+    /**
+     * 查询司机信息详情
+     * @return
+     */
+    DriverVO queryDriverInformationDetail(@Param("driverCode")String driverCode);
 }

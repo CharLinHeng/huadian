@@ -137,8 +137,8 @@
           <entry key="class" value="1" />
           <entry key="gradle" value="11" />
           <entry key="iml" value="1" />
-          <entry key="java" value="400" />
-          <entry key="xml" value="93" />
+          <entry key="java" value="401" />
+          <entry key="xml" value="94" />
           <entry key="yml" value="20" />
         </counts>
       </usages-collector>
@@ -147,8 +147,8 @@
           <entry key="CLASS" value="1" />
           <entry key="Groovy" value="11" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="400" />
-          <entry key="XML" value="93" />
+          <entry key="JAVA" value="401" />
+          <entry key="XML" value="94" />
           <entry key="YAML" value="20" />
         </counts>
       </usages-collector>
@@ -156,19 +156,19 @@
         <counts>
           <entry key="dummy" value="36" />
           <entry key="gradle" value="4" />
-          <entry key="java" value="20064" />
+          <entry key="java" value="20447" />
           <entry key="txt" value="31" />
-          <entry key="xml" value="8526" />
+          <entry key="xml" value="8644" />
           <entry key="yml" value="90" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="4" />
-          <entry key="JAVA" value="20064" />
+          <entry key="JAVA" value="20447" />
           <entry key="PLAIN_TEXT" value="67" />
-          <entry key="SQL" value="1560" />
-          <entry key="XML" value="6966" />
+          <entry key="SQL" value="1592" />
+          <entry key="XML" value="7052" />
           <entry key="YAML" value="90" />
         </counts>
       </usages-collector>
@@ -187,8 +187,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/dao/DriverDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="26" column="26" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="26" />
+            <state relative-caret-position="505">
+              <caret line="33" column="41" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -197,39 +197,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/service/DriverService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="562">
-              <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/controller/DriverController.java">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/DriverDaoMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="448">
-              <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="44" column="11" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/Driver.java">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/service/DriverService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
+            <state relative-caret-position="543">
+              <caret line="48" column="90" lean-forward="true" selection-start-line="48" selection-start-column="90" selection-end-line="48" selection-end-column="90" />
               <folding>
-                <element signature="e#856#857#0" expanded="true" />
-                <element signature="e#888#889#0" expanded="true" />
-                <element signature="e#938#939#0" expanded="true" />
-                <element signature="e#980#981#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -7152,7 +7134,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/orderManage/controller/OrderController.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/orderManage/dao/OrderDao.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/orderManage/entity/OrderQuery.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/orderManage/service/OrderService.java" />
@@ -7198,11 +7179,12 @@
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/StoreInvestDaoMapper.xml" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/storeInvest/service/StoreInvestService.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/Driver.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/controller/DriverController.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/passWord/entity/Store.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/dao/DriverDao.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/DriverDaoMapper.xml" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/service/DriverService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/controller/DriverController.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/dao/DriverDao.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/DriverVO.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/DriverDaoMapper.xml" />
       </list>
     </option>
   </component>
@@ -7415,13 +7397,14 @@
     <property name="SearchEverywhereHistoryKey" value="PasswordUtils&#9;PSI&#9;JAVA://com.neusoft.webauth.utils.PasswordUtils&#10;addInterCep&#9;PSI&#9;JAVA://com.xzsd.app.config.WebConfig#addInterceptors&#10;PageInterceptor&#9;PSI&#9;JAVA://com.github.pagehelper.autoconfigure.PageHelperAutoConfiguration#addPageInterceptor&#10;addInterceptors&#9;PSI&#9;JAVA://com.neusoft.support.sharding.config.WebConfig#addInterceptors&#10;addInter&#9;PSI&#9;JAVA://com.neusoft.job.config.WebConfig#addInterceptors" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586823408198" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586823934571" />
     <property name="dynamic.classpath" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.26551723" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
@@ -7646,12 +7629,12 @@
       <workItem from="1586398860988" duration="22110000" />
       <workItem from="1586501095769" duration="21248000" />
       <workItem from="1586583282617" duration="2965000" />
-      <workItem from="1586599582974" duration="78019000" />
+      <workItem from="1586599582974" duration="78581000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162372000" />
+    <option name="totallyTimeSpent" value="162934000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -7721,13 +7704,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/GoodBigThanLibs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/AddOrder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -8204,27 +8180,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/DriverDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/dao/DriverDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="26" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/controller/DriverController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="448">
-          <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+          <caret line="38" column="55" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -8233,11 +8192,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/service/DriverService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+        <state relative-caret-position="543">
+          <caret line="48" column="90" lean-forward="true" selection-start-line="48" selection-start-column="90" selection-end-line="48" selection-end-column="90" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/DriverVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/dao/DriverDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="33" column="41" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/DriverDaoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="44" column="11" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
         </state>
       </provider>
     </entry>

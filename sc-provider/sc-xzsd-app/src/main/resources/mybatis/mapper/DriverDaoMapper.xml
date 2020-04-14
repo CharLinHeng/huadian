@@ -39,4 +39,18 @@
         and
             tstore.shop_con_user = tuser.user_code
     </select>
+    <!--司机详情信息查询-->
+    <select id="queryDriverInformationDetail" parameterType="com.xzsd.app.driver.entity.DriverVO" resultType="com.xzsd.app.driver.entity.DriverVO">
+        select
+           name driverName,
+           phone driverPhone,
+           driver_image driverImageUrl,
+           driver_acc driverNickName
+        from
+            t_driver_information_manage
+        where
+            is_delete = 0
+        and
+            driver_code = #{driverCode}
+    </select>
 </mapper>

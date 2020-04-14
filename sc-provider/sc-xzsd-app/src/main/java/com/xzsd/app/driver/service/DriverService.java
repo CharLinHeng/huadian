@@ -2,6 +2,7 @@ package com.xzsd.app.driver.service;
 
 import com.xzsd.app.driver.dao.DriverDao;
 import com.xzsd.app.driver.entity.Driver;
+import com.xzsd.app.driver.entity.DriverVO;
 import com.xzsd.app.driver.entity.Store;
 import com.xzsd.app.util.ResponceData;
 import com.xzsd.app.util.ResponceDataState;
@@ -30,7 +31,7 @@ public class DriverService {
         }
         List<Driver> driverList = driverDao.queryDriverList(driver.getStoreCode());
         if(driverList.size() > 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"查询成功!",driverList);
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",driverList);
         }
         return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
     }
@@ -46,7 +47,23 @@ public class DriverService {
         }
         Store store1 = driverDao.queryStoreDetail(store.getStoreCode());
         if(null != store1){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"查询成功!",store1);
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",store1);
+        }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
+    }
+
+    /**
+     * 司机信息详情查询
+     * @param driverVO
+     * @return
+     */
+    public ResponceData queryDriverInformationDetail(DriverVO driverVO){
+        if(null == driverVO.getDriverCode() || driverVO.getDriverCode() == ""){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机编号为空!",null);
+        }
+        DriverVO driverVOOut = driverDao.queryDriverInformationDetail(driverVO.getDriverCode());
+        if(null != driverVOOut){
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",driverVOOut);
         }
         return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
     }
