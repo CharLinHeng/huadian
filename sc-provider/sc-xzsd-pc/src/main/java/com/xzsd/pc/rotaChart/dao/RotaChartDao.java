@@ -15,7 +15,14 @@ import java.util.List;
  */
 @Mapper
 public interface RotaChartDao {
-
+    /**
+     * 查询是否重复
+     * @param sort
+     * @param goodCode
+     * @param rotaChartCode
+     * @return
+     */
+    int countRepeat(@Param("rotaChartSort")int sort,@Param("goodCode")String goodCode,@Param("rotaChartCode")String rotaChartCode);
     /**
      * 轮播图新增
      * @param rotaChart

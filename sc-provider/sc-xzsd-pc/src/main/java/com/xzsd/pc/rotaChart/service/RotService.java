@@ -12,6 +12,11 @@ import com.xzsd.pc.util.ResponceListData;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.*;
+/**
+ * @Description 轮播图实现类
+ * @author zhongehcheng
+ * @date 2020-3-27
+ */
 @Service
 public class RotService {
     private ResponceData responceData;
@@ -27,6 +32,10 @@ public class RotService {
         //判断轮播图图片地址
         if(null == rotaChart.getRotaChartImageUrl() || rotaChart.getRotaChartImageUrl() == ""){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图图片地址参数缺失!",null);
+        }
+        //判断轮播图是否已经被选择或者位排序已存在
+        if(rotaChartDao.countRepeat(rotaChart.getRotaChartSort(),rotaChart.getGoodCode(),null) > 0){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图选择的图片已经存在或者 位排序 已存在 !",null);
         }
         int result = rotaChartDao.addRotaChart(rotaChart);
         if(result > 0 ){

@@ -38,13 +38,9 @@ public class GoodService {
     public ResponceData queryGoodDetail(Good good){
         Good goodOut = goodDao.queryDetail(good);
         if(null !=goodOut){
-            responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",goodOut);
-            return responceData;
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",goodOut);
         }
-        else{
-            responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
-            return responceData;
-        }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
     }
     /**
      *商品增加
@@ -54,13 +50,12 @@ public class GoodService {
     @Transactional(rollbackFor = Exception.class)
     public ResponceData addGood(Good good){
         //查询商品名称是否存在
-        int countGood_name = goodDao.countGood(good.getGoodName());
-        System.out.println(countGood_name);
+        int countGood_name = goodDao.countGood(good.getGoodName(),null);
         if(countGood_name>0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"商品名称已存在！",null);
         }
         //查询商品书号是否已经存在
-        int countGoodBookSIzeNum = goodDao.countGoodBookSize(good.getGoodIsbnBookSize());
+        int countGoodBookSIzeNum = goodDao.countGoodBookSize(good.getGoodIsbnBookSize(),null);
         if(countGoodBookSIzeNum>0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"商品书号已存在！",null);
         }
@@ -110,10 +105,24 @@ public class GoodService {
      * @return
      */
     public ResponceData updateGoo(Good good){
-        int result = goodDao.updateGood(good);
+        //判断参数
+        if(null == good.getGoodCode() || good.getGoodCode() == ""){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"商品编号参数为空!",null);
+        }
+        //判断是否重复 除了它自己本身
+        int result = goodDao.countGoodBookSize(good.getGoodIsbnBookSize(),good.getGoodCode());
+        if(result > 0){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"书号已经存在!",result);
+        }
+        //查询商品名称是否存在
+        int countGood_name = goodDao.countGood(good.getGoodName(),good.getGoodCode());
+        if(countGood_name>0){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"商品名称已存在！",null);
+        }
+        result = goodDao.updateGood(good);
         //如果数量
         if(result > 0){
-            responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"修改成功!",result);
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"修改成功!",result);
         }
         return new ResponceData(ResponceDataState.values()[3].getCode(),"修改失败!",result);
     }
@@ -134,7 +143,7 @@ public class GoodService {
         List<GoodList> goodsList = goodDao.queryGoodList(good);
         PageInfo<GoodList> pageData = new PageInfo<GoodList>(goodsList);
         if(pageData.getTotal() > 0 ){
-            responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",pageData);
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",pageData);
         }
         return new ResponceData(ResponceDataState.values()[3].getCode(),"查询失败!",null);
     }
@@ -153,7 +162,7 @@ public class GoodService {
         if(result > 0){
            return new ResponceData(ResponceDataState.values()[0].getCode(),"修改状态成功!",result);
         }
-        return responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"修改状态失败!",null);
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"修改状态失败!",null);
     }
 
     /**
@@ -162,7 +171,7 @@ public class GoodService {
      */
     public ResponceData queryFirstClass(){
         List<GoodClassifi>goodClassifiList = goodDao.queryFirstClass();
-        return responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",goodClassifiList);
+        return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",goodClassifiList);
     }
 
     /**
@@ -172,9 +181,9 @@ public class GoodService {
      */
     public ResponceData querySecondClass(GoodClassifi goodClassifi){
         if(null == goodClassifi.getClassCode() || goodClassifi.getClassCode() == ""){
-            return responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"父级编号参数未指定!",null);
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"父级编号参数未指定!",null);
         }
         List<GoodClassifi>goodClassifiList = goodDao.querySecondClass(goodClassifi.getClassCode());
-        return responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",goodClassifiList);
+        return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",goodClassifiList);
     }
 }

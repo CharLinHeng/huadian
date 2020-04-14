@@ -1,7 +1,7 @@
 package com.xzsd.pc.user.services;
-
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.xzsd.pc.util.PasswordUtils;
 import com.xzsd.pc.util.RandomCode;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,16 +9,11 @@ import com.xzsd.pc.user.dao.UserDao;
 import com.xzsd.pc.user.entity.User;
 import com.xzsd.pc.util.ResponceData;
 import com.xzsd.pc.util.ResponceDataState;
-
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
-
-import static com.neusoft.core.page.PageUtils.getPageInfo;
-
 /**
  * @DescriptionDemo 用户管理Service
  * @Author zhc
@@ -37,12 +32,11 @@ public class UserServices {
      * @Date 2020-03-24
      */
     public ResponceData queryUser(User user){
-            User appResponse = userDao.queryUserData(user);
-            if(null == appResponse){
-                responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空",null);
-                return responceData;
-            }
-            return  new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功",appResponse);
+        User appResponse = userDao.queryUserData(user);
+        if(null == appResponse){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空",null);
+        }
+        return  new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功",appResponse);
     }
     /**
      * 增加用户
@@ -78,9 +72,11 @@ public class UserServices {
             if(null == user.getDefaultImageUrl() || user.getDefaultImageUrl() ==""){
                 user.setDefaultImageUrl(RandomCode.defaultImageUrl());
             }
-            //如果有，返回结果
+            //密码加密
+            user.setUserPass(PasswordUtils.generatePassword(user.getUserPass()));
             int result = userDao.addUser(user);
-            if(result == 0){ //增加失败
+            //如果新增成功，返回结果
+            if(result == 0){
                 return new ResponceData(ResponceDataState.values()[3].getCode(),"增加失败",null);
             }
             return new ResponceData(ResponceDataState.values()[0].getCode(),"增加成功",null);

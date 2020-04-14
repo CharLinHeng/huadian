@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /**
- * 商品分类管理
- * zhc
- * 2020年4月4日15:03:01
+ * @DescriptionDemo 商品分类管理Service
+ * @Author zhonghecheng
+ * @Date 2020-03-27
  */
 @Service
 public class GoodClassifiService {
@@ -42,12 +42,12 @@ public class GoodClassifiService {
         //生成随机分类编号
          goodClassification.setClassCode(RandomCode.random_GoodClassifiCationCode());
          goodClassification.setCreateUser("administrator");
-        //插入
+        //新增
         int result = goodClassifiDao.addFirstClass(goodClassification);
         if(result >0){
-            responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",null);
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",null);
         }
-        return responceData = new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败!",null);
+        return  new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败!",null);
         //判断结果
     }
 
@@ -73,7 +73,7 @@ public class GoodClassifiService {
         goodClassification.setCreateUser("administrator");
         int result = goodClassifiDao.addSecondClass(goodClassification);
         if(result >0){
-            responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",null);
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",null);
         }
         return new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败!",null);
     }
@@ -157,7 +157,7 @@ public class GoodClassifiService {
     public ResponceData queryGoodClass(String code){
         //参数判定
         if(null == code || code.equals("")){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"参数缺失",null);
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"分类编号参数为空",null);
         }
         //查询
         GoodClassification goodClassification = goodClassifiDao.queryGoodClass(code);

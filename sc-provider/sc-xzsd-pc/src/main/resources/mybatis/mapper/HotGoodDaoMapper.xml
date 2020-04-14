@@ -2,15 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xzsd.pc.hotGood.dao.HotGoodDao">
 
-    <!--计数 商品未排序-->
-    <select id="countSort" parameterType="com.xzsd.pc.hotGood.entity.HotGood" resultType="int">
-       SELECT
-            count(*)
-        FROM
-            t_hot_goods_manage
-        WHERE
-            hot_good_sort = #{hotGoodSort}
-    </select>
     <!--增加-->
     <insert id="addHotGood" parameterType="com.xzsd.pc.hotGood.entity.HotGood">
        INSERT INTO t_hot_goods_manage(
@@ -33,7 +24,46 @@
             0
         );
     </insert>
+    <!--热门商品位删除-->
+    <update id="deleteHotGood" parameterType="com.xzsd.pc.hotGood.entity.HotGood">
+        update
+        t_hot_goods_manage
+        set
+        is_delete = 1,
+        update_user = #{updateUser}
+        where
+        hot_good_code in
+        <foreach collection="listHotCodes" item="item" open="(" separator="," close=")" index="index>">
+            #{item}
+        </foreach>
 
+    </update>
+    <!--计数 商品位排序,修改时需要排除他自己本身-->
+    <select id="countSort" parameterType="com.xzsd.pc.hotGood.entity.HotGood" resultType="int">
+        SELECT
+        count(*)
+        FROM
+        t_hot_goods_manage
+        WHERE
+        hot_good_sort = #{hotGoodSort}
+        <if test="hotGoodCode!=null and hotGoodCode !=''">
+            and  hot_good_code != #{hotGoodCode}
+        </if>
+    </select>
+    <!--商品 是否已经被选择 ,修改时需要排除他自己本身-->
+    <select id="countGoodIsSelecter" parameterType="com.xzsd.pc.hotGood.entity.HotGood" resultType="int">
+        select
+        count(*)
+        from
+        t_hot_goods_manage
+        where
+        good_code = #{goodCode}
+        and
+        is_delete = 0
+        <if test="hotGoodCode!=null and hotGoodCode !=''">
+            and  hot_good_code != #{hotGoodCode}
+        </if>
+    </select>
     <!--热门商品位新增之商品列表查询-->
     <select id="queryGoodsList" parameterType="com.xzsd.pc.hotGood.entity.HotGoodQuery" resultType="com.xzsd.pc.hotGood.entity.HotGoodQuery">
         select
@@ -54,6 +84,40 @@
         <if test="goodCode != null and goodCode != ''">
            and   tgood.good_code like concat('%',#{goodCode},'%')
         </if>
+        order by tgood.create_time desc
+    </select>
+    <!--热门商品位列表查询-->
+    <select id="queryHotGoodsList" parameterType="com.xzsd.pc.hotGood.entity.HotGoodList" resultType="com.xzsd.pc.hotGood.entity.HotGoodList">
+        select
+        thotgood.hot_good_sort hotGoodSort,
+        thotgood.hot_good_code hotGoodCode,
+        tgoods.good_code goodCode,
+        tgoods.good_name  goodName,
+        tgoods.good_price goodPrice,
+        tgoods.good_selling_price  goodPre
+        from
+        t_hot_goods_manage thotgood,
+        t_good_manage tgoods
+        where
+        thotgood.good_code = tgoods.good_code
+        and
+        thotgood.is_delete = 0
+        <if test="goodName != null and goodName !=''">
+            and  tgoods.good_name like concat('%',#{goodName},'%')
+        </if>
+        <if test="goodCode != null and goodCode !=''">
+            and  thotgood.good_code like concat('%',#{goodCode},'%')
+        </if>
+        order by thotgood.create_time desc
+    </select>
+    <!--热门商品位详情-->
+    <select id="queryHotGoodDetail" parameterType="com.xzsd.pc.hotGood.entity.HotGood" resultType="com.xzsd.pc.hotGood.entity.HotGoodDetail">
+        select
+            good_code goodCode,
+            hot_good_sort hotGoodSort
+        from t_hot_goods_manage
+        where
+            hot_good_code = #{hotGoodCode}
     </select>
     <!-- 热门商品位修改-->
     <update id="updateHotGood" parameterType="com.xzsd.pc.hotGood.entity.HotGood">
@@ -70,56 +134,8 @@
           and
             version =  CAST(#{version} AS SIGNED)
     </update>
-    <!--热门商品位删除-->
-    <update id="deleteHotGood" parameterType="com.xzsd.pc.hotGood.entity.HotGood">
-        update
-          t_hot_goods_manage
-        set
-          is_delete = 1,
-          update_user = #{updateUser}
-        where
-          hot_good_code in
-            <foreach collection="listHotCodes" item="item" open="(" separator="," close=")" index="index>">
-                #{item}
-            </foreach>
-
-    </update>
     <!--展示数量,如果没有，新增-->
     <insert id="showHotGoodsNum" parameterType="com.xzsd.pc.hotGood.entity.ShowNum">
         insert into t_hot_goods_show_num(id,num)values (#{id},#{hotGoodNum});
     </insert>
-    
-    <!--热门商品位列表查询-->
-    <select id="queryHotGoodsList" parameterType="com.xzsd.pc.hotGood.entity.HotGoodList" resultType="com.xzsd.pc.hotGood.entity.HotGoodList">
-        select
-            thotgood.hot_good_sort hotGoodSort,
-            thotgood.hot_good_code hotGoodCode,
-            tgoods.good_code goodCode,
-            tgoods.good_name  goodName,
-            tgoods.good_price goodPrice,
-            tgoods.good_selling_price  goodPre
-        from
-          t_hot_goods_manage thotgood,
-          t_good_manage tgoods
-        where
-        thotgood.good_code = tgoods.good_code
-        and
-          thotgood.is_delete = 0
-        <if test="goodName != null and goodName !=''">
-              and  tgoods.good_name like concat('%',#{goodName},'%')
-        </if>
-        <if test="goodCode != null and goodCode !=''">
-            and  thotgood.good_code like concat('%',#{goodCode},'%')
-        </if>
-    </select>
-    <!--热门商品位详情-->
-    <select id="queryHotGoodDetail" parameterType="com.xzsd.pc.hotGood.entity.HotGood" resultType="com.xzsd.pc.hotGood.entity.HotGoodDetail">
-        select
-            good_code goodCode,
-            hot_good_sort hotGoodSort
-        from t_hot_goods_manage
-        where
-            hot_good_code = #{hotGoodCode}
-    </select>
-    
 </mapper>

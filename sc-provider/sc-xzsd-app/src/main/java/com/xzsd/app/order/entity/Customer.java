@@ -124,4 +124,20 @@ public class Customer {
     public void setCustomerEmail(String customerEmail) {
         this.customerEmail = customerEmail;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerCode='" + customerCode + '\'' +
+                ", shopCode='" + shopCode + '\'' +
+                ", userCode='" + userCode + '\'' +
+                ", customerOrder='" + customerOrder + '\'' +
+                ", customerName='" + customerName + '\'' +
+                ", customerAcct='" + customerAcct + '\'' +
+                ", customerSex='" + customerSex + '\'' +
+                ", customerPhone='" + customerPhone + '\'' +
+                ", customerEmail='" + customerEmail + '\'' +
+                ", customerIdCard='" + customerIdCard + '\'' +
+                '}';
+    }
 }

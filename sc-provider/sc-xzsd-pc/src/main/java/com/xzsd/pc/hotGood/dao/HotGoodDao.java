@@ -15,7 +15,13 @@ import java.util.List;
  */
 @Mapper
 public interface HotGoodDao {
-    int countSort(@Param("hotGoodSort") int sort);
+    /**
+     * 判断商品是否重复位排序
+     * @param sort
+     * @param hotGoodCode
+     * @return
+     */
+    int countSort(@Param("hotGoodSort") int sort,@Param("hotGoodCode")String hotGoodCode);
     /**
      * 增加热门商品
      * @param hotGood
@@ -23,6 +29,12 @@ public interface HotGoodDao {
      */
     int addHotGood(HotGood hotGood);
 
+    /**
+     * 判断商品是否已经被选择
+     * @param goodCode
+     * @return
+     */
+    int countGoodIsSelecter(@Param("goodCode")String goodCode,@Param("hotGoodCode")String hotGoodCode);
     /**
      * 热门商品位新增之商品列表查询
      * @param goodName

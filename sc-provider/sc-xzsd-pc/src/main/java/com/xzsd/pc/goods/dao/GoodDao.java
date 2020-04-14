@@ -20,12 +20,12 @@ public interface GoodDao {
     /**
     *查询商品名称是否存在
      */
-    int countGood(@Param("good_name") String good_name);
+    int countGood(@Param("goodName") String good_name,@Param("goodCode")String goodCode);
     /**
      * 查询商品书号是否存在
      *
      */
-    int countGoodBookSize(@Param("good_isbn_bookSize") String bookSize);
+    int countGoodBookSize(@Param("goodIsbnBookSize") String bookSize,@Param("goodCode")String goodCode);
     /**
      *查询商品详情
      */
@@ -41,7 +41,7 @@ public interface GoodDao {
     /**
      *删除商品
      */
-    int deleteGoods(@Param("listGoodCode") List<String> goodCodes, @Param("update_user") String update_user);
+    int deleteGoods(@Param("listGoodCode") List<String> goodCodes, @Param("updateUser") String update_user);
     /**
      *商品列表查询
      */
@@ -57,7 +57,7 @@ public interface GoodDao {
     /**
      *商品上架下架修改
      */
-      int updateGoodState(@Param("listGoodCode") List<String> goodCodes, @Param("update_user") String updateUser, @Param("good_state") int good_state);
+      int updateGoodState(@Param("listGoodCode") List<String> goodCodes, @Param("updateUser") String updateUser, @Param("goodState") int good_state);
 
     /**
      * 消息队列 增加消息到数据库

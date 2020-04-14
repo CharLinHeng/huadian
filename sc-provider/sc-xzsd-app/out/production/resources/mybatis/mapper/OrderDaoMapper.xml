@@ -186,7 +186,7 @@
               now(),
               #{userCode},
               #{customerIdCard},
-              0,
+              0
             )
     </insert>
     <!--查询顾客信息-->

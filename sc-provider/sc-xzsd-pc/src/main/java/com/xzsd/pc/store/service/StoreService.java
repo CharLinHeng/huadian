@@ -17,14 +17,18 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.List;
-
+/**
+ * @DescriptionDemo 门店管理服务实现类
+ * @Author zhonghecheng
+ * @Date 2020-04-01
+ */
 @Service
 public class StoreService {
     private ResponceData responceData;
     @Resource
     private StoreDao storeDao;
     /**
-     * 插入门店
+     * 新增门店
      * @param store
      * @return
      */
@@ -72,9 +76,7 @@ public class StoreService {
         if(result > 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",result);
         }
-        else{
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败!",result);
-        }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败!",result);
     }
 
     /**
@@ -95,18 +97,13 @@ public class StoreService {
         }
         List<Dict> dictList = storeDao.queryCityOrDistrict(dict.getAreaCode());
         if(dictList.size() > 0){
-            String msg = "";
+            String msg = "区数据";
             if(dictList.get(0).getDictType().equals("2")){
                 msg = "市数据";
             }
-            else{
-                msg = "区数据";
-            }
             return new ResponceData(ResponceDataState.values()[3].getCode(),msg+"查询成功！",dictList);
         }
-        else{
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
-        }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
     }
 
     /**
@@ -160,10 +157,7 @@ public class StoreService {
         if(result > 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"修改成功！",result);
         }
-        else{
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"修改失败!",null);
-        }
-
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"修改失败!",null);
     }
 
     /**

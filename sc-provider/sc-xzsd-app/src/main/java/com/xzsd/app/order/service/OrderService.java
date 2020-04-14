@@ -99,6 +99,7 @@ public class OrderService {
                         customer.setCustomerCode(RandomCode.radmonkey());
                         customer.setUserCode(addOrder.getUserCode());
                         customer.setCustomerOrder(addOrder.getOrderCode());
+                        System.out.println(customer.toString());
                         result = orderDao.addCustomer(customer);
                         if(result > 0){
                             msg = msg + "新建客户成功!";

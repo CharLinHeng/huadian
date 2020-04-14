@@ -54,6 +54,26 @@
                 #{item}
           </foreach>
     </update>
+    <!--轮播图查询是否重复, 在修改轮播图时候，需要排除他自己-->
+    <select id="countRepeat" parameterType="com.xzsd.pc.rotaChart.entity.RotaChart" resultType="int">
+        select
+        count(*)
+        from
+        t_turns_images
+        where
+        is_delete = 0
+        and
+        (
+        rotaChart_sort = #{rotaChartSort}
+        or
+        rotaChart_point_good = #{goodCode}
+        )
+        and
+        now() between rotaChart_use_time and rotaChart_end_time
+        <if test="rotaChartCode != null and rotaChartCode != ''">
+            and rotaChart_code != #{rotaChartCode}
+        </if>
+    </select>
     <!--轮播图列表查询-->
     <select id="queryRotaChartList" parameterType="com.xzsd.pc.rotaChart.entity.RotaChart" resultType="com.xzsd.pc.rotaChart.entity.RotaChart">
           select
@@ -70,19 +90,8 @@
         <if test="rotaChartState != null and rotaChartState !=''">
              and  rotaChart_state = #{rotaChartState}
         </if>
+        order by create_time desc
     </select>
-    <!--轮播图启用禁用修改-->
-    <update id="updateRotaChartState" parameterType="com.xzsd.pc.rotaChart.entity.RotaChart" >
-        update
-          t_turns_images
-        set
-          rotaChart_state = #{rotaChartState}
-        where
-          rotaChart_code in
-          <foreach collection="list" index="index" open="(" close=")" separator="," item="item">
-                #{item}
-          </foreach>
-    </update>
     <!--轮播图新增之 商品编号列表查询-->
     <select id="querylistGoods2" parameterType="com.xzsd.pc.goods.entity.Good" resultType="com.xzsd.pc.goods.entity.Good">
         select
@@ -102,4 +111,16 @@
             and good_code like concat('%',#{good_code},'%')
         </if>
     </select>
+    <!--轮播图启用禁用修改-->
+    <update id="updateRotaChartState" parameterType="com.xzsd.pc.rotaChart.entity.RotaChart" >
+        update
+        t_turns_images
+        set
+        rotaChart_state = #{rotaChartState}
+        where
+        rotaChart_code in
+        <foreach collection="list" index="index" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+    </update>
 </mapper>

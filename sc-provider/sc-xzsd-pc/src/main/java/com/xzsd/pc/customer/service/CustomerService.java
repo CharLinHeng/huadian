@@ -11,7 +11,11 @@ import com.xzsd.pc.util.ResponceDataState;
 
 import javax.annotation.Resource;
 import java.util.List;
-
+/**
+ * @DescriptionDemo 顾客服务类
+ * @Author zhc
+ * @Date 2020-03-26
+ */
 @Service
 public class CustomerService {
     private ResponceData responceData;
@@ -23,11 +27,11 @@ public class CustomerService {
      * @return
      */
     public ResponceData queryCustomer(Customer customer){
-
+        //查询分页参数是否为空
         if(customer.getPageNum() == 0 || customer.getPageSize() == 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"页号或者页数量不能为空!",null);
         }
-        //从Redis中根据Token获取当前用户编号，由于登入没写，所以这里指定一个账号
+        //从Redis中根据Token获取当前用户编号，由于登入没写，所以这里指定一个账号进行测试
         String userCode = "20200324222651999548520399788214";
         //查询用户角色
         User queryUser = customerDao.queryCurrUser(customer.getUserCode());
@@ -42,8 +46,7 @@ public class CustomerService {
         PageInfo<Customer>customerPageInfo = new PageInfo<>(customerList);
         if(customerList.size() > 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",customerPageInfo);
-        }else{
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
         }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
     }
 }

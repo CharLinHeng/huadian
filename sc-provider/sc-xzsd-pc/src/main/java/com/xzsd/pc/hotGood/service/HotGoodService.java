@@ -15,7 +15,11 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.List;
-
+/**
+ * @DescriptionDemo 热门商品服务类
+ * @Author zhonghecheng
+ * @Date 2020-03-30
+ */
 @Service
 public class HotGoodService {
     private ResponceData responceData;
@@ -35,8 +39,12 @@ public class HotGoodService {
             return new ResponceData(ResponceDataState.values()[3].getCode(),"位排序需指定在大于0",null);
         }
         //增加之前，查看商品的未排序是否已经存在
-        if(hotGoodDao.countSort(hotGood.getHotGoodSort()) > 0 ){
+        if(hotGoodDao.countSort(hotGood.getHotGoodSort(),null) > 0 ){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"位排序已经存在!",null);
+        }
+        //判断是否已经被选择
+        if(hotGoodDao.countGoodIsSelecter(hotGood.getGoodCode(),null)>0){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"商品已经被选择!",null);
         }
         //增加
         hotGood.setHotGoodCode(RandomCode.radmonkey());
@@ -44,9 +52,7 @@ public class HotGoodService {
         if( result > 0 ){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",null);
         }
-        else{
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败!",null);
-        }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败!",null);
     }
 
     /**
@@ -56,14 +62,17 @@ public class HotGoodService {
      */
     public ResponceData queryGoodsList(HttpServletRequest httpServletRequestrequest, HotGoodQuery hotGoodQuery){
         //判断是否有参数
-        if(null == httpServletRequestrequest.getParameter("pageNum") || httpServletRequestrequest.getParameter("pageNum") =="" || Integer.parseInt(httpServletRequestrequest.getParameter("pageNum")) == 0){
+        if(null == httpServletRequestrequest.getParameter("pageNum") || httpServletRequestrequest.getParameter("pageNum") ==""
+                || Integer.parseInt(httpServletRequestrequest.getParameter("pageNum")) == 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"分页号不能为空或者为0!",null);
         }
-        if(null == httpServletRequestrequest.getParameter("pageSize") || httpServletRequestrequest.getParameter("pageSize") =="" || Integer.parseInt(httpServletRequestrequest.getParameter("pageSize")) == 0){
+        if(null == httpServletRequestrequest.getParameter("pageSize") || httpServletRequestrequest.getParameter("pageSize") ==""
+                || Integer.parseInt(httpServletRequestrequest.getParameter("pageSize")) == 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"分页显示数量不能为空或者为0!",null);
         }
         //查询
-        PageHelper.startPage(Integer.parseInt(httpServletRequestrequest.getParameter("pageNum")),Integer.parseInt(httpServletRequestrequest.getParameter("pageSize")));
+        PageHelper.startPage(Integer.parseInt(httpServletRequestrequest.getParameter("pageNum")),
+                Integer.parseInt(httpServletRequestrequest.getParameter("pageSize")));
         //设置
         List<HotGoodQuery> hotGoodQueryList = hotGoodDao.queryGoodsList(hotGoodQuery.getGoodName(),hotGoodQuery.getGoodCode());
         PageInfo<HotGoodQuery>hotGoodQueryPageInfo = new PageInfo<>(hotGoodQueryList);
@@ -91,8 +100,12 @@ public class HotGoodService {
             return new ResponceData(ResponceDataState.values()[3].getCode(),"缺失热门商品位排序参数!",null);
         }
         //检查 位排序是否已经存在
-        if(hotGoodDao.countSort(hotGood.getHotGoodSort())>0){
+        if(hotGoodDao.countSort(hotGood.getHotGoodSort(),hotGood.getHotGoodCode())>0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"位排序已经存在!",null);
+        }
+        //判断是否已经被选择,除了自己本身
+        if(hotGoodDao.countGoodIsSelecter(hotGood.getGoodCode(),hotGood.getHotGoodCode())>0){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"商品已经被选择!",null);
         }
         String msg = "";
         if(null == hotGood.getVersion() || hotGood.getVersion() == ""){
@@ -103,9 +116,7 @@ public class HotGoodService {
         if(result > 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"修改成功!",null);
         }
-        else{
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"修改失败!",null);
-        }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"修改失败!",null);
     }
 
     /**
@@ -126,9 +137,7 @@ public class HotGoodService {
         if(result > 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功!",result);
         }
-        else{
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败!",result);
-        }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败!",result);
     }
 
     /**
@@ -146,9 +155,7 @@ public class HotGoodService {
         if(result > 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"更改成功!",result);
         }
-        else{
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"更改失败",result);
-        }
+        return new ResponceData(ResponceDataState.values()[0].getCode(),"更改失败",result);
     }
 
     /**
@@ -169,9 +176,7 @@ public class HotGoodService {
         if(hotGoodLists.size() == 0){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"查询为空!",null);
         }
-        else{
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",hotGoodListPageInfo);
-        }
+        return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",hotGoodListPageInfo);
     }
 
     /**
@@ -187,8 +192,6 @@ public class HotGoodService {
         if(null == hotGoodDetail){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空",null);
         }
-        else{
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功",hotGoodDetail);
-        }
+        return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功",hotGoodDetail);
     }
 }

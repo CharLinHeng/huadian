@@ -45,6 +45,27 @@
         <if test="userRole == 1">
             and tstore.shop_con_user = #{userCode}
         </if>
+        order by torder.create_time desc
+    </select>
+    <!--订单详情查询[多个商品,所以也是列表]-->
+    <select id="queryOrderDetail" parameterType="com.xzsd.pc.order.entity.OrderDetail" resultType="com.xzsd.pc.order.entity.OrderDetail">
+        select
+            tOrder.user_code userCode,
+            tOrderGoods.order_code orderCode,
+            tOrderGoods.good_code goodCode,
+            tOrderGoods.orderG_name goodName,
+            tOrderGoods.orderG_num goodNum,
+            tOrderGoods.orderG_Count goodCount,
+            tOrderGoods.orderG_price goodPrice,
+            tOrderGoods.orderG_s_price goodSalePri
+        from
+            t_order_ordergoods tOrderGoods,
+            t_order_manage tOrder
+        where
+            tOrderGoods.order_code = tOrder.order_code
+        and
+            tOrderGoods.order_code = #{orderCode}
+        order by tOrder.create_time desc
     </select>
     <!--订单状态修改-->
     <update id="updateOrderState" parameterType="com.xzsd.pc.order.entity.OrderUpdate">
@@ -63,24 +84,4 @@
               #{item}
           </foreach>
     </update>
-
-    <!--订单详情查询-->
-    <select id="queryOrderDetail" parameterType="com.xzsd.pc.order.entity.OrderDetail" resultType="com.xzsd.pc.order.entity.OrderDetail">
-        select
-            tOrder.user_code userCode,
-            tOrderGoods.order_code orderCode,
-            tOrderGoods.good_code goodCode,
-            tOrderGoods.orderG_name goodName,
-            tOrderGoods.orderG_num goodNum,
-            tOrderGoods.orderG_Count goodCount,
-            tOrderGoods.orderG_price goodPrice,
-            tOrderGoods.orderG_s_price goodSalePri
-        from
-            t_order_ordergoods tOrderGoods,
-            t_order_manage tOrder
-        where
-            tOrderGoods.order_code = tOrder.order_code
-        and
-            tOrderGoods.order_code = #{orderCode}
-    </select>
 </mapper>

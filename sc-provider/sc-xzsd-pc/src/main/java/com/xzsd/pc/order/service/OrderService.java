@@ -1,18 +1,21 @@
 package com.xzsd.pc.order.service;
-
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xzsd.pc.customer.dao.CustomerDao;
+import com.xzsd.pc.customer.entity.User;
 import org.springframework.stereotype.Service;
 import com.xzsd.pc.order.dao.OrderDao;
 import com.xzsd.pc.order.entity.*;
 import com.xzsd.pc.util.ResponceData;
 import com.xzsd.pc.util.ResponceDataState;
-
 import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
-
+/**
+ * @Description 订单服务实现类
+ * @author zhc
+ * @date 2020-3-31
+ */
 @Service
 public class OrderService {
     private ResponceData responceData;
@@ -31,10 +34,11 @@ public class OrderService {
             return new ResponceData(ResponceDataState.values()[3].getCode(),"页号或者页数量不能为空!",null);
         }
         //从Redis中根据token获取用户编号,然后根据用户编号进行获取角色
-        //因为还没弄登入，所以这里指定一个账户
+        //因为还没写登入，所以这里指定一个账户
         String userCode = "20200324222349013251934814478747";
-        orderQuery.setUserCode(customerDao.queryCurrUser(userCode).getUserCode());
-        orderQuery.setUserRole(customerDao.queryCurrUser(userCode).getUserRole());
+        User user = customerDao.queryCurrUser(userCode);
+        orderQuery.setUserCode(user.getUserCode());
+        orderQuery.setUserRole(user.getUserRole());
         //查询
         PageHelper.startPage(orderQuery.getPageNum(),orderQuery.getPageSize());
         List<Order>orderList = orderDao.queryOrderList(orderQuery);
@@ -42,9 +46,8 @@ public class OrderService {
         //返回
         if(orderList.size() > 0 ){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功1!",orderPageInfo);
-        }else{
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
         }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
     }
     /**
      * 订单状态修改
@@ -72,9 +75,8 @@ public class OrderService {
         int result = orderDao.updateOrderState(stringList,Integer.parseInt(orderUpdate.getOrderState()),orderUpdate.getUpdateUser(),orderUpdate.getVersion());
         if(result > 0 ){
             return new ResponceData(ResponceDataState.values()[0].getCode(),"修改成功!",result);
-        }else{
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"修改失败!"+msg,result);
         }
+        return new ResponceData(ResponceDataState.values()[0].getCode(),"修改失败!"+msg,result);
     }
     /**
      * 3订单详情查询
@@ -97,8 +99,6 @@ public class OrderService {
         if(orderDetailList.size() == 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
         }
-        else{
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",orderDetailPageInfo);
-        }
+        return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",orderDetailPageInfo);
     }
 }

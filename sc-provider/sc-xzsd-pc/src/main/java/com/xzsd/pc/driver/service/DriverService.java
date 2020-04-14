@@ -6,6 +6,7 @@ import com.xzsd.pc.customer.dao.CustomerDao;
 import com.xzsd.pc.customer.entity.User;
 import com.xzsd.pc.driver.dao.DriverDao;
 import com.xzsd.pc.driver.entity.*;
+import com.xzsd.pc.util.PasswordUtils;
 import com.xzsd.pc.util.RandomCode;
 import com.xzsd.pc.util.ResponceData;
 import com.xzsd.pc.util.ResponceDataState;
@@ -17,7 +18,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 司机
+ * @DescriptionDemo 司机服务类
+ * @Author zhonghecheng
+ * @Date 2020-03-29
  */
 @Service
 public class DriverService {
@@ -68,7 +71,8 @@ public class DriverService {
         }
         //给司机随机生成编号
         driver.setDriverCode(RandomCode.radmonkey());
-        //密码md5加密,后面认证再说
+        //密码md5加密
+        driver.setDriverPass(PasswordUtils.generatePassword(driver.getDriverPass()));
         //新增
         int result = driverDao.addDriver(driver);
         //结果
@@ -146,9 +150,6 @@ public class DriverService {
             return new ResponceData(ResponceDataState.values()[3].getCode(),"司机编号不能为空！",null);
         }
         List<String> listCodes = Arrays.asList(updateDriver.getDriverCode().split(","));
-        if(listCodes.size() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"编号不能为空！",null);
-        }
         //删除
         int result = driverDao.deleteDriver(listCodes,updateDriver.getUpdateUser());
         //结果
@@ -173,7 +174,6 @@ public class DriverService {
         }
         return new ResponceData(ResponceDataState.values()[3].getCode(),"查询失败！",null);
     }
-
 
     /**
      * 司机信息列表查询

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzsd.app.driver.dao.DriverDao">
+    <select id="queryDriverList" parameterType="com.xzsd.app.driver.entity.Driver" resultType="com.xzsd.app.driver.entity.Driver">
+        select
+            tdriver.driver_code driverCode,
+            tdriver.name driverName,
+            tdriver.phone driverPhone
+        from
+            t_store_information tstore,
+            t_driver_information_manage tdriver
+        where
+            tdriver.is_delete = 0
+        and
+            tstore.shop_code = #{storeCode}
+        and
+            tstore.provinceCode = tdriver.provinceCode
+        and
+            tstore.cityCode = tdriver.cityCode
+        and
+            tstore.distinctCode = tdriver.distinctCode
+    </select>
+    <!--店长信息查询-->
+    
+</mapper>
