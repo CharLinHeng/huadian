@@ -1,6 +1,7 @@
 package com.xzsd.app.driver.controller;
 
 import com.xzsd.app.driver.entity.Driver;
+import com.xzsd.app.driver.entity.Store;
 import com.xzsd.app.driver.service.DriverService;
 import com.xzsd.app.passWord.entity.PassWord;
 import com.xzsd.app.passWord.service.PassWordService;
@@ -28,6 +29,14 @@ public class DriverController {
     public ResponceData queryDriverList(Driver driver){
         try{
             return driverService.queryDriverList(driver);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+    @PostMapping("queryStoreDetail")
+    public ResponceData queryStoreDetail(Store store){
+        try{
+            return driverService.queryStoreDetail(store);
         }catch (Exception e){
             throw e;
         }

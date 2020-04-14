@@ -2,6 +2,7 @@ package com.xzsd.app.driver.service;
 
 import com.xzsd.app.driver.dao.DriverDao;
 import com.xzsd.app.driver.entity.Driver;
+import com.xzsd.app.driver.entity.Store;
 import com.xzsd.app.util.ResponceData;
 import com.xzsd.app.util.ResponceDataState;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,22 @@ public class DriverService {
         List<Driver> driverList = driverDao.queryDriverList(driver.getStoreCode());
         if(driverList.size() > 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"查询成功!",driverList);
+        }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
+    }
+
+    /**
+     * 门店信息详情查询
+     * @param store
+     * @return
+     */
+    public ResponceData queryStoreDetail(Store store){
+        if(null == store.getStoreCode() || store.getStoreCode() == ""){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"门店编号为空!",null);
+        }
+        Store store1 = driverDao.queryStoreDetail(store.getStoreCode());
+        if(null != store1){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"查询成功!",store1);
         }
         return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
     }

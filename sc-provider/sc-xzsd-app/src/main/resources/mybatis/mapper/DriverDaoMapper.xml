@@ -21,5 +21,22 @@
             tstore.distinctCode = tdriver.distinctCode
     </select>
     <!--店长信息查询-->
-    
+    <select id="queryStoreDetail" resultType="com.xzsd.app.driver.entity.Store" parameterType="com.xzsd.app.driver.entity.Store">
+        select
+            tstore.shop_name storeName,
+            tstore.shop_detail_address storeAddress,
+            tstore.shop_invest_code storeInvitation,
+            tuser.user_name userCode,
+            tuser.user_image userImageUrl,
+            tuser.user_name userName
+       from
+            t_store_information tstore,
+            t_user_infomation tuser
+        where
+            tstore.is_delete = 0
+        and
+            tstore.shop_code = #{storeCode}
+        and
+            tstore.shop_con_user = tuser.user_code
+    </select>
 </mapper>
