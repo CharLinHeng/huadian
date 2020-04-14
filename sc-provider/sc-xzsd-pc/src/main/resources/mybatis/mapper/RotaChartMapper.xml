@@ -90,7 +90,7 @@
         <if test="rotaChartState != null and rotaChartState !=''">
              and  rotaChart_state = #{rotaChartState}
         </if>
-        order by create_time desc
+        order by rotaChart_sort desc
     </select>
     <!--轮播图新增之 商品编号列表查询-->
     <select id="querylistGoods2" parameterType="com.xzsd.pc.goods.entity.Good" resultType="com.xzsd.pc.goods.entity.Good">
@@ -104,11 +104,13 @@
             t_good_manage
         where
             is_delete = 0
-        <if test="good_name !=null and good_name !=''">
-            and good_name like concat('%',#{good_name},'%')
+        and
+            good_state = 1
+        <if test="goodName !=null and goodName !=''">
+            and good_name like concat('%',#{goodName},'%')
         </if>
-        <if test="good_code !=null and good_code !=''">
-            and good_code like concat('%',#{good_code},'%')
+        <if test="goodCode !=null and goodCode !=''">
+            and good_code like concat('%',#{goodCode},'%')
         </if>
     </select>
     <!--轮播图启用禁用修改-->

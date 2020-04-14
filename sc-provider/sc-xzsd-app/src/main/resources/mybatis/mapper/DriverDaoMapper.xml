@@ -53,4 +53,73 @@
         and
             driver_code = #{driverCode}
     </select>
+    <!--司机负责运送的区域查询-->
+    <select id="queryDriverResponsibleList" parameterType="com.xzsd.app.driver.entity.DriverResponsibleArea" resultType="com.xzsd.app.driver.entity.DriverResponsibleArea" >
+        select
+            tdriver.provinceCode provinceCode,
+            tdriver.cityCode cityCode,
+            tdriver.distinctCode distinctCode,
+            tstore.shop_detail_address tfriverdetailAddress,
+            tstore.shop_name storeName,
+            tuser.user_name userName,
+            tuser.user_phone userPhone
+        from
+            t_store_information tstore,
+            t_driver_information_manage tdriver,
+            t_user_infomation tuser
+        where
+            tstore.shop_con_user = tuser.user_code
+        and
+            tstore.is_delete = 0
+        and
+            tdriver.provinceCode = tstore.provinceCode
+        and
+            tdriver.cityCode = tstore.cityCode
+        and
+            tdriver.distinctCode = tstore.distinctCode
+        and
+            tdriver.driver_code = #{driverCode}
+    </select>
+    <!--查询省市区编号对应的省市区名称-->
+    <select id="queryPCD" parameterType="com.xzsd.app.driver.entity.DriverResponsibleArea" resultType="com.xzsd.app.driver.entity.AreaName">
+     SELECT
+            datas.name1 driverProvinceName,
+            datas.name2 driverCityName,
+            datas.dict_name driverDistinctName
+        FROM
+            t_driver_information_manage tdriver
+        RIGHT JOIN (
+            SELECT
+                t3.name1,
+                t3.code1,
+                t3.name2,
+                t3.code2,
+                t4.dict_name,
+                t4.dict_code
+            FROM
+                (
+                    SELECT
+                        t1.dict_code code1,
+                        t1.dict_name name1,
+                        t1.dict_parent_node parentcode1,
+                        t2.dict_code code2,
+                        t2.dict_name name2,
+                        t2.dict_parent_node parentcode2
+                    FROM
+                        t_dict t1
+                    LEFT JOIN t_dict t2 ON t1.dict_code = t2.dict_parent_node
+                    WHERE
+                        t1.dict_parent_node IS NULL
+                ) t3
+            LEFT JOIN t_dict t4 ON t3.code2 = t4.dict_parent_node
+        ) datas ON tdriver.is_delete = 0
+        AND tdriver.provinceCode = #{provinceCode}
+        AND tdriver.cityCode = #{cityCode}
+        AND tdriver.distinctCode = #{distinctCode}
+        AND tdriver.provinceCode = datas.code1
+        AND tdriver.cityCode = datas.code2
+        AND tdriver.distinctCode = datas.dict_code
+        HAVING
+            driverName IS NOT NULL
+    </select>
 </mapper>

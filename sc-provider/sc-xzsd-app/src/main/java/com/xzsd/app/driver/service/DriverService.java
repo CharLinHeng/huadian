@@ -2,6 +2,7 @@ package com.xzsd.app.driver.service;
 
 import com.xzsd.app.driver.dao.DriverDao;
 import com.xzsd.app.driver.entity.Driver;
+import com.xzsd.app.driver.entity.DriverResponsibleArea;
 import com.xzsd.app.driver.entity.DriverVO;
 import com.xzsd.app.driver.entity.Store;
 import com.xzsd.app.util.ResponceData;
@@ -67,4 +68,23 @@ public class DriverService {
         }
         return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
     }
+
+    /**
+     * 司机负责门店信息查询
+     * @param driverResponsibleArea
+     * @return
+     */
+    public ResponceData queryDriverInformationDetail(DriverResponsibleArea driverResponsibleArea){
+        //判断司机编号参数
+        if(null == driverResponsibleArea.getDriverCode() || driverResponsibleArea.getDriverCode() == ""){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机编号为空!",null);
+        }
+        //查询初步信息
+        List<DriverResponsibleArea> driverResponsibleAreas = driverDao.queryDriverResponsibleList(driverResponsibleArea.getDriverCode());
+        //将省市区编号和详细地址整合
+
+        //判断结果
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
+    }
+
 }

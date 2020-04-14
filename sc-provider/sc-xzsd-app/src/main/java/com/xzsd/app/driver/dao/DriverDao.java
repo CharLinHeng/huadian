@@ -1,8 +1,6 @@
 package com.xzsd.app.driver.dao;
 
-import com.xzsd.app.driver.entity.Driver;
-import com.xzsd.app.driver.entity.DriverVO;
-import com.xzsd.app.driver.entity.Store;
+import com.xzsd.app.driver.entity.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -32,4 +30,18 @@ public interface DriverDao {
      * @return
      */
     DriverVO queryDriverInformationDetail(@Param("driverCode")String driverCode);
+
+    /**
+     * 司机负责区域查询
+     * @param driverCode
+     * @return
+     */
+    List<DriverResponsibleArea>queryDriverResponsibleList(@Param("driverCode")String driverCode);
+
+    /**
+     * 查询省市区对应的名称
+     * @return
+     */
+    List<AreaName>queryPCD(List<DriverResponsibleArea>driverResponsibleAreaList);
+
 }

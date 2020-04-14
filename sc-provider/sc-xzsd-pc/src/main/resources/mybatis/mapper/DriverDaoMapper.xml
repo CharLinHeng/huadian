@@ -52,11 +52,6 @@
     <!--司机信息详情查询-->
     <select id="queryDriverDetail" parameterType="com.xzsd.pc.driver.entity.UpdateDriver" resultType="com.xzsd.pc.driver.entity.DriverDetail">
       SELECT
-        tdriver.NAME driverName,
-        tdriver.phone driverPhone,
-        tdriver.driver_acc driverAcct,
-        tdriver.driver_pass driverPass,
-        tdriver.driver_idcard driverIdCard,
         datas.name1 driverProvinceName,
         datas.name2 driverCityName,
         datas.dict_name driverDistinctName
@@ -166,4 +161,5 @@
         and
           `driver_code` = #{driverCode}
     </update>
+    <!--省市区编号变成对应名称-->
 </mapper>
