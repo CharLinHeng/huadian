@@ -1,6 +1,7 @@
 package com.xzsd.app.driver.controller;
 
 import com.xzsd.app.driver.entity.Driver;
+import com.xzsd.app.driver.entity.DriverResponsibleArea;
 import com.xzsd.app.driver.entity.Store;
 import com.xzsd.app.driver.service.DriverService;
 import com.xzsd.app.passWord.entity.PassWord;
@@ -33,10 +34,30 @@ public class DriverController {
             throw e;
         }
     }
+
+    /**
+     * 门店详情查询
+     * @param store
+     * @return
+     */
     @PostMapping("queryStoreDetail")
     public ResponceData queryStoreDetail(Store store){
         try{
             return driverService.queryStoreDetail(store);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+    /**
+     * 司机负责门店查询
+     * @param driverResponsibleArea
+     * @return
+     */
+    @PostMapping("queryDriverResponsibleList")
+    public ResponceData queryDriverResponsibleList(DriverResponsibleArea driverResponsibleArea){
+        try{
+            return driverService.queryDriverInformationDetail(driverResponsibleArea);
         }catch (Exception e){
             throw e;
         }

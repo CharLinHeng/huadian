@@ -119,4 +119,19 @@ public class OrderService {
         //判断结果
         return new ResponceData(ResponceDataState.values()[3].getCode(),"新增订单失败",null);
     }
+
+    /**
+     * app端-用户-查询订单详情
+     * @return
+     */
+    public ResponceData queryOrderDetail(OrderDetail orderDetail){
+        if(null == orderDetail.getOrderCode() || orderDetail.getOrderCode() == ""){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"订单编号为空!",null);
+        }
+        OrderDetail orderDetailOut = orderDao.queryOrderDetail(orderDetail.getOrderCode());
+        if(null != orderDetailOut.getOrderCode()){
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询订单成功!",orderDetailOut);
+        }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询订单失败",null);
+    }
 }

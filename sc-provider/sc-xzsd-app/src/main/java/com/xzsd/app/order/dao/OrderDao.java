@@ -70,4 +70,11 @@ public interface OrderDao {
      * @return
      */
     Customer queryCustomerData(@Param("userCode")String userCode);
+
+    /**
+     * 订单编号
+     * @param orderCode
+     * @return
+     */
+    OrderDetail queryOrderDetail(@Param("orderCode")String orderCode);
 }

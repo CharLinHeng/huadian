@@ -37,11 +37,14 @@ public interface DriverDao {
      * @return
      */
     List<DriverResponsibleArea>queryDriverResponsibleList(@Param("driverCode")String driverCode);
-
     /**
      * 查询省市区对应的名称
      * @return
      */
-    List<AreaName>queryPCD(List<DriverResponsibleArea>driverResponsibleAreaList);
+    AreaName queryPCD(DriverResponsibleArea driverResponsibleAreaList);
 
+    /**
+     * 司机信息查询
+     * @return
+     */
 }

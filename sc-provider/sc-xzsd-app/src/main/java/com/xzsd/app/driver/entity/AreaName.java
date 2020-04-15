@@ -49,4 +49,14 @@ public class AreaName {
     public void setDetailAddress(String detailAddress) {
         this.detailAddress = detailAddress;
     }
+
+    @Override
+    public String toString() {
+        return "AreaName{" +
+                "ProvinceName='" + ProvinceName + '\'' +
+                ", cityName='" + cityName + '\'' +
+                ", distinctName='" + distinctName + '\'' +
+                ", detailAddress='" + detailAddress + '\'' +
+                '}';
+    }
 }

@@ -89,7 +89,7 @@
               tcart.good_num = tgood.good_lib_save
           where
               tgood.is_delete = 0
-        and
+          and
               tcart.good_code = tgood.good_code
           and
               tcart.cart_code in
@@ -207,4 +207,55 @@
         and
             tuser.user_code = #{userCode}
     </select>
+
+
+    <!--订单编号-->
+    <select id="queryOrderDetail" parameterType="com.xzsd.app.order.entity.OrderDetail" resultMap="queryOrderDetailResultMap">
+        select
+           torder.order_code,
+           torder.create_time,
+           torder.order_state,
+           tstore.shop_name
+--            ++ deliveryAddress,
+        from
+            t_order_manage torder,
+--             t_dict tdict,
+            t_store_bind tbind,
+            t_store_information tstore
+        where
+            torder.order_code = #{orderCode}
+         and
+            tbind.user_code = torder.user_code
+        and
+            tstore.shop_code = tbind.shop_code
+         and
+            torder.is_delete = 0
+    </select>
+    <!--根据门店编号获取对应的省市区名称以及详细地址-->
+    <!--collection select-->
+    <select id="selectList" parameterType="com.xzsd.app.order.entity.OrderDetail" resultType="com.xzsd.app.order.entity.OrderDetailGoodsList">
+        select
+            tgoods.good_code goodCode,
+            tgoods.orderG_name goodName,
+            tgoods.orderG_s_price goodSale,
+            tgoods.orderG_price goodPrec,
+            tgoods.orderG_num goodNum,
+            tgoods.orderG_image goodImageUrl
+        from
+            t_order_ordergoods tgoods
+        where
+            tgoods.order_code = #{orderCode}
+        and
+            tgoods.is_delete = 0
+    </select>
+    <!--映射resultMapp-->
+    <resultMap id="queryOrderDetailResultMap" type="com.xzsd.app.order.entity.OrderDetail">
+        <id property="orderCode" column="order_code"/>
+        <result property="orderCreateTime" column="create_time"/>
+        <result property="orderState" column="order_state"/>
+        <result property="deliveryStore" column="shop_name"/>
+        <collection property="orderGoodsList" javaType="list"  column="orderCode=torder.order_code"  select="selectList" ofType="com.xzsd.app.order.entity.OrderDetailGoodsList">
+        </collection>
+    </resultMap>
+
 </mapper>

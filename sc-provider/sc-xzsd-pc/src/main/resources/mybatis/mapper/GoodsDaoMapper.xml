@@ -123,31 +123,31 @@
     <!--商品列表查询-->
     <select id="queryGoodList" parameterType="com.xzsd.pc.goods.entity.Good" resultType="com.xzsd.pc.goods.entity.GoodList">
         select
-        tgood.good_code goodCode,
-        tgood.good_name goodName,
-        tgood.good_price goodPrice,
-        tgood.good_selling_price goodSellingPrice,
-        tgood.good_saleNum goodSaleNum,
-        tclassFitst.clas_name goodFirstClasName,
-        tclass.clas_name goodSecondClasName,
-        tgood.good_prec goodPrec,
-        tgood.good_sale_time goodSaleTime,
-        tgood.good_through_num goodThroughNum,
-        tgood.good_state goodState,
-        tgood.good_ad goodAd,
-        tgood.good_commodity_press goodCommodityPress,
-        tgood.good_author goodAuthor,
-        tgood.good_isbn_bookSize goodIsbnBookSize
+            tgood.good_code goodCode,
+            tgood.good_name goodName,
+            tgood.good_price goodPrice,
+            tgood.good_selling_price goodSellingPrice,
+            tgood.good_saleNum goodSaleNum,
+            tclassFitst.clas_name goodFirstClasName,
+            tclass.clas_name goodSecondClasName,
+            tgood.good_prec goodPrec,
+            tgood.good_sale_time goodSaleTime,
+            tgood.good_through_num goodThroughNum,
+            tgood.good_state goodState,
+            tgood.good_ad goodAd,
+            tgood.good_commodity_press goodCommodityPress,
+            tgood.good_author goodAuthor,
+            tgood.good_isbn_bookSize goodIsbnBookSize
         from
-        t_good_manage tgood,
-        t_goods_classification_manage tclass,
+            t_good_manage tgood,
+            t_goods_classification_manage tclass,
         (select clas_code,clas_name from t_goods_classification_manage)tclassFitst
         where
-        tgood.is_delete = 0
+            tgood.is_delete = 0
         and
-        tgood.good_second_clas = tclass.clas_code
+            tgood.good_second_clas = tclass.clas_code
         and
-        tclass.parent_node = tclassFitst.clas_code
+            tclass.parent_node = tclassFitst.clas_code
         <if test="goodName !=null and goodName !=''">
             and tgood.good_name like concat('%',#{goodName},'%')
         </if>
