@@ -1,51 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xzsd.pc.goodsManage.dao.GoodDao">
-
-    <!--查询商品名称是否存在-->
-    <select id="countGood" parameterType="com.xzsd.pc.goodsManage.entity.Good" resultType="int">
-        select count(good_name)
-        from
-           t_good_manage
-        where
-            good_name = #{goodName}
-    </select>
-    <!--查询商品书号是否存在-->
-    <select id="countGoodBookSize" parameterType="com.xzsd.pc.goodsManage.entity.Good" resultType="int">
-        select count(good_isbn_bookSize)
-        from
-           t_good_manage
-        where
-            good_isbn_bookSize = #{goodIsbnBookSize}
-    </select>
-    <!--查询商品详情-->
-    <select id="queryDetail" resultType="com.xzsd.pc.goodsManage.entity.Good">
-        select
-          tgood.good_code goodCode,
-          tgood.good_name goodName,
-          tgood.good_isbn_bookSize goodIsbnBookSize,
-          tclass.parent_node goodFirstClas,
-          tgood.good_second_clas goodSecondClas,
-          tgood.good_ad goodAd,
-          tgood.good_prec goodPrec,
-          tgood.good_commodity_press goodCommodityPress,
-          tgood.good_author goodAuthor,
-          tgood.good_lib_save goodLibSave,
-          tgood.good_price goodPrice,
-          tgood.good_selling_price goodSellingPrice,
-          tgood.good_image_url goodImageUrl
-        from
-           t_good_manage tgood,
-           t_goods_classification_manage tclass
-        where
-            tgood.good_code = #{goodCode}
-        and
-            tgood.is_delete = 0
-        and
-            tgood.good_second_clas = tclass.clas_code
-    </select>
+<mapper namespace="com.xzsd.pc.goods.dao.GoodDao">
     <!--增加商品-->
-    <insert id="addGood" parameterType="com.xzsd.pc.goodsManage.entity.Good">
+    <insert id="addGood" parameterType="com.xzsd.pc.goods.entity.Good">
         INSERT INTO
             `t_good_manage`(
             `good_code`,
@@ -71,73 +28,105 @@
             `create_user`,
             `update_user`,
             `is_delete`,
-            `version`
+            `version`,
+            `good_store_name`
             )
          VALUES
         (
-           #{goodCode},
-           #{goodName},
-           #{goodPrice},
-           #{goodSellingPrice},
-           0,
-           #{goodSecondClas},
-           #{goodAd},
-           #{goodPrec},
-           2,
-           #{goodSaleTime},
-           #{goodSaleEnd},
-           0,
-           #{goodThroughNum},
-           #{goodLibSave},
-           #{goodAuthor},
-           #{goodCommodityPress},
-           #{goodIsbnBookSize},
-           #{goodImageUrl},
-           NOW(),
-           '',
-           #{createUser},
-           '',
-           0,
-           0
+            #{goodCode},
+            #{goodName},
+            #{goodPrice},
+            #{goodSellingPrice},
+            0,
+            #{goodSecondClas},
+            #{goodAd},
+            #{goodPrec},
+            2,
+            now(),
+            '',
+            0,
+            #{goodThroughNum},
+            #{goodLibSave},
+            #{goodAuthor},
+            #{goodCommodityPress},
+            #{goodIsbnBookSize},
+            #{goodImageUrl},
+            NOW(),
+            '',
+            #{createUser},
+            '',
+            0,
+            0,
+            #{storeName}
         )
     </insert>
     <!--删除商品-->
-    <update id="deleteGood" parameterType="com.xzsd.pc.goodsManage.entity.Good">
+    <update id="deleteGood" parameterType="com.xzsd.pc.goods.entity.Good">
         update
            t_good_manage
         set
            is_delete = 1,
-           update_user=#{updateUser}
+           update_user=#{updateUser},
+           good_update_time = now()
         where
+          good_code in
           <foreach collection="listGoodCode" index="index" item="item" open="(" close=")" separator=",">
-              good_code = #{item}
+               #{item}
           </foreach>
     </update>
-    <!--修改商品-->
-    <update id="updateGood" parameterType="com.xzsd.pc.goodsManage.entity.Good">
-        UPDATE
-          `t_good_manage`
-        SET
-            `good_name`=#{goodName},
-            `good_price`=#{goodPrice},
-            `good_selling_price`=#{goodSellingPrice},
-            `good_saleNum`=#{goodSaleNum},
-            `good_second_clas`=#{goodSecondClas},
-            `good_ad`=#{goodAd},
-            `good_prec`=#{goodPrec},
-            `good_state`=#{goodState},
-            `good_lib_save`=#{goodLibSave},
-            `good_author`=#{goodAuthor},
-            `good_commodity_press`=#{goodCommodityPress},
-            `good_isbn_bookSize`=#{goodIsbnBookSize},
-            `good_image_url`=#{goodImageUrl},
-            `good_update_time`=now(),
-            `update_user`=#{updateUser}
-        WHERE
-            `good_code`=#{goodCode}
-    </update>
+    <!--查询商品名称是否存在, 修改的时候，需要排除他自己本身-->
+    <select id="countGood" parameterType="com.xzsd.pc.goods.entity.Good" resultType="int">
+        select
+            count(good_name)
+        from
+            t_good_manage
+        where
+             good_name = #{goodName}
+        <if test="goodCode != null and goodCode !=''">
+            and good_code != #{goodCode}
+        </if>
+    </select>
+    <!--查询商品书号是否存在 ,修改的时候，需要排除他自己本身-->
+    <select id="countGoodBookSize" parameterType="com.xzsd.pc.goods.entity.Good" resultType="int">
+        select
+            count(good_isbn_bookSize)
+        from
+           t_good_manage
+        where
+            good_isbn_bookSize = #{goodIsbnBookSize}
+        <if test="goodCode != null and goodCode !=''">
+            and good_code != #{goodCode}
+        </if>
+    </select>
+    <!--查询商品详情-->
+    <select id="queryDetail" resultType="com.xzsd.pc.goods.entity.Good">
+        select
+          tgood.good_code goodCode,
+          tgood.good_name goodName,
+          tgood.good_isbn_bookSize goodIsbnBookSize,
+          tclass.parent_node goodFirstClas,
+          tgood.good_second_clas goodSecondClas,
+          tgood.good_ad goodAd,
+          tgood.good_prec goodPrec,
+          tgood.good_commodity_press goodCommodityPress,
+          tgood.good_author goodAuthor,
+          tgood.good_lib_save goodLibSave,
+          tgood.good_price goodPrice,
+          tgood.good_store_name storeName,
+          tgood.good_selling_price goodSellingPrice,
+          tgood.good_image_url goodImageUrl
+        from
+           t_good_manage tgood,
+           t_goods_classification_manage tclass
+        where
+            tgood.good_code = #{goodCode}
+        and
+            tgood.is_delete = 0
+        and
+            tgood.good_second_clas = tclass.clas_code
+    </select>
     <!--商品列表查询-->
-    <select id="queryGoodList" parameterType="com.xzsd.pc.goodsManage.entity.Good" resultType="com.xzsd.pc.goodsManage.entity.GoodList">
+    <select id="queryGoodList" parameterType="com.xzsd.pc.goods.entity.Good" resultType="com.xzsd.pc.goods.entity.GoodList">
         select
             tgood.good_code goodCode,
             tgood.good_name goodName,
@@ -151,13 +140,14 @@
             tgood.good_through_num goodThroughNum,
             tgood.good_state goodState,
             tgood.good_ad goodAd,
+            tgood.good_store_name storeName,
             tgood.good_commodity_press goodCommodityPress,
             tgood.good_author goodAuthor,
             tgood.good_isbn_bookSize goodIsbnBookSize
         from
             t_good_manage tgood,
             t_goods_classification_manage tclass,
-            (select clas_code,clas_name from t_goods_classification_manage)tclassFitst
+        (select clas_code,clas_name from t_goods_classification_manage)tclassFitst
         where
             tgood.is_delete = 0
         and
@@ -181,11 +171,58 @@
             and tgood.good_state = #{goodState}
         </if>
         order  by
-            tgood.good_createTime
+        tgood.good_createTime
         desc
     </select>
+    <!--商品一级分类查询-->
+    <select id="queryFirstClass" resultType="com.xzsd.pc.goods.entity.GoodClassifi">
+        select
+            clas_code classCode,
+            clas_name className
+        from
+            t_goods_classification_manage
+        where
+            is_delete = 0
+        and
+            (parent_node is null )or ( LENGTH(trim(parent_node)) &lt; 1)
+    </select>
+    <!--商品二级分类查询-->
+    <select id="querySecondClass" parameterType="com.xzsd.pc.goods.entity.GoodClassifi" resultType="com.xzsd.pc.goods.entity.GoodClassifi">
+        select
+            clas_code classCode,
+            clas_name className
+        from
+            t_goods_classification_manage
+        where
+            is_delete = 0
+        and
+            parent_node = #{classCode}
+    </select>
+    <!--修改商品-->
+    <update id="updateGood" parameterType="com.xzsd.pc.goods.entity.Good">
+        UPDATE
+          `t_good_manage`
+        SET
+            `good_name`=#{goodName},
+            `good_price`=#{goodPrice},
+            `good_selling_price`=#{goodSellingPrice},
+            `good_saleNum`=#{goodSaleNum},
+            `good_second_clas`=#{goodSecondClas},
+            `good_ad`=#{goodAd},
+            `good_prec`=#{goodPrec},
+            `good_lib_save`=#{goodLibSave},
+            `good_author`=#{goodAuthor},
+            `good_commodity_press`=#{goodCommodityPress},
+            `good_isbn_bookSize`=#{goodIsbnBookSize},
+            `good_image_url`=#{goodImageUrl},
+            `good_update_time`=now(),
+            `update_user`=#{updateUser},
+            `good_store_name`= #{storeName}
+        WHERE
+            `good_code`=#{goodCode}
+    </update>
 <!--上架下架修改-->
-    <update id="updateGoodState" parameterType="com.xzsd.pc.goodsManage.entity.Good">
+    <update id="updateGoodState" parameterType="com.xzsd.pc.goods.entity.Good">
         update
             t_good_manage
         set
@@ -193,9 +230,36 @@
             update_user = #{updateUser}
         where
           good_code in
-          <foreach collection="listGoodCode" item="item"  open="(" separator="," close=")" index="index">
-              #{item}
-          </foreach>
-
+      <foreach collection="listGoodCode" item="item"  open="(" separator="," close=")" index="index">
+          #{item}
+      </foreach>
+    </update>
+    <!--删除商品时,删除对应的商品轮播图-->
+    <update id="deleteTurns" parameterType="com.xzsd.pc.goods.entity.Good">
+        update
+            t_turns_images
+        set
+            is_delete = 1
+        where
+            rotaChart_point_good in
+            <foreach collection="list" item="item" open="(" separator="," close=")" index="index">
+                #{item}
+            </foreach>
+         and
+            is_delete = 0
+    </update>
+    <!--删除对应的热门商品-->
+    <update id="deleteHotGoods" parameterType="com.xzsd.pc.goods.entity.Good">
+        update
+            t_hot_goods_manage
+        set
+            is_delete = 1
+        where
+            good_code in
+            <foreach collection="list" item="item" open="(" separator="," close=")" index="index">
+                #{item}
+            </foreach>
+        and
+            is_delete = 0
     </update>
 </mapper>

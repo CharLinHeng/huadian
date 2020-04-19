@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzsd.pc.driver.dao.DriverDao">
-    <!--判断是否存在-->
-    <select id="countDriverAcct" parameterType="com.xzsd.pc.driver.entity.Driver" resultType="int">
-        select
-            count(*)
-        from
-            t_driver_information_manage
-        where
-            is_delete = 0
-        <if test="driverAcct != null and driverAcct != ''">
-            and driver_acc like concat('%',#{driverAcct},'%')
-        </if>
-        <if test="driverIdCard != null and driverIdCard != ''">
-            and driver_idcard like concat('%',#{driverIdCard},'%')
-        </if>
-    </select>
     <!--新增-->
     <insert id="addDriver" parameterType="com.xzsd.pc.driver.entity.Driver">
         INSERT INTO
@@ -51,30 +36,6 @@
             0
         )
     </insert>
-
-    <!--司机信息修改-->
-
-    <update id="updateDriver" parameterType="com.xzsd.pc.driver.entity.UpdateDriver">
-        UPDATE
-          `t_driver_information_manage`
-        SET
-          `driver_acc` = #{driverAcct},
-          `driver_pass` = #{driverPass},
-          `driver_idcard` = #{driverIdCard},
-          `name` = #{driverName},
-          `phone` = #{driverPhone},
-          `provinceCode` = #{driverProvincCode},
-          `cityCode` = #{driverCityCode},
-          `distinctCode` = #{driverDistinctCode},
-          `update_time` = now(),
-          `update_user` = #{updateUser},
-          `version` = version +1
-        WHERE
-          version = CAST(#{version} AS SIGNED)
-        and
-          `driver_code` = #{driverCode}
-    </update>
-    
     <!--删除-->
     <update id="deleteDriver" parameterType="com.xzsd.pc.driver.entity.UpdateDriver">
         update
@@ -91,11 +52,6 @@
     <!--司机信息详情查询-->
     <select id="queryDriverDetail" parameterType="com.xzsd.pc.driver.entity.UpdateDriver" resultType="com.xzsd.pc.driver.entity.DriverDetail">
       SELECT
-        tdriver.NAME driverName,
-        tdriver.phone driverPhone,
-        tdriver.driver_acc driverAcct,
-        tdriver.driver_pass driverPass,
-        tdriver.driver_idcard driverIdCard,
         datas.name1 driverProvinceName,
         datas.name2 driverCityName,
         datas.dict_name driverDistinctName
@@ -133,33 +89,77 @@
     HAVING
         driverName IS NOT NULL
     </select>
-
+    <!--判断是否存在-->
+    <select id="countDriverAcct" parameterType="com.xzsd.pc.driver.entity.Driver" resultType="int">
+        select
+        count(*)
+        from
+        t_driver_information_manage
+        where
+        is_delete = 0
+        <if test="driverAcct != null and driverAcct != ''">
+            and driver_acc like concat('%',#{driverAcct},'%')
+        </if>
+        <if test="driverIdCard != null and driverIdCard != ''">
+            and driver_idcard like concat('%',#{driverIdCard},'%')
+        </if>
+    </select>
     <!--列表查询-->
     <select id="dqueryDriverList" parameterType="com.xzsd.pc.driver.entity.DriverListParamter" resultType="com.xzsd.pc.driver.entity.DriverListParamter">
           select
-                t_driver_information_manage.driver_code driverCode,
-        t_driver_information_manage.name driverName,
-        t_driver_information_manage.driver_acc driverAcct,
-        t_driver_information_manage.phone driverPhone,
-        t_driver_information_manage.driver_idcard driverIdCard
+            tdriver.driver_code driverCode,
+            tdriver.name driverName,
+            tdriver.driver_acc driverAcct,
+            tdriver.phone driverPhone,
+            tdriver.driver_idcard driverIdCard
           from
-              t_driver_information_manage
+            t_driver_information_manage tdriver,
+            t_store_information tstore
           where
-               t_driver_information_manage.is_delete = 0
+            tdriver.is_delete = 0
           <if test="driverName !=null and driverName != ''">
-              and t_driver_information_manage.name like concat('%',#{driverName},'%')
+              and tdriver.name like concat('%',#{driverName},'%')
           </if>
         <if test="driverCode !=null and driverCode != ''">
-            and t_driver_information_manage.driver_code like concat('%',#{driverCode},'%')
+            and tdriver.driver_code like concat('%',#{driverCode},'%')
         </if>
         <if test="driverProvincCode !=null and driverProvincCode != ''">
-            and t_driver_information_manage.provinceCode like concat('%',#{driverProvincCode},'%')
+            and tdriver.provinceCode like concat('%',#{driverProvincCode},'%')
         </if>
         <if test="driverCityCode !=null and driverCityCode != ''">
-            and t_driver_information_manage.cityCode like concat('%',#{driverCityCode},'%')
+            and tdriver.cityCode like concat('%',#{driverCityCode},'%')
         </if>
         <if test="driverDistinctCode !=null and driverDistinctCode != ''">
-            and t_driver_information_manage.distinctCode like concat('%',#{driverDistinctCode},'%')
+            and tdriver.distinctCode like concat('%',#{driverDistinctCode},'%')
         </if>
+        <if test="userRole == 1">
+            and tstore.shop_con_user = #{currUserCode}
+            and tdriver.provinceCode = tstore.provinceCode
+            and tdriver.cityCode = tstore.cityCode
+            and tdriver.distinctCode = tstore.distinctCode
+        </if>
+        order by tdriver.create_time desc
     </select>
+    <!--司机信息修改-->
+    <update id="updateDriver" parameterType="com.xzsd.pc.driver.entity.UpdateDriver">
+        UPDATE
+          `t_driver_information_manage`
+        SET
+          `driver_acc` = #{driverAcct},
+          `driver_pass` = #{driverPass},
+          `driver_idcard` = #{driverIdCard},
+          `name` = #{driverName},
+          `phone` = #{driverPhone},
+          `provinceCode` = #{driverProvincCode},
+          `cityCode` = #{driverCityCode},
+          `distinctCode` = #{driverDistinctCode},
+          `update_time` = now(),
+          `update_user` = #{updateUser},
+          `version` = version +1
+        WHERE
+          version = CAST(#{version} AS SIGNED)
+        and
+          `driver_code` = #{driverCode}
+    </update>
+    <!--省市区编号变成对应名称-->
 </mapper>

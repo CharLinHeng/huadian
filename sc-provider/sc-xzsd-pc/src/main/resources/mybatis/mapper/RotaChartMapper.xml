@@ -57,11 +57,11 @@
     <!--轮播图查询是否重复, 在修改轮播图时候，需要排除他自己-->
     <select id="countRepeat" parameterType="com.xzsd.pc.rotaChart.entity.RotaChart" resultType="int">
         select
-        count(*)
+            count(*)
         from
-        t_turns_images
+            t_turns_images
         where
-        is_delete = 0
+            is_delete = 0
         and
         (
         rotaChart_sort = #{rotaChartSort}
@@ -69,7 +69,7 @@
         rotaChart_point_good = #{goodCode}
         )
         and
-        now() between rotaChart_use_time and rotaChart_end_time
+            now() between rotaChart_use_time and rotaChart_end_time
         <if test="rotaChartCode != null and rotaChartCode != ''">
             and rotaChart_code != #{rotaChartCode}
         </if>

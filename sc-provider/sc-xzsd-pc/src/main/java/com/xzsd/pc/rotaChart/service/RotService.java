@@ -33,6 +33,20 @@ public class RotService {
         if(null == rotaChart.getRotaChartImageUrl() || rotaChart.getRotaChartImageUrl() == ""){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图图片地址参数缺失!",null);
         }
+        if(rotaChart.getRotaChartSort() == 0){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图位排序不能为0或者参数缺失!",null);
+        }
+        //判断商品编号
+        if (null == rotaChart.getGoodCode() || rotaChart.getGoodCode() == "") {
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图选择的商品编号参数为空!",null);
+        }
+        //时间
+        if(null == rotaChart.getRotaChartStartTime()|| null ==  rotaChart.getRotaChartEndTime()){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图起始时间或者结束时间为空!",null);
+        }
+        if(rotaChart.getRotaChartStartTime() == ""|| rotaChart.getRotaChartEndTime() == ""){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图起始时间或者结束时间为空!",null);
+        }
         //判断轮播图是否已经被选择或者位排序已存在
         if(rotaChartDao.countRepeat(rotaChart.getRotaChartSort(),rotaChart.getGoodCode(),null) > 0){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图选择的图片已经存在或者 位排序 已存在 !",null);

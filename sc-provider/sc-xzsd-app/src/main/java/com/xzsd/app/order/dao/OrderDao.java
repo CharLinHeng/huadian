@@ -3,6 +3,7 @@ package com.xzsd.app.order.dao;
 import com.xzsd.app.order.entity.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.security.access.method.P;
 
 import java.util.List;
 
@@ -77,4 +78,26 @@ public interface OrderDao {
      * @return
      */
     OrderDetail queryOrderDetail(@Param("orderCode")String orderCode);
+
+    /**
+     * 修改订单状态
+     * @param updateOrder
+     * @return
+     */
+    int updateOrder(UpdateOrder updateOrder);
+
+    /**
+     * 用户订单列表查询
+     * @param orderListParam
+     * @return
+     */
+    List<OrderList>queryUserOrderList(OrderListParam orderListParam);
+
+    /**
+     * 新增商品评价
+     * @param orderEvaUnits
+     * @param orderCode
+     * @return
+     */
+    int addOrderGoodsEva(@Param("list")List<OrderEvaUnit>orderEvaUnits, @Param("orderCode")String orderCode);
 }

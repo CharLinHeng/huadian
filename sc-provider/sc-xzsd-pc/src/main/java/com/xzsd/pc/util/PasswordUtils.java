@@ -18,6 +18,7 @@ public class PasswordUtils {
      */
     public static String generatePassword(String rawPassword) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+//        bCryptPasswordEncoder.
         return bCryptPasswordEncoder.encode(rawPassword);
     }
 

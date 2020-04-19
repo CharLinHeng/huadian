@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzsd.app.store.dao.StoreDao">
+    <!--店长更新订单状态-->
+    <update id="updateShopOwnerOrderState" parameterType="com.xzsd.app.store.entity.OrderUpdate">
+        update
+            t_order_manage
+        set
+            order_state = #{orderState},
+            update_time = now(),
+            update_user =  #{updateUser}
+        where
+            is_delete = 0
+        and
+            order_code = #{orderCode}
+    </update>
+    <!--店长订单列表查询-->
+    <select id="queryshopOwnerOrderList" parameterType="com.xzsd.app.store.entity.StoreOrderListParam" resultMap="queryStoreOrderList">
+           select
+              torder.order_code orderCode,
+              torder.order_state orderState,
+              tuser.user_name userName,
+              tuser.user_phone userPhone
+          from
+              t_order_manage torder,
+              t_store_bind tbind,
+              t_store_information tstore,
+              t_user_infomation tuser
+          where
+              torder.is_delete = 0
+          and
+              tstore.shop_con_user = #{userCode}
+          and
+              tbind.shop_code = tstore.shop_code
+          and
+              torder.user_code = tbind.user_code
+          and
+              torder.user_code = tuser.user_code
+    </select>
+    <!--查询用户订单列表详情-->
+    <select id="queryStoreOrderListListUnit" parameterType="com.xzsd.app.store.entity.StoreOrderListParam" resultType="com.xzsd.app.store.entity.StoreOrderListUnit">
+            select
+              torderg.good_code goodCode,
+              torderg.orderG_name goodName,
+              torderg.orderG_s_price goodSale,
+              torderg.orderG_num goodNum,
+              torderg.orderG_image goodImage
+          from
+              t_order_ordergoods torderg
+          where
+              torderg.order_code = #{orderCode}
+          and
+              torderg.is_delete = 0
+    </select>
+    <!--店长订单列表查询ResultMap-->
+    <resultMap id="queryStoreOrderList" type="com.xzsd.app.store.entity.StoreOrderList">
+        <!--<id property="orderCode" column="torder.order_code"/>-->
+        <!--<result property="orderState" column="torder.order_state"/>-->
+        <!--<result property="userName" column="tuser.user_name"/>-->
+        <!--<result property="userPhone" column="tuser.user_phone"/>-->
+        <collection property="orderGoodList" javaType="list"  column="orderCode=torder.order_code"  select="queryStoreOrderListListUnit" ofType="com.xzsd.app.store.entity.StoreOrderListUnit">
+        </collection>
+    </resultMap>
+</mapper>

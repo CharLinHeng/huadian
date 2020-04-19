@@ -111,6 +111,47 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="sc2019" type="f1a62948:ProjectNode" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="sc2019" type="f1a62948:ProjectNode" />
+                <item name=":sc-provider:sc-xzsd-pc" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="sc2019" type="f1a62948:ProjectNode" />
+                <item name=":sc-provider:sc-xzsd-pc" type="2d1252cf:ModuleNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="sc2019" type="f1a62948:ProjectNode" />
+                <item name=":sc-provider:sc-xzsd-pc" type="2d1252cf:ModuleNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="main" type="396b929e:GradleViewContributor$SourceSetNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="sc2019" type="f1a62948:ProjectNode" />
+                <item name=":sc-provider:sc-xzsd-pc" type="2d1252cf:ModuleNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="main" type="396b929e:GradleViewContributor$SourceSetNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="sc2019" type="f1a62948:ProjectNode" />
+                <item name=":sc-provider:sc-xzsd-pc" type="2d1252cf:ModuleNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="test" type="396b929e:GradleViewContributor$SourceSetNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="sc2019" type="f1a62948:ProjectNode" />
+                <item name=":sc-provider:sc-xzsd-pc" type="2d1252cf:ModuleNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="test" type="396b929e:GradleViewContributor$SourceSetNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -122,54 +163,55 @@
     <session id="-144624624">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.122" value="1" />
           <entry key="project.open.time.143" value="1" />
           <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.218" value="1" />
           <entry key="project.open.time.9" value="1" />
           <entry key="project.open.time.91" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
-          <entry key="gradle" value="12" />
+          <entry key="gradle" value="17" />
           <entry key="iml" value="1" />
-          <entry key="java" value="426" />
-          <entry key="xml" value="106" />
-          <entry key="yml" value="20" />
+          <entry key="java" value="680" />
+          <entry key="xml" value="151" />
+          <entry key="yml" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="Groovy" value="12" />
+          <entry key="Groovy" value="17" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="426" />
-          <entry key="XML" value="106" />
-          <entry key="YAML" value="20" />
+          <entry key="JAVA" value="680" />
+          <entry key="XML" value="151" />
+          <entry key="YAML" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="36" />
-          <entry key="gradle" value="4" />
-          <entry key="java" value="22486" />
+          <entry key="gradle" value="22" />
+          <entry key="java" value="28976" />
           <entry key="txt" value="31" />
-          <entry key="xml" value="9702" />
-          <entry key="yml" value="90" />
+          <entry key="xml" value="11565" />
+          <entry key="yml" value="107" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Groovy" value="4" />
-          <entry key="JAVA" value="22486" />
+          <entry key="Groovy" value="22" />
+          <entry key="JAVA" value="28976" />
           <entry key="PLAIN_TEXT" value="67" />
-          <entry key="SQL" value="1777" />
-          <entry key="XML" value="7925" />
-          <entry key="YAML" value="90" />
+          <entry key="SQL" value="2070" />
+          <entry key="XML" value="9495" />
+          <entry key="YAML" value="107" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.spring.boot.run.usages">
@@ -183,71 +225,39 @@
     <favorites_list name="sc2019" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/service/OrderService.java">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/service/RotService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="131" column="17" selection-start-line="131" selection-start-column="17" selection-end-line="131" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/dao/OrderDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="79" column="1" lean-forward="true" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="456">
+              <caret line="47" column="80" selection-start-line="47" selection-start-column="80" selection-end-line="47" selection-end-column="80" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/OrderDaoMapper.xml">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/service/GoodService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="220" column="34" selection-start-line="220" selection-start-column="34" selection-end-line="220" selection-end-column="34" />
+            <state relative-caret-position="342">
+              <caret line="124" column="65" selection-start-line="124" selection-start-column="65" selection-end-line="124" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/OrderDetail.java">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/RotaChartMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="32" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="32" />
-              <folding>
-                <element signature="e#388#389#0" expanded="true" />
-                <element signature="e#420#421#0" expanded="true" />
-                <element signature="e#470#471#0" expanded="true" />
-                <element signature="e#512#513#0" expanded="true" />
-                <element signature="e#554#555#0" expanded="true" />
-                <element signature="e#592#593#0" expanded="true" />
-                <element signature="e#654#655#0" expanded="true" />
-                <element signature="e#708#709#0" expanded="true" />
-                <element signature="e#748#749#0" expanded="true" />
-                <element signature="e#784#785#0" expanded="true" />
-                <element signature="e#842#843#0" expanded="true" />
-                <element signature="e#892#893#0" expanded="true" />
-                <element signature="e#934#935#0" expanded="true" />
-                <element signature="e#972#973#0" expanded="true" />
-                <element signature="e#1034#1035#0" expanded="true" />
-                <element signature="e#1088#1089#0" expanded="true" />
-                <element signature="e#1122#1123#0" expanded="true" />
-                <element signature="e#1155#1156#0" expanded="true" />
-                <element signature="e#1204#1205#0" expanded="true" />
-                <element signature="e#1248#1249#0" expanded="true" />
-                <element signature="e#1309#1310#0" expanded="true" />
-                <element signature="e#1346#1347#0" expanded="true" />
-                <element signature="e#1426#1427#0" expanded="true" />
-                <element signature="e#1478#1479#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="513">
+              <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/dao/RotaChartDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -264,15 +274,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>queryUserList</find>
-      <find>listUsersByPage</find>
-      <find>queryGoodClassList</find>
-      <find>priv.movestore.movestore.</find>
-      <find>addOrderList</find>
-      <find>goodsExpired</find>
-      <find>queryOrderList</find>
-      <find>judgementStock</find>
-      <find>updateGoodNum</find>
       <find>sto</find>
       <find>queryCustomerData</find>
       <find>countGoodBookSize</find>
@@ -282,9 +283,34 @@
       <find>torder.</find>
       <find>queryTwoClass</find>
       <find>queryOrderDetail</find>
+      <find>get</find>
+      <find>queryFirstClass</find>
+      <find>querySecondClass</find>
+      <find>com.neusoft.webauth.</find>
+      <find>deleteRoleMenuBtnByMenu</find>
+      <find>listUserMenus</find>
+      <find>listMenus</find>
+      <find>listRoleMenusBy</find>
+      <find>queryMenuDetail</find>
+      <find>userRole</find>
+      <find>getCurr</find>
+      <find>getcurr</find>
+      <find>update</find>
+      <find>storeCode</find>
+      <find>goodCommodityPress</find>
+      <find>countGood</find>
+      <find>AppResponse</find>
+      <find>AppResponse.success,</find>
+      <find>AppResponseState.values()[</find>
+      <find>ResponceData</find>
+      <find>storeName</find>
     </findStrings>
     <replaceStrings>
+      <replace>com.xzsd</replace>
       <replace>com.xzsd.pc.</replace>
+      <replace>return AppResponse</replace>
+      <replace>AppResponse.(</replace>
+      <replace>AppResponse</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -6383,7 +6409,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="43896250500909" />
+        <entry key="$PROJECT_DIR$" value="43897805086886" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/build.gradle" value="170818060" />
         <entry key="$PROJECT_DIR$/dependencies.gradle" value="2299923015" />
@@ -6403,7 +6429,7 @@
         <entry key="$PROJECT_DIR$/sc-provider/sc-web-auth/build.gradle" value="4227866871" />
         <entry key="$PROJECT_DIR$/sc-provider/sc-web/build.gradle" value="2062439130" />
         <entry key="$PROJECT_DIR$/sc-provider/sc-xzsd-app/build.gradle" value="1535683629" />
-        <entry key="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build.gradle" value="1535683629" />
+        <entry key="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build.gradle" value="3440598710" />
         <entry key="$PROJECT_DIR$/sc-security/sc-security-client/build.gradle" value="837078216" />
         <entry key="$PROJECT_DIR$/sc-security/sc-security-core/build.gradle" value="1286077954" />
         <entry key="$PROJECT_DIR$/sc-security/sc-security-uaa/build.gradle" value="1641464961" />
@@ -7175,57 +7201,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/Order.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/Customer.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/passWord/register/service/RegisterService.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/PasswordUtils.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/services/UserServices.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/dao/GoodDao.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/service/GoodService.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/customer/service/CustomerService.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/driver/service/DriverService.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goodclassification/service/GoodClassifiService.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/hotGood/dao/HotGoodDao.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/hotGood/service/HotGoodService.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/order/service/OrderService.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/dao/RotaChartDao.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/service/RotService.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/store/service/StoreService.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/UserDaolMapper.xml" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/StoreDaoMapper.xml" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/OrderDaoMapper.xml" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/HotGoodDaoMapper.xml" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/GoodClassifiDaoMapper.xml" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/passWord/entity/PassWord.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/passWord/dao/PassWordDao.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/util/PasswordUtils.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/PassWordDaoMapper.xml" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/passWord/service/PassWordService.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/passWord/controller/PassWordController.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/storeInvest/entity/InvestCode.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/storeInvest/controller/StoreInvestController.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/storeInvest/dao/StoreInvestDao.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/StoreInvestDaoMapper.xml" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/storeInvest/service/StoreInvestService.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/Driver.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/passWord/entity/Store.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/DriverVO.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/DriverResponsibleAreaOut.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/DriverResponsibleArea.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/DriverDaoMapper.xml" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/RotaChartMapper.xml" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/AreaName.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/GoodsDaoMapper.xml" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/controller/DriverController.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/DriverDaoMapper.xml" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/service/DriverService.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/dao/DriverDao.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/OrderDetail.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/OrderDetailGoodsList.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/dao/OrderDao.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/controller/OrderController.java" />
-        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/service/OrderService.java" />
         <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/OrderDaoMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/service/OrderService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/store/entity/OrderUpdate.java" />
+        <option value="$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/restful/AppResponseStatus.java" />
+        <option value="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/utils/SecurityUtils.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/store/dao/StoreDao.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/store/service/StoreService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/store/controller/StoreController.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/store/entity/StoreOrderListParam.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/store/entity/StoreOrderListUnit.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/store/entity/StoreOrderList.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/StoreDaoMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/resources/mybatis/mapper/SysUserDaoMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-security/sc-security-client/src/main/java/com/neusoft/security/client/authorize/StaticAuthorizeConfigProvider.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/base/constant/GlobalConstant.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/menu/dao/MenuBtnDao.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/menu/service/MenuBtnService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/menu/controller/MenuBtnController.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/MenuBtnDaoMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/menu/entity/AccoringRole.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/menu/entity/MenuDetail.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/menu/service/MenuService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/menu/controller/MenuController.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/menu/dao/MenuDao.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/MenuDaoMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/entity/User.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/imageUpLoad/entity/Image.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/imageUpLoad/controller/ImageUpLoadController.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/TencentUploadUtil.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build.gradle" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/imageUpLoad/service/ImageService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/sc-api-gateway/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/controller/JobController.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/PasswordUtils.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/entity/Good.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/controller/GoodController.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/dao/GoodDao.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/entity/AdminData.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/controller/HandleUserController.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/services/UserServices.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/UserDaolMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/entity/GoodList.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/customer/service/CustomerService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/CustomerDaoMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/entity/RotaChart.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/RotaChartMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/service/RotService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/GoodsDaoMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/service/GoodService.java" />
       </list>
     </option>
   </component>
@@ -7242,7 +7268,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="522" />
+    <option name="x" value="521" />
     <option name="y" value="5" />
     <option name="width" value="1405" />
     <option name="height" value="980" />
@@ -7256,6 +7282,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -7272,141 +7300,70 @@
               <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="goodClassification" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="goodClassification" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="goodClassification" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
@@ -7415,7 +7372,7 @@
               <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
@@ -7425,7 +7382,7 @@
               <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sc-xzsd-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
@@ -7436,8 +7393,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -7447,10 +7402,10 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RequestMappingsPanelWidth2" value="75" />
-    <property name="SearchEverywhereHistoryKey" value="PasswordUtils&#9;PSI&#9;JAVA://com.neusoft.webauth.utils.PasswordUtils&#10;addInterCep&#9;PSI&#9;JAVA://com.xzsd.app.config.WebConfig#addInterceptors&#10;PageInterceptor&#9;PSI&#9;JAVA://com.github.pagehelper.autoconfigure.PageHelperAutoConfiguration#addPageInterceptor&#10;addInterceptors&#9;PSI&#9;JAVA://com.neusoft.support.sharding.config.WebConfig#addInterceptors&#10;addInter&#9;PSI&#9;JAVA://com.neusoft.job.config.WebConfig#addInterceptors" />
+    <property name="SearchEverywhereHistoryKey" value="DefaultTokenServices&#9;PSI&#9;JAVA://org.springframework.security.oauth2.provider.token.DefaultTokenServices&#10;UserDetailsServiceImpl&#9;PSI&#9;JAVA://com.neusoft.oauth.service.UserDetailsServiceImpl&#10;PasswordUtils&#9;PSI&#9;JAVA://com.neusoft.webauth.utils.PasswordUtils&#10;addInterCep&#9;PSI&#9;JAVA://com.xzsd.app.config.WebConfig#addInterceptors&#10;PageInterceptor&#9;PSI&#9;JAVA://com.github.pagehelper.autoconfigure.PageHelperAutoConfiguration#addPageInterceptor&#10;addInterceptors&#9;PSI&#9;JAVA://com.neusoft.support.sharding.config.WebConfig#addInterceptors&#10;addInter&#9;PSI&#9;JAVA://com.neusoft.job.config.WebConfig#addInterceptors" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586878761514" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587268050017" />
     <property name="dynamic.classpath" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -7463,17 +7418,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xzsd.pc.util" />
+      <recent name="com.xzsd.app.util" />
+      <recent name="com.xzsd.app.order.entity" />
       <recent name="com.xzsd.app.driver.entity" />
       <recent name="com.xzsd.app.storeInvest.controller" />
-      <recent name="com.xzsd.app.storeInvest.service" />
-      <recent name="com.xzsd.app.util" />
-      <recent name="com.xzsd.pc.util" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="A:\java\idea\digitFactoryproject\sc2019\sc-provider\sc-xzsd-app\src\main\resources\mybatis\mapper" />
-      <recent name="A:\java\idea\digitFactoryproject\sc2019\sc-provider\sc-xzsd-app\src\main\java\com\xzsd\app\passWord" />
       <recent name="A:\java\idea\digitFactoryproject\sc2019\sc-provider\sc-xzsd-pc\src\main\resources\mybatis\mapper" />
       <recent name="A:\java\idea\digitFactoryproject\sc2019\sc-provider\sc-xzsd-pc\src\main\java\com\xzsd\pc" />
+      <recent name="A:\java\idea\digitFactoryproject\sc2019\sc-provider\sc-xzsd-app\src\main\resources\mybatis\mapper" />
+      <recent name="A:\java\idea\digitFactoryproject\sc2019\sc-provider\sc-xzsd-app\src\main\java\com\xzsd\app\passWord" />
       <recent name="A:\java\idea\digitFactoryproject\sc2019\sc-provider\sc-xzsd-app\src\main\java\com\xzsd\app" />
     </key>
   </component>
@@ -7493,9 +7448,9 @@
         </RuleState>
       </list>
     </option>
-    <option name="contentProportion" value="0.26603" />
+    <option name="contentProportion" value="0.26657826" />
   </component>
-  <component name="RunManager" selected="Spring Boot.ScXzsdAppApplication">
+  <component name="RunManager" selected="Spring Boot.ScXzsdPcApplication">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -7648,7 +7603,6 @@
       <item itemvalue="Spring Boot.ScApiGatewayApplication" />
       <item itemvalue="Spring Boot.ScConfigServerApplication" />
       <item itemvalue="Spring Boot.ScEurekaApplication" />
-      <item itemvalue="Spring Boot.ScJobApplication" />
       <item itemvalue="Spring Boot.ScLogApplication" />
       <item itemvalue="Spring Boot.ScProjectApplication" />
       <item itemvalue="Spring Boot.ScSecurityUaaApplication" />
@@ -7656,9 +7610,10 @@
       <item itemvalue="Spring Boot.ScShardingApplication" />
       <item itemvalue="Spring Boot.ScWebApplication" />
       <item itemvalue="Spring Boot.ScWebAuthApplication" />
-      <item itemvalue="Spring Boot.ScWebStaticApplication" />
+      <item itemvalue="Spring Boot.ScJobApplication" />
       <item itemvalue="Spring Boot.ScXzsdAppApplication" />
       <item itemvalue="Spring Boot.ScXzsdPcApplication" />
+      <item itemvalue="Spring Boot.ScWebStaticApplication" />
       <item itemvalue="Spring Boot.ScZipkinApplication" />
     </list>
   </component>
@@ -7682,15 +7637,16 @@
       <workItem from="1586398860988" duration="22110000" />
       <workItem from="1586501095769" duration="21248000" />
       <workItem from="1586583282617" duration="2965000" />
-      <workItem from="1586599582974" duration="106827000" />
+      <workItem from="1586599582974" duration="173412000" />
+      <workItem from="1587087630992" duration="51099000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191180000" />
+    <option name="totallyTimeSpent" value="308864000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -7698,7 +7654,7 @@
       <window_info id="Capture Tool" order="3" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info id="Designer" order="5" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.26706827" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.3192771" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="SVN Repositories" order="0" weight="0.32909605" />
       <window_info anchor="bottom" id="Build" order="1" weight="0.32909605" />
@@ -7756,559 +7712,408 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/hotGood/service/HotGoodService.java">
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/imageUpLoad/entity/Image.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="3" column="40" lean-forward="true" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+        <state relative-caret-position="532">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#212#213#0" expanded="true" />
+            <element signature="e#245#246#0" expanded="true" />
+            <element signature="e#297#298#0" expanded="true" />
+            <element signature="e#341#342#0" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
+            <element signature="e#407#408#0" expanded="true" />
+            <element signature="e#455#456#0" expanded="true" />
+            <element signature="e#495#496#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/order/service/OrderService.java">
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/ScXzsdPcApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="323">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/TencentUploadUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="34" selection-start-column="2" selection-end-line="138" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/imageUpLoad/controller/ImageUpLoadController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/dao/RotaChartDao.java">
+    <entry file="file://$PROJECT_DIR$/sc-api-gateway/build.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-api-gateway/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="68" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="68" />
+        <state relative-caret-position="361">
+          <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="17" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/imageUpLoad/service/ImageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/entity/RotaChart.java">
+    <entry file="file://$PROJECT_DIR$/sc-support/sc-job/src/main/java/com/neusoft/job/controller/JobController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="41" column="27" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="27" />
+        <state relative-caret-position="589">
+          <caret line="31" column="19" lean-forward="true" selection-end-line="216" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/service/UaaUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../gradle/gradle-5.3/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.4.RELEASE/6178c740c0c18c635628e73944715043f15d75fb/spring-security-core-4.2.4.RELEASE-sources.jar!/org/springframework/security/core/userdetails/UserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../gradle/gradle-5.3/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.4.RELEASE/6178c740c0c18c635628e73944715043f15d75fb/spring-security-core-4.2.4.RELEASE-sources.jar!/org/springframework/security/core/userdetails/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6050">
+          <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/util/SecurityUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/constant/SecurityConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../gradle/gradle-5.3/.gradle/caches/modules-2/files-2.1/org.springframework.security.oauth/spring-security-oauth2/2.0.14.RELEASE/5eeea1e0ddac6c148f596a80221639119426cb79/spring-security-oauth2-2.0.14.RELEASE-sources.jar!/org/springframework/security/oauth2/provider/token/DefaultTokenServices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6082">
+          <caret line="63" column="45" lean-forward="true" selection-start-line="63" selection-start-column="45" selection-end-line="63" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/config/ResourceServerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding>
-            <element signature="e#1181#1182#0" expanded="true" />
-            <element signature="e#1221#1222#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1345#1346#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/config/AuthorizationServerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-security/sc-security-core/src/main/java/com/neusoft/security/core/entity/SecurityUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="13" column="36" lean-forward="true" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/service/UserDetailsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="30" column="11" lean-forward="true" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/store/entity/Store.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/store/service/StoreService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="222" lean-forward="true" selection-start-line="222" selection-end-line="222" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/StoreDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/OrderDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="85" column="13" selection-start-line="85" selection-start-column="13" selection-end-line="85" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/HotGoodDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/GoodClassifiDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="115" column="4" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/CustomerDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/util/PasswordUtils.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/passWord/entity/PassWord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="27" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="27" />
-          <folding>
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#318#319#0" expanded="true" />
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#406#407#0" expanded="true" />
-            <element signature="e#230#231#0" expanded="true" />
-            <element signature="e#261#262#0" expanded="true" />
-            <element signature="e#309#310#0" expanded="true" />
-            <element signature="e#349#350#0" expanded="true" />
-            <element signature="e#383#384#0" expanded="true" />
-            <element signature="e#413#414#0" expanded="true" />
-            <element signature="e#459#460#0" expanded="true" />
-            <element signature="e#497#498#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/passWord/dao/PassWordDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/PassWordDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/storeInvest/controller/StoreInvestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/StoreInvestDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/storeInvest/dao/StoreInvestDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/storeInvest/entity/InvestCode.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="33" />
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/GoodDetailDaoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1228" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodDetail/entity/Good.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodDetail/controller/GoodDetailController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="52" column="23" lean-forward="true" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodDetail/service/GoodDetailService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-844">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1159">
+          <caret line="61" column="7" lean-forward="true" selection-start-line="61" selection-start-column="7" selection-end-line="61" selection-end-column="7" />
           <folding>
-            <element signature="e#220#221#0" expanded="true" />
-            <element signature="e#251#252#0" expanded="true" />
-            <element signature="e#299#300#0" expanded="true" />
-            <element signature="e#339#340#0" expanded="true" />
-            <element signature="e#380#381#0" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
-            <element signature="e#477#478#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
+            <element signature="e#2362#2363#0" expanded="true" />
+            <element signature="e#2393#2394#0" expanded="true" />
+            <element signature="e#2441#2442#0" expanded="true" />
+            <element signature="e#2481#2482#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/storeInvest/service/StoreInvestService.java">
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/PasswordUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="399">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/passWord/controller/PassWordController.java">
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/dao/GoodDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="2" column="53" lean-forward="true" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
+        <state relative-caret-position="457">
+          <caret line="46" column="7" lean-forward="true" selection-start-line="46" selection-start-column="7" selection-end-line="46" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/passWord/service/PassWordService.java">
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/dao/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="27" column="92" lean-forward="true" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="92" />
+        <state relative-caret-position="532">
+          <caret line="70" column="41" selection-start-line="70" selection-start-column="34" selection-end-line="70" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/controller/HandleUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1851">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/services/UserServices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="147" column="17" lean-forward="true" selection-start-line="147" selection-start-column="17" selection-end-line="147" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4687#4693#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/Store.java">
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/entity/AdminData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="342">
+          <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="31" />
           <folding>
-            <element signature="e#523#524#0" expanded="true" />
-            <element signature="e#555#556#0" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
-            <element signature="e#683#684#0" expanded="true" />
-            <element signature="e#715#716#0" expanded="true" />
-            <element signature="e#765#766#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#846#847#0" expanded="true" />
-            <element signature="e#881#882#0" expanded="true" />
-            <element signature="e#937#938#0" expanded="true" />
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1027#1028#0" expanded="true" />
-            <element signature="e#1065#1066#0" expanded="true" />
-            <element signature="e#1127#1128#0" expanded="true" />
-            <element signature="e#1181#1182#0" expanded="true" />
-            <element signature="e#1216#1217#0" expanded="true" />
-            <element signature="e#1247#1248#0" expanded="true" />
-            <element signature="e#1295#1296#0" expanded="true" />
-            <element signature="e#1335#1336#0" expanded="true" />
-            <element signature="e#1374#1375#0" expanded="true" />
-            <element signature="e#1409#1410#0" expanded="true" />
-            <element signature="e#1465#1466#0" expanded="true" />
-            <element signature="e#1513#1514#0" expanded="true" />
-            <element signature="e#1548#1549#0" expanded="true" />
-            <element signature="e#1579#1580#0" expanded="true" />
-            <element signature="e#1627#1628#0" expanded="true" />
-            <element signature="e#1667#1668#0" expanded="true" />
+            <element signature="e#374#375#0" expanded="true" />
+            <element signature="e#405#406#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/DriverDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/homepage/service/HomePageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/HomePageDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/RotaChartMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="107" column="26" selection-start-line="107" selection-start-column="26" selection-end-line="107" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/UserDaolMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1881">
-          <caret lean-forward="true" />
+        <state relative-caret-position="467">
+          <caret line="167" column="29" selection-start-line="167" selection-start-column="29" selection-end-line="167" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/entity/GoodClassifi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/entity/GoodList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="85" column="34" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
+          <folding>
+            <element signature="e#1230#1231#0" expanded="true" />
+            <element signature="e#1280#1281#0" expanded="true" />
+            <element signature="e#1322#1323#0" expanded="true" />
+            <element signature="e#1120#1121#0" expanded="true" />
+            <element signature="e#1161#1162#0" expanded="true" />
+            <element signature="e#1229#1230#0" expanded="true" />
+            <element signature="e#1289#1290#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../gradle/gradle-5.3/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.4.RELEASE/6178c740c0c18c635628e73944715043f15d75fb/spring-security-core-4.2.4.RELEASE-sources.jar!/org/springframework/security/core/Authentication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/SecurityUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/CustomerDaoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/customer/dao/CustomerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="23" column="39" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/customer/service/CustomerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="37" column="43" lean-forward="true" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/controller/GoodController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="148" column="20" lean-forward="true" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/entity/RotaChart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/dao/RotaChartDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/service/UacLogService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#547#548#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/entity/Good.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="28" />
+          <folding>
+            <element signature="e#1661#1662#0" expanded="true" />
+            <element signature="e#1693#1694#0" expanded="true" />
+            <element signature="e#1743#1744#0" expanded="true" />
+            <element signature="e#1785#1786#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/service/RotService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="47" column="80" selection-start-line="47" selection-start-column="80" selection-end-line="47" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/RotaChartMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/mapper/GoodsDaoMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="467">
-          <caret line="255" column="11" lean-forward="true" selection-start-line="255" selection-start-column="11" selection-end-line="255" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/DriverResponsibleAreaOut.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding>
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-            <element signature="e#511#512#0" expanded="true" />
-            <element signature="e#553#554#0" expanded="true" />
-            <element signature="e#589#590#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#671#672#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#752#753#0" expanded="true" />
-            <element signature="e#787#788#0" expanded="true" />
-            <element signature="e#843#844#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#926#927#0" expanded="true" />
-            <element signature="e#957#958#0" expanded="true" />
-            <element signature="e#1005#1006#0" expanded="true" />
-            <element signature="e#1045#1046#0" expanded="true" />
-            <element signature="e#1081#1082#0" expanded="true" />
-            <element signature="e#1113#1114#0" expanded="true" />
-            <element signature="e#1163#1164#0" expanded="true" />
-            <element signature="e#1205#1206#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/AreaName.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="35" lean-forward="true" selection-start-column="35" selection-end-column="35" />
-          <folding>
-            <element signature="e#336#337#0" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/DriverResponsibleArea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="25" column="32" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="32" />
-          <folding>
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#633#634#0" expanded="true" />
-            <element signature="e#683#684#0" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
-            <element signature="e#760#761#0" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#879#880#0" expanded="true" />
-            <element signature="e#915#916#0" expanded="true" />
-            <element signature="e#947#948#0" expanded="true" />
-            <element signature="e#997#998#0" expanded="true" />
-            <element signature="e#1039#1040#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/rotaChart/service/RotService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1262">
-          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#856#857#0" expanded="true" />
-            <element signature="e#888#889#0" expanded="true" />
-            <element signature="e#938#939#0" expanded="true" />
-            <element signature="e#980#981#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/entity/DriverVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-          <folding>
-            <element signature="e#417#418#0" expanded="true" />
-            <element signature="e#450#451#0" expanded="true" />
-          </folding>
+          <caret line="217" column="37" lean-forward="true" selection-start-line="217" selection-start-column="37" selection-end-line="217" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/service/GoodService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="175" lean-forward="true" selection-start-line="175" selection-end-line="175" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/controller/DriverController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="59" column="50" lean-forward="true" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/dao/DriverDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="31" column="41" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/DriverDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="42" column="44" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/driver/service/DriverService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2033">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/OrderDetailGoodsList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="31" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="31" />
-          <folding>
-            <element signature="e#475#476#0" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-            <element signature="e#594#595#0" expanded="true" />
-            <element signature="e#629#630#0" expanded="true" />
-            <element signature="e#660#661#0" expanded="true" />
-            <element signature="e#708#709#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
-            <element signature="e#783#784#0" expanded="true" />
-            <element signature="e#814#815#0" expanded="true" />
-            <element signature="e#862#863#0" expanded="true" />
-            <element signature="e#902#903#0" expanded="true" />
-            <element signature="e#937#938#0" expanded="true" />
-            <element signature="e#968#969#0" expanded="true" />
-            <element signature="e#1016#1017#0" expanded="true" />
-            <element signature="e#1056#1057#0" expanded="true" />
-            <element signature="e#1087#1088#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-            <element signature="e#1160#1161#0" expanded="true" />
-            <element signature="e#1198#1199#0" expanded="true" />
-            <element signature="e#1237#1238#0" expanded="true" />
-            <element signature="e#1272#1273#0" expanded="true" />
-            <element signature="e#1328#1329#0" expanded="true" />
-            <element signature="e#1376#1377#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/controller/OrderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="36" column="34" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodClassification/controller/GoodClassificationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodClassification/service/GoodClassificationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="37" column="42" lean-forward="true" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodClassification/entity/GoodClassification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/goodClassification/dao/GoodClassiDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/dao/OrderDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="79" column="1" lean-forward="true" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/service/OrderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="131" column="17" selection-start-line="131" selection-start-column="17" selection-end-line="131" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/GoodClassiDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-84">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/order/entity/OrderDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="32" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="32" />
-          <folding>
-            <element signature="e#388#389#0" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#470#471#0" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-            <element signature="e#592#593#0" expanded="true" />
-            <element signature="e#654#655#0" expanded="true" />
-            <element signature="e#708#709#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
-            <element signature="e#784#785#0" expanded="true" />
-            <element signature="e#842#843#0" expanded="true" />
-            <element signature="e#892#893#0" expanded="true" />
-            <element signature="e#934#935#0" expanded="true" />
-            <element signature="e#972#973#0" expanded="true" />
-            <element signature="e#1034#1035#0" expanded="true" />
-            <element signature="e#1088#1089#0" expanded="true" />
-            <element signature="e#1122#1123#0" expanded="true" />
-            <element signature="e#1155#1156#0" expanded="true" />
-            <element signature="e#1204#1205#0" expanded="true" />
-            <element signature="e#1248#1249#0" expanded="true" />
-            <element signature="e#1309#1310#0" expanded="true" />
-            <element signature="e#1346#1347#0" expanded="true" />
-            <element signature="e#1426#1427#0" expanded="true" />
-            <element signature="e#1478#1479#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/mapper/OrderDaoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="220" column="34" selection-start-line="220" selection-start-column="34" selection-end-line="220" selection-end-column="34" />
+        <state relative-caret-position="342">
+          <caret line="124" column="65" selection-start-line="124" selection-start-column="65" selection-end-line="124" selection-end-column="65" />
         </state>
       </provider>
     </entry>
@@ -8364,7 +8169,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>sc-xzsd-pc|sc-xzsd-pc|sc-provider</last-edited>
+          <last-edited>sc-provider-api|sc-provider-api</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

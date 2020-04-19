@@ -3,6 +3,7 @@ package com.xzsd.pc.customer.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xzsd.pc.customer.entity.User;
+import com.xzsd.pc.util.SecurityUtils;
 import org.springframework.stereotype.Service;
 import com.xzsd.pc.customer.dao.CustomerDao;
 import com.xzsd.pc.customer.entity.Customer;
@@ -32,7 +33,7 @@ public class CustomerService {
             return new ResponceData(ResponceDataState.values()[3].getCode(),"页号或者页数量不能为空!",null);
         }
         //从Redis中根据Token获取当前用户编号，由于登入没写，所以这里指定一个账号进行测试
-        String userCode = "20200324222651999548520399788214";
+        String userCode = SecurityUtils.getCurrentUserUsername();
         //查询用户角色
         User queryUser = customerDao.queryCurrUser(customer.getUserCode());
         //如果查询不到当前用户，则返回错误

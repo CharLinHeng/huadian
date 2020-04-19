@@ -1,4 +1,10 @@
 package com.xzsd.app.order.service;
+import com.alibaba.fastjson.JSON;
+import com.neusoft.core.restful.AppResponse;
+import com.neusoft.security.client.utils.SecurityUtils;
+import com.xzsd.app.driver.dao.DriverDao;
+import com.xzsd.app.driver.entity.AreaName;
+import com.xzsd.app.driver.entity.DriverResponsibleArea;
 import com.xzsd.app.order.dao.OrderDao;
 import com.xzsd.app.order.entity.*;
 import com.xzsd.app.util.RandomCode;
@@ -19,7 +25,8 @@ import java.util.Random;
 public class OrderService {
     @Resource
     private OrderDao orderDao;
-
+    @Resource
+    private DriverDao driverDao;
     /**
      *  订单新增
      * @param addOrder
@@ -128,10 +135,92 @@ public class OrderService {
         if(null == orderDetail.getOrderCode() || orderDetail.getOrderCode() == ""){
             return new ResponceData(ResponceDataState.values()[3].getCode(),"订单编号为空!",null);
         }
+        //查询订单详情 以及 还没有转化成地址的 省市区编号[因为无法用一次sql查出省市区名称，所以我分两步来写，分一半也行，不过代码比较复杂]
         OrderDetail orderDetailOut = orderDao.queryOrderDetail(orderDetail.getOrderCode());
+        //查询省市区名称
+        DriverResponsibleArea driverResponsibleArea = new DriverResponsibleArea();
+        driverResponsibleArea.setCityCode(orderDetailOut.getCityCode());
+        driverResponsibleArea.setDistinctCode(orderDetailOut.getDistinctCode());
+        driverResponsibleArea.setProvinceCode(orderDetailOut.getProvinceCode());
+        AreaName areaNameList = driverDao.queryPCD(driverResponsibleArea);
+        //将信息传值输出实体类
+        OrderDetailOut orderDetailOutFinal = new OrderDetailOut();
+        //赋值给输出实体类
+        String address = areaNameList.getProvinceName()+areaNameList.getCityName()+areaNameList.getDistinctName()+orderDetailOut.getDetailAddress();
+        orderDetailOutFinal.setDeliveryAddress(address);
+        orderDetailOutFinal.setDeliveryStore(orderDetailOut.getDeliveryStore());
+        orderDetailOutFinal.setOrderCode(orderDetailOut.getOrderCode());
+        orderDetailOutFinal.setOrderCreateTime(orderDetailOut.getOrderCreateTime());
+        orderDetailOutFinal.setOrderGoodsList(orderDetailOut.getOrderGoodsList());
+        orderDetailOutFinal.setOrderState(orderDetailOut.getOrderState());
         if(null != orderDetailOut.getOrderCode()){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询订单成功!",orderDetailOut);
+            //输出实体类
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询订单成功!",orderDetailOutFinal);
         }
         return new ResponceData(ResponceDataState.values()[3].getCode(),"查询订单失败",null);
+    }
+    /**
+     * 修改订单状态
+     * @param updateOrder
+     * @return
+     */
+    public ResponceData updateOrder(UpdateOrder updateOrder){
+        if(null == updateOrder.getOrderCode()){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"订单编号为空!",null);
+        }
+        if(updateOrder.getOrderState() == 0){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"订单状态不能为0!",null);
+        }
+        //获取当前修改人的Id
+        updateOrder.setUpdateUser(SecurityUtils.getCurrentUserId());
+        //查询
+        int result = orderDao.updateOrder(updateOrder);
+        if(result > 0){
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"更新状态成功!",null);
+        }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
+    }
+
+    /**
+     * 查询订单列表
+     * @param orderListParam
+     * @return
+     */
+    public ResponceData queryUserOrderList(OrderListParam orderListParam){
+        if(null == orderListParam.getUserCode()){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"用户编号为空!",null);
+        }
+        List<OrderList>orderLists = orderDao.queryUserOrderList(orderListParam);
+        if(orderLists.size() > 0){
+            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",orderLists);
+        }
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
+    }
+
+    /**
+     * 增加订单商品评价
+     * @param orderEva
+     * @return
+     */
+    public ResponceData addOrderGoodsEva(OrderEva orderEva){
+        //开始处理对象
+        if(null == orderEva.getOrderCode()){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"订单编号缺失!",orderEva);
+        }
+        //为每件商品评价生成编号
+        orderEva.setUserCode(SecurityUtils.getCurrentUserId());
+        for(int i = 0;i < orderEva.getEvaList().size();i++){
+            orderEva.getEvaList().get(i).setCommentCode(RandomCode.radmonkey());
+            orderEva.getEvaList().get(i).setCreateUser(orderEva.getUserCode());
+        }
+        //当前用户-新增至商品评价列表
+        int result = orderDao.addOrderGoodsEva(orderEva.getEvaList(),orderEva.getOrderCode());
+        //更新至订单评价
+
+        if(result > 0){
+            return new ResponceData(ResponceDataState.values()[3].getCode(),"添加商品评论成功!",result);
+        }
+        //判断结果
+        return new ResponceData(ResponceDataState.values()[3].getCode(),"添加商品评论失败!",result);
     }
 }

@@ -13,7 +13,9 @@ public class OrderDetail {
     /**
      *取货地址
      */
-    private String deliveryAddress;
+    private String provinceCode;
+    private String cityCode;
+    private String distinctCode;
     /**
      *取货门店
      */
@@ -27,10 +29,22 @@ public class OrderDetail {
      */
     private int orderState;
     /**
+     * 取货详细地址
+     */
+    private String detailAddress;
+
+    /**
      *订单商品详情列表
      */
+
     private List<OrderDetailGoodsList> orderGoodsList;
 
+    public void setDetailAddress(String detailAddress) {
+        this.detailAddress = detailAddress;
+    }
+    public String getDetailAddress() {
+        return detailAddress;
+    }
     public String getOrderCode() {
         return orderCode;
     }
@@ -39,13 +53,33 @@ public class OrderDetail {
         this.orderCode = orderCode;
     }
 
-    public String getDeliveryAddress() {
-        return deliveryAddress;
+
+
+    public String getProvinceCode() {
+        return provinceCode;
     }
 
-    public void setDeliveryAddress(String deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
+    public void setProvinceCode(String provinceCode) {
+        this.provinceCode = provinceCode;
     }
+
+    public String getCityCode() {
+        return cityCode;
+    }
+
+    public void setCityCode(String cityCode) {
+        this.cityCode = cityCode;
+    }
+
+    public String getDistinctCode() {
+        return distinctCode;
+    }
+
+    public void setDistinctCode(String distinctCode) {
+        this.distinctCode = distinctCode;
+    }
+
+
 
     public String getDeliveryStore() {
         return deliveryStore;

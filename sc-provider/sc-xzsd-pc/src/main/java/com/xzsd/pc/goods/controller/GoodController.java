@@ -1,5 +1,7 @@
 package com.xzsd.pc.goods.controller;
+import com.neusoft.core.restful.AppResponse;
 import com.xzsd.pc.goods.entity.GoodClassifi;
+import com.xzsd.pc.util.SecurityUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,11 +20,11 @@ import javax.annotation.Resource;
  */
 
 @RestController
-@RequestMapping("/good")
+@RequestMapping("/goods")
 public class GoodController {
     @Resource
     private GoodService goodService;
-    private ResponceData responceData;
+    private AppResponse responceData;
 //    private static final Logger logger = LoggerFactory.getLogger(GoodController.class);
 
     /**
@@ -34,13 +36,12 @@ public class GoodController {
      */
     @ResponseBody
     @PostMapping("addGood")
-    public ResponceData addGood(Good good){
-
-            responceData = goodService.addGood(good);
-            return responceData;
-//        }catch(Exception e){
-//            throw  e;
-//        }
+    public AppResponse addGood(Good good){
+        try{
+            return goodService.addGood(good);
+        }catch(Exception e){
+            return AppResponse.bizError("执行过程有错误,抛出异常!"+e.getMessage());
+        }
     }
     /**
      *  查询商品详情
@@ -49,23 +50,24 @@ public class GoodController {
      * @author zhc
      * @Date 2020年3月26日11:03:55
      */
-    @PostMapping("queryGoodDetail")
-    public ResponceData queryGoodDetail(Good good){
-        responceData = goodService.queryGoodDetail(good);
-
-        return responceData;
-
-    }
-    @PostMapping("deleteGood")
-    public ResponceData deleteGoods(String goodCode){
+    @PostMapping("queryDetail")
+    public AppResponse queryGoodDetail(Good good){
 
         try{
-            String updateUser = "123456";
-            responceData = goodService.deleteGoods(goodCode,updateUser);
-            return responceData;
+            return goodService.queryGoodDetail(good);
+        }catch (Exception e){
+            return AppResponse.bizError("执行过程有错误,抛出异常!"+e.getMessage());
+        }
+    }
+    @PostMapping("deleteGood")
+    public AppResponse deleteGoods(String goodCode){
+
+        try{
+            String updateUser = SecurityUtils.getCurrentUserUsername();
+            return goodService.deleteGoods(goodCode,updateUser);
         }
         catch(Exception e){
-            throw e;
+            return AppResponse.bizError("执行过程有错误,抛出异常!"+e.getMessage());
         }
     }
 
@@ -77,12 +79,12 @@ public class GoodController {
      * @return
      */
     @PostMapping("updateGood")
-    public ResponceData updateGood(Good good){
+    public AppResponse updateGood(Good good){
         try{
             responceData = goodService.updateGoo(good);
             return responceData;
         }catch (Exception e){
-            throw e;
+            return AppResponse.bizError("执行过程有错误,抛出异常!"+e.getMessage());
         }
 
     }
@@ -92,14 +94,13 @@ public class GoodController {
      * @param good
      * @return
      */
-    @PostMapping("queryGoodList")
-    public ResponceData queryGoodList(Good good){
+    @PostMapping("listGoods")
+    public AppResponse queryGoodList(Good good){
         try{
             responceData = goodService.queryGoodList(good);
             return responceData;
         }catch (Exception e){
-            throw e;
-
+            return AppResponse.bizError("执行过程有错误,抛出异常!"+e.getMessage());
         }
 
     }
@@ -111,13 +112,13 @@ public class GoodController {
      * @return
      */
     @PostMapping("upperOrLowerShelf")
-    public ResponceData upperOrLowerShelf(Good good){
+    public AppResponse upperOrLowerShelf(Good good){
 
         try{
-            responceData = goodService.updateGoodState(good,RandomCode.radmonkey());
+            responceData = goodService.updateGoodState(good,SecurityUtils.getCurrentUserUsername());
             return responceData;
         }catch (Exception e){
-            throw e;
+            return AppResponse.bizError("执行过程有错误,抛出异常!"+e.getMessage());
         }
     }
 
@@ -126,7 +127,7 @@ public class GoodController {
      * @return
      */
     @PostMapping("queryFirstClass")
-    public ResponceData queryFirstClass(){
+    public AppResponse queryFirstClass(){
         try{
             responceData = goodService.queryFirstClass();
             return responceData;
@@ -140,7 +141,7 @@ public class GoodController {
      * @return
      */
     @PostMapping("querySecondClass")
-    public ResponceData querySecondClass(GoodClassifi goodClassifi){
+    public AppResponse querySecondClass(GoodClassifi goodClassifi){
         try{
             responceData = goodService.querySecondClass(goodClassifi);
             return responceData;

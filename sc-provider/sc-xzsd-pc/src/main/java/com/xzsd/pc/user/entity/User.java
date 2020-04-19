@@ -34,7 +34,7 @@ public class User {
     /**
      *用户角色
      */
-    private int userRole;
+    private String userRole;
 
     /**
      * 用户电话
@@ -147,11 +147,11 @@ public class User {
         this.userSex = userSex;
     }
 
-    public int getUserRole() {
+    public String getUserRole() {
         return userRole;
     }
 
-    public void setUserRole(int userRole) {
+    public void setUserRole(String userRole) {
         this.userRole = userRole;
     }
 

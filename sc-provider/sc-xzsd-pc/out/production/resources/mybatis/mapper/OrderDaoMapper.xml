@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.pc.order.dao.OrderDao">
+    <!--订单列表查询-->
+    <select id="queryOrderList" parameterType="com.xzsd.pc.order.entity.OrderQuery" resultType="com.xzsd.pc.order.entity.Order">
+        select
+          torder.order_code orderCode,
+          torder.order_price orderCountPrice,
+          torder.order_state orderState,
+          torder.order_play_state orderPayState,
+          tbind.shop_code storeCode,
+          tuser.user_name orderUserName,
+          tuser.user_phone orderUserPhone,
+          tuser.order_sure_pay_time orderPayTime
+        from
+          t_order_manage torder,
+          t_store_bind tbind,
+          t_user_infomation tuser,
+          t_store_information tstore
+        where
+          torder.user_code = tuser.user_code
+        and
+          tbind.user_code = tuser.user_code
+        and
+          tstore.shop_code = tbind.shop_code
+        <if test="orderUserName !=null and orderUserName != ''">
+            and tuser.user_name like concat('%',#{orderUserName},'%')
+        </if>
+        <if test="orderCode != null and orderCode != ''">
+            and torder.order_code like concat('%',#{orderCode},'%')
+        </if>
+
+        <if test="orderUserPhone != null and orderUserPhone != ''">
+            and tuser.user_phone like concat('%',#{orderUserPhone},'%')
+        </if>
+        <if test="orderState !=null and orderState != ''">
+            and torder.order_state =  CAST(#{orderState} AS SIGNED)
+        </if>
+        <if test="orderPayTimeStart != null and orderPayTimeStart != ''">
+             and  torder.order_sure_pay_time &gt;= #{orderPayTimeStart}
+        </if>
+        <if test="orderPayTimeEnd != null and orderPayTimeEnd != ''">
+            and  torder.order_sure_pay_time &lt;= #{orderPayTimeEnd}
+        </if>
+        <if test="userRole == 1">
+            and tstore.shop_con_user = #{userCode}
+        </if>
+        order by torder.create_time desc
+    </select>
+    <!--订单详情查询[多个商品,所以也是列表]-->
+    <select id="queryOrderDetail" parameterType="com.xzsd.pc.order.entity.OrderDetail" resultType="com.xzsd.pc.order.entity.OrderDetail">
+        select
+            tOrder.user_code userCode,
+            tOrderGoods.order_code orderCode,
+            tOrderGoods.good_code goodCode,
+            tOrderGoods.orderG_name goodName,
+            tOrderGoods.orderG_num goodNum,
+            tOrderGoods.orderG_Count goodCount,
+            tOrderGoods.orderG_price goodPrice,
+            tOrderGoods.orderG_s_price goodSalePri
+        from
+            t_order_ordergoods tOrderGoods,
+            t_order_manage tOrder
+        where
+            tOrderGoods.order_code = tOrder.order_code
+        and
+            tOrderGoods.order_code = #{orderCode}
+        order by tOrder.create_time desc
+    </select>
+    <!--订单状态修改-->
+    <update id="updateOrderState" parameterType="com.xzsd.pc.order.entity.OrderUpdate">
+          update
+              t_order_manage
+          set
+              order_state = CAST(#{orderState} AS SIGNED),
+              update_time = now(),
+              update_user = #{updateUser},
+              version = version+1
+          where
+              version = #{version}
+          and
+              order_code in
+          <foreach collection="list" index="index" open="(" separator="," close=")" item="item">
+              #{item}
+          </foreach>
+    </update>
+</mapper>

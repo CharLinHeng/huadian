@@ -74,6 +74,30 @@ public class GoodList {
      * 商品书号
      */
     private String goodIsbnBookSize;
+    /**
+     * 商品出版社
+     */
+    private  String goodCommodityPress;
+    /**
+     * 商家名称
+     */
+    private String storeName;
+
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
+
+    public String getGoodCommodityPress() {
+        return goodCommodityPress;
+    }
+
+    public void setGoodCommodityPress(String goodCommodityPress) {
+        this.goodCommodityPress = goodCommodityPress;
+    }
 
     public String getGoodCode() {
         return goodCode;

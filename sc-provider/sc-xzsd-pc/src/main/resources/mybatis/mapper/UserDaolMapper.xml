@@ -29,7 +29,7 @@
             #{userPass},
             #{userIdCard},
             #{userSex},
-            #{userRole},
+            CAST(#{userRole} AS SIGNED),
             #{userTel},
             #{userPhone},
             #{userIntegral},
@@ -66,6 +66,8 @@
             is_delete = 0
         and
             user_account = #{userAccount}
+        and
+            user_code != #{userCode}
     </select>
     <!--统计手机号是否已经注册过-->
     <select id="countUserPhone" parameterType="com.xzsd.pc.user.entity.User" resultType="int">
@@ -93,7 +95,8 @@
             user_integral userIntegral,
             user_email userEmail,
             is_delete isDelete,
-            version version
+            version version,
+            user_image defaultImageUrl
         from
             t_user_infomation
         where
@@ -101,7 +104,7 @@
         and user_code=#{userCode}
     </select>
     <!--用户列表查询-->
-    <select id="listUsersByPage" parameterType="com.xzsd.pc.user.entity.User" resultType="com.xzsd.pc.user.entity.User">
+    <select id="listUsers" parameterType="com.xzsd.pc.user.entity.User" resultType="com.xzsd.pc.user.entity.User">
         select
         user_code userCode,
         user_account userAccount,
@@ -115,16 +118,18 @@
         from
         t_user_infomation
         where
-        is_delete = 0
+            is_delete = 0
         <if test="userAccount != null and userAccount != ''">
             and user_account like concat('%', #{userAccount}, '%')
         </if>
         <if test="userName != null and userName != ''">
             and user_name like concat('%', #{userName}, '%')
         </if>
-        <if test="userRole !=null and userRole !=''">
+        <if test="userRole !='' and userRole !=null">
             and user_role =#{userRole}
         </if>
+        and
+            user_role &lt; 3
         order by create_time desc
     </select>
     <!--修改用户-->
@@ -134,12 +139,15 @@
         SET
             `user_name` = #{userName},
             `user_account`=#{userAccount},
-            `user_pass`=#{userPass},
+            <if test="userPass != null and userPass != ''">
+                `user_pass`=#{userPass},
+            </if>
             `user_id_card`=#{userIdCard},
             `user_sex` = #{userSex},
-            `user_role`=#{userRole},
+            `user_role`=CAST(#{userRole} AS SIGNED),
             `user_tel`=#{userTel},
             `user_phone` = #{userPhone},
+            `user_image` = #{defaultImageUrl},
             `user_integral`=#{userIntegral},
             `user_email`= #{userEmail},
             `update_time` = now(),
@@ -148,4 +156,19 @@
         WHERE
               user_code = #{userCode}
     </update>
+    <!--获取当前登入用户信息-->
+    <select id="getuserdata" parameterType="com.xzsd.pc.user.entity.AdminData" resultType="com.xzsd.pc.user.entity.AdminData">
+        select
+            user_code userCode,
+            user_name userName,
+            user_account userAcc,
+            user_role userRole,
+            user_image userImageUrl
+        from
+            t_user_infomation
+        where
+            is_delete = 0
+        and
+            user_account = #{userAcc}
+    </select>
 </mapper>

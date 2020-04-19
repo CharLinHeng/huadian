@@ -1,25 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xzsd.pc.storeManage.dao.StoreDao">
-
-
-
-    <!--查找 是否重复-->
-    <select id="count" parameterType="com.xzsd.pc.storeManage.entity.Store" resultType="int">
-        select
-            count(*)
-        from
-            t_store_information
-         where
-            <if test="storeName != null and storeName!= ''">
-                shop_name = #{storeName}
-            </if>
-            <if test="storeBusinessLicense != null and storeBusinessLicense!= ''">
-                shop_idCard = #{storeBusinessLicense}
-            </if>
-    </select>
-    <!--插-->
-    <insert id="addStore" parameterType="com.xzsd.pc.storeManage.entity.Store">
+<mapper namespace="com.xzsd.pc.store.dao.StoreDao">
+    <!--新增-->
+    <insert id="addStore" parameterType="com.xzsd.pc.store.entity.Store">
         INSERT INTO t_store_information (
             shop_code,
             shop_name,
@@ -54,68 +37,59 @@
                 #{investCode}
             )
     </insert>
-
+    <!--门店删除-->
+    <update id="deleteStore" parameterType="com.xzsd.pc.store.entity.Store">
+        update
+        t_store_information
+        set
+        is_delete = 1,
+        update_user = #{updateUser},
+        update_time = now()
+        where
+        shop_code in
+        <foreach collection="listCodes" index="index" close=")" separator="," open="(" item="item">
+            #{item}
+        </foreach>
+    </update>
     <!--省查询-->
-    <select id="queryProvince" parameterType="com.xzsd.pc.storeManage.entity.Dict" resultType="com.xzsd.pc.storeManage.entity.Dict">
+    <select id="queryProvince" parameterType="com.xzsd.pc.store.entity.Dict" resultType="com.xzsd.pc.store.entity.Dict">
        select
             dict_code areaCode,
             dict_name areaName,
             dict_type dictType
         from
             t_dict
-
       where
             dict_type = "1"
     </select>
     <!--市区查询-->
-    <select id="queryCityOrDistrict" parameterType="com.xzsd.pc.storeManage.entity.Dict" resultType="com.xzsd.pc.storeManage.entity.Dict">
+    <select id="queryCityOrDistrict" parameterType="com.xzsd.pc.store.entity.Dict" resultType="com.xzsd.pc.store.entity.Dict">
        select
             dict_code areaCode,
             dict_name areaName,
             dict_type dictType
         from
             t_dict
-
       where
             dict_parent_node = #{dictCode}
     </select>
-    <!--门店信息修改-->
-    <update id="updateStore" parameterType="com.xzsd.pc.storeManage.entity.Store">
-        update
-              t_store_information
-        set
-            shop_name = #{storeName},
-            shop_phone = #{storePhone},
-            shop_con_user = #{userCode},
-            shop_idCard = #{storeBusinessLicense},
-            provinceCode =  #{storeProvinceCode},
-            cityCode = #{storeCityCode},
-            distinctCode = #{storeDistinctCode},
-            shop_detail_address = #{storeDetailAddress},
-            update_time = now(),
-            update_user = #{updateUser},
-            version = version+1
+    <!--查找 是否重复-->
+    <select id="count" parameterType="com.xzsd.pc.store.entity.Store" resultType="int">
+        select
+        count(*)
+        from
+        t_store_information
         where
-              shop_code = #{storeCode}
-            and
-              version =  CAST(#{version} AS SIGNED)
-    </update>
-    <!--门店删除-->
-    <update id="deleteStore" parameterType="com.xzsd.pc.storeManage.entity.Store">
-        update
-             t_store_information
-        set
-              is_delete = 1,
-              update_user = #{updateUser},
-              update_time = now()
-       where
-            shop_code in
-            <foreach collection="listCodes" index="index" close=")" separator="," open="(" item="item">
-                  #{item}
-            </foreach>
-    </update>
+        <if test="storeName != null and storeName!= ''">
+            shop_name = #{storeName}
+        </if>
+        <if test="storeBusinessLicense != null and storeBusinessLicense!= ''">
+            shop_idCard = #{storeBusinessLicense}
+        </if>
+    </select>
+
     <!--门店信息详情-->
-    <select id="queryStoreDetail" parameterType="com.xzsd.pc.storeManage.entity.Store" resultType="com.xzsd.pc.storeManage.entity.Store">
+    <select id="queryStoreDetail" parameterType="com.xzsd.pc.store.entity.Store" resultType="com.xzsd.pc.store.entity.Store">
         select
             shop_code storeCode,
             shop_name storeName,
@@ -133,23 +107,22 @@
             shop_code = #{storeCode}
     </select>
     <!--门店信息列表查询-->
-    <select id="queryStoreList" parameterType="com.xzsd.pc.storeManage.entity.StoreListQueryEntity" resultType="com.xzsd.pc.storeManage.entity.StoreListQueryEntity">
+    <select id="queryStoreList" parameterType="com.xzsd.pc.store.entity.StoreListQueryEntity" resultType="com.xzsd.pc.store.entity.StoreListQueryEntity">
         select
-            tstore.shop_code storeCode,
-            tstore.shop_name storeName,
-            tstore.shop_phone storePhone,
-            tstore.shop_detail_address storeAddress,
-            tuser.user_name storeUserName,
-            tstore.shop_invest_code storeinvitation,
-            tuser.user_account storeAcc
+        tstore.shop_code storeCode,
+        tstore.shop_name storeName,
+        tstore.shop_phone storePhone,
+        tstore.shop_detail_address storeAddress,
+        tuser.user_name storeUserName,
+        tstore.shop_invest_code storeinvitation,
+        tuser.user_account storeAcc
         from
-            t_store_information tstore,
-            t_user_infomation tuser
-
+        t_store_information tstore,
+        t_user_infomation tuser
         where
-            tstore.shop_con_user = tuser.user_code
+        tstore.shop_con_user = tuser.user_code
         and
-            tstore.is_delete = 0
+        tstore.is_delete = 0
 
         <if test="storeCode != null and storeCode != ''">
             and tstore.shop_code like concat('%',#{storeCode},'%')
@@ -169,6 +142,27 @@
         <if test="storeDistinct != null and storeDistinct != ''">
             and tuser.distinctCode like concat('%',#{storeDistinct},'%')
         </if>
+        order by create_time desc
     </select>
-
+    <!--门店信息修改-->
+    <update id="updateStore" parameterType="com.xzsd.pc.store.entity.Store">
+        update
+              t_store_information
+        set
+            shop_name = #{storeName},
+            shop_phone = #{storePhone},
+            shop_con_user = #{userCode},
+            shop_idCard = #{storeBusinessLicense},
+            provinceCode =  #{storeProvinceCode},
+            cityCode = #{storeCityCode},
+            distinctCode = #{storeDistinctCode},
+            shop_detail_address = #{storeDetailAddress},
+            update_time = now(),
+            update_user = #{updateUser},
+            version = version+1
+        where
+              shop_code = #{storeCode}
+            and
+              version =  CAST(#{version} AS SIGNED)
+    </update>
 </mapper>

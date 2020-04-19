@@ -41,7 +41,7 @@ public interface GoodDao {
     /**
      *删除商品
      */
-    int deleteGoods(@Param("listGoodCode") List<String> goodCodes, @Param("updateUser") String update_user);
+    int deleteGood(@Param("listGoodCode") List<String> goodCodes, @Param("updateUser") String update_user);
     /**
      *商品列表查询
      */

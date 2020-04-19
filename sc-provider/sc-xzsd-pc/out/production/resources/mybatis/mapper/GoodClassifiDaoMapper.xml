@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xzsd.pc.goodclassification.dao.GoodClassifiDao">
-        
-    <!--计数，是否含有同类名称的分了-->
-    <select id="countClassName" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification" resultType="int">
-        select count(*) from t_goods_classification_manage
-        where clas_name = #{className}
-    </select>
     <!--新增一级分类-->
     <insert id="addFirstClass" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification">
         insert into
@@ -38,8 +32,7 @@
     <!--新增二级分类-->
     <insert id="addSecondClass" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification">
         insert into
-          t_goods_classification_manage
-          (
+          t_goods_classification_manage(
             clas_code,
             clas_name,
             clas_rank,
@@ -63,6 +56,72 @@
             0
         )
     </insert>
+    <!--商品分类删除-->
+    <update id="deleteGoodClass" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification">
+        update
+        t_goods_classification_manage
+        set
+        is_delete = 1,
+        update_user = #{updateUser}
+        where
+        clas_code in
+        <foreach collection="classCodeList" item="item" separator="," close=")" open="(" index="index">
+            #{item}
+        </foreach>
+    </update>
+    <!--商品列表查询之子查询-->
+    <!--<select id="llistSecond" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassificationSon"-->
+    <!--resultType="com.xzsd.pc.goodclassification.entity.GoodClassificationSon">-->
+    <!--select-->
+    <!--clas_code classCode,-->
+    <!--clas_name className,-->
+    <!--clas_rank classRank-->
+    <!--from-->
+    <!--t_goods_classification_manage-->
+    <!--where-->
+    <!--is_delete = 0-->
+    <!--</select>-->
+    <!--resultMap 返回双重嵌套[方法2]-->
+    <!--<resultMap id="queryGoodClassListMap" type="com.xzsd.pc.goodclassification.entity.GoodClassificationList">-->
+    <!--<id property="classCode" column="clas_code"/>-->
+    <!--<result property="className" column="clas_name"/>-->
+    <!--&lt;!&ndash;<collection property="secondClassificationList"  column="clas_code"  javaType="List"&ndash;&gt;-->
+    <!--&lt;!&ndash;ofType="com.xzsd.pc.goodclassification.entity.GoodClassificationSon" resultMap="sonResult" select="llistSecond"/>&ndash;&gt;-->
+    <!--</resultMap>-->
+    <!--<resultMap type="com.xzsd.pc.goodclassification.entity.GoodClassificationSon" id="sonResult">-->
+    <!--<id property="classCode" column="clas_code"/>-->
+    <!--<result property="className" column="clas_name"/>-->
+    <!--</resultMap>-->
+
+
+    <!--计数，是否含有同类名称的分了-->
+    <select id="countClassName" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification" resultType="int">
+        select count(*) from t_goods_classification_manage
+        where clas_name = #{className}
+    </select>
+    <!--商品分类详情查询-->
+    <select id="queryGoodClass" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification" resultType="com.xzsd.pc.goodclassification.entity.GoodClassification">
+        select
+            clas_name className,
+            remark classRemark
+        from
+            t_goods_classification_manage
+        where
+            clas_code = #{classCode}
+    </select>
+    <!--商品列表查询-->
+    <select id="queryGoodClassList" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification"  resultType="com.xzsd.pc.goodclassification.entity.GoodClassification">
+      select
+          clas_code classCode,
+          clas_name className,
+          clas_rank classRank,
+          parent_node firstClassCode
+      from
+          t_goods_classification_manage
+      where
+          is_delete = 0
+      order by create_time desc
+    </select>
     <!--修改分类-->
     <update id="updateGoodClass" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification">
       update
@@ -80,19 +139,6 @@
          clas_code = #{classCode}
     </update>
 
-    <!--商品分类删除-->
-    <update id="deleteGoodClass" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification">
-        update
-          t_goods_classification_manage
-        set
-          is_delete = 1,
-          update_user = #{updateUser}
-        where
-          clas_code in
-          <foreach collection="classCodeList" item="item" separator="," close=")" open="(" index="index">
-                #{item}
-          </foreach>
-    </update>
     <!--删除一级分类附属的二级分类-->
     <update id="deleteSecClass" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification">
         update
@@ -103,54 +149,4 @@
         where
           parent_node = #{classCode}
     </update>
-    <!--商品分类详情查询-->
-    <select id="queryGoodClass" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification" resultType="com.xzsd.pc.goodclassification.entity.GoodClassification">
-        select
-            clas_name className,
-            remark classRemark
-        from
-            t_goods_classification_manage
-        where
-            clas_code = #{classCode}
-
-    </select>
-
-
-
-    <!--商品列表查询-->
-    <select id="queryGoodClassList" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification"  resultType="com.xzsd.pc.goodclassification.entity.GoodClassification">
-      select
-          clas_code classCode,
-          clas_name className,
-          clas_rank classRank,
-          parent_node firstClassCode
-      from
-          t_goods_classification_manage
-      where
-          is_delete = 0
-      order by create_time desc
-    </select>
-    <!--商品列表查询之子查询-->
-    <!--<select id="llistSecond" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassificationSon"-->
-            <!--resultType="com.xzsd.pc.goodclassification.entity.GoodClassificationSon">-->
-      <!--select-->
-          <!--clas_code classCode,-->
-          <!--clas_name className,-->
-          <!--clas_rank classRank-->
-      <!--from-->
-          <!--t_goods_classification_manage-->
-      <!--where-->
-          <!--is_delete = 0-->
-    <!--</select>-->
-    <!--resultMap 返回双重嵌套-->
-    <!--<resultMap id="queryGoodClassListMap" type="com.xzsd.pc.goodclassification.entity.GoodClassificationList">-->
-        <!--<id property="classCode" column="clas_code"/>-->
-        <!--<result property="className" column="clas_name"/>-->
-        <!--&lt;!&ndash;<collection property="secondClassificationList"  column="clas_code"  javaType="List"&ndash;&gt;-->
-        <!--&lt;!&ndash;ofType="com.xzsd.pc.goodclassification.entity.GoodClassificationSon" resultMap="sonResult" select="llistSecond"/>&ndash;&gt;-->
-    <!--</resultMap>-->
-    <!--<resultMap type="com.xzsd.pc.goodclassification.entity.GoodClassificationSon" id="sonResult">-->
-        <!--<id property="classCode" column="clas_code"/>-->
-        <!--<result property="className" column="clas_name"/>-->
-    <!--</resultMap>-->
 </mapper>

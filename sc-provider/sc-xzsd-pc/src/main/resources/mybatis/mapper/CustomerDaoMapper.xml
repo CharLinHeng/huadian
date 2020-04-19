@@ -36,6 +36,8 @@
         from
             t_user_infomation
         where
-            user_code = #{userCode}
+            user_account = #{userCode}
+        and
+            is_delete = 0
     </select>
 </mapper>

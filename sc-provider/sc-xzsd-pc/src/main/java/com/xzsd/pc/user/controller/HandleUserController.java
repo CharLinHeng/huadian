@@ -1,6 +1,8 @@
 package com.xzsd.pc.user.controller;
 
 
+import com.neusoft.core.restful.AppResponse;
+import com.xzsd.pc.util.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +13,6 @@ import com.xzsd.pc.user.entity.User;
 import com.xzsd.pc.user.services.RedisService;
 import com.xzsd.pc.user.services.UserServices;
 import com.xzsd.pc.util.RandomCode;
-import com.xzsd.pc.util.ResponceData;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -38,26 +39,27 @@ public class HandleUserController {
      * 新增用户
      * 2020年3月24日19:20:20
      */
-    public ResponceData addUser(User user){
+    public AppResponse addUser(User user){
 
         //先随机获取用户编号
         String user_code = RandomCode.radmonkey();
         user.setUserCode(user_code);
-
-        ResponceData responceData = userServices.addUser(user);
-        return responceData;
+        //获取当前创建的用户
+        user.setCreateUser(SecurityUtils.getCurrentUserUsername());
+        AppResponse AppResponse = userServices.addUser(user);
+        return AppResponse;
     }
     /**
      * 查询用户
      * @return
      */
     @PostMapping("queryUser")
-    public ResponceData queryUser(User user){
+    public AppResponse queryUser(User user){
 
         try {
-            ResponceData responceData = userServices.queryUser(user);
+            AppResponse AppResponse = userServices.queryUser(user);
 
-            return responceData;
+            return AppResponse;
         } catch (Exception e) {
 
             System.out.println(e.toString());
@@ -79,12 +81,12 @@ public class HandleUserController {
      * 用户修改
      */
     @PostMapping("updateUser")
-    public ResponceData updateUser(User user){
+    public AppResponse updateUser(User user){
 
         try {
-            ResponceData responceData = userServices.updateUser(user);
-
-            return responceData;
+            user.setUpdateUser(SecurityUtils.getCurrentUserUsername());
+            AppResponse AppResponse = userServices.updateUser(user);
+            return AppResponse;
         } catch (Exception e) {
 
             System.out.println(e.toString());
@@ -95,16 +97,16 @@ public class HandleUserController {
     /**
      *  删除用户
      * @param user
-     * @return responceData
+     * @return AppResponse
      * @author zhc
      * @Date 2020年3月25日09:35:04
      */
     @PostMapping("deleteUser")
-    public ResponceData deleteUser(User user){
-
+    public AppResponse deleteUser(User user){
         try {
-            ResponceData responceData = userServices.deleteUser(user);
-            return responceData;
+            user.setUpdateUser(SecurityUtils.getCurrentUserUsername());
+            AppResponse AppResponse = userServices.deleteUser(user);
+            return AppResponse;
         } catch (Exception e) {
             System.out.println(e.toString());
             throw e;
@@ -112,20 +114,27 @@ public class HandleUserController {
     }
     /**
      *  查询用户列表
-     * @return responceData
+     * @return AppResponse
      * @author zhc
      * @Date 2020年3月25日09:35:04
      */
     @PostMapping("queryUserList")
-    public ResponceData queryUserList(User user){
+    public AppResponse queryUserList(User user){
 
         try {
-            ResponceData responceData = userServices.queryUserList(user);
-            return responceData;
+            AppResponse AppResponse = userServices.queryUserList(user);
+            return AppResponse;
         } catch (Exception e) {
-            System.out.println(e.toString());
-            throw e;
+            return AppResponse.bizError("后台有可能出错了，可能是sql语句出错也可能是NullPointException!"+e.getMessage());
         }
     }
-
+    @PostMapping("getuserdata")
+    public AppResponse getuserdata(User user){
+        try {
+            AppResponse AppResponse = userServices.getuserdata();
+            return AppResponse;
+        } catch (Exception e) {
+            return AppResponse.bizError("后台有可能出错了，可能是sql语句出错也可能是NullPointException!"+e.getMessage());
+        }
+    }
 }

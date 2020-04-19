@@ -11,7 +11,10 @@ public class Good {
      * 货物编号
      */
     private String goodCode;
-
+    /**
+     * 商家名称
+     */
+    private String storeName;
     /**
      * 货物名称
      */
@@ -112,6 +115,14 @@ public class Good {
      * 商品更新用户
      */
     private String updateUser;
+
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
 
     public String getUpdateUser() {
         return updateUser;

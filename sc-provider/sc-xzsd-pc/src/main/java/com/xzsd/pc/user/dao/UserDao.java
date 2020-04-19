@@ -1,5 +1,6 @@
 package com.xzsd.pc.user.dao;
 
+import com.xzsd.pc.user.entity.AdminData;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import com.xzsd.pc.user.entity.User;
@@ -60,5 +61,12 @@ public interface UserDao {
      * @param user
      * @return
      */
-    List<User> listUsersByPage(User user);
+    List<User> listUsers(User user);
+
+    /**
+     * 获取当前登入用户信息
+     * @param userCode
+     * @return
+     */
+    AdminData getuserdata(@Param("userAcc")String userCode);
 }

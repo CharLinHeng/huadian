@@ -151,6 +151,7 @@
         where user_code = #{userCode}
           and version = #{version}
     </update>
+
     <!--删除用户-->
     <update id="deleteUser" parameterType="com.neusoft.webauth.user.entity.UserSettingDTO">
         update t_sys_user

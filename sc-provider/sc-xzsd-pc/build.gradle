@@ -9,7 +9,8 @@ dependencies {
             project(":sc-common:sc-common-log"),
             'org.springframework.boot:spring-boot-starter-data-redis',
             'org.springframework.session:spring-session-data-redis',
-            'com.github.pagehelper:pagehelper-spring-boot-starter:1.2.3' 
+            'com.github.pagehelper:pagehelper-spring-boot-starter:1.2.3',
+            'com.qcloud:cos_api:5.6.18'
     // https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api
     compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0-m02'
 

@@ -215,11 +215,13 @@
            torder.order_code,
            torder.create_time,
            torder.order_state,
-           tstore.shop_name
---            ++ deliveryAddress,
+           tstore.shop_name,
+           tstore.provinceCode,
+           tstore.cityCode,
+           tstore.distinctCode,
+           tstore.shop_detail_address
         from
             t_order_manage torder,
---             t_dict tdict,
             t_store_bind tbind,
             t_store_information tstore
         where
@@ -238,7 +240,7 @@
             tgoods.good_code goodCode,
             tgoods.orderG_name goodName,
             tgoods.orderG_s_price goodSale,
-            tgoods.orderG_price goodPrec,
+            tgoods.orderG_pre goodPrec,
             tgoods.orderG_num goodNum,
             tgoods.orderG_image goodImageUrl
         from
@@ -254,8 +256,85 @@
         <result property="orderCreateTime" column="create_time"/>
         <result property="orderState" column="order_state"/>
         <result property="deliveryStore" column="shop_name"/>
+        <result property="provinceCode" column="provinceCode"/>
+        <result property="cityCode" column="cityCode"/>
+        <result property="distinctCode" column="distinctCode"/>
+        <result property="detailAddress" column="shop_detail_address"/>
         <collection property="orderGoodsList" javaType="list"  column="orderCode=torder.order_code"  select="selectList" ofType="com.xzsd.app.order.entity.OrderDetailGoodsList">
         </collection>
     </resultMap>
-
+    <!--修改订单状态-->
+    <update id="updateOrder" parameterType="com.xzsd.app.order.entity.UpdateOrder">
+          update
+              t_order_manage
+          set
+              order_state = #{orderState},
+              update_user = #{updateUser}
+          where
+              order_code = #{orderCode}
+    </update>
+    <!--查询用户订单列表-->
+    <select id="queryUserOrderList" parameterType="com.xzsd.app.order.entity.OrderListParam" resultMap="queryOrderList">
+          select
+              order_code,
+              order_state
+          from
+              t_order_manage
+          where
+              user_code = #{userCode}
+          and
+              is_delete = 0
+    </select>
+    <!--查询用户订单列表详情-->
+    <select id="queryOrderListListUnit" parameterType="com.xzsd.app.order.entity.OrderListParam" resultType="com.xzsd.app.order.entity.OrderListUnit">
+          select
+              good_code goodCode,
+              orderG_name goodName,
+              orderG_s_price goodSale,
+              orderG_num goodNum,
+              orderG_image imageUrl
+          from
+              t_order_ordergoods
+          where
+              order_code = #{orderCode}
+          and
+              is_delete = 0
+    </select>
+    <!--订单列表查询resultMap-->
+    <resultMap id="queryOrderList" type="com.xzsd.app.order.entity.OrderList">
+        <id property="orderCode" column="order_code"/>
+        <result property="orderState" column="order_state"/>
+        <collection property="orderGoodList" javaType="list"  column="orderCode=order_code"  select="queryOrderListListUnit" ofType="com.xzsd.app.order.entity.OrderListUnit">
+        </collection>
+    </resultMap>
+    <!--新增订单商品评价-->
+    <insert id="addOrderGoodsEva" parameterType="com.xzsd.app.order.entity.OrderEvaUnit" >
+        INSERT
+            INTO
+              `t_goods_goodseva`(
+                `comment_code`,
+                `comment_good`,
+                `user_code`,
+                `comment_rank`,
+                `comment_images`,
+                `comment_content`,
+                `comment_time`,
+                `is_delete`,
+                `version`
+              )
+            VALUES
+              <foreach collection="list" index="index" item="item" separator=",">
+                  (
+                  #{item.commentCode},
+                  #{item.goodCode},
+                  #{item.createUser},
+                  #{item.goodRank},
+                  #{item.imageUrlList},
+                  #{item.evaContent},
+                  now(),
+                  0,
+                  0
+                  )
+              </foreach>
+    </insert>
 </mapper>

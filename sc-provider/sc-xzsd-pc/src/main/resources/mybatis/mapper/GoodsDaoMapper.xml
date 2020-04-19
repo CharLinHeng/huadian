@@ -28,7 +28,8 @@
             `create_user`,
             `update_user`,
             `is_delete`,
-            `version`
+            `version`,
+            `good_store_name`
             )
          VALUES
         (
@@ -41,8 +42,8 @@
             #{goodAd},
             #{goodPrec},
             2,
-            #{goodSaleTime},
-            #{goodSaleEnd},
+            now(),
+            '',
             0,
             #{goodThroughNum},
             #{goodLibSave},
@@ -55,7 +56,8 @@
             #{createUser},
             '',
             0,
-            0
+            0,
+            #{storeName}
         )
     </insert>
     <!--删除商品-->
@@ -64,20 +66,22 @@
            t_good_manage
         set
            is_delete = 1,
-           update_user=#{updateUser}
+           update_user=#{updateUser},
+           good_update_time = now()
         where
+          good_code in
           <foreach collection="listGoodCode" index="index" item="item" open="(" close=")" separator=",">
-              good_code = #{item}
+               #{item}
           </foreach>
     </update>
     <!--查询商品名称是否存在, 修改的时候，需要排除他自己本身-->
     <select id="countGood" parameterType="com.xzsd.pc.goods.entity.Good" resultType="int">
         select
-        count(good_name)
+            count(good_name)
         from
-        t_good_manage
+            t_good_manage
         where
-        good_name = #{goodName}
+             good_name = #{goodName}
         <if test="goodCode != null and goodCode !=''">
             and good_code != #{goodCode}
         </if>
@@ -85,11 +89,11 @@
     <!--查询商品书号是否存在 ,修改的时候，需要排除他自己本身-->
     <select id="countGoodBookSize" parameterType="com.xzsd.pc.goods.entity.Good" resultType="int">
         select
-        count(good_isbn_bookSize)
+            count(good_isbn_bookSize)
         from
-        t_good_manage
+           t_good_manage
         where
-        good_isbn_bookSize = #{goodIsbnBookSize}
+            good_isbn_bookSize = #{goodIsbnBookSize}
         <if test="goodCode != null and goodCode !=''">
             and good_code != #{goodCode}
         </if>
@@ -108,6 +112,7 @@
           tgood.good_author goodAuthor,
           tgood.good_lib_save goodLibSave,
           tgood.good_price goodPrice,
+          tgood.good_store_name storeName,
           tgood.good_selling_price goodSellingPrice,
           tgood.good_image_url goodImageUrl
         from
@@ -135,6 +140,7 @@
             tgood.good_through_num goodThroughNum,
             tgood.good_state goodState,
             tgood.good_ad goodAd,
+            tgood.good_store_name storeName,
             tgood.good_commodity_press goodCommodityPress,
             tgood.good_author goodAuthor,
             tgood.good_isbn_bookSize goodIsbnBookSize
@@ -165,7 +171,7 @@
             and tgood.good_state = #{goodState}
         </if>
         order  by
-        tgood.good_createTime
+            tgood.good_createTime
         desc
     </select>
     <!--商品一级分类查询-->
@@ -178,10 +184,10 @@
         where
             is_delete = 0
         and
-            parent_node is null
+            (parent_node is null )or ( LENGTH(trim(parent_node)) &lt; 1)
     </select>
     <!--商品二级分类查询-->
-    <select id="queryFirstClass" parameterType="com.xzsd.pc.goods.entity.GoodClassifi" resultType="com.xzsd.pc.goods.entity.GoodClassifi">
+    <select id="querySecondClass" parameterType="com.xzsd.pc.goods.entity.GoodClassifi" resultType="com.xzsd.pc.goods.entity.GoodClassifi">
         select
             clas_code classCode,
             clas_name className
@@ -204,14 +210,14 @@
             `good_second_clas`=#{goodSecondClas},
             `good_ad`=#{goodAd},
             `good_prec`=#{goodPrec},
-            `good_state`=#{goodState},
             `good_lib_save`=#{goodLibSave},
             `good_author`=#{goodAuthor},
             `good_commodity_press`=#{goodCommodityPress},
             `good_isbn_bookSize`=#{goodIsbnBookSize},
             `good_image_url`=#{goodImageUrl},
             `good_update_time`=now(),
-            `update_user`=#{updateUser}
+            `update_user`=#{updateUser},
+            `good_store_name`= #{storeName}
         WHERE
             `good_code`=#{goodCode}
     </update>

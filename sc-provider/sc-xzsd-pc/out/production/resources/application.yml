@@ -14,10 +14,13 @@ security:
       user-authorization-uri: http://sc-security-uaa/oauth/authorize
   sessions: stateless
 spring:
+  multipart.maxFileSize: 100Mb
+  multipart.maxRequestSize: 100Mb
   redis:
     host: 127.0.0.1
 #    password: dnc.2009
     database: 9
+
   datasource:
     name: dataSource
     type: com.alibaba.druid.pool.DruidDataSource
@@ -61,7 +64,7 @@ mybatis:
   log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 sc:
   cloud:
-    dev: true
+    debug: true
     task:
       core-pool-size: 20
       max-pool-size: 50
