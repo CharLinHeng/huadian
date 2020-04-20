@@ -1,6 +1,5 @@
 package com.xzsd.pc.order.controller;
-
-
+import com.neusoft.core.restful.AppResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -9,8 +8,6 @@ import com.xzsd.pc.order.entity.OrderQuery;
 import com.xzsd.pc.order.entity.OrderUpdate;
 import com.xzsd.pc.order.entity.PageEntity;
 import com.xzsd.pc.order.service.OrderService;
-import com.xzsd.pc.util.ResponceData;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/order")
 public class OrderController {
-    private ResponceData responceData;
+    private AppResponse AppResponse;
     @Resource
     private OrderService orderService;
 
@@ -29,12 +26,9 @@ public class OrderController {
      * 订单列表查询
      */
     @PostMapping("queryOrderList")
-    public ResponceData queryOrderList(OrderQuery orderQuery){
+    public AppResponse queryOrderList(OrderQuery orderQuery){
         try{
-
-
-            responceData = orderService.queryOrderList(orderQuery);
-            return responceData;
+            return orderService.queryOrderList(orderQuery);
         }catch (Exception e){
             throw e;
         }
@@ -47,11 +41,10 @@ public class OrderController {
      * @return
      */
     @PostMapping("updateOrderState")
-    public ResponceData updateOrderState(OrderUpdate orderUpdate, HttpServletRequest httpServletRequest){
+    public AppResponse updateOrderState(OrderUpdate orderUpdate, HttpServletRequest httpServletRequest){
         try{
             String codes = httpServletRequest.getParameter("orderCode");
-            responceData = orderService.updateOrderState(codes,orderUpdate);
-            return responceData;
+            return orderService.updateOrderState(codes,orderUpdate);
         }catch (Exception e){
             throw e;
         }
@@ -63,10 +56,9 @@ public class OrderController {
      * @return
      */
     @PostMapping("queryOrderDetail")
-    public ResponceData queryOrderDetail(PageEntity pageEntity){
+    public AppResponse queryOrderDetail(PageEntity pageEntity){
         try{
-            responceData = orderService.queryOrderDetail(pageEntity);
-            return responceData;
+            return orderService.queryOrderDetail(pageEntity);
         }catch (Exception e){
             throw e;
         }

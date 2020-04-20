@@ -24,7 +24,7 @@ public interface DriverDao {
      * @param idCard
      * @return
      */
-    int countDriverAcct(@Param("driverAcct")String acct,@Param("driverIdCard")String idCard);
+    int countDriverAcct(@Param("driverAcct")String acct,@Param("driverIdCard")String idCard,@Param("driverCode")String driverCode);
 
     /**
      * 司机信息修改

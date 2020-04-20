@@ -1,6 +1,7 @@
 package com.xzsd.pc.hotGood.controller;
 
 
+import com.neusoft.core.restful.AppResponse;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,16 +9,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.xzsd.pc.hotGood.entity.*;
 import com.xzsd.pc.hotGood.service.HotGoodService;
-import com.xzsd.pc.util.ResponceData;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/hotGoodManage")
 public class HotGoodController {
-    private ResponceData responceData;
-
     @Resource
     private HotGoodService hotGoodService;
 
@@ -28,11 +25,11 @@ public class HotGoodController {
      * 热门商品位新增
      */
     @PostMapping("addHotGood")
-    public ResponceData addHotGood(HotGood hotGood){
+    public AppResponse addHotGood(HotGood hotGood){
         try{
-
-            responceData = hotGoodService.addHotGood(hotGood);
-            return responceData;
+            
+           return hotGoodService.addHotGood(hotGood);
+            
         }catch (Exception e){
             throw e;
         }
@@ -47,10 +44,9 @@ public class HotGoodController {
      * @return
      */
     @PostMapping("queryGoodsList")
-    public ResponceData queryGoodsList(HttpServletRequest httpServletRequest, HotGoodQuery hotGoodQuery){
+    public AppResponse queryGoodsList(HttpServletRequest httpServletRequest, HotGoodQuery hotGoodQuery){
         try{
-            responceData = hotGoodService.queryGoodsList(httpServletRequest,hotGoodQuery);
-            return responceData;
+           return hotGoodService.queryGoodsList(httpServletRequest,hotGoodQuery);
         }catch (Exception e){
             throw e;
         }
@@ -62,10 +58,9 @@ public class HotGoodController {
      * @return
      */
     @PostMapping("updateHotGood")
-    public ResponceData updateHotGood(HotGood hotGood){
+    public AppResponse updateHotGood(HotGood hotGood){
         try{
-            responceData = hotGoodService.updateHotGood(hotGood);
-            return responceData;
+           return hotGoodService.updateHotGood(hotGood);
         }catch (Exception e){
             throw e;
         }
@@ -78,10 +73,9 @@ public class HotGoodController {
      */
     @PostMapping("deleteHotGood")
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData deleteHotGood(HotGood hotGood){
+    public AppResponse deleteHotGood(HotGood hotGood){
         try{
-            responceData = hotGoodService.deleteHotGood(hotGood);
-            return responceData;
+           return hotGoodService.deleteHotGood(hotGood);
         }catch (Exception e){
             throw e;
         }
@@ -93,10 +87,9 @@ public class HotGoodController {
      * @return
      */
     @PostMapping("showHotGoodsNum")
-    public ResponceData showHotGoodsNum(ShowNum showNum){
+    public AppResponse showHotGoodsNum(ShowNum showNum){
         try{
-            responceData = hotGoodService.showHotGoodsNum(showNum);
-            return responceData;
+           return hotGoodService.showHotGoodsNum(showNum);
         }catch (Exception e){
             throw e;
         }
@@ -109,10 +102,9 @@ public class HotGoodController {
      * @return
      */
     @PostMapping("queryHotGoodsList")
-    public ResponceData queryHotGoodsList(HotGoodList hotGoodlist, HttpServletRequest httpServletRequest){
+    public AppResponse queryHotGoodsList(HotGoodList hotGoodlist, HttpServletRequest httpServletRequest){
         try{
-            responceData = hotGoodService.queryHotGoodsList(hotGoodlist,httpServletRequest);
-            return responceData;
+           return hotGoodService.queryHotGoodsList(hotGoodlist,httpServletRequest);
         }catch (Exception e){
             throw e;
         }
@@ -124,10 +116,9 @@ public class HotGoodController {
      * @return
      */
     @PostMapping("queryHotGoodDetail")
-    public ResponceData queryHotGoodDetail(HotGood hotGood){
+    public AppResponse queryHotGoodDetail(HotGood hotGood){
         try{
-            responceData = hotGoodService.queryHotGoodDetail(hotGood);
-            return responceData;
+           return hotGoodService.queryHotGoodDetail(hotGood);
         }catch (Exception e){
             throw e;
         }

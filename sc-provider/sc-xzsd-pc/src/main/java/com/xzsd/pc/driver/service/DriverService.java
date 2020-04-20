@@ -2,14 +2,12 @@ package com.xzsd.pc.driver.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.neusoft.core.restful.AppResponse;
 import com.xzsd.pc.customer.dao.CustomerDao;
 import com.xzsd.pc.customer.entity.User;
 import com.xzsd.pc.driver.dao.DriverDao;
 import com.xzsd.pc.driver.entity.*;
-import com.xzsd.pc.util.PasswordUtils;
-import com.xzsd.pc.util.RandomCode;
-import com.xzsd.pc.util.ResponceData;
-import com.xzsd.pc.util.ResponceDataState;
+import com.xzsd.pc.util.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,7 +22,6 @@ import java.util.List;
  */
 @Service
 public class DriverService {
-    private ResponceData responceData;
     @Resource
     private DriverDao driverDao;
     @Resource
@@ -35,39 +32,40 @@ public class DriverService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData addDriver(Driver driver){
+    public AppResponse addDriver(Driver driver){
         //判断参数是否齐没
+
         if(null == driver.getDriverName() || driver.getDriverName() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机名字为空！",null);
+            return AppResponse.paramError("司机名字为空！");
         }
         if(null == driver.getDriverAcct() || driver.getDriverAcct() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机账号为空！",null);
+            return AppResponse.paramError("司机账号为空！");
         }
         if(null == driver.getDriverPhone() || driver.getDriverPhone() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机电话为空！",null);
+            return AppResponse.paramError("司机电话为空！");
         }
         if(null == driver.getDriverPass() || driver.getDriverPass() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机密码为空！",null);
+            return AppResponse.paramError("司机密码为空！");
         }
         if(null == driver.getDriverIdCard() || driver.getDriverIdCard() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机身份证号为空！",null);
+            return AppResponse.paramError("司机身份证号为空！");
         }
         if(null == driver.getDriverProvincCode() || driver.getDriverProvincCode() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机所在省编号为空！",null);
+            return AppResponse.paramError("司机所在省编号为空！");
         }
         if(null == driver.getDriverCityCode() || driver.getDriverCityCode() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机所在市编号为空！",null);
+            return AppResponse.paramError("司机所在市编号为空！");
         }
         if(null == driver.getDriverDistinctCode() || driver.getDriverDistinctCode() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机所在区为空！",null);
+            return AppResponse.paramError("司机所在区为空！");
         }
         //判断是否已经含有司机账号、司机身份证号
-        if( driverDao.countDriverAcct(driver.getDriverAcct(),null) > 0 ){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机账号已经存在！",null);
+        if( driverDao.countDriverAcct(driver.getDriverAcct(),null,null) > 0 ){
+            return AppResponse.paramError("司机账号已经存在！");
         }
         //身份证
-        if( driverDao.countDriverAcct(null,driver.getDriverIdCard()) > 0 ){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机身份证已经存在！",null);
+        if( driverDao.countDriverAcct(null,driver.getDriverIdCard(),null) > 0 ){
+            return AppResponse.paramError("司机身份证已经存在！");
         }
         //给司机随机生成编号
         driver.setDriverCode(RandomCode.radmonkey());
@@ -77,9 +75,9 @@ public class DriverService {
         int result = driverDao.addDriver(driver);
         //结果
         if(result > 0){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功！",result);
+            return AppResponse.success("新增成功！",result);
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败！",result);
+        return AppResponse.paramError("新增失败！");
     }
 
     /**
@@ -88,54 +86,54 @@ public class DriverService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData updateDriver(UpdateDriver updateDriver){
+    public AppResponse updateDriver(UpdateDriver updateDriver){
         //判断参数是否齐全
         if(null == updateDriver.getDriverCode() || updateDriver.getDriverCode() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机编号不能为空！",null);
+            return AppResponse.paramError("司机编号不能为空！");
         }
         if(null == updateDriver.getDriverName() || updateDriver.getDriverName() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机名字不能为空！",null);
+            return AppResponse.paramError("司机名字不能为空！");
         }
         if(null == updateDriver.getDriverPhone() || updateDriver.getDriverPhone() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机电话不能为空！",null);
+            return AppResponse.paramError("司机电话不能为空！");
         }
         if(null == updateDriver.getDriverAcct() || updateDriver.getDriverAcct() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机账号不能为空！",null);
+            return AppResponse.paramError("司机账号不能为空！");
         }
         if(null == updateDriver.getDriverPass() || updateDriver.getDriverPass() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机密码不能为空！",null);
+            return AppResponse.paramError("司机密码不能为空！");
         }
         if(null == updateDriver.getDriverIdCard() || updateDriver.getDriverIdCard() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机身份证号不能为空！",null);
+            return AppResponse.paramError("司机身份证号不能为空！");
         }
         if(null == updateDriver.getDriverProvincCode() || updateDriver.getDriverProvincCode() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机省编号不能为空！",null);
+            return AppResponse.paramError("司机省编号不能为空！");
         }
         if(null == updateDriver.getDriverCityCode() || updateDriver.getDriverCityCode() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机市区编号不能为空！",null);
+            return AppResponse.paramError("司机市区编号不能为空！");
         }
         if(null == updateDriver.getDriverDistinctCode() || updateDriver.getDriverDistinctCode() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机区编号不能为空！",null);
+            return AppResponse.paramError("司机区编号不能为空！");
         }
         String msg = "";
         if(null == updateDriver.getVersion() || updateDriver.getVersion() == ""){
             msg = "版本号没有传值或者为0，可能会导致修改失败!";
         }
         //判断是否已经含有司机账号、司机身份证号
-        if( driverDao.countDriverAcct(updateDriver.getDriverAcct(),null) > 0 ){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机账号已经存在！",null);
+        if( driverDao.countDriverAcct(updateDriver.getDriverAcct(),null,updateDriver.getDriverCode()) > 0 ){
+            return AppResponse.paramError("司机账号已经存在！");
         }
         //身份证
-        if( driverDao.countDriverAcct(null,updateDriver.getDriverIdCard()) > 0 ){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机身份证已经存在！",null);
+        if( driverDao.countDriverAcct(null,updateDriver.getDriverIdCard(),updateDriver.getDriverCode()) > 0 ){
+            return AppResponse.paramError("司机身份证已经存在！");
         }
         //修改
         int result = driverDao.updateDriver(updateDriver);
         //结果
         if(result > 0){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"修改成功！",result);
+            return AppResponse.success("修改成功！",result);
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"修改失败！"+msg,result);
+        return AppResponse.paramError("修改失败！");
     }
 
     /**
@@ -144,19 +142,19 @@ public class DriverService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData deleteDriver(UpdateDriver updateDriver){
+    public AppResponse deleteDriver(UpdateDriver updateDriver){
         //判断
         if(null == updateDriver.getDriverCode() || updateDriver.getDriverCode() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机编号不能为空！",null);
+            return AppResponse.paramError("司机编号不能为空！");
         }
         List<String> listCodes = Arrays.asList(updateDriver.getDriverCode().split(","));
         //删除
         int result = driverDao.deleteDriver(listCodes,updateDriver.getUpdateUser());
         //结果
         if(result > 0){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功！",result);
+            return AppResponse.success("删除成功！",result);
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败！",result);
+        return AppResponse.paramError("删除失败！");
     }
 
     /**
@@ -164,15 +162,15 @@ public class DriverService {
      * @param updateDriver
      * @return
      */
-    public ResponceData queryDriverDetail(UpdateDriver updateDriver){
+    public AppResponse queryDriverDetail(UpdateDriver updateDriver){
         if(null == updateDriver.getDriverCode() || updateDriver.getDriverCode() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"司机编号不能为空！",null);
+            return AppResponse.paramError("司机编号不能为空！");
         }
         DriverDetail driverDetail = driverDao.queryDriverDetail(updateDriver.getDriverCode());
         if(null != driverDetail ){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功！",driverDetail);
+            return AppResponse.success("查询成功！",driverDetail);
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询失败！",null);
+        return AppResponse.paramError("查询失败！");
     }
 
     /**
@@ -180,15 +178,15 @@ public class DriverService {
      * @param driver
      * @return
      */
-    public ResponceData queryDriversList(DriverListParamter driver){
+    public AppResponse queryDriversList(DriverListParamter driver){
         //判断
         if(driver.getPageSize() == 0 || driver.getPageNum() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"页号或者页数量参数不能为空!",null);
+            return AppResponse.paramError("页号或者页数量参数不能为空!");
         }
         //获取当前登入用户的编号和角色 ,如果是店长，那么只查找它的店的地址
         //从Redis中根据token获取，但是没做登入，这里先指定一个账号进行测试
-        String userCode = "20200324222349013251934814478747";
-        User user = customerDao.queryCurrUser(userCode);
+        String userName = SecurityUtils.getCurrentUserUsername();
+        User user = customerDao.queryCurrUser(userName);
         driver.setUserCode(user.getUserCode());
         driver.setUserRole(user.getUserRole());
         //查找
@@ -197,8 +195,8 @@ public class DriverService {
         PageInfo<DriverListParamter>driverListPageInfo = new PageInfo<>(driverLists);
         //结果
         if(driverLists.size()>0){
-          return responceData = new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",driverListPageInfo);
+          return AppResponse.success("查询成功!",driverListPageInfo);
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空！",null);
+        return AppResponse.paramError("查询为空！");
     }
 }

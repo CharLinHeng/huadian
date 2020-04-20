@@ -51,7 +51,7 @@ public enum AppResponseStatus {
     /**
      * 请求参数非法
      */
-    PARAM_EXCEPTION(4010),
+    PARAM_EXCEPTION(3),
 
     /**
      * 服务端异常

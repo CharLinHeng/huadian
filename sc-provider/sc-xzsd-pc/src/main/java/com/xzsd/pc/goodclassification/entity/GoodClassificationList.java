@@ -11,7 +11,17 @@ public class GoodClassificationList {
 
       private String className;
 
-      private List<GoodClassificationSon> listGoodClassificationSon;
+      private String version;
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    private List<GoodClassificationSon> listGoodClassificationSon;
     public String getClassCode() {
         return classCode;
     }

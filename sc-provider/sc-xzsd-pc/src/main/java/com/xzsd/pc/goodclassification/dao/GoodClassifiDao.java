@@ -26,7 +26,7 @@ public interface GoodClassifiDao {
      * @param className
      * @return
      */
-    int countClassName(@Param("className") String className);
+    int countClassName(@Param("className") String className,@Param("classCode")String code);
 
     /**
      * 商品二级分类新增

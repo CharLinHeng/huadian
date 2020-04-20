@@ -61,6 +61,7 @@ public class Store {
     /**
      * 版本号
      */
+
     private String version;
 
     public String getVersion() {

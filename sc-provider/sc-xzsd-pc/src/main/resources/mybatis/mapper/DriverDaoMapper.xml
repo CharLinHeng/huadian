@@ -54,10 +54,16 @@
       SELECT
         datas.name1 driverProvinceName,
         datas.name2 driverCityName,
-        datas.dict_name driverDistinctName
+        datas.dict_name driverDistinctName,
+        tdriver.name driverName,
+        tdriver.phone driverPhone,
+        tdriver.driver_acc driverAcct,
+        tdriver.driver_pass driverPass,
+        tdriver.driver_idcard driverIdCard,
+        tdriver.driver_code driverCode
     FROM
         t_driver_information_manage tdriver
-    RIGHT JOIN (
+    right JOIN (
         SELECT
             t3.name1,
             t3.code1,
@@ -87,21 +93,24 @@
     AND tdriver.cityCode = datas.code2
     AND tdriver.distinctCode = datas.dict_code
     HAVING
-        driverName IS NOT NULL
+        driverCode = #{driverCode}
     </select>
     <!--判断是否存在-->
     <select id="countDriverAcct" parameterType="com.xzsd.pc.driver.entity.Driver" resultType="int">
         select
-        count(*)
+            count(*)
         from
-        t_driver_information_manage
+            t_driver_information_manage
         where
-        is_delete = 0
+            is_delete = 0
         <if test="driverAcct != null and driverAcct != ''">
             and driver_acc like concat('%',#{driverAcct},'%')
         </if>
         <if test="driverIdCard != null and driverIdCard != ''">
             and driver_idcard like concat('%',#{driverIdCard},'%')
+        </if>
+        <if test="driverCode != null and driverCode != ''">
+            and driver_code != #{driverCode}
         </if>
     </select>
     <!--列表查询-->

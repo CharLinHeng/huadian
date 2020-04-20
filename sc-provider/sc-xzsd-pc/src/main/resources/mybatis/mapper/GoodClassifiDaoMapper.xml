@@ -94,10 +94,16 @@
     <!--</resultMap>-->
 
 
-    <!--计数，是否含有同类名称的分了-->
+    <!--计数，是否含有同类名称的分了,自己需要排除-->
     <select id="countClassName" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification" resultType="int">
         select count(*) from t_goods_classification_manage
-        where clas_name = #{className}
+        where
+            clas_name = #{className}
+        and
+            is_delete = 0
+        <if test="classCode != null and classCode != ''">
+            and clas_code != #{classCode}
+        </if>
     </select>
     <!--商品分类详情查询-->
     <select id="queryGoodClass" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification" resultType="com.xzsd.pc.goodclassification.entity.GoodClassification">
@@ -115,6 +121,7 @@
           clas_code classCode,
           clas_name className,
           clas_rank classRank,
+          version version,
           parent_node firstClassCode
       from
           t_goods_classification_manage
@@ -132,7 +139,8 @@
           parent_node = #{firstClassCode},
           remark = #{classRemark},
           update_time = now(),
-          update_user = #{updateUser}
+          update_user = #{updateUser},
+          version = version + 1
       where
           version = #{version}
       and

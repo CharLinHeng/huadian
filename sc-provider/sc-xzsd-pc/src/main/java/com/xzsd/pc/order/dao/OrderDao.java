@@ -37,5 +37,4 @@ public interface OrderDao {
      */
     List<OrderDetail>queryOrderDetail(@Param("orderCode") String code);
 
-
 }

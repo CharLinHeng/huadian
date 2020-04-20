@@ -11,7 +11,7 @@
           tbind.shop_code storeCode,
           tuser.user_name orderUserName,
           tuser.user_phone orderUserPhone,
-          tuser.order_sure_pay_time orderPayTime
+          torder.order_sure_pay_time orderPayTime
         from
           t_order_manage torder,
           t_store_bind tbind,

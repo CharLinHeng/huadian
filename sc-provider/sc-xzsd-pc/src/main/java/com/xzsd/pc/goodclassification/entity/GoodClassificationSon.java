@@ -10,6 +10,16 @@ public class GoodClassificationSon {
 
     private String className;
 
+    private String version;
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
     public String getClassCode() {
         return classCode;
     }

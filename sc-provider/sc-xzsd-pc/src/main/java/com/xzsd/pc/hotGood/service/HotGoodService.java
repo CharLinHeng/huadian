@@ -1,16 +1,12 @@
 package com.xzsd.pc.hotGood.service;
-
-
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.neusoft.core.restful.AppResponse;
 import org.springframework.stereotype.Service;
 import com.xzsd.pc.hotGood.dao.HotGoodDao;
 import com.xzsd.pc.hotGood.entity.*;
 import com.xzsd.pc.util.RandomCode;
-import com.xzsd.pc.util.ResponceData;
-import com.xzsd.pc.util.ResponceDataState;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
@@ -22,7 +18,6 @@ import java.util.List;
  */
 @Service
 public class HotGoodService {
-    private ResponceData responceData;
     @Resource
     private HotGoodDao hotGoodDao;
     /**
@@ -31,28 +26,29 @@ public class HotGoodService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData addHotGood(HotGood hotGood) {
+    public AppResponse addHotGood(HotGood hotGood) {
         if(null == hotGood.getGoodCode() || hotGood.getGoodCode()==""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"商品编号参数需指定",null);
+            
+            return AppResponse.paramError("商品编号参数需指定");
         }
         if(hotGood.getHotGoodSort() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"位排序需指定在大于0",null);
+            return AppResponse.paramError("位排序需指定在大于0");
         }
         //增加之前，查看商品的未排序是否已经存在
         if(hotGoodDao.countSort(hotGood.getHotGoodSort(),null) > 0 ){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"位排序已经存在!",null);
+            return AppResponse.paramError("位排序已经存在!");
         }
         //判断是否已经被选择
         if(hotGoodDao.countGoodIsSelecter(hotGood.getGoodCode(),null)>0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"商品已经被选择!",null);
+            return AppResponse.paramError("商品已经被选择!");
         }
         //增加
         hotGood.setHotGoodCode(RandomCode.radmonkey());
         int result = hotGoodDao.addHotGood(hotGood);
         if( result > 0 ){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",null);
+            return AppResponse.success("新增成功!");
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败!",null);
+        return AppResponse.bizError("新增失败!");
     }
 
     /**
@@ -60,15 +56,15 @@ public class HotGoodService {
      * @param httpServletRequestrequest
      * @return
      */
-    public ResponceData queryGoodsList(HttpServletRequest httpServletRequestrequest, HotGoodQuery hotGoodQuery){
+    public AppResponse queryGoodsList(HttpServletRequest httpServletRequestrequest, HotGoodQuery hotGoodQuery){
         //判断是否有参数
         if(null == httpServletRequestrequest.getParameter("pageNum") || httpServletRequestrequest.getParameter("pageNum") ==""
                 || Integer.parseInt(httpServletRequestrequest.getParameter("pageNum")) == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"分页号不能为空或者为0!",null);
+            return AppResponse.paramError("分页号不能为空或者为0!");
         }
         if(null == httpServletRequestrequest.getParameter("pageSize") || httpServletRequestrequest.getParameter("pageSize") ==""
                 || Integer.parseInt(httpServletRequestrequest.getParameter("pageSize")) == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"分页显示数量不能为空或者为0!",null);
+            return AppResponse.paramError("分页显示数量不能为空或者为0!");
         }
         //查询
         PageHelper.startPage(Integer.parseInt(httpServletRequestrequest.getParameter("pageNum")),
@@ -77,9 +73,9 @@ public class HotGoodService {
         List<HotGoodQuery> hotGoodQueryList = hotGoodDao.queryGoodsList(hotGoodQuery.getGoodName(),hotGoodQuery.getGoodCode());
         PageInfo<HotGoodQuery>hotGoodQueryPageInfo = new PageInfo<>(hotGoodQueryList);
         if(hotGoodQueryList.size() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"查询结果为空!",null);
+            return AppResponse.paramError("查询结果为空!");
         }
-        return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功",hotGoodQueryPageInfo);
+        return AppResponse.success("查询成功",hotGoodQueryPageInfo);
     }
 
     /**
@@ -88,35 +84,35 @@ public class HotGoodService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData updateHotGood(HotGood hotGood){
+    public AppResponse updateHotGood(HotGood hotGood){
         //判断参数
         if(null == hotGood.getHotGoodCode() || hotGood.getHotGoodCode() ==""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"热们商品编号不能为空!",null);
+            return AppResponse.paramError("热们商品编号不能为空!");
         }
         if(null == hotGood.getGoodCode() || hotGood.getGoodCode() ==""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"商品编号不能为空!",null);
+            return AppResponse.paramError("商品编号不能为空!");
         }
         if(hotGood.getHotGoodSort() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"缺失热门商品位排序参数!",null);
+            return AppResponse.paramError("缺失热门商品位排序参数!");
         }
         //检查 位排序是否已经存在
         if(hotGoodDao.countSort(hotGood.getHotGoodSort(),hotGood.getHotGoodCode())>0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"位排序已经存在!",null);
+            return AppResponse.paramError("位排序已经存在!");
         }
         //判断是否已经被选择,除了自己本身
         if(hotGoodDao.countGoodIsSelecter(hotGood.getGoodCode(),hotGood.getHotGoodCode())>0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"商品已经被选择!",null);
+            return AppResponse.paramError("商品已经被选择!");
         }
         String msg = "";
         if(null == hotGood.getVersion() || hotGood.getVersion() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"缺失版本号参数!",null);
+            return AppResponse.paramError("缺失版本号参数!");
         }
         //修改
         int result = hotGoodDao.updateHotGood(hotGood);
         if(result > 0){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"修改成功!",null);
+            return AppResponse.success("修改成功!");
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"修改失败!",null);
+        return AppResponse.bizError("修改失败!");
     }
 
     /**
@@ -125,19 +121,19 @@ public class HotGoodService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData deleteHotGood(HotGood hotGood){
+    public AppResponse deleteHotGood(HotGood hotGood){
         if(null == hotGood.getHotGoodCode() || hotGood.getHotGoodCode() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"热门编号参数为空!",null);
+            return AppResponse.paramError("热门编号参数为空!");
         }
         List<String>stringList = Arrays.asList(hotGood.getHotGoodCode().split(","));
         if(stringList.size() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"待删除的数量为空",null);
+            return AppResponse.paramError("待删除的数量为空");
         }
         int result = hotGoodDao.deleteHotGood(stringList,hotGood.getUpdateUser());
         if(result > 0){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功!",result);
+            return AppResponse.success("删除成功!",result);
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败!",result);
+        return AppResponse.bizError("删除失败!");
     }
 
     /**
@@ -146,16 +142,16 @@ public class HotGoodService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData showHotGoodsNum(ShowNum showNum){
+    public AppResponse showHotGoodsNum(ShowNum showNum){
         if(showNum.getHotGoodNum() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"数量不能为空",null);
+            return AppResponse.paramError("数量不能为空");
         }
         showNum.setId(RandomCode.radmonkey());
         int result = hotGoodDao.showHotGoodsNum(showNum);
         if(result > 0){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"更改成功!",result);
+            return AppResponse.success("更改成功!",result);
         }
-        return new ResponceData(ResponceDataState.values()[0].getCode(),"更改失败",result);
+        return AppResponse.bizError("更改失败");
     }
 
     /**
@@ -163,20 +159,20 @@ public class HotGoodService {
      * @param hotGoodList
      * @return
      */
-    public ResponceData queryHotGoodsList(HotGoodList hotGoodList, HttpServletRequest httpServletRequest){
+    public AppResponse queryHotGoodsList(HotGoodList hotGoodList, HttpServletRequest httpServletRequest){
         if(null == httpServletRequest.getParameter("pageNum") || httpServletRequest.getParameter("pageNum") == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"页号不能为空",null);
+            return AppResponse.paramError("页号不能为空");
         }
         if(null == httpServletRequest.getParameter("pageSize") || httpServletRequest.getParameter("pageSize") =="" || Integer.parseInt(httpServletRequest.getParameter("pageSize")) == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"分页显示数量不能为空或者为0!",null);
+            return AppResponse.paramError("分页显示数量不能为空或者为0!");
         }
         PageHelper.startPage(Integer.parseInt(httpServletRequest.getParameter("pageNum")),Integer.parseInt(httpServletRequest.getParameter("pageSize")));
         List<HotGoodList>hotGoodLists = hotGoodDao.queryHotGoodsList(hotGoodList);
         PageInfo<HotGoodList>hotGoodListPageInfo = new PageInfo<>(hotGoodLists);
         if(hotGoodLists.size() == 0){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询为空!",null);
+            return AppResponse.paramError("查询为空!");
         }
-        return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",hotGoodListPageInfo);
+        return AppResponse.success("查询成功!",hotGoodListPageInfo);
     }
 
     /**
@@ -184,14 +180,14 @@ public class HotGoodService {
      * @param hotGood
      * @return
      */
-    public ResponceData queryHotGoodDetail(HotGood hotGood){
+    public AppResponse queryHotGoodDetail(HotGood hotGood){
         if(null == hotGood.getHotGoodCode() || hotGood.getHotGoodCode() ==""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"编号不能为空",null);
+            return AppResponse.paramError("编号不能为空");
         }
         HotGoodDetail hotGoodDetail = hotGoodDao.queryHotGoodDetail(hotGood.getHotGoodCode());
         if(null == hotGoodDetail){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空",null);
+            return AppResponse.paramError("查询为空");
         }
-        return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功",hotGoodDetail);
+        return AppResponse.success("查询成功",hotGoodDetail);
     }
 }

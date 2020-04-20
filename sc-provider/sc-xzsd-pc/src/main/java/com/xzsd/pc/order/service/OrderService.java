@@ -1,8 +1,10 @@
 package com.xzsd.pc.order.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.neusoft.core.restful.AppResponse;
 import com.xzsd.pc.customer.dao.CustomerDao;
 import com.xzsd.pc.customer.entity.User;
+import com.xzsd.pc.util.SecurityUtils;
 import org.springframework.stereotype.Service;
 import com.xzsd.pc.order.dao.OrderDao;
 import com.xzsd.pc.order.entity.*;
@@ -18,7 +20,6 @@ import java.util.List;
  */
 @Service
 public class OrderService {
-    private ResponceData responceData;
     @Resource
     private OrderDao orderDao;
     @Resource
@@ -28,14 +29,10 @@ public class OrderService {
      * @param orderQuery
      * @return
      */
-    public ResponceData queryOrderList(OrderQuery orderQuery){
-        //判断必要的是否为空
-        if(orderQuery.getPageNum() == 0 || orderQuery.getPageSize() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"页号或者页数量不能为空!",null);
-        }
+    public AppResponse queryOrderList(OrderQuery orderQuery){
         //从Redis中根据token获取用户编号,然后根据用户编号进行获取角色
         //因为还没写登入，所以这里指定一个账户
-        String userCode = "20200324222349013251934814478747";
+        String userCode = SecurityUtils.getCurrentUserUsername();
         User user = customerDao.queryCurrUser(userCode);
         orderQuery.setUserCode(user.getUserCode());
         orderQuery.setUserRole(user.getUserRole());
@@ -45,9 +42,9 @@ public class OrderService {
         PageInfo<Order>orderPageInfo = new PageInfo<>(orderList);
         //返回
         if(orderList.size() > 0 ){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功1!",orderPageInfo);
+            return AppResponse.success("查询成功1!",orderPageInfo);
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
+        return AppResponse.success("查询为空!");
     }
     /**
      * 订单状态修改
@@ -55,16 +52,16 @@ public class OrderService {
      * @param orderUpdate
      * @return
      */
-    public ResponceData updateOrderState(String codes, OrderUpdate orderUpdate){
+    public AppResponse updateOrderState(String codes, OrderUpdate orderUpdate){
         if(null == codes || codes == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"编号参数为空!",null);
+            return AppResponse.paramError("编号参数为空!");
         }
         List<String>stringList = Arrays.asList(codes.split(","));
         if(stringList.size()  == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"修改数量为空!",null);
+            return AppResponse.paramError("修改数量为空!");
         }
         if(null == orderUpdate.getOrderState() || orderUpdate.getOrderState() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"订单状态需指定!",null);
+            return AppResponse.paramError("订单状态需指定!");
         }
         //暂时没有修改者，自己创建
         String msg = "版本号没指定，或者当前为0,可能会修改不成功";
@@ -74,31 +71,31 @@ public class OrderService {
         //修改
         int result = orderDao.updateOrderState(stringList,Integer.parseInt(orderUpdate.getOrderState()),orderUpdate.getUpdateUser(),orderUpdate.getVersion());
         if(result > 0 ){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"修改成功!",result);
+            return AppResponse.success("修改成功!",result);
         }
-        return new ResponceData(ResponceDataState.values()[0].getCode(),"修改失败!"+msg,result);
+        return AppResponse.bizError("修改失败!");
     }
     /**
      * 3订单详情查询
      * @param pageEntity
      * @return
      */
-    public ResponceData queryOrderDetail(PageEntity pageEntity){
+    public AppResponse queryOrderDetail(PageEntity pageEntity){
         int pageSize = pageEntity.getPageSize();
         int pageNum = pageEntity.getPageNum();
         if(pageSize == 0 || pageNum == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"页号或者页数量参数不能为0或者为空!",null);
+            return AppResponse.paramError("页号或者页数量参数不能为0或者为空!");
         }
         if (null == pageEntity.getOrderCode() || pageEntity.getOrderCode() == "") {
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"订单编号参数为空!",null);
+            return AppResponse.paramError("订单编号参数为空!");
         }
         //查询
         PageHelper.startPage(pageNum,pageSize);
         List<OrderDetail>orderDetailList = orderDao.queryOrderDetail(pageEntity.getOrderCode());
         PageInfo<OrderDetail>orderDetailPageInfo = new PageInfo<>(orderDetailList);
         if(orderDetailList.size() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
+            return AppResponse.success("查询为空!");
         }
-        return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",orderDetailPageInfo);
+        return AppResponse.success("查询成功!",orderDetailPageInfo);
     }
 }

@@ -76,9 +76,9 @@
     <!--查找 是否重复-->
     <select id="count" parameterType="com.xzsd.pc.store.entity.Store" resultType="int">
         select
-        count(*)
+            count(*)
         from
-        t_store_information
+             t_store_information
         where
         <if test="storeName != null and storeName!= ''">
             shop_name = #{storeName}
@@ -86,8 +86,23 @@
         <if test="storeBusinessLicense != null and storeBusinessLicense!= ''">
             shop_idCard = #{storeBusinessLicense}
         </if>
+        <if test="storeCode != null and storeCode != ''">
+            and shop_code  != #{storeCode}
+        </if>
     </select>
-
+    <!--查找选择的商家的编号是否在用户表-->
+    <select id="countStoreUserCode" parameterType="com.xzsd.pc.store.entity.QueryUserStore" resultType="int">
+        select
+            count(*)
+        from
+            t_user_infomation
+        where
+            is_delete = 0
+        and
+            user_role = 1
+        and
+            user_code = #{userCode}
+    </select>
     <!--门店信息详情-->
     <select id="queryStoreDetail" parameterType="com.xzsd.pc.store.entity.Store" resultType="com.xzsd.pc.store.entity.Store">
         select
@@ -109,21 +124,21 @@
     <!--门店信息列表查询-->
     <select id="queryStoreList" parameterType="com.xzsd.pc.store.entity.StoreListQueryEntity" resultType="com.xzsd.pc.store.entity.StoreListQueryEntity">
         select
-        tstore.shop_code storeCode,
-        tstore.shop_name storeName,
-        tstore.shop_phone storePhone,
-        tstore.shop_detail_address storeAddress,
-        tuser.user_name storeUserName,
-        tstore.shop_invest_code storeinvitation,
-        tuser.user_account storeAcc
+            tstore.shop_code storeCode,
+            tstore.shop_name storeName,
+            tstore.shop_phone storePhone,
+            tstore.shop_detail_address storeAddress,
+            tuser.user_name storeUserName,
+            tstore.shop_invest_code storeinvitation,
+            tuser.user_account storeAcc,
+            tstore.version version
         from
-        t_store_information tstore,
-        t_user_infomation tuser
+            t_store_information tstore,
+            t_user_infomation tuser
         where
-        tstore.shop_con_user = tuser.user_code
+           tstore.shop_con_user = tuser.user_code
         and
-        tstore.is_delete = 0
-
+           tstore.is_delete = 0
         <if test="storeCode != null and storeCode != ''">
             and tstore.shop_code like concat('%',#{storeCode},'%')
         </if>
@@ -134,15 +149,15 @@
             and tuser.user_name like concat('%',#{storeUserName},'%')
         </if>
         <if test="storeProvince !=null and storeProvince !=''">
-            and tuser.provinceCode like concat('%',#{storeProvince},'%')
+            and tstore.provinceCode like concat('%',#{storeProvince},'%')
         </if>
         <if test="storeCity != null and storeCity !=''">
-            and tuser.cityCode like concat('%',#{storeCity},'%')
+            and tstore.cityCode like concat('%',#{storeCity},'%')
         </if>
         <if test="storeDistinct != null and storeDistinct != ''">
-            and tuser.distinctCode like concat('%',#{storeDistinct},'%')
+            and tstore.distinctCode like concat('%',#{storeDistinct},'%')
         </if>
-        order by create_time desc
+        order by tstore.create_time desc
     </select>
     <!--门店信息修改-->
     <update id="updateStore" parameterType="com.xzsd.pc.store.entity.Store">
@@ -162,7 +177,34 @@
             version = version+1
         where
               shop_code = #{storeCode}
-            and
+        and
               version =  CAST(#{version} AS SIGNED)
     </update>
+
+    <!--商家信息列表-->
+    <select id="queryUserStore" parameterType="com.xzsd.pc.store.entity.QueryUserStore" resultType="com.xzsd.pc.store.entity.QueryUserStore">
+        select
+            user_code userCode,
+            user_name userName,
+            user_account userAccount,
+            user_phone userPhone
+        from
+            t_user_infomation
+        where
+            is_delete = 0
+        and
+            user_role = 1
+        <if test="userCode != null and userCode != ''">
+            and user_code like concat('%',#{userCode},'%')
+        </if>
+        <if test="userName != null and userName != ''">
+            and user_name like concat('%',#{userName},'%')
+        </if>
+        <if test="userAccount != null and userAccount != ''">
+            and user_account like concat('%',#{userAccount},'%')
+        </if>
+        <if test="userPhone != null and userPhone != ''">
+            and user_phone like concat('%',#{userPhone},'%')
+        </if>
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.xzsd.pc.goodclassification.controller;
 
 
+import com.neusoft.core.restful.AppResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.xzsd.pc.goodclassification.entity.GoodClassification;
 import com.xzsd.pc.goodclassification.service.GoodClassifiService;
 import com.xzsd.pc.util.RandomCode;
-import com.xzsd.pc.util.ResponceData;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -21,10 +21,6 @@ import javax.servlet.http.HttpServletRequest;
  * 2020年4月4日15:10:31
  */
 public class GoodClassifiController {
-
-
-
-    ResponceData responceData;
     @Resource
     GoodClassifiService goodClassifiService;
     @ResponseBody
@@ -33,10 +29,9 @@ public class GoodClassifiController {
      * 商品一级分类新增
      */
     @PostMapping("addFirstClass")
-    public ResponceData addFirstClass(GoodClassification goodClassification){
+    public AppResponse addFirstClass(GoodClassification goodClassification){
         try{
-            responceData = goodClassifiService.addFirstClass(goodClassification);
-            return responceData;
+            return goodClassifiService.addFirstClass(goodClassification);
         }catch (Exception e){
             throw e;
         }
@@ -48,10 +43,9 @@ public class GoodClassifiController {
      * @return
      */
     @PostMapping("addSecondClass")
-    public ResponceData addSecondClass(GoodClassification goodClassification){
+    public AppResponse addSecondClass(GoodClassification goodClassification){
         try{
-            responceData = goodClassifiService.addSecondClass(goodClassification);
-            return responceData;
+            return  goodClassifiService.addSecondClass(goodClassification);
         }catch (Exception e){
             throw e;
         }
@@ -63,10 +57,9 @@ public class GoodClassifiController {
      * @return
      */
     @PostMapping("updateGoodClass")
-    public ResponceData updateGoodClass(GoodClassification goodClassification) {
+    public AppResponse updateGoodClass(GoodClassification goodClassification) {
         try {
-            responceData = goodClassifiService.updateGoodClass(goodClassification);
-            return responceData;
+            return  goodClassifiService.updateGoodClass(goodClassification);
         } catch (Exception e) {
             throw e;
 
@@ -79,16 +72,14 @@ public class GoodClassifiController {
      * @return
      */
     @PostMapping("deleteGoodClass")
-    public ResponceData deleteGoodClass(HttpServletRequest httpServletRequest){
+    public AppResponse deleteGoodClass(HttpServletRequest httpServletRequest){
         try {
             String codeList = httpServletRequest.getParameter("classCode");
             String codeRank = httpServletRequest.getParameter("classRank");
             String updateUser = RandomCode.radmonkey();
-            responceData = goodClassifiService.deleteGoodClass(codeList,codeRank,updateUser);
-            return responceData;
+            return  goodClassifiService.deleteGoodClass(codeList,codeRank,updateUser);
         } catch (Exception e) {
             throw e;
-
         }
     }
 
@@ -98,11 +89,10 @@ public class GoodClassifiController {
      * @return
      */
     @PostMapping("queryGoodClass")
-    public ResponceData queryGoodClass(HttpServletRequest httpServletRequest){
+    public AppResponse queryGoodClass(HttpServletRequest httpServletRequest){
         try {
             String code = httpServletRequest.getParameter("classCode");
-            responceData = goodClassifiService.queryGoodClass(code);
-            return responceData;
+            return  goodClassifiService.queryGoodClass(code);
         } catch (Exception e) {
             throw e;
 
@@ -114,13 +104,11 @@ public class GoodClassifiController {
      * @return
      */
     @PostMapping("queryGoodClassList")
-    public ResponceData queryGoodClassList(){
+    public AppResponse queryGoodClassList(){
         try {
-            responceData = goodClassifiService.queryGoodClassList();
-            return responceData;
+            return  goodClassifiService.queryGoodClassList();
         } catch (Exception e) {
             throw e;
-
         }
     }
 }

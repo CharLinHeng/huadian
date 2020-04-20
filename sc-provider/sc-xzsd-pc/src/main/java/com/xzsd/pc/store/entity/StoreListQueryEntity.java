@@ -35,13 +35,21 @@ public class StoreListQueryEntity {
      */
     private String storeAcc;
 
-
+    private String version;
 
     private String storeProvince;
 
     private String storeCity;
 
     private String storeDistinct;
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
 
     public String getStoreProvince() {
         return storeProvince;

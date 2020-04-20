@@ -1,6 +1,7 @@
 package com.xzsd.pc.rotaChart.dao;
 
 
+import com.xzsd.pc.rotaChart.entity.GoodList;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import com.xzsd.pc.goods.entity.Good;
@@ -50,7 +51,7 @@ public interface RotaChartDao {
      * @param rotaChartState
      * @return
      */
-    int updateRotaChartState(@Param("list") List<String> rotaChartStateCodes, @Param("rotaChartState") int rotaChartState);
+    int updateRotaChartState(@Param("list") List<String> rotaChartStateCodes, @Param("rotaChartState") int rotaChartState,@Param("updateUser")String updateUser);
 
 
     /**
@@ -58,8 +59,6 @@ public interface RotaChartDao {
      * @param good
      * @return
      */
-    List<Good>querylistGoods2(Good good);
-
-
+    List<GoodList>querylistGoodsSecond(Good good);
 
 }

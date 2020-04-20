@@ -1,12 +1,12 @@
 package com.xzsd.pc.goodclassification.service;
+import com.neusoft.core.restful.AppResponse;
+import com.xzsd.pc.util.SecurityUtils;
 import org.springframework.stereotype.Service;
 import com.xzsd.pc.goodclassification.dao.GoodClassifiDao;
 import com.xzsd.pc.goodclassification.entity.GoodClassification;
 import com.xzsd.pc.goodclassification.entity.GoodClassificationList;
 import com.xzsd.pc.goodclassification.entity.GoodClassificationSon;
 import com.xzsd.pc.util.RandomCode;
-import com.xzsd.pc.util.ResponceData;
-import com.xzsd.pc.util.ResponceDataState;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -19,7 +19,6 @@ import java.util.List;
  */
 @Service
 public class GoodClassifiService {
-    private ResponceData responceData;
     @Resource
     GoodClassifiDao goodClassifiDao;
     final static int MAXNODE = 100000;
@@ -29,25 +28,25 @@ public class GoodClassifiService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData addFirstClass(GoodClassification goodClassification){
+    public AppResponse addFirstClass(GoodClassification goodClassification){
         //判断是否缺少参数
         if(null == goodClassification.getClassName() ||goodClassification.getClassName().length() == 0 ){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"参数不能为空!",null);
+            return AppResponse.paramError("参数不能为空!");
         }
         //判断是否已经含有名称
-        int count = goodClassifiDao.countClassName(goodClassification.getClassName());
+        int count = goodClassifiDao.countClassName(goodClassification.getClassName(),null);
         if(count > 0 ){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"分类名称已经存在!",null);
+            return AppResponse.paramError("分类名称已经存在!");
         }
         //生成随机分类编号
          goodClassification.setClassCode(RandomCode.random_GoodClassifiCationCode());
-         goodClassification.setCreateUser("administrator");
+         goodClassification.setCreateUser(SecurityUtils.getCurrentUserUsername());
         //新增
         int result = goodClassifiDao.addFirstClass(goodClassification);
         if(result >0){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",null);
+            return AppResponse.success("新增成功!");
         }
-        return  new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败!",null);
+        return  AppResponse.bizError("新增失败!");
         //判断结果
     }
 
@@ -57,25 +56,25 @@ public class GoodClassifiService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData addSecondClass(GoodClassification goodClassification){
+    public AppResponse addSecondClass(GoodClassification goodClassification){
         //判断是否缺少参数
         if(null == goodClassification.getClassName() ||goodClassification.getClassName().length() == 0 ||
            null == goodClassification.getFirstClassCode()||goodClassification.getFirstClassCode().length() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"参数不能为空!",null);
+            return AppResponse.paramError("参数不能为空!");
         }
         //判断是否已经含有名称
-        int count = goodClassifiDao.countClassName(goodClassification.getClassName());
+        int count = goodClassifiDao.countClassName(goodClassification.getClassName(),null);
         if(count > 0 ){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"分类名称已经存在!",null);
+            return AppResponse.paramError("分类名称已经存在!");
         }
         //生成随机分类编号
         goodClassification.setClassCode(RandomCode.random_GoodClassifiCationCode());
-        goodClassification.setCreateUser("administrator");
+        goodClassification.setCreateUser(SecurityUtils.getCurrentUserUsername());
         int result = goodClassifiDao.addSecondClass(goodClassification);
         if(result >0){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",null);
+            return AppResponse.success("新增成功!");
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败!",null);
+        return AppResponse.bizError("新增失败!");
     }
 
     /**
@@ -83,30 +82,31 @@ public class GoodClassifiService {
      * @param goodClassification
      * @return
      */
-    public ResponceData updateGoodClass(GoodClassification goodClassification){
+    public AppResponse updateGoodClass(GoodClassification goodClassification){
         //判断参数是否齐全
-        if( null == goodClassification.getClassCode()){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"编号参数缺失!",null);
+        if( null == goodClassification.getClassCode()|| goodClassification.getClassCode() == ""){
+            return AppResponse.paramError("编号参数缺失!");
         }
-        if( null == goodClassification.getClassName()){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"分裂名称参数缺失!",null);
+        if( null == goodClassification.getClassName()|| goodClassification.getClassName() == ""){
+            return AppResponse.paramError("分列名称参数缺失!");
         }
-        if( null == goodClassification.getClassRank()){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"分类等级未指定!",null);
+        if( null == goodClassification.getClassRank()|| goodClassification.getClassRank() == ""){
+            return AppResponse.paramError("分类等级未指定!");
         }
-        if(goodClassification.getClassRank().equals("2") && null ==  goodClassification.getFirstClassCode()){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"父级编号未指定!",null);
+        if(goodClassification.getClassRank().equals("2") && ( null ==  goodClassification.getFirstClassCode()||goodClassification.getFirstClassCode() == "")){
+            return AppResponse.paramError("父级编号未指定!");
         }
-        //判断版本号
-        if(null == goodClassification.getVersion()){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"版本号未之指定!",null);
+        //潘墩分类名称是否已经存在
+        int count = goodClassifiDao.countClassName(goodClassification.getClassName(),goodClassification.getClassCode());
+        if(count > 0){
+            return AppResponse.paramError("分类名称已经存在!");
         }
         //修改
         int result = goodClassifiDao.updateGoodClass(goodClassification);
         if(result >0){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"修改成功!",null);
+            return AppResponse.success("修改成功!");
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"修改失败!",null);
+        return AppResponse.bizError("修改失败!原因可能是版本号不正确!");
     }
 
     /**
@@ -116,20 +116,17 @@ public class GoodClassifiService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData deleteGoodClass(String code,String rank,String updateUser){
+    public AppResponse deleteGoodClass(String code,String rank,String updateUser){
         //判断分类是否有
         if(null == rank || rank.length() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"分类等级参数未指定",null);
+            return AppResponse.paramError("分类等级参数未指定");
         }
-        //更新者
-        if(null == updateUser || updateUser.length() == 0){
-            updateUser = RandomCode.radmonkey();
-        }
+        updateUser =  SecurityUtils.getCurrentUserUsername();
         //切割
         List<String> codesList = Arrays.asList(code.split(","));
         //判断是否一个
         if(codesList.size()>1){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"每次最多删除一个分类!",null);
+            return AppResponse.bizError("每次最多删除一个分类!");
         }
         int result = goodClassifiDao.deleteGoodClass(codesList,updateUser);
         if(result >0){
@@ -145,32 +142,32 @@ public class GoodClassifiService {
                     msg = "该一级分类附属没有二级分类，故只删除其本身。";
                 }
             }
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功!"+msg,null);
+            return AppResponse.success("删除成功!"+msg);
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败!",null);
+        return AppResponse.bizError("删除失败!");
     }
     /**
      * 查询分类详情
      * @param code
      * @return
      */
-    public ResponceData queryGoodClass(String code){
+    public AppResponse queryGoodClass(String code){
         //参数判定
         if(null == code || code.equals("")){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"分类编号参数为空",null);
+            return AppResponse.bizError("分类编号参数为空");
         }
         //查询
         GoodClassification goodClassification = goodClassifiDao.queryGoodClass(code);
         if(null == goodClassification){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
+            return AppResponse.bizError("查询为空!");
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询成功!",goodClassification);
+        return AppResponse.success("查询成功!",goodClassification);
     }
     /**
      * 所有树状关系查询
      * @return
      */
-    public ResponceData queryGoodClassList(){
+    public AppResponse queryGoodClassList(){
         List<GoodClassification>goodClassificationLists = goodClassifiDao.queryGoodClassList();
         //查询所有，然后分类
         //最终输出
@@ -185,6 +182,7 @@ public class GoodClassifiService {
                        GoodClassificationList goodClassificationList = new GoodClassificationList();
                        goodClassificationList.setClassCode(goodClassificationLists.get(i).getClassCode());
                        goodClassificationList.setClassName(goodClassificationLists.get(i).getClassName());
+                       goodClassificationList.setVersion(goodClassificationLists.get(i).getVersion());
                        //查找直系的二级
                         int count = 0;
                         List<GoodClassificationSon>goodClassificationSonList =  new ArrayList<>();
@@ -195,6 +193,7 @@ public class GoodClassifiService {
                                 GoodClassificationSon goodClassificationSon = new GoodClassificationSon();
                                 goodClassificationSon.setClassCode(goodClassificationLists.get(j).getClassCode());
                                 goodClassificationSon.setClassName(goodClassificationLists.get(j).getClassName());
+                                goodClassificationSon.setVersion(goodClassificationLists.get(j).getVersion());
                                 goodClassificationSonList.add(goodClassificationSon);
                             }
                         }
@@ -205,8 +204,8 @@ public class GoodClassifiService {
         //垃圾回收
         goodClassificationLists = null;
         if(goodClassificationLists1.size()>0){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",goodClassificationLists1);
+            return AppResponse.success("查询成功!",goodClassificationLists1);
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
+        return AppResponse.bizError("查询为空!");
     }
 }

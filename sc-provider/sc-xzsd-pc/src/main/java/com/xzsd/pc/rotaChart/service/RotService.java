@@ -1,14 +1,13 @@
 package com.xzsd.pc.rotaChart.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.neusoft.core.restful.AppResponse;
+import com.xzsd.pc.rotaChart.entity.GoodList;
+import com.xzsd.pc.util.*;
 import org.springframework.stereotype.Service;
 import com.xzsd.pc.goods.entity.Good;
 import com.xzsd.pc.rotaChart.dao.RotaChartDao;
 import com.xzsd.pc.rotaChart.entity.RotaChart;
-import com.xzsd.pc.util.ChangeBeMap;
-import com.xzsd.pc.util.ResponceData;
-import com.xzsd.pc.util.ResponceDataState;
-import com.xzsd.pc.util.ResponceListData;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.*;
@@ -19,7 +18,6 @@ import java.util.*;
  */
 @Service
 public class RotService {
-    private ResponceData responceData;
     @Resource
     private RotaChartDao rotaChartDao;
     /**
@@ -28,34 +26,36 @@ public class RotService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData addRotaChart(RotaChart rotaChart){
+    public AppResponse addRotaChart(RotaChart rotaChart){
         //判断轮播图图片地址
         if(null == rotaChart.getRotaChartImageUrl() || rotaChart.getRotaChartImageUrl() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图图片地址参数缺失!",null);
+            return AppResponse.paramError("轮播图图片地址参数缺失!");
         }
         if(rotaChart.getRotaChartSort() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图位排序不能为0或者参数缺失!",null);
+            return AppResponse.paramError("轮播图位排序不能为0或者参数缺失!");
         }
         //判断商品编号
         if (null == rotaChart.getGoodCode() || rotaChart.getGoodCode() == "") {
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图选择的商品编号参数为空!",null);
+            return AppResponse.paramError("轮播图选择的商品编号参数为空!");
         }
         //时间
         if(null == rotaChart.getRotaChartStartTime()|| null ==  rotaChart.getRotaChartEndTime()){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图起始时间或者结束时间为空!",null);
+            return AppResponse.paramError("轮播图起始时间或者结束时间为空!");
         }
         if(rotaChart.getRotaChartStartTime() == ""|| rotaChart.getRotaChartEndTime() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图起始时间或者结束时间为空!",null);
+            return AppResponse.paramError("轮播图起始时间或者结束时间为空!");
         }
         //判断轮播图是否已经被选择或者位排序已存在
         if(rotaChartDao.countRepeat(rotaChart.getRotaChartSort(),rotaChart.getGoodCode(),null) > 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"轮播图选择的图片已经存在或者 位排序 已存在 !",null);
+            return AppResponse.paramError("轮播图选择的图片已经存在或者 位排序 已存在 !");
         }
+        //赋值操作用户
+        rotaChart.setCreateUser(SecurityUtils.getCurrentUserUsername());
         int result = rotaChartDao.addRotaChart(rotaChart);
         if(result > 0 ){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"新增成功!",result);
+            return AppResponse.success("新增成功!",result);
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"新增失败!",result);
+        return AppResponse.paramError("新增失败!");
     }
 
     /**
@@ -64,13 +64,17 @@ public class RotService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData deleteRotaChart(RotaChart rotaCode){
-        List<String> codelist = Arrays.asList(rotaCode.getRotaChartCode().split(","));
-        int reuslt = rotaChartDao.deleteRotaChart(codelist,"administrator");
-        if(reuslt > 0 ){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"删除成功!",reuslt);
+    public AppResponse deleteRotaChart(RotaChart rotaCode){
+        //判断
+        if(null == rotaCode.getRotaChartCode() || rotaCode.getRotaChartCode() == ""){
+            return AppResponse.paramError("轮播图编号为空!");
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"删除失败!",reuslt);
+        List<String> codelist = Arrays.asList(rotaCode.getRotaChartCode().split(","));
+        int reuslt = rotaChartDao.deleteRotaChart(codelist,SecurityUtils.getCurrentUserUsername());
+        if(reuslt > 0 ){
+            return AppResponse.success("删除成功!",reuslt);
+        }
+        return AppResponse.paramError("删除失败!");
     }
 
     /**
@@ -78,31 +82,14 @@ public class RotService {
      * @param rotaChart
      * @return
      */
-    public ResponceListData queryRotaChartList(RotaChart rotaChart){
-        ResponceListData responceListData;
-        //如果没有pageSize和pageNum，那么返回参数错误
-        if(rotaChart.getPageNum() == 0||rotaChart.getPageSize() == 0){
-            responceListData = new ResponceListData(ResponceDataState.values()[3].getCode(),"页号或者页数量不能为空!",0,0,
-                    0,null);
-            return responceListData;
-        }
+    public AppResponse queryRotaChartList(RotaChart rotaChart){
         PageHelper.startPage(rotaChart.getPageNum(),rotaChart.getPageSize());
         List<RotaChart> rotaCharts = rotaChartDao.queryRotaChartList(rotaChart);
         PageInfo<RotaChart>data = new PageInfo<RotaChart>(rotaCharts);
-        List<Map<String,String>>mapList  =  new ArrayList<>();
-        //往里加
-        for(RotaChart rotaChart1 : rotaCharts){
-            Map tempMap = ChangeBeMap.changeTtoMap(rotaChart1);
-            mapList.add(tempMap);
+        if(rotaCharts.size() > 0){
+           return AppResponse.success("查询成功!",data);
         }
-        //使用Map得到结果
-        String result = "查询成功";
-        if(rotaCharts.size() == 0){
-            result = "查询为空！";
-        }
-        responceListData = new ResponceListData(ResponceDataState.values()[0].getCode(),result,data.getPageSize(),data.getPageNum(),
-                (int)data.getTotal(),mapList);
-        return responceListData;
+        return AppResponse.success("查询为空!");
     }
 
     /**
@@ -112,21 +99,19 @@ public class RotService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData updateRotaChartState(String rotaChartCode,String state){
+    public AppResponse updateRotaChartState(String rotaChartCode,String state){
         //如果参数不完整
-        if(null == rotaChartCode || state.length() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"参数不能为空!",null);
+        if(null == rotaChartCode || state  == "" || null == state){
+            return AppResponse.paramError("参数不能为空!");
         }
         //查询
         List<String>codesList = Arrays.asList(rotaChartCode.split(","));
-        int result = rotaChartDao.updateRotaChartState(codesList,Integer.parseInt(state));
-        String msg = "修改失败!";
-        int index = 3;
+        //修改者
+        int result = rotaChartDao.updateRotaChartState(codesList,Integer.parseInt(state),SecurityUtils.getCurrentUserUsername());
         if(result > 0){
-            index = 0;
-            msg = "修改成功!";
+            return AppResponse.success("修改成功",result);
         }
-        return new ResponceData(ResponceDataState.values()[index].getCode(),msg,result);
+        return AppResponse.bizError("修改失败");
     }
 
     /**
@@ -134,23 +119,20 @@ public class RotService {
      * @param good
      * @return
      */
-    public ResponceData querylistGoods2(Good good){
+    public AppResponse querylistGoodsSecond(Good good){
         //查询参数是否为空
         //如果参数不完整
         if(good.getPageNum() == 0||good.getPageSize() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"页号或者页数量不能为空!",null);
+            return AppResponse.paramError("页号或者页数量不能为空!");
         }
         //查询数据列表
         PageHelper.startPage(good.getPageNum(),good.getPageSize());
-        List<Good>goods = rotaChartDao.querylistGoods2(good);
-        PageInfo<Good>pageInfo = new PageInfo<>(goods);
+        List<GoodList>goods = rotaChartDao.querylistGoodsSecond(good);
+        PageInfo<GoodList>pageInfo = new PageInfo<>(goods);
         //返回判断
-        String msg = "查询为空!";
-        int index = 3;
         if(goods.size() >0){
-            index = 0;
-            msg = "查询成功!";
+            return AppResponse.success("查询成功!",pageInfo);
         }
-        return new ResponceData(ResponceDataState.values()[index].getCode(),msg,pageInfo);
+        return AppResponse.success("查询为空");
     }
 }

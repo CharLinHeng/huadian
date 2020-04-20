@@ -1,6 +1,7 @@
 package com.xzsd.pc.store.dao;
 
 
+import com.xzsd.pc.store.entity.QueryUserStore;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import com.xzsd.pc.store.entity.Dict;
@@ -26,8 +27,15 @@ public interface StoreDao {
      * @param storeBusinessLicense
      * @return
      */
-    int count(@Param("storeName") String storeName, @Param("storeBusinessLicense") String storeBusinessLicense);
+    int count(@Param("storeName") String storeName, @Param("storeBusinessLicense") String storeBusinessLicense,
+              @Param("storeCode")String storeCode);
 
+    /**
+     * 查询用户编号是否存在
+     * @param queryUserStore
+     * @return
+     */
+    int countStoreUserCode(QueryUserStore queryUserStore);
     /**
      * 省
      * @return
@@ -72,4 +80,11 @@ public interface StoreDao {
      * @return
      */
     List<StoreListQueryEntity>queryStoreList(StoreListQueryEntity storeListQueryEntity);
+
+    /**
+     * 查询商家信息列表
+     * @param queryUserStore
+     * @return
+     */
+    List<QueryUserStore>queryUserStore(QueryUserStore queryUserStore);
 }

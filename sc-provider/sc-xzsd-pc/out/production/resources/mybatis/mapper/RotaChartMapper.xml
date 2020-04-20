@@ -90,35 +90,44 @@
         <if test="rotaChartState != null and rotaChartState !=''">
              and  rotaChart_state = #{rotaChartState}
         </if>
-        order by rotaChart_sort desc
+        order by rotaChart_sort asc
     </select>
-    <!--轮播图新增之 商品编号列表查询-->
-    <select id="querylistGoods2" parameterType="com.xzsd.pc.goods.entity.Good" resultType="com.xzsd.pc.goods.entity.Good">
+    <!--轮播图新增之 商品编号列表查询  肯定要选在售的-->
+    <select id="querylistGoodsSecond" parameterType="com.xzsd.pc.goods.entity.Good" resultType="com.xzsd.pc.rotaChart.entity.GoodList">
         select
-            good_code,
-            good_name,
-            good_saleNum,
-            good_second_clas,
-            good_state
+            tgood.good_code goodCode,
+            tgood.good_name goodName,
+            tgood.good_saleNum goodSaleNum,
+            tgood.good_selling_price goodPrice,
+            tclassA.clas_name goodOneClass,
+            tclassB.clas_name goodSecClass
         from
-            t_good_manage
+            t_good_manage tgood,
+            t_goods_classification_manage tclassA,
+            t_goods_classification_manage tclassB
         where
-            is_delete = 0
+            tgood.good_second_clas = tclassB.clas_code
         and
-            good_state = 1
+            tclassB.parent_node = tclassA.clas_code
+        and
+            tgood.is_delete = 0
+        and
+            tgood.good_state = 1
         <if test="goodName !=null and goodName !=''">
-            and good_name like concat('%',#{goodName},'%')
+            and tgood.good_name like concat('%',#{goodName},'%')
         </if>
         <if test="goodCode !=null and goodCode !=''">
-            and good_code like concat('%',#{goodCode},'%')
+            and tgood.good_code like concat('%',#{goodCode},'%')
         </if>
     </select>
     <!--轮播图启用禁用修改-->
     <update id="updateRotaChartState" parameterType="com.xzsd.pc.rotaChart.entity.RotaChart" >
         update
-        t_turns_images
+            t_turns_images
         set
-        rotaChart_state = #{rotaChartState}
+            rotaChart_state = #{rotaChartState},
+            update_user = #{updateUser},
+            update_time = now()
         where
         rotaChart_code in
         <foreach collection="list" index="index" open="(" close=")" separator="," item="item">

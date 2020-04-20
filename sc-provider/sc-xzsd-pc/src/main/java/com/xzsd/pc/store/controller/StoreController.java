@@ -1,6 +1,8 @@
 package com.xzsd.pc.store.controller;
 
 
+import com.neusoft.core.restful.AppResponse;
+import com.xzsd.pc.store.entity.QueryUserStore;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -9,7 +11,6 @@ import com.xzsd.pc.store.entity.Dict;
 import com.xzsd.pc.store.entity.Store;
 import com.xzsd.pc.store.entity.StoreListQueryEntity;
 import com.xzsd.pc.store.service.StoreService;
-import com.xzsd.pc.util.ResponceData;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -17,8 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/store")
 public class StoreController {
-    private ResponceData responceData;
-
     @Resource
     private StoreService storeService;
 
@@ -28,10 +27,11 @@ public class StoreController {
      */
     @ResponseBody
     @PostMapping("addStore")
-    public ResponceData addStore(Store store){
+    public AppResponse addStore(Store store){
         try {
-            responceData = storeService.addStore(store);
-            return responceData;
+            
+            return  storeService.addStore(store);
+            
         }catch (Exception e){
             throw e;
         }
@@ -43,10 +43,9 @@ public class StoreController {
      * @return
      */
     @PostMapping("queryProvince")
-    public ResponceData queryProvince(){
+    public AppResponse queryProvince(){
         try {
-            responceData = storeService.queryProvince();
-            return responceData;
+            return  storeService.queryProvince();
         }catch (Exception e){
             throw e;
         }
@@ -58,10 +57,9 @@ public class StoreController {
      * @return
      */
     @PostMapping("queryCityOrDistrict")
-    public ResponceData queryCityOrDistrict(Dict dict){
+    public AppResponse queryCityOrDistrict(Dict dict){
         try {
-            responceData = storeService.queryCityOrDistrict(dict);
-            return responceData;
+            return  storeService.queryCityOrDistrict(dict);
         }catch (Exception e){
             throw e;
         }
@@ -73,10 +71,9 @@ public class StoreController {
      * @return
      */
     @PostMapping("updateStore")
-    public ResponceData updateStore(Store store){
+    public AppResponse updateStore(Store store){
         try {
-            responceData = storeService.updateStore(store);
-            return responceData;
+            return  storeService.updateStore(store);
         }catch (Exception e){
             throw e;
         }
@@ -88,10 +85,9 @@ public class StoreController {
      * @return
      */
     @PostMapping("deleteStore")
-    public ResponceData deleteStore(Store store){
+    public AppResponse deleteStore(Store store){
         try {
-            responceData = storeService.deleteStore(store);
-            return responceData;
+            return  storeService.deleteStore(store);
         }catch (Exception e){
             throw e;
         }
@@ -103,10 +99,9 @@ public class StoreController {
      * @return
      */
     @PostMapping("queryStoreDetail")
-    public ResponceData queryStoreDetail(Store store){
+    public AppResponse queryStoreDetail(Store store){
         try {
-            responceData = storeService.queryStoreDetail(store);
-            return responceData;
+            return  storeService.queryStoreDetail(store);
         }catch (Exception e){
             throw e;
         }
@@ -119,10 +114,24 @@ public class StoreController {
      * @return
      */
     @PostMapping("queryStoreList")
-    public ResponceData queryStoreList(StoreListQueryEntity storeListQueryEntity, HttpServletRequest httpServletRequest){
+    public AppResponse queryStoreList(StoreListQueryEntity storeListQueryEntity, HttpServletRequest httpServletRequest){
         try {
-            responceData = storeService.queryStoreList(storeListQueryEntity,httpServletRequest);
-            return responceData;
+            return  storeService.queryStoreList(storeListQueryEntity,httpServletRequest);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+    /**
+     * 门店新增之商家列表查询
+     * @param queryUserStore
+     * @param httpServletRequest
+     * @return
+     */
+    @PostMapping("queryUserStore")
+    public AppResponse queryUserStore(QueryUserStore queryUserStore, HttpServletRequest httpServletRequest){
+        try {
+            return  storeService.queryUserStore(queryUserStore,httpServletRequest);
         }catch (Exception e){
             throw e;
         }

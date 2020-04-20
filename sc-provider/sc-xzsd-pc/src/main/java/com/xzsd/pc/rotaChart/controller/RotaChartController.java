@@ -1,19 +1,15 @@
 package com.xzsd.pc.rotaChart.controller;
-
-
-        import org.springframework.web.bind.annotation.PostMapping;
-        import org.springframework.web.bind.annotation.RequestMapping;
-        import org.springframework.web.bind.annotation.ResponseBody;
-        import org.springframework.web.bind.annotation.RestController;
-        import com.xzsd.pc.goods.entity.Good;
-        import com.xzsd.pc.rotaChart.entity.RotaChart;
-        import com.xzsd.pc.rotaChart.service.RotService;
-        import com.xzsd.pc.util.RandomCode;
-        import com.xzsd.pc.util.ResponceData;
-        import com.xzsd.pc.util.ResponceListData;
-
-        import javax.annotation.Resource;
-        import javax.servlet.http.HttpServletRequest;
+import com.neusoft.core.restful.AppResponse;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import com.xzsd.pc.goods.entity.Good;
+import com.xzsd.pc.rotaChart.entity.RotaChart;
+import com.xzsd.pc.rotaChart.service.RotService;
+import com.xzsd.pc.util.RandomCode;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/rotaChart")
@@ -25,7 +21,6 @@ package com.xzsd.pc.rotaChart.controller;
 public class RotaChartController {
     @Resource
     private RotService rotService;
-    private ResponceData responceData;
     @ResponseBody
     @PostMapping("/addRotaChart")
     /**
@@ -34,12 +29,11 @@ public class RotaChartController {
      * 2020年3月27日16:16:54
      *
      */
-    public ResponceData addRotaChart(RotaChart rotaChart){
-
+    public AppResponse addRotaChart(RotaChart rotaChart){
+        
         try{
             rotaChart.setRotaChartCode(RandomCode.radmonkey());
-            responceData = rotService.addRotaChart(rotaChart);
-            return responceData;
+            return rotService.addRotaChart(rotaChart);
         }
         catch (Exception e){
             throw e;
@@ -52,10 +46,9 @@ public class RotaChartController {
      * @return
      */
     @PostMapping("/deleteRotaChart")
-    public ResponceData deleteRotaChart(RotaChart rotaChart){
+    public AppResponse deleteRotaChart(RotaChart rotaChart){
         try{
-            responceData = rotService.deleteRotaChart(rotaChart);
-            return responceData;
+            return rotService.deleteRotaChart(rotaChart);
         }
         catch
         (Exception e){
@@ -72,11 +65,9 @@ public class RotaChartController {
      * @return
      */
     @PostMapping("/queryRotaChartList")
-    public ResponceListData queryRotaChartList(RotaChart rotaChart){
+    public AppResponse queryRotaChartList(RotaChart rotaChart){
         try{
-            ResponceListData responceListData;
-            responceListData = rotService.queryRotaChartList(rotaChart);
-            return responceListData;
+           return rotService.queryRotaChartList(rotaChart);
         }
         catch
         (Exception e){
@@ -90,12 +81,12 @@ public class RotaChartController {
      * @return
      */
     @PostMapping("updateRotaChartState")
-    public ResponceData updateRotaChartState(HttpServletRequest httpServletRequest){
+    public AppResponse updateRotaChartState(HttpServletRequest httpServletRequest){
 
         try{
-            responceData = rotService.updateRotaChartState(httpServletRequest.getParameter("rotaChartStateCode"),
+            return rotService.updateRotaChartState(httpServletRequest.getParameter("rotaChartStateCode"),
                     httpServletRequest.getParameter("rotaChartState"));
-            return responceData;
+
         }catch (Exception e){
             throw e;
         }
@@ -106,11 +97,10 @@ public class RotaChartController {
      * @param good
      * @return
      */
-    @PostMapping("listGoods2")
-    public ResponceData listGoods2(Good good){
+    @PostMapping("listGoodsSecond")
+    public AppResponse listGoodsSecond(Good good){
         try{
-            responceData = rotService.querylistGoods2(good);
-            return responceData;
+            return rotService.querylistGoodsSecond(good);
         }catch (Exception e){
             throw e;
         }

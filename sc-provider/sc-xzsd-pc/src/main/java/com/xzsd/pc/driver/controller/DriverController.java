@@ -1,11 +1,11 @@
 package com.xzsd.pc.driver.controller;
 
 
+import com.neusoft.core.restful.AppResponse;
 import com.xzsd.pc.driver.entity.Driver;
 import com.xzsd.pc.driver.entity.DriverListParamter;
 import com.xzsd.pc.driver.entity.UpdateDriver;
 import com.xzsd.pc.driver.service.DriverService;
-import com.xzsd.pc.util.ResponceData;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,8 +16,6 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/driver")
 public class DriverController {
-
-    private ResponceData responceData;
     @Resource
     private DriverService driverService;
     @ResponseBody
@@ -29,10 +27,9 @@ public class DriverController {
      */
     @PostMapping("addDriver")
 
-    public ResponceData addDriver(Driver driver){
+    public AppResponse addDriver(Driver driver){
         try{
             return driverService.addDriver(driver);
-
         }catch (Exception e){
             throw  e;
         }
@@ -44,10 +41,9 @@ public class DriverController {
      * @return
      */
     @PostMapping("updateDriver")
-    public ResponceData updateDriver(UpdateDriver updateDriver){
+    public AppResponse updateDriver(UpdateDriver updateDriver){
         try{
             return driverService.updateDriver(updateDriver);
-
         }catch (Exception e){
             throw  e;
         }
@@ -59,10 +55,9 @@ public class DriverController {
      * @return
      */
     @PostMapping("deleteDriver")
-    public ResponceData deleteDriver(UpdateDriver updateDriver){
+    public AppResponse deleteDriver(UpdateDriver updateDriver){
         try{
             return driverService.deleteDriver(updateDriver);
-
         }catch (Exception e){
             throw  e;
         }
@@ -74,10 +69,9 @@ public class DriverController {
      * @return
      */
     @PostMapping("queryDriverDetail")
-    public ResponceData queryDriverDetail(UpdateDriver updateDriver){
+    public AppResponse queryDriverDetail(UpdateDriver updateDriver){
         try{
             return driverService.queryDriverDetail(updateDriver);
-
         }catch (Exception e){
             throw  e;
         }
@@ -89,7 +83,7 @@ public class DriverController {
      * @return
      */
     @PostMapping("queryDriversList")
-    public ResponceData queryDriversList(DriverListParamter updateDriver){
+    public AppResponse queryDriversList(DriverListParamter updateDriver){
         try{
             return driverService.queryDriversList(updateDriver);
         }catch (Exception e){

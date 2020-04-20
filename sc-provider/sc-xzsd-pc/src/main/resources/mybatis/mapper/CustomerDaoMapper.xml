@@ -3,7 +3,7 @@
 <mapper namespace="com.xzsd.pc.customer.dao.CustomerDao">
     <!--客户列表查询-->
     <select id="queryCustomer" parameterType="com.xzsd.pc.customer.entity.Customer"
-            resultType="com.xzsd.pc.customer.entity.Customer">
+            resultType="com.xzsd.pc.customer.entity.CustomerOut">
       select
         tcustomer.customer_code customerCode,
         tcustomer.customer_name customerName,
@@ -17,6 +17,8 @@
           t_store_information tstore
       where
           tcustomer.is_delete = 0
+      and
+          tcustomer.shop_code = tstore.shop_code
       <if test="customerName != null and customerName != ''">
           and tcustomer.customer_name like  concat('%',#{customerName},'%')
       </if>
@@ -24,7 +26,6 @@
           and tcustomer.customer_acct like  concat('%',#{customerAcc},'%')
       </if>
       <if test="userRole == 1">
-          and tcustomer.shop_code = tstore.shop_code
           and tstore.shop_con_user = #{userCode}
       </if>
     </select>
