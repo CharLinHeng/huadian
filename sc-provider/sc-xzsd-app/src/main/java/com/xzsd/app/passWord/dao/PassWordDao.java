@@ -1,20 +1,27 @@
 package com.xzsd.app.passWord.dao;
 import com.xzsd.app.passWord.entity.PassWord;
+import com.xzsd.app.passWord.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface PassWordDao {
     /**
-     * 修改密码-用户表
+     * 查询原来的密码
      * @param passWord
      * @return
      */
-    int getCinPass(PassWord passWord);
+    PassWord getOrignPass(PassWord passWord);
 
     /**
-     * 修改密码-司机表
+     * 更新密码
      * @param passWord
      * @return
      */
-    int getCinPassDriver(PassWord passWord);
+    int updatePassWord(PassWord passWord);
+    /**
+     * 查询当前用户的角色
+     * @return
+     */
+    User queryCurrUser(@Param("userCode")String userCode);
 }

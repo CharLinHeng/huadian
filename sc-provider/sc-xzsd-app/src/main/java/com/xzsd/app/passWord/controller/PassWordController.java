@@ -1,4 +1,5 @@
 package com.xzsd.app.passWord.controller;
+import com.neusoft.core.restful.AppResponse;
 import com.xzsd.app.passWord.entity.PassWord;
 import com.xzsd.app.passWord.service.PassWordService;
 import com.xzsd.app.util.ResponceData;
@@ -22,7 +23,7 @@ public class PassWordController {
      */
     @ResponseBody
     @PostMapping("updateUserPassword")
-    public ResponceData updateUserPassword(PassWord passWord){
+    public AppResponse updateUserPassword(PassWord passWord){
         try{
             return passWordService.updateUserPassword(passWord);
         }catch (Exception e){

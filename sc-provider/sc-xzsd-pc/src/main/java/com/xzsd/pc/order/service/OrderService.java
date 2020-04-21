@@ -44,7 +44,7 @@ public class OrderService {
         if(orderList.size() > 0 ){
             return AppResponse.success("查询成功1!",orderPageInfo);
         }
-        return AppResponse.success("查询为空!");
+        return AppResponse.paramError("查询为空!");
     }
     /**
      * 订单状态修改
@@ -84,16 +84,11 @@ public class OrderService {
      * @return
      */
     public AppResponse queryOrderDetail(PageEntity pageEntity){
-        int pageSize = pageEntity.getPageSize();
-        int pageNum = pageEntity.getPageNum();
-        if(pageSize == 0 || pageNum == 0){
-            return AppResponse.paramError("页号或者页数量参数不能为0或者为空!");
-        }
         if (null == pageEntity.getOrderCode() || pageEntity.getOrderCode() == "") {
             return AppResponse.paramError("订单编号参数为空!");
         }
         //查询
-        PageHelper.startPage(pageNum,pageSize);
+        PageHelper.startPage(pageEntity.getPageNum(),pageEntity.getPageSize());
         List<OrderDetail>orderDetailList = orderDao.queryOrderDetail(pageEntity.getOrderCode());
         PageInfo<OrderDetail>orderDetailPageInfo = new PageInfo<>(orderDetailList);
         if(orderDetailList.size() == 0){

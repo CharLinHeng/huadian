@@ -1,46 +1,68 @@
 package com.xzsd.app.passWord.service;
+import com.neusoft.core.restful.AppResponse;
+import com.neusoft.security.client.utils.SecurityUtils;
 import com.xzsd.app.passWord.dao.PassWordDao;
 import com.xzsd.app.passWord.entity.PassWord;
-import com.xzsd.app.util.PasswordUtils;
-import com.xzsd.app.util.RandomCode;
-import com.xzsd.app.util.ResponceData;
-import com.xzsd.app.util.ResponceDataState;
+import com.xzsd.app.passWord.entity.User;
+import com.xzsd.app.util.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
-
 /**
- * 修改服务类
+ * 修改密码服务类
  */
 @Service
 public class PassWordService {
     @Resource
     private PassWordDao passWordDao;
-    public ResponceData updateUserPassword(PassWord passWord){
+    private final static int DRIVERROLE = 2;
+    /**
+     * 修改密码
+     * @param passWord
+     * @return
+     */
+    public AppResponse updateUserPassword(PassWord passWord){
         //参数是否齐全
-        if(null == passWord.getUserCode() || passWord.getUserCode() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"用户编号参数缺失",null);
-        }
         if(null == passWord.getUserPass() || passWord.getUserPass() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"原密码参数缺失",null);
+            return AppResponse.paramError("原密码参数缺失");
         }
         if(null == passWord.getCinPass() || passWord.getCinPass() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"新密码参数缺失",null);
+            return AppResponse.paramError("新密码参数缺失");
         }
-        //密码加密
+        //获取当前登入人的编号
+        passWord.setUserCode(SecurityUtils.getCurrentUserId());
+        //根据编号，获取当前登入用户的  角色
+        User user = passWordDao.queryCurrUser(passWord.getUserCode());
+        //设置角色
+        passWord.setUserRole(user.getUserRole());
+        //新密码加密
         passWord.setCinPass(PasswordUtils.generatePassword(passWord.getCinPass()));
-        passWord.setUserPass(PasswordUtils.generatePassword(passWord.getUserPass()));
-        //用户密码修改
-        int result = passWordDao.getCinPass(passWord);
-        if(result > 0){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"修改用户角色密码成功！",null);
-        }else{
-            //司机密码修改
-            result = passWordDao.getCinPassDriver(passWord);
+//        passWord.setUserPass(PasswordUtils.generatePassword(passWord.getUserPass()));
+        //店长 用户 原来密码查询
+        PassWord passWordOrigin = passWordDao.getOrignPass(passWord);
+        //比较原密码
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        //判断结果的值
+        int result = 0;
+        if(passWord.getUserRole() == DRIVERROLE){
+            //说明是司机
+            if(bCryptPasswordEncoder.matches(passWord.getUserPass(),passWordOrigin.getDriverTablePass())){
+                //密码匹配正确，进行更新
+                result = passWordDao.updatePassWord(passWord);
+                if(result > 0){
+                    return AppResponse.success("更新成功!");
+                }
+            }
+            return AppResponse.paramError("原密码输入不正确!");
+        }
+        //否则是店长和用户
+        if(bCryptPasswordEncoder.matches(passWord.getUserPass(),passWordOrigin.getUserTablePass())){
+            //密码匹配正确，进行更新
+            result = passWordDao.updatePassWord(passWord);
             if(result > 0){
-                return new ResponceData(ResponceDataState.values()[0].getCode(),"修改司机角色密码成功！",null);
+               return AppResponse.success("更新成功!");
             }
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"用户不存在或者原密码错误！",null);
+        return AppResponse.paramError("原密码输入不正确!");
     }
 }

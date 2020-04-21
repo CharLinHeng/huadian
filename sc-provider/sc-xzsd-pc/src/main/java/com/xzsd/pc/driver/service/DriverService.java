@@ -34,7 +34,6 @@ public class DriverService {
     @Transactional(rollbackFor = Exception.class)
     public AppResponse addDriver(Driver driver){
         //判断参数是否齐没
-
         if(null == driver.getDriverName() || driver.getDriverName() == ""){
             return AppResponse.paramError("司机名字为空！");
         }

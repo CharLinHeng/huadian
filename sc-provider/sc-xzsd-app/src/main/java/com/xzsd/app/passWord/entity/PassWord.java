@@ -15,6 +15,42 @@ public class PassWord {
      * 输入的密码
      */
     private String cinPass;
+    /**
+     * 用户密码
+     */
+    private String userTablePass;
+    /**
+     * 司机密码
+     */
+    private String driverTablePass;
+    /**
+     * 用户角色
+     */
+    private int userRole;
+
+    public int getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(int userRole) {
+        this.userRole = userRole;
+    }
+
+    public String getUserTablePass() {
+        return userTablePass;
+    }
+
+    public void setUserTablePass(String userTablePass) {
+        this.userTablePass = userTablePass;
+    }
+
+    public String getDriverTablePass() {
+        return driverTablePass;
+    }
+
+    public void setDriverTablePass(String driverTablePass) {
+        this.driverTablePass = driverTablePass;
+    }
 
     public String getUserCode() {
         return userCode;

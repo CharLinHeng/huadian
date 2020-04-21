@@ -1,5 +1,6 @@
 package com.xzsd.app.storeInvest.controller;
 
+import com.neusoft.core.restful.AppResponse;
 import com.xzsd.app.passWord.entity.PassWord;
 import com.xzsd.app.passWord.service.PassWordService;
 import com.xzsd.app.storeInvest.entity.InvestCode;
@@ -27,7 +28,7 @@ public class StoreInvestController {
      */
     @ResponseBody
     @PostMapping("updateUserInvest")
-    public ResponceData updateUserPassword(InvestCode investCode){
+    public AppResponse updateUserPassword(InvestCode investCode){
         try{
             return storeInvestService.updateUserInvest(investCode);
         }catch (Exception e){

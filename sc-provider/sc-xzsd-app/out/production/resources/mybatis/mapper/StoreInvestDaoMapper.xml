@@ -16,4 +16,66 @@
         and
           tstore.shop_invest_code = #{invitationCode}
     </update>
+    <!--初次:绑定邀请码-->
+    <insert id="addUserBind" parameterType="com.xzsd.app.storeInvest.entity.BindStore">
+        INSERT
+        INTO
+          `t_store_bind`(
+            `bind_code`,
+            `shop_code`,
+            `user_code`,
+            `bind_inverst_code`,
+            `create_time`,
+            `create_user`,
+
+            `is_delete`,
+            `version`
+          )
+        VALUES(
+          #{bindCode},
+          #{shopCode},
+          #{userCode},
+          #{bindInverstCode},
+          now(),
+          #{createUser},
+          0,
+          0
+      )
+    </insert>
+    <!--判断邀请码是否存在-->
+    <select id="queryExistInvest" parameterType="com.xzsd.app.storeInvest.entity.InvestCode" resultType="int">
+        select
+            count(*)
+        from
+            t_store_information
+        where
+            shop_invest_code = #{invitationCode}
+        and
+            is_delete = 0
+    </select>
+    <!--查询-->
+    <select id="queryBindData" parameterType="com.xzsd.app.storeInvest.entity.BindStore" resultType="com.xzsd.app.storeInvest.entity.BindStore">
+        select
+           shop_code shopCode,
+           shop_invest_code bindInverstCode
+        from
+            t_store_information
+        where
+            is_delete = 0
+        and
+            shop_invest_code = #{bindInverstCode}
+    </select>
+    <!--查询是否已经绑定门店-->
+    <select id="queryCountBindStore" parameterType="com.xzsd.app.storeInvest.entity.InvestCode" resultType="int">
+        select
+            count(*)
+        from
+            t_store_bind
+        where
+            is_delete = 0
+        and
+            bind_inverst_code = #{invitationCode}
+        and
+            user_code = #{userCode}
+    </select>
 </mapper>
