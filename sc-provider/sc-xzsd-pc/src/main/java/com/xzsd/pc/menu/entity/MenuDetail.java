@@ -22,6 +22,16 @@ public class MenuDetail {
      */
     private String menuRemark;
 
+    private int userRole;
+
+    public int getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(int userRole) {
+        this.userRole = userRole;
+    }
+
     public String getMenuCode() {
         return menuCode;
     }

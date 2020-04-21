@@ -1,5 +1,7 @@
 package com.xzsd.app.order.service;
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.neusoft.core.restful.AppResponse;
 import com.neusoft.security.client.utils.SecurityUtils;
 import com.xzsd.app.driver.dao.DriverDao;
@@ -8,8 +10,6 @@ import com.xzsd.app.driver.entity.DriverResponsibleArea;
 import com.xzsd.app.order.dao.OrderDao;
 import com.xzsd.app.order.entity.*;
 import com.xzsd.app.util.RandomCode;
-import com.xzsd.app.util.ResponceData;
-import com.xzsd.app.util.ResponceDataState;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
@@ -33,13 +33,15 @@ public class OrderService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public ResponceData addUserOrder(AddOrder addOrder){
+    public AppResponse addUserOrder(AddOrder addOrder){
+        //获取当前登入人的编号
+        addOrder.setUserCode(SecurityUtils.getCurrentUserId());
         //判断参数是否齐全
         if(null == addOrder.getCartCode() || addOrder.getCartCode() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"购物车编号为空",null);
+            return AppResponse.paramError("购物车编号为空");
         }
         if(null == addOrder.getUserCode() || addOrder.getUserCode() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"用户编号为空",null);
+            return AppResponse.paramError("用户编号为空");
         }
         List<String>cartCodeList = Arrays.asList(addOrder.getCartCode().split(","));
         String msg = "";
@@ -116,69 +118,74 @@ public class OrderService {
                         if(empty > 0){
                             msg = msg + "已清空购物车!";
                         }
-                        return new ResponceData(ResponceDataState.values()[0].getCode(),msg,null);
+                        return AppResponse.success(msg);
                     }
                 }
             }
-            //更新订单的状态为 订单取消
-            return new ResponceData(ResponceDataState.values()[3].getCode(),msg+"新增订单失败,您购物车内的商品均被抢空或者下架!",null);
+            //更新订单 删除
+            result = orderDao.deleteOrder(addOrder.getOrderCode(),SecurityUtils.getCurrentUserUsername());
+            return AppResponse.paramError(msg+"新增订单失败,您购物车内的商品均被抢空或者下架!");
         }
         //判断结果
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"新增订单失败",null);
+        return AppResponse.paramError("新增订单失败");
     }
 
     /**
      * app端-用户-查询订单详情
      * @return
      */
-    public ResponceData queryOrderDetail(OrderDetail orderDetail){
+    public AppResponse queryOrderDetail(OrderDetail orderDetail){
+        //判断订单编号参数
         if(null == orderDetail.getOrderCode() || orderDetail.getOrderCode() == ""){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"订单编号为空!",null);
+            return AppResponse.paramError("订单编号为空!");
         }
-        //查询订单详情 以及 还没有转化成地址的 省市区编号[因为无法用一次sql查出省市区名称，所以我分两步来写，分一半也行，不过代码比较复杂]
+        //查询订单详情 以及 还没有转化成地址的 省市区编号[因为无法用一次sql查出省市区名称，所以我分两步来写，但是一次也行，不过代码比较复杂]
         OrderDetail orderDetailOut = orderDao.queryOrderDetail(orderDetail.getOrderCode());
-        //查询省市区名称
+        //拼接待查询的参数实体类
         DriverResponsibleArea driverResponsibleArea = new DriverResponsibleArea();
         driverResponsibleArea.setCityCode(orderDetailOut.getCityCode());
         driverResponsibleArea.setDistinctCode(orderDetailOut.getDistinctCode());
         driverResponsibleArea.setProvinceCode(orderDetailOut.getProvinceCode());
+        //根据 省市区编号 查询 省市区名称
         AreaName areaNameList = driverDao.queryPCD(driverResponsibleArea);
-        //将信息传值输出实体类
+        //将信息传至输出实体类
         OrderDetailOut orderDetailOutFinal = new OrderDetailOut();
         //赋值给输出实体类
-        String address = areaNameList.getProvinceName()+areaNameList.getCityName()+areaNameList.getDistinctName()+orderDetailOut.getDetailAddress();
+        String address = areaNameList.getProvinceName()+areaNameList.getCityName()+areaNameList.getDistinctName()+
+                orderDetailOut.getDetailAddress();
         orderDetailOutFinal.setDeliveryAddress(address);
         orderDetailOutFinal.setDeliveryStore(orderDetailOut.getDeliveryStore());
         orderDetailOutFinal.setOrderCode(orderDetailOut.getOrderCode());
         orderDetailOutFinal.setOrderCreateTime(orderDetailOut.getOrderCreateTime());
         orderDetailOutFinal.setOrderGoodsList(orderDetailOut.getOrderGoodsList());
         orderDetailOutFinal.setOrderState(orderDetailOut.getOrderState());
+        //判断结果
         if(null != orderDetailOut.getOrderCode()){
             //输出实体类
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询订单成功!",orderDetailOutFinal);
+            return AppResponse.success("查询订单成功!",orderDetailOutFinal);
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询订单失败",null);
+        return AppResponse.paramError("查询订单失败");
     }
     /**
      * 修改订单状态
      * @param updateOrder
      * @return
      */
-    public ResponceData updateOrder(UpdateOrder updateOrder){
+    public AppResponse updateOrder(UpdateOrder updateOrder){
         if(null == updateOrder.getOrderCode()){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"订单编号为空!",null);
+            return AppResponse.paramError("订单编号为空!");
         }
         if(updateOrder.getOrderState() == 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"订单状态不能为0!",null);
+            return AppResponse.paramError("订单状态不能为0!");
         }
         //获取当前修改人的Id
         updateOrder.setUpdateUser(SecurityUtils.getCurrentUserId());
         //查询
         int result = orderDao.updateOrder(updateOrder);
         if(result > 0){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"更新状态成功!",null);
+            return AppResponse.success("更新状态成功!");
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
+        return AppResponse.paramError("查询为空!");
     }
 
     /**
@@ -186,15 +193,20 @@ public class OrderService {
      * @param orderListParam
      * @return
      */
-    public ResponceData queryUserOrderList(OrderListParam orderListParam){
-        if(null == orderListParam.getUserCode()){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"用户编号为空!",null);
-        }
+    public AppResponse queryUserOrderList(OrderListParam orderListParam){
+        //查询当前登入人的编号
+        String userAccunt = SecurityUtils.getCurrentUserId();
+        //设置当前登入用户编号
+        orderListParam.setUserCode(userAccunt);
+        //查询
+        PageHelper.startPage(orderListParam.getPageNum(),orderListParam.getPageSize());
         List<OrderList>orderLists = orderDao.queryUserOrderList(orderListParam);
+        PageInfo<OrderList>orderListPageInfo = new PageInfo<>(orderLists);
+        //判断结果
         if(orderLists.size() > 0){
-            return new ResponceData(ResponceDataState.values()[0].getCode(),"查询成功!",orderLists);
+            return AppResponse.success("查询成功!",orderListPageInfo);
         }
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"查询为空!",null);
+        return AppResponse.paramError("查询为空!");
     }
 
     /**
@@ -202,10 +214,10 @@ public class OrderService {
      * @param orderEva
      * @return
      */
-    public ResponceData addOrderGoodsEva(OrderEva orderEva){
+    public AppResponse addOrderGoodsEva(OrderEva orderEva){
         //开始处理对象
         if(null == orderEva.getOrderCode()){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"订单编号缺失!",orderEva);
+            return AppResponse.paramError("订单编号缺失!");
         }
         //为每件商品评价生成编号
         orderEva.setUserCode(SecurityUtils.getCurrentUserId());
@@ -216,11 +228,10 @@ public class OrderService {
         //当前用户-新增至商品评价列表
         int result = orderDao.addOrderGoodsEva(orderEva.getEvaList(),orderEva.getOrderCode());
         //更新至订单评价
-
         if(result > 0){
-            return new ResponceData(ResponceDataState.values()[3].getCode(),"添加商品评论成功!",result);
+            return AppResponse.success("添加商品评论成功!",result);
         }
         //判断结果
-        return new ResponceData(ResponceDataState.values()[3].getCode(),"添加商品评论失败!",result);
+        return AppResponse.paramError("添加商品评论失败!");
     }
 }

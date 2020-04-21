@@ -1,5 +1,6 @@
 package com.xzsd.app.homepage.controller;
 
+import com.neusoft.core.restful.AppResponse;
 import com.xzsd.app.homepage.service.HomePageService;
 import com.xzsd.app.util.ResponceData;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +23,7 @@ public class HomePageController {
      * 首页-轮播图
      */
     @PostMapping("queryRotateChartsList")
-    public ResponceData queryRotateChartsList(){
+    public AppResponse queryRotateChartsList(){
         try{
             return homePageService.queryRotateChartsList();
         }catch (Exception e){
@@ -35,7 +36,7 @@ public class HomePageController {
      * @return
      */
     @PostMapping("queryHotGoodsList")
-    public ResponceData queryHotGoodsList(){
+    public AppResponse queryHotGoodsList(){
         try{
             return homePageService.queryHotGoodsList();
         }catch (Exception e){

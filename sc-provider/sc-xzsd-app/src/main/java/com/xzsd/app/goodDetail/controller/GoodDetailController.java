@@ -1,8 +1,8 @@
 package com.xzsd.app.goodDetail.controller;
+import com.neusoft.core.restful.AppResponse;
 import com.xzsd.app.goodDetail.entity.GoodEvaParam;
 import com.xzsd.app.goodDetail.entity.UserParam;
 import com.xzsd.app.goodDetail.service.GoodDetailService;
-import com.xzsd.app.util.ResponceData;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,7 +26,7 @@ public class GoodDetailController {
      * 商品详情查询
      */
     @PostMapping("queryGoodDetail")
-    public ResponceData queryGoodDetail(HttpServletRequest httpServletRequest){
+    public AppResponse queryGoodDetail(HttpServletRequest httpServletRequest){
         try{
             return goodDetailService.queryGoodDetail(httpServletRequest);
         }catch (Exception e){
@@ -40,7 +40,7 @@ public class GoodDetailController {
      * @return
      */
     @PostMapping("queryGoodComEvaList")
-    public ResponceData queryGoodComEvaList(GoodEvaParam goodEvaParam){
+    public AppResponse queryGoodComEvaList(GoodEvaParam goodEvaParam){
         try{
             return goodDetailService.queryGoodComEvaList(goodEvaParam);
         }catch (Exception e){
@@ -54,7 +54,7 @@ public class GoodDetailController {
      * @return
      */
     @PostMapping("queryUserBindStore")
-    public ResponceData queryUserBindStore(UserParam userParam){
+    public AppResponse queryUserBindStore(UserParam userParam){
         try{
             return goodDetailService.queryUserBindStore(userParam);
         }catch (Exception e){

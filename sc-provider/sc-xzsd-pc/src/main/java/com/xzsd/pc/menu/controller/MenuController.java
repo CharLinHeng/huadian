@@ -7,6 +7,7 @@ import com.xzsd.pc.base.constant.GlobalConstant;
 import com.xzsd.pc.base.entity.Tree;
 import com.xzsd.pc.menu.entity.Menu;
 import com.xzsd.pc.menu.service.MenuService;
+import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.annotation.Validated;
@@ -42,9 +43,9 @@ public class MenuController {
      * 作成时间：2018/11/28
      */
     @RequestMapping(value = "listMenus")
-    public AppResponse listMenus(String roleCode) {
+    public AppResponse listMenus(HttpServletRequest httpServletRequest) {
         try {
-
+            String roleCode = httpServletRequest.getParameter("role");
             Map<String,Object> map = menuService.listMenus(GlobalConstant.MENU_ROOT, roleCode);
             return AppResponse.success("查询成功", map);
         } catch (Exception e) {

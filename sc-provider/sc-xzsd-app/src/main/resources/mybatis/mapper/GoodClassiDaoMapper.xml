@@ -13,7 +13,7 @@
         and
             is_delete = 0
     </select>
-    <!--二级分类及其商品查询-->
+    <!--二级分类及其对应的商品查询-->
     <select id="queryTwoClass" parameterType="com.xzsd.app.goodClassification.entity.GoodClassification" resultMap="querySecondResultMap">
         select
             tgoodclass.clas_code,
@@ -25,6 +25,7 @@
         and
             tgoodclass.parent_node = #{classCode}
     </select>
+    <!--高级映射中的goodsList关联查询-->
     <select id="selectList" resultType="com.xzsd.app.goodClassification.entity.Good">
         select
             tgoods.good_code goodCode,
@@ -37,13 +38,11 @@
         where
             tgoods.good_second_clas = #{classCode}
     </select>
-    <!--映射resultMapp-->
+    <!--二级分类及其所属的的商品 映射resultMapp-->
     <resultMap id="querySecondResultMap" type="com.xzsd.app.goodClassification.entity.GoodClassiSecond">
         <id property="classCode" column="clas_code"/>
         <result property="className" column="clas_name"/>
         <collection property="goodsList" javaType="list"  column="classCode=clas_code"  select="selectList" ofType="com.xzsd.app.goodClassification.entity.Good">
-
         </collection>
     </resultMap>
-
 </mapper>

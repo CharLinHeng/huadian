@@ -73,7 +73,7 @@
         and
             tgood.is_delete = 0
         and
-            tgood.good_sale_end &lt; now()
+            (tgood.good_sale_end!='' and tgood.good_sale_end is not null  and tgood.good_sale_end &lt; now())
         and
             tcart.cart_code in
           <foreach collection="list" item="item" open="(" separator="," close=")" index="index">
@@ -250,7 +250,7 @@
         and
             tgoods.is_delete = 0
     </select>
-    <!--映射resultMapp-->
+    <!--查询订单详情映射resultMapp-->
     <resultMap id="queryOrderDetailResultMap" type="com.xzsd.app.order.entity.OrderDetail">
         <id property="orderCode" column="order_code"/>
         <result property="orderCreateTime" column="create_time"/>
@@ -337,4 +337,17 @@
                   )
               </foreach>
     </insert>
+    <!--订单删除-->
+    <update id="deleteOrder" parameterType="com.xzsd.app.order.entity.Order">
+        update
+            t_order_manage
+        set
+            is_delete = 1,
+            update_time = now(),
+            update_user = #{createUser}
+        where
+            is_delete = 0
+        and
+            order_code = #{orderCode}
+    </update>
 </mapper>

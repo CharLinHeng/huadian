@@ -24,6 +24,18 @@ public class GoodEva {
      *评价时间
      */
     private String evaTime;
+    /**
+     * 评价图片
+     */
+    private String conmentImage;
+
+    public String getConmentImage() {
+        return conmentImage;
+    }
+
+    public void setConmentImage(String conmentImage) {
+        this.conmentImage = conmentImage;
+    }
 
     public String getEvaCode() {
         return evaCode;

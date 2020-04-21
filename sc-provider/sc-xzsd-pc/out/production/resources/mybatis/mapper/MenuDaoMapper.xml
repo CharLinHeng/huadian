@@ -34,8 +34,10 @@
             level,
             remark,
             sort_no
-        from t_sys_menu
-        where is_deleted = 0
+        from
+            t_sys_menu
+        where
+            is_deleted = 0
         order by sort_no
     </select>
     <!--获取用户菜单-->
@@ -51,7 +53,7 @@
 		                a.level
 		  from t_sys_menu a
 		 where
-		 a.is_deleted = 0
+		     a.is_deleted = 0
         <if test="parentMenuCode != null and parentMenuCode != ''">
             and a.parent_menu_code = #{parentMenuCode}
         </if>
@@ -102,12 +104,15 @@
     </delete>-->
     <!--删除菜单-->
     <update id="deleteMenu" parameterType="com.xzsd.pc.menu.entity.Menu">
-        update t_sys_menu
-           set is_deleted     = 1,
-               version      = version + 1,
-               gmt_modified = now(),
-               last_modified_by   = #{lastModifiedBy,jdbcType=VARCHAR}
-         where auth_code like concat(#{authCode}, '%')
+        update
+          t_sys_menu
+       set
+          is_deleted  = 1,
+           version   = version + 1,
+           gmt_modified = now(),
+           last_modified_by   = #{lastModifiedBy}
+         where
+            menu_code = #{menuCode}
     </update>
 
     <!--删除角色菜单按钮-->
@@ -176,7 +181,8 @@
             level,
             auth_code,
             gmt_modified,
-            last_modified_by
+            last_modified_by,
+            user_role
           ) values (
             #{id,jdbcType=VARCHAR},
             #{menuCode,jdbcType=VARCHAR},
@@ -192,7 +198,9 @@
             #{level,jdbcType=NUMERIC},
             #{authCode,jdbcType=VARCHAR},
             now(),
-            #{createBy,jdbcType=VARCHAR})
+            #{createBy,jdbcType=VARCHAR},
+            #{userRole}
+            )
     </insert>
 
     <!-- 新增子菜单，更新父级菜单类型为目录 -->
@@ -214,6 +222,7 @@
                version      = version + 1,
                remark       = #{remark,jdbcType=VARCHAR},
                gmt_modified = now(),
+               user_role = #{userRole},
                last_modified_by   = #{lastModifiedBy,jdbcType=VARCHAR}
          where menu_code = #{menuCode}
     </update>
@@ -243,7 +252,8 @@
             menu_name menuName,
             menu_url menuRoute,
             remark menuRemark,
-            type+1 menuIsMenu
+            type+1 menuIsMenu,
+            user_role userRole
         from
             t_sys_menu
         where

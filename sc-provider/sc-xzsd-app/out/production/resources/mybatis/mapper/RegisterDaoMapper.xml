@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzsd.app.register.dao.RegisterDao">
-        <!--新增用户  Role 2-->
+        <!--新增用户  Role 3-->
     <insert id="addRegister" parameterType="com.xzsd.app.register.entity.Register">
         INSERT
             INTO
@@ -28,7 +28,7 @@
               #{userPass},
               #{userIdCard},
               CAST(#{userSex} AS SIGNED),
-              2,
+              3,
               #{userPhone},
               0,
               #{userEmail},
@@ -46,9 +46,9 @@
           t_user_infomation
       where
           is_delete = 0
-          <if test="userAcc != null and userAcc !=''">
+        <if test="userAcc != null and userAcc !=''">
             and  user_account = #{userAcc}
-          </if>
+        </if>
         <if test="userPhone != null and userPhone !=''">
             and  user_phone = #{userPhone}
         </if>

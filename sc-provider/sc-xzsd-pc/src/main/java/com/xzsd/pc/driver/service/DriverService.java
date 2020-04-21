@@ -126,6 +126,11 @@ public class DriverService {
         //身份证
         if( driverDao.countDriverAcct(null,updateDriver.getDriverIdCard(),updateDriver.getDriverCode()) > 0 ){
             return AppResponse.paramError("司机身份证已经存在！");
+
+        }
+        //密码加密
+        if(null != updateDriver.getDriverPass() || updateDriver.getDriverPass() ==""){
+            updateDriver.setDriverPass(PasswordUtils.generatePassword(updateDriver.getDriverPass()));
         }
         //修改
         int result = driverDao.updateDriver(updateDriver);

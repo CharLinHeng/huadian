@@ -115,11 +115,11 @@
     <!--购物车商品列表查询-->
     <select id="queryShoppingCartList" parameterType="com.xzsd.app.shoppingCart.entity.CartGoodUserParam" resultType="com.xzsd.app.shoppingCart.entity.CartGoodList">
         select
-          cart.cart_code cartCode,
-          cart.good_code goodCode,
-          goods.good_name goodName,
-          cart.good_num goodNum,
-          goods.good_selling_price goodSale
+            cart.cart_code cartCode,
+            cart.good_code goodCode,
+            goods.good_name goodName,
+            cart.good_num goodNum,
+            goods.good_selling_price goodSale
         from
             t_good_shopping_cart cart,
             t_good_manage goods

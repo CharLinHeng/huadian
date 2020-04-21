@@ -53,14 +53,18 @@
     <select id="queryDriverDetail" parameterType="com.xzsd.pc.driver.entity.UpdateDriver" resultType="com.xzsd.pc.driver.entity.DriverDetail">
       SELECT
         datas.name1 driverProvinceName,
+        datas.code1 driverProvinceCode,
         datas.name2 driverCityName,
+        datas.code2 driverCityCode,
         datas.dict_name driverDistinctName,
+        datas.dict_code driverDistinctCode,
         tdriver.name driverName,
         tdriver.phone driverPhone,
         tdriver.driver_acc driverAcct,
         tdriver.driver_pass driverPass,
         tdriver.driver_idcard driverIdCard,
-        tdriver.driver_code driverCode
+        tdriver.driver_code driverCode,
+        tdriver.version version
     FROM
         t_driver_information_manage tdriver
     right JOIN (
@@ -122,8 +126,11 @@
             tdriver.phone driverPhone,
             tdriver.driver_idcard driverIdCard
           from
-            t_driver_information_manage tdriver,
+            t_driver_information_manage tdriver
+        <if test="userRole == 1">
+        ,
             t_store_information tstore
+                </if>
           where
             tdriver.is_delete = 0
           <if test="driverName !=null and driverName != ''">
@@ -155,7 +162,9 @@
           `t_driver_information_manage`
         SET
           `driver_acc` = #{driverAcct},
-          `driver_pass` = #{driverPass},
+          <if test="driverPass != null and driverPass != ''">
+              `driver_pass` = #{driverPass},
+          </if>
           `driver_idcard` = #{driverIdCard},
           `name` = #{driverName},
           `phone` = #{driverPhone},

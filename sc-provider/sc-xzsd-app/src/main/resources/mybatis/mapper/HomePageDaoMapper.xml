@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzsd.app.homepage.dao.HomePageDao">
-    <!--轮播图列表-->
+    <!--首页轮播图列表查询-->
     <select id="queryRotateChartsList" resultType="com.xzsd.app.homepage.entity.TurnsImage">
         select
             rotaChart_code rotateChartCode,
@@ -15,14 +15,15 @@
             rotaChart_use_time &lt;= now()
         and
             rotaChart_end_time &gt;= now()
+        order by rotaChart_sort asc
     </select>
-    <!--轮播图更新-->
+    <!--轮播图更新，将时间范围不在当前时间的设为删除-->
     <update id="deleteOverdue" parameterType="com.xzsd.app.homepage.entity.TurnsImage">
         update
             t_turns_images
         set
             is_delete = 1,
-            update_user = 'administrator',
+            update_user = 'sys',
             update_time = now()
         where
             is_delete = 0
@@ -48,7 +49,7 @@
             thot.is_delete = 0
         and
             thot.good_code = tgood.good_code
-
+        order by hot_good_sort asc
         limit 0,#{num}
     </select>
     <!--查询展示数量-->

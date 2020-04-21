@@ -31,8 +31,8 @@ public class OrderService {
      */
     public AppResponse queryOrderList(OrderQuery orderQuery){
         //从Redis中根据token获取用户编号,然后根据用户编号进行获取角色
-        //因为还没写登入，所以这里指定一个账户
         String userCode = SecurityUtils.getCurrentUserUsername();
+        //根据账号获取当前用户的角色和编号
         User user = customerDao.queryCurrUser(userCode);
         orderQuery.setUserCode(user.getUserCode());
         orderQuery.setUserRole(user.getUserRole());
@@ -53,6 +53,7 @@ public class OrderService {
      * @return
      */
     public AppResponse updateOrderState(String codes, OrderUpdate orderUpdate){
+        //订单的订单编号参数
         if(null == codes || codes == ""){
             return AppResponse.paramError("编号参数为空!");
         }
@@ -60,6 +61,7 @@ public class OrderService {
         if(stringList.size()  == 0){
             return AppResponse.paramError("修改数量为空!");
         }
+        //订单的状态需要 指定
         if(null == orderUpdate.getOrderState() || orderUpdate.getOrderState() == ""){
             return AppResponse.paramError("订单状态需指定!");
         }
@@ -69,14 +71,15 @@ public class OrderService {
                 msg = "";
         }
         //修改
-        int result = orderDao.updateOrderState(stringList,Integer.parseInt(orderUpdate.getOrderState()),orderUpdate.getUpdateUser(),orderUpdate.getVersion());
+        int result = orderDao.updateOrderState(stringList,Integer.parseInt(orderUpdate.getOrderState()),orderUpdate.getUpdateUser(),
+                orderUpdate.getVersion());
         if(result > 0 ){
             return AppResponse.success("修改成功!",result);
         }
         return AppResponse.bizError("修改失败!");
     }
     /**
-     * 3订单详情查询
+     * 订单详情查询
      * @param pageEntity
      * @return
      */

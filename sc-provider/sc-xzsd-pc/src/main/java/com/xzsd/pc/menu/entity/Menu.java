@@ -46,10 +46,19 @@ public class Menu {
     private Date gmtCreate;
     private Date gmtModified;
 
+    private int userRole;
     /**
      * 版本
      */
     private String version;
+
+    public int getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(int userRole) {
+        this.userRole = userRole;
+    }
 
     public String getId() {
         return id;

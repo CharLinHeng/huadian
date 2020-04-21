@@ -1,8 +1,8 @@
 package com.xzsd.app.goodClassification.controller;
 
+import com.neusoft.core.restful.AppResponse;
 import com.xzsd.app.goodClassification.entity.GoodClassification;
 import com.xzsd.app.goodClassification.service.GoodClassificationService;
-import com.xzsd.app.util.ResponceData;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,7 +20,7 @@ public class GoodClassificationController {
      * 商品一级分类查询
      */
     @PostMapping("queryOneClass")
-    public ResponceData queryOneClass(){
+    public AppResponse queryOneClass(){
         try{
             return goodClassificationService.queryOneClass();
         }catch (Exception e){
@@ -33,7 +33,7 @@ public class GoodClassificationController {
      * @return
      */
     @PostMapping("queryTwoClass")
-    public ResponceData queryTwoClass(GoodClassification goodClassification){
+    public AppResponse queryTwoClass(GoodClassification goodClassification){
         try{
             return goodClassificationService.queryTwoClass(goodClassification);
         }catch (Exception e){

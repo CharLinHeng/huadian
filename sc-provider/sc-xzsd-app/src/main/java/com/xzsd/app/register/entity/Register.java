@@ -31,7 +31,7 @@ public class Register {
      * 性别
      * 可选
      */
-    private String userSex;
+    private int userSex;
     /**
      * 身份证
      */
@@ -83,11 +83,11 @@ public class Register {
         this.userName = userName;
     }
 
-    public String getUserSex() {
+    public int getUserSex() {
         return userSex;
     }
 
-    public void setUserSex(String userSex) {
+    public void setUserSex(int userSex) {
         this.userSex = userSex;
     }
 

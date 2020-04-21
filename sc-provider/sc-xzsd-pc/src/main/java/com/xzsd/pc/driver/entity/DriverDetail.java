@@ -39,6 +39,47 @@ public class DriverDetail {
      * 司机市区名称
      */
     private String driverDistinctName;
+    /**
+     *省编号
+     */
+    private String driverProvinceCode;
+    /**
+     *市编号
+     */
+    private String driverCityCode;
+    /**
+     *区编号
+     */
+    private String driverDistinctCode;
+    /**
+     * 版本号
+     */
+    private String version;
+
+
+    public String getDriverProvinceCode() {
+        return driverProvinceCode;
+    }
+
+    public void setDriverProvinceCode(String driverProvinceCode) {
+        this.driverProvinceCode = driverProvinceCode;
+    }
+
+    public String getDriverCityCode() {
+        return driverCityCode;
+    }
+
+    public void setDriverCityCode(String driverCityCode) {
+        this.driverCityCode = driverCityCode;
+    }
+
+    public String getDriverDistinctCode() {
+        return driverDistinctCode;
+    }
+
+    public void setDriverDistinctCode(String driverDistinctCode) {
+        this.driverDistinctCode = driverDistinctCode;
+    }
 
     public String getDriverName() {
         return driverName;
@@ -99,6 +140,14 @@ public class DriverDetail {
 
     public String getDriverDistinctName() {
         return driverDistinctName;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 
     public void setDriverDistinctName(String driverDistinctName) {

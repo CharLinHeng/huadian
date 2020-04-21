@@ -57,7 +57,7 @@ public class HotGoodService {
      * @return
      */
     public AppResponse queryGoodsList(HttpServletRequest httpServletRequestrequest, HotGoodQuery hotGoodQuery){
-        //判断是否有参数
+        //判断前端是否有参数传过来
         if(null == httpServletRequestrequest.getParameter("pageNum") || httpServletRequestrequest.getParameter("pageNum") ==""
                 || Integer.parseInt(httpServletRequestrequest.getParameter("pageNum")) == 0){
             return AppResponse.paramError("分页号不能为空或者为0!");
@@ -103,7 +103,6 @@ public class HotGoodService {
         if(hotGoodDao.countGoodIsSelecter(hotGood.getGoodCode(),hotGood.getHotGoodCode())>0){
             return AppResponse.paramError("商品已经被选择!");
         }
-        String msg = "";
         if(null == hotGood.getVersion() || hotGood.getVersion() == ""){
             return AppResponse.paramError("缺失版本号参数!");
         }

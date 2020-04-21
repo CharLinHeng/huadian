@@ -67,24 +67,27 @@
     <!--热门商品位新增之商品列表查询-->
     <select id="queryGoodsList" parameterType="com.xzsd.pc.hotGood.entity.HotGoodQuery" resultType="com.xzsd.pc.hotGood.entity.HotGoodQuery">
         select
-          tgood.good_code goodCode,
-          tgood.good_name goodName,
-          tgood.good_state goodState,
-          tclass.parent_node goodFirstClass,
-          tgood.good_second_clas goodSecClass
+            tgood.good_code goodCode,
+            tgood.good_name goodName,
+            tgood.good_state goodState,
+            tclass.parent_node goodFirstClass,
+            tgood.good_second_clas goodSecClass
         from
-          t_good_manage tgood,
-          t_goods_classification_manage tclass
+            t_good_manage tgood,
+            t_goods_classification_manage tclass
         where
-        tgood.is_delete = 0
-        and  tgood.good_second_clas = tclass.clas_code
+            tgood.is_delete = 0
+        and
+            tgood.good_second_clas = tclass.clas_code
+        and
+            tgood.good_state = 2
         <if test="goodName != null and goodName !=''">
           and    tgood.good_name like concat('%',#{goodName},'%')
         </if>
         <if test="goodCode != null and goodCode != ''">
            and   tgood.good_code like concat('%',#{goodCode},'%')
         </if>
-        order by tgood.create_time desc
+          order by tgood.good_createTime desc
     </select>
     <!--热门商品位列表查询-->
     <select id="queryHotGoodsList" parameterType="com.xzsd.pc.hotGood.entity.HotGoodList" resultType="com.xzsd.pc.hotGood.entity.HotGoodList">

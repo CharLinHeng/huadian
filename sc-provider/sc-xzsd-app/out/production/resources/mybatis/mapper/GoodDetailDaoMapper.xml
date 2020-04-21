@@ -24,12 +24,15 @@
             comment_rank evaRank,
             tuser.user_name evaUserName,
             teva.comment_content evaContent,
+            teva.comment_images conmentImage,
             teva.comment_time evaTime
         from
             t_goods_goodseva teva,
             t_user_infomation tuser
         where
             teva.user_code = tuser.user_code
+        and
+            teva.comment_good = #{goodCode}
         and
             teva.is_delete = 0
         <if test="evaRank == 1">
@@ -60,7 +63,7 @@
         and
             tbind.is_delete = 0
     </select>
-
+    <!--根据省市区编号查出对应的省市区名称-->
     <select id="queryPCD" parameterType="com.xzsd.app.goodDetail.entity.UserBindStore" resultType="com.xzsd.app.goodDetail.entity.UserBindStore">
         SELECT
          t3.name1 provinceCode,

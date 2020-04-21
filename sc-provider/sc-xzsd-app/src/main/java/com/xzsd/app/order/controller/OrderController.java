@@ -1,8 +1,8 @@
 package com.xzsd.app.order.controller;
 
+import com.neusoft.core.restful.AppResponse;
 import com.xzsd.app.order.entity.*;
 import com.xzsd.app.order.service.OrderService;
-import com.xzsd.app.util.ResponceData;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -17,7 +17,7 @@ public class OrderController {
      * 增加订单
      */
     @PostMapping("addUserOrder")
-    public ResponceData addUserOrder(AddOrder addOrder){
+    public AppResponse addUserOrder(AddOrder addOrder){
         try{
             return orderService.addUserOrder(addOrder);
         }catch (Exception e){
@@ -31,7 +31,7 @@ public class OrderController {
      * @return
      */
     @PostMapping("queryOrderDetail")
-    public ResponceData queryOrderDetail(OrderDetail orderDetail){
+    public AppResponse queryOrderDetail(OrderDetail orderDetail){
         try{
             return orderService.queryOrderDetail(orderDetail);
         }catch (Exception e){
@@ -45,7 +45,7 @@ public class OrderController {
      * @return
      */
     @PostMapping("updateOrder")
-    public ResponceData updateOrder(UpdateOrder updateOrder){
+    public AppResponse updateOrder(UpdateOrder updateOrder){
         try{
             return orderService.updateOrder(updateOrder);
         }catch (Exception e){
@@ -59,7 +59,7 @@ public class OrderController {
      * @return
      */
     @PostMapping("queryUserOrderList")
-    public ResponceData queryUserOrderList(OrderListParam orderListParam){
+    public AppResponse queryUserOrderList(OrderListParam orderListParam){
         try{
             return orderService.queryUserOrderList(orderListParam);
         }catch (Exception e){
@@ -73,7 +73,7 @@ public class OrderController {
      * @return
      */
     @PostMapping(value = "addOrderGoodsEva",headers = {"content-type=application/json"})
-    public ResponceData addOrderGoodsEva(@RequestBody OrderEva orderEva){
+    public AppResponse addOrderGoodsEva(@RequestBody OrderEva orderEva){
         try{
             return orderService.addOrderGoodsEva(orderEva);
         }catch (Exception e){

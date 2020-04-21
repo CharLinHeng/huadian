@@ -100,4 +100,12 @@ public interface OrderDao {
      * @return
      */
     int addOrderGoodsEva(@Param("list")List<OrderEvaUnit>orderEvaUnits, @Param("orderCode")String orderCode);
+
+    /**
+     * 订单删除
+     * @param orderCode
+     * @param updateUser
+     * @return
+     */
+    int deleteOrder(@Param("orderCode")String orderCode,@Param("createUser")String updateUser);
 }

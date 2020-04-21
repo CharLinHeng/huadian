@@ -1,9 +1,8 @@
 package com.xzsd.app.shoppingCart.controller;
-
+import com.neusoft.core.restful.AppResponse;
 import com.xzsd.app.shoppingCart.entity.AddShoppingCart;
 import com.xzsd.app.shoppingCart.entity.CartGoodUserParam;
 import com.xzsd.app.shoppingCart.service.ShoppingCartService;
-import com.xzsd.app.util.ResponceData;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,7 +26,7 @@ public class ShoppingCartController {
      * 增加购物车商品
      */
     @PostMapping("addShoppingCart")
-    public ResponceData addShoppingCart(AddShoppingCart addShoppingCart) {
+    public AppResponse addShoppingCart(AddShoppingCart addShoppingCart) {
         try {
             return shoppingCartService.addShoppingCart(addShoppingCart);
         } catch (Exception e) {
@@ -42,7 +41,7 @@ public class ShoppingCartController {
      * @return
      */
     @PostMapping("updateShoppingCartGoods")
-    public ResponceData updateShoppingCartGoods(AddShoppingCart addShoppingCart) {
+    public AppResponse updateShoppingCartGoods(AddShoppingCart addShoppingCart) {
         try {
             return shoppingCartService.updateShoppingCartGoods(addShoppingCart);
         } catch (Exception e) {
@@ -56,7 +55,7 @@ public class ShoppingCartController {
      * @return
      */
     @PostMapping("deleteShoppingCartGoods")
-    public ResponceData deleteShoppingCartGoods(AddShoppingCart addShoppingCart) {
+    public AppResponse deleteShoppingCartGoods(AddShoppingCart addShoppingCart) {
         try {
             return shoppingCartService.deleteShoppingCartGoods(addShoppingCart);
         } catch (Exception e) {
@@ -70,7 +69,7 @@ public class ShoppingCartController {
      * @return
      */
     @PostMapping("queryShoppingCartList")
-    public ResponceData queryShoppingCartList(CartGoodUserParam cartGoodUserParam) {
+    public AppResponse queryShoppingCartList(CartGoodUserParam cartGoodUserParam) {
         try {
             return shoppingCartService.queryShoppingCartList(cartGoodUserParam);
         } catch (Exception e) {
