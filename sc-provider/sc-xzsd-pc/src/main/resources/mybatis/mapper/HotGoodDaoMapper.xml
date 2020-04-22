@@ -41,11 +41,13 @@
     <!--计数 商品位排序,修改时需要排除他自己本身-->
     <select id="countSort" parameterType="com.xzsd.pc.hotGood.entity.HotGood" resultType="int">
         SELECT
-        count(*)
+            count(*)
         FROM
-        t_hot_goods_manage
+            t_hot_goods_manage
         WHERE
-        hot_good_sort = #{hotGoodSort}
+            is_delete = 0
+        and
+            hot_good_sort = #{hotGoodSort}
         <if test="hotGoodCode!=null and hotGoodCode !=''">
             and  hot_good_code != #{hotGoodCode}
         </if>
@@ -117,7 +119,8 @@
     <select id="queryHotGoodDetail" parameterType="com.xzsd.pc.hotGood.entity.HotGood" resultType="com.xzsd.pc.hotGood.entity.HotGoodDetail">
         select
             good_code goodCode,
-            hot_good_sort hotGoodSort
+            hot_good_sort hotGoodSort,
+            version version
         from t_hot_goods_manage
         where
             hot_good_code = #{hotGoodCode}
@@ -141,4 +144,13 @@
     <insert id="showHotGoodsNum" parameterType="com.xzsd.pc.hotGood.entity.ShowNum">
         insert into t_hot_goods_show_num(id,num)values (#{id},#{hotGoodNum});
     </insert>
+    <!--查询展示数量-->
+    <select id="queryGoodNum" resultType="com.xzsd.pc.hotGood.entity.HotGoodNum">
+       SELECT
+            num hotGoodNum
+        FROM
+            t_hot_goods_show_num
+        ORDER BY id desc
+        LIMIT 0,1
+    </select>
 </mapper>

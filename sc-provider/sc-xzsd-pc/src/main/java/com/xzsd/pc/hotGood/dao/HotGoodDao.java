@@ -78,4 +78,10 @@ public interface HotGoodDao {
      * @return
      */
     HotGoodDetail queryHotGoodDetail(@Param("hotGoodCode") String code);
+
+    /**
+     * 查询当前展示数量
+     * @return
+     */
+    HotGoodNum queryGoodNum();
 }

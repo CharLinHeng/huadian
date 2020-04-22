@@ -123,4 +123,17 @@ public class HotGoodController {
             throw e;
         }
     }
+
+    /**
+     * 查询商品展示数量
+     * @return
+     */
+    @PostMapping("queryHotGoodNum")
+    public AppResponse queryHotGoodNum(){
+        try{
+            return hotGoodService.queryHotGoodNum();
+        }catch (Exception e){
+            throw e;
+        }
+    }
 }

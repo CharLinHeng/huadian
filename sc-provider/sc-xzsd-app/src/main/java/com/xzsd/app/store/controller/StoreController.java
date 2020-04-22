@@ -1,6 +1,6 @@
 package com.xzsd.app.store.controller;
-
 import com.neusoft.core.restful.AppResponse;
+import com.xzsd.app.store.entity.OrderDetail;
 import com.xzsd.app.store.entity.OrderUpdate;
 import com.xzsd.app.store.entity.StoreOrderListParam;
 import com.xzsd.app.store.service.StoreService;
@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.annotation.Resource;
 
 @RestController
@@ -41,6 +40,20 @@ public class StoreController {
     public AppResponse queryshopOwnerOrderList(StoreOrderListParam storeOrderListParam){
         try{
             return storeService.queryshopOwnerOrderList(storeOrderListParam);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+    /**
+     * 查询订单详情
+     * @param orderDetail
+     * @return
+     */
+    @PostMapping("queryshopOwnerOrderDetail")
+    public AppResponse queryshopOwnerOrderDetail(OrderDetail orderDetail){
+        try{
+            return storeService.queryshopOwnerOrderDetail(orderDetail);
         }catch (Exception e){
             throw e;
         }

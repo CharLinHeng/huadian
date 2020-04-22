@@ -81,13 +81,14 @@
               rotaChart_code rotaChartCode,
               rotaChart_title rotaChartTitle,
               rotaChart_state rotaChartState,
+              rotaChart_image_url rotaChartImageUrl,
               rotaChart_use_time rotaChartStartTime,
               rotaChart_end_time rotaChartEndTime
           from
               t_turns_images
           where
               is_delete = 0
-        <if test="rotaChartState != null and rotaChartState !=''">
+        <if test="rotaChartState == 1 or rotaChartState == 2">
              and  rotaChart_state = #{rotaChartState}
         </if>
         order by rotaChart_sort asc
@@ -129,7 +130,9 @@
             update_user = #{updateUser},
             update_time = now()
         where
-        rotaChart_code in
+            is_delete = 0
+        and
+            rotaChart_code in
         <foreach collection="list" index="index" open="(" close=")" separator="," item="item">
             #{item}
         </foreach>

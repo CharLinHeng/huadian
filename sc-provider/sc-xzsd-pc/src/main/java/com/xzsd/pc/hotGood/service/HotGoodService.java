@@ -189,4 +189,7 @@ public class HotGoodService {
         }
         return AppResponse.success("查询成功",hotGoodDetail);
     }
+    public AppResponse queryHotGoodNum(){
+        return AppResponse.success("查询成功!",hotGoodDao.queryGoodNum());
+    }
 }

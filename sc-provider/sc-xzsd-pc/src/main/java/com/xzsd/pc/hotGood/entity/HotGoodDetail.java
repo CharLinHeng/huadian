@@ -5,6 +5,16 @@ public class HotGoodDetail {
 
     private String hotGoodSort;
 
+    private String version;
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
     public String getGoodCode() {
         return goodCode;
     }

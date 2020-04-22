@@ -77,8 +77,6 @@
               update_user = #{updateUser},
               version = version+1
           where
-              version = #{version}
-          and
               order_code in
           <foreach collection="list" index="index" open="(" separator="," close=")" item="item">
               #{item}

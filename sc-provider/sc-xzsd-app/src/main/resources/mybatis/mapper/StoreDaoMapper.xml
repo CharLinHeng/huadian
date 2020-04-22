@@ -54,11 +54,83 @@
     </select>
     <!--店长订单列表查询ResultMap-->
     <resultMap id="queryStoreOrderList" type="com.xzsd.app.store.entity.StoreOrderList">
-        <!--<id property="orderCode" column="torder.order_code"/>-->
-        <!--<result property="orderState" column="torder.order_state"/>-->
-        <!--<result property="userName" column="tuser.user_name"/>-->
-        <!--<result property="userPhone" column="tuser.user_phone"/>-->
-        <collection property="orderGoodList" javaType="list"  column="orderCode=torder.order_code"  select="queryStoreOrderListListUnit" ofType="com.xzsd.app.store.entity.StoreOrderListUnit">
+        <collection property="orderGoodList" javaType="list"  column="orderCode=orderCode"  select="queryStoreOrderListListUnit" ofType="com.xzsd.app.store.entity.StoreOrderListUnit">
         </collection>
     </resultMap>
+    <!--订单详情查询-->
+    <select id="queryshopOwnerOrderDetail" parameterType="com.xzsd.app.store.entity.OrderDetail" resultMap="queryStoreOrderDetail">
+          select
+              torder.order_code          orderCode,
+              tstore.provinceCode        provinceCode,
+              tstore.cityCode            cityCode,
+              tstore.distinctCode        distinctCode,
+              tstore.shop_detail_address deliveryStore,
+              torder.create_time         orderCreateTime,
+              torder.order_state         orderState,
+              tuser.user_name            userName,
+              tuser.user_phone           userPhone
+          from
+              t_order_manage torder,
+              t_user_infomation tuser,
+              t_store_information tstore
+         where
+              torder.order_code = #{orderCode}
+        and
+              torder.is_delete = 0
+        and
+              torder.shop_code = tstore.shop_code
+        and
+              torder.user_code = tuser.user_code
+    </select>
+    <!--订单商品详情列表-->
+    <select id="goodDetailList" parameterType="com.xzsd.app.store.entity.OrderDetail" resultType="com.xzsd.app.store.entity.OrderDetailGood">
+          select
+             good_code goodCode,
+             orderG_name goodName,
+             orderG_s_price goodSale,
+             orderG_pre goodPrec,
+             orderG_num goodNum,
+             orderG_image goodImage
+          from
+              t_order_ordergoods
+          where
+              order_code = #{orderCode}
+          and
+              is_delete = 0
+    </select>
+    <!--订单详情映射-->
+    <resultMap id="queryStoreOrderDetail" type="com.xzsd.app.store.entity.OrderDetail">
+        <collection property="orderGoodsList" javaType="list"  column="orderCode=orderCode"  select="goodDetailList" ofType="com.xzsd.app.store.entity.OrderDetailGood">
+        </collection>
+    </resultMap>
+    <!--查询省市区编号对应的省市区名称-->
+    <select id="queryPCD" parameterType="com.xzsd.app.store.entity.OrderDetail" resultType="com.xzsd.app.driver.entity.AreaName">
+        SELECT
+            t3.name1 ProvinceName,
+            t3.code1,
+            t3.name2 cityName,
+            t3.code2,
+            t4.dict_name distinctName,
+            t4.dict_code
+        FROM
+            (
+                SELECT
+                        t1.dict_code code1,
+                        t1.dict_name name1,
+                        t1.dict_parent_node parentcode1,
+                        t2.dict_code code2,
+                        t2.dict_name name2,
+                        t2.dict_parent_node parentcode2
+                FROM
+                        t_dict t1
+                LEFT JOIN t_dict t2 ON
+                        t1.dict_code = t2.dict_parent_node
+                WHERE
+                        t1.dict_parent_node IS NULL
+            ) t3
+        LEFT JOIN t_dict t4 ON
+            t3.code2 = t4.dict_parent_node
+        having
+            code1 = #{provinceCode} AND code2 = #{cityCode} and dict_code = #{distinctCode}
+    </select>
 </mapper>

@@ -41,7 +41,6 @@ public class StoreInvestService {
         int count = storeInvestDao.queryCountBindStore(investCode);
         if(count > 0){
             //说明已经绑定了，只需要 修改绑定的店铺邀请码 就行
-            //邀请码修改
             result = storeInvestDao.updateUserInvest(investCode);
             if(result > 0){
                 return AppResponse.success("门店邀请码绑定更新成功!");
