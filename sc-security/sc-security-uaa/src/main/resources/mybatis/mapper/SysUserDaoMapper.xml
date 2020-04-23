@@ -13,6 +13,7 @@
             t.is_delete as locked
         FROM t_user_infomation t
         WHERE t.user_account = #{username}
+        and
+            t.is_delete = 0
     </select>
-
 </mapper>

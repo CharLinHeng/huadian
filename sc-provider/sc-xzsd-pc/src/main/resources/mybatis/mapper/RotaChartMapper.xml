@@ -93,9 +93,9 @@
         </if>
         order by rotaChart_sort asc
     </select>
-    <!--轮播图新增之 商品编号列表查询  肯定要选在售的-->
+    <!--轮播图新增之 商品编号列表查询  肯定要选在售的  和  轮播图表中没有被选择的-->
     <select id="querylistGoodsSecond" parameterType="com.xzsd.pc.goods.entity.Good" resultType="com.xzsd.pc.rotaChart.entity.GoodList">
-        select
+        select distinct
             tgood.good_code goodCode,
             tgood.good_name goodName,
             tgood.good_saleNum goodSaleNum,
@@ -105,7 +105,8 @@
         from
             t_good_manage tgood,
             t_goods_classification_manage tclassA,
-            t_goods_classification_manage tclassB
+            t_goods_classification_manage tclassB,
+            t_turns_images tturns
         where
             tgood.good_second_clas = tclassB.clas_code
         and
@@ -114,6 +115,10 @@
             tgood.is_delete = 0
         and
             tgood.good_state = 1
+        and
+          ((tgood.good_code = tturns.rotaChart_point_good and tturns.is_delete = 1)
+          or
+          (tgood.good_code != tturns.rotaChart_point_good and tturns.is_delete = 0))
         <if test="goodName !=null and goodName !=''">
             and tgood.good_name like concat('%',#{goodName},'%')
         </if>

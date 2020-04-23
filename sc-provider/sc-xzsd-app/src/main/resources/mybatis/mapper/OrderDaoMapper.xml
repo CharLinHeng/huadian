@@ -350,4 +350,24 @@
         and
             order_code = #{orderCode}
     </update>
+    <!--订单生成后：更新商品的 售出量  还有 库存量   [商品更新条件: 在售  时间在销售时间范围 没删除 库存足够]-->
+    <update id="updateGoodRelative" parameterType="com.xzsd.app.order.entity.Order">
+        <foreach collection="list" item="item" index="index" separator=";">
+            update
+                t_good_manage
+            set
+                good_lib_save - #{item.goodNum},
+                good_saleNum + #{item.goodNum}
+            where
+                good_lib_save &gt; #{item.goodNum}
+            and
+                is_delete = 0
+            and
+                good_state = 2
+            and
+                now() between good_sale_time and good_sale_end
+            and
+                good_code = #{item.goodCode}
+        </foreach>
+    </update>
 </mapper>

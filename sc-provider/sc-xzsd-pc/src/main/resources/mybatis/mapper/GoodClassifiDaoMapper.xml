@@ -147,14 +147,26 @@
          clas_code = #{classCode}
     </update>
 
-    <!--删除一级分类附属的二级分类-->
-    <update id="deleteSecClass" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification">
-        update
-          t_goods_classification_manage
-        set
-          is_delete = 1,
-          update_user = #{updateUser}
+    <!--判断一级分类附属的二级分类数量-->
+    <select id="countOneBelongSecondClassNum" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification" resultType="int">
+        select
+            count(*)
+        from
+            t_goods_classification_manage
         where
-          parent_node = #{classCode}
-    </update>
+            is_delete = 0
+        and
+            parent_node = #{classCode}
+    </select>
+    <!--判断二级分类附属的商品数量-->
+    <select id="countSecondClassBelongGood" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification" resultType="int">
+        select
+            count(*)
+        from
+            t_good_manage
+        where
+            is_delete = 0
+        and
+            good_second_clas = #{classCode}
+    </select>
 </mapper>

@@ -51,12 +51,18 @@ public interface GoodClassifiDao {
     int deleteGoodClass(@Param("classCodeList") List<String> codes, @Param("updateUser") String updateUser);
 
     /**
-     * 删除一级分类附属的二级分类
+     * 判断一级分类附属的二级分类数量
      * @param code
      * @return
      */
-    int deleteSecClass(@Param("classCode") String code, @Param("updateUser") String updateUser);
+    int countOneBelongSecondClassNum(@Param("classCode") String code);
 
+    /**
+     * 判断二级分类下面是否还有商品，不然不能够删除
+     * @param secondCode
+     * @return
+     */
+    int countSecondClassBelongGood(@Param("classCode") String secondCode);
 
     /**
      * 商品分类详情查询

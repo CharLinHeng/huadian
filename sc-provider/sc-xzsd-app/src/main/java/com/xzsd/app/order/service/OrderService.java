@@ -47,7 +47,7 @@ public class OrderService {
         String msg = "";
         //生成随机编号
         addOrder.setOrderCode(RandomCode.radmonkey());
-        //新增订单
+        //初始化订单
         int result = orderDao.addUserOrder(addOrder);
         if(result > 0){
             msg = "初始化订单成功!";
@@ -95,20 +95,24 @@ public class OrderService {
                 //[默认支付成功] 生成订单后， 需要10分钟之内进行支付，否则 订单删除，商品库存恢复，如果支付成功，那么将纪录添加到顾客表
                 List<Order> orderList = orderDao.queryOrderList(newCartCodeList);
                 for(int i = 0;i < orderList.size();i++){
+                    //给每个订单商品详情随机生成订单详情编号
                     orderList.get(i).setOrderGCode(RandomCode.radmonkey());
                     orderList.get(i).setOrderCode(addOrder.getOrderCode());
                 }
-                //给每个订单商品详情随机生成订单详情编号
-                //新增到订单详情 表
+                //如果商品种类数量大于0， 那么 将购买的商品种类信息新增到订单详情
                 if(orderList.size() > 0){
+                    //还要将 商品库存数量减少 指定购买的商品数量 然后售出数量 + 对应数量
+                    orderDao.updateGoodRelative(orderList);
+                    //新增到订单详情表  [这里漏了存商品image，需要补上]
                     result = orderDao.addOrderList(orderList);
+                    //更新订单总价格  而且需要存 门店编号
+                    //
                     if(result > 0){
                         //添加到顾客表 addOrder 和订单编号
                         Customer customer = orderDao.queryCustomerData(addOrder.getUserCode());
                         customer.setCustomerCode(RandomCode.radmonkey());
                         customer.setUserCode(addOrder.getUserCode());
                         customer.setCustomerOrder(addOrder.getOrderCode());
-                        System.out.println(customer.toString());
                         result = orderDao.addCustomer(customer);
                         if(result > 0){
                             msg = msg + "新建客户成功!";
@@ -116,7 +120,7 @@ public class OrderService {
                         //清空购物车
                         int empty = orderDao.clearEmpty(cartCodeList);
                         if(empty > 0){
-                            msg = msg + "已清空购物车!";
+                            msg = msg + "已清空购物车!下单成功!";
                         }
                         return AppResponse.success(msg);
                     }
@@ -139,7 +143,7 @@ public class OrderService {
         if(null == orderDetail.getOrderCode() || orderDetail.getOrderCode() == ""){
             return AppResponse.paramError("订单编号为空!");
         }
-        //查询订单详情 以及 还没有转化成地址的 省市区编号[因为无法用一次sql查出省市区名称，所以我分两步来写，但是一次也行，不过代码比较复杂]
+        //查询订单详情 这里查到的是还没有转化成地址名称的地址编号结果集 [因为无法用一次sql查出省市区名称，所以我分两步来写]
         OrderDetail orderDetailOut = orderDao.queryOrderDetail(orderDetail.getOrderCode());
         //拼接待查询的参数实体类
         DriverResponsibleArea driverResponsibleArea = new DriverResponsibleArea();
@@ -164,7 +168,7 @@ public class OrderService {
             //输出实体类
             return AppResponse.success("查询订单成功!",orderDetailOutFinal);
         }
-        return AppResponse.paramError("查询订单失败");
+        return AppResponse.paramError("查询订单为空");
     }
     /**
      * 修改订单状态
@@ -178,14 +182,16 @@ public class OrderService {
         if(updateOrder.getOrderState() == 0){
             return AppResponse.paramError("订单状态不能为0!");
         }
+        //如果是取消订单状态，那么需要库存加回对应订单编号所对应 商品的数量  这里的功能[待写]
+
         //获取当前修改人的Id
         updateOrder.setUpdateUser(SecurityUtils.getCurrentUserId());
-        //查询
+        //修改
         int result = orderDao.updateOrder(updateOrder);
         if(result > 0){
             return AppResponse.success("更新状态成功!");
         }
-        return AppResponse.paramError("查询为空!");
+        return AppResponse.bizError("修改失败!");
     }
 
     /**
@@ -214,12 +220,13 @@ public class OrderService {
      * @param orderEva
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public AppResponse addOrderGoodsEva(OrderEva orderEva){
         //开始处理对象
         if(null == orderEva.getOrderCode()){
             return AppResponse.paramError("订单编号缺失!");
         }
-        //为每件商品评价生成编号
+        //为 每件商品评价 生成编号
         orderEva.setUserCode(SecurityUtils.getCurrentUserId());
         for(int i = 0;i < orderEva.getEvaList().size();i++){
             orderEva.getEvaList().get(i).setCommentCode(RandomCode.radmonkey());
@@ -232,6 +239,6 @@ public class OrderService {
             return AppResponse.success("添加商品评论成功!",result);
         }
         //判断结果
-        return AppResponse.paramError("添加商品评论失败!");
+        return AppResponse.bizError("添加商品评论失败!");
     }
 }

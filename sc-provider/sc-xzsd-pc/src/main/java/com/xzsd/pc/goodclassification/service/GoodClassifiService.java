@@ -40,6 +40,7 @@ public class GoodClassifiService {
         }
         //生成随机分类编号
          goodClassification.setClassCode(RandomCode.random_GoodClassifiCationCode());
+        //当前用户名字
          goodClassification.setCreateUser(SecurityUtils.getCurrentUserUsername());
         //新增
         int result = goodClassifiDao.addFirstClass(goodClassification);
@@ -121,28 +122,31 @@ public class GoodClassifiService {
         if(null == rank || rank.length() == 0){
             return AppResponse.paramError("分类等级参数未指定");
         }
+        //获取当前操作对象
         updateUser =  SecurityUtils.getCurrentUserUsername();
-        //切割
         List<String> codesList = Arrays.asList(code.split(","));
         //判断是否一个
         if(codesList.size()>1){
             return AppResponse.bizError("每次最多删除一个分类!");
         }
-        int result = goodClassifiDao.deleteGoodClass(codesList,updateUser);
-        if(result >0){
-            String msg = "";
-            //如果是1级分类，那么还要删除所拥有的二级分类
-            if(rank.equals("1")){
-                //删除一级分类所拥有的二级分类
-                int result_delete2 = goodClassifiDao.deleteSecClass(codesList.get(0),updateUser);
-                if(result_delete2 >0){
-                    msg = "该一级分类附属的二级分类有"+String.format("%d",result_delete2)+"个，成功删除!";
-                }
-                else{
-                    msg = "该一级分类附属没有二级分类，故只删除其本身。";
-                }
+        //如果是1级分类，那么还要判断是否拥有 二级分类 否则不能删
+        if(rank.equals("1")){
+            //删除一级分类所拥有的二级分类
+            int result_deleteSec = goodClassifiDao.countOneBelongSecondClassNum(codesList.get(0));
+            if(result_deleteSec > 0){
+                return AppResponse.paramError("该一级分类附属的二级分类有"+String.format("%d",result_deleteSec)+"个，因此不能删除!");
             }
-            return AppResponse.success("删除成功!"+msg);
+        }else{
+            //这里是想删二级分类 需要判断是否还有对应的商品，否则不能删
+            int result_deleteSec = goodClassifiDao.countSecondClassBelongGood(codesList.get(0));
+            if(result_deleteSec > 0){
+                return AppResponse.paramError("该二级分类附属的商品有"+String.format("%d",result_deleteSec)+"个，因此不能删除!");
+            }
+        }
+        //可以删除
+        int result = goodClassifiDao.deleteGoodClass(codesList,updateUser);
+        if( result > 0 ){
+            return AppResponse.success("删除成功!",result);
         }
         return AppResponse.bizError("删除失败!");
     }
@@ -164,20 +168,18 @@ public class GoodClassifiService {
         return AppResponse.success("查询成功!",goodClassification);
     }
     /**
-     * 所有树状关系查询
+     * 商品分类列表查询[采用循环实现]
      * @return
      */
     public AppResponse queryGoodClassList(){
-        List<GoodClassification>goodClassificationLists = goodClassifiDao.queryGoodClassList();
         //查询所有，然后分类
-        //最终输出
-        List<GoodClassificationList> goodClassificationLists1 = new ArrayList<>();
-        //纪录所有已经被纪录的
-        //索引
+        List<GoodClassification>goodClassificationLists = goodClassifiDao.queryGoodClassList();
+        //输出给前台的 最终数据
+        List<GoodClassificationList> goodClassificationListsOut = new ArrayList<>();
+        //从插到的所有结果找，如果有一级分类，那么就存到 暂时容器里
         for(int i = 0;i < goodClassificationLists.size();i++){
-            if(null == goodClassificationLists.get(i).getClassRank()){
-                continue;
-            }
+            if(null == goodClassificationLists.get(i).getClassRank()){continue;}
+            //如果是一级分类，那么进行查找他所对应的二级分类
             if(goodClassificationLists.get(i).getClassRank().equals("1")){
                        GoodClassificationList goodClassificationList = new GoodClassificationList();
                        goodClassificationList.setClassCode(goodClassificationLists.get(i).getClassCode());
@@ -186,9 +188,11 @@ public class GoodClassifiService {
                        //查找直系的二级
                         int count = 0;
                         List<GoodClassificationSon>goodClassificationSonList =  new ArrayList<>();
+                        //遍历所有结果，且不包括他自己
                         for(int j = 0;j< goodClassificationLists.size();j++){
                             if(j == i){ continue;}
                             if(null == goodClassificationLists.get(j).getFirstClassCode()){continue;}
+                            //如果这个二级分类的父结点等于上面的一级分类的编号，那么将这个结点放到上面的暂时容器里。
                             if(goodClassificationLists.get(j).getFirstClassCode().equals(goodClassificationLists.get(i).getClassCode())){
                                 GoodClassificationSon goodClassificationSon = new GoodClassificationSon();
                                 goodClassificationSon.setClassCode(goodClassificationLists.get(j).getClassCode());
@@ -198,13 +202,13 @@ public class GoodClassifiService {
                             }
                         }
                 goodClassificationList.setListGoodClassificationSon(goodClassificationSonList);
-                goodClassificationLists1.add(goodClassificationList);
+                //将 找到的第i个一级分类以及所属的二级分类存到 输出容器里。
+                goodClassificationListsOut.add(goodClassificationList);
             }
         }
-        //垃圾回收
-        goodClassificationLists = null;
-        if(goodClassificationLists1.size()>0){
-            return AppResponse.success("查询成功!",goodClassificationLists1);
+        //判断查询的结果
+        if(goodClassificationListsOut.size()>0){
+            return AppResponse.success("查询成功!",goodClassificationListsOut);
         }
         return AppResponse.bizError("查询为空!");
     }

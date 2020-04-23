@@ -108,4 +108,11 @@ public interface OrderDao {
      * @return
      */
     int deleteOrder(@Param("orderCode")String orderCode,@Param("createUser")String updateUser);
+
+    /**
+     * 更新操作
+     * @param orderList
+     * @return
+     */
+    int updateGoodRelative(@Param("list")List<Order>orderList);
 }
