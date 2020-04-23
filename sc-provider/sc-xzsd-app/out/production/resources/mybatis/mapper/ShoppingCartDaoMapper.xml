@@ -130,4 +130,19 @@
         and
             cart.user_code = #{userCode}
     </select>
+    <!--判断商品是否还在上架状态、销售时间范围内-->
+    <select id="judgeGoodIsOn" parameterType="com.xzsd.app.shoppingCart.entity.AddShoppingCart" resultType="int">
+        select
+            count(*)
+        from
+            t_good_manage
+        where
+            good_code = #{goodCode}
+        and
+            is_delete = 0
+        and
+            now() &gt;= good_sale_time
+        and
+            good_state = 2
+    </select>
 </mapper>

@@ -40,9 +40,6 @@ public class OrderService {
         if(null == addOrder.getCartCode() || addOrder.getCartCode() == ""){
             return AppResponse.paramError("购物车编号为空");
         }
-        if(null == addOrder.getUserCode() || addOrder.getUserCode() == ""){
-            return AppResponse.paramError("用户编号为空");
-        }
         List<String>cartCodeList = Arrays.asList(addOrder.getCartCode().split(","));
         String msg = "";
         //生成随机编号

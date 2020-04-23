@@ -2,6 +2,7 @@ package com.xzsd.app.shoppingCart.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.neusoft.core.restful.AppResponse;
+import com.neusoft.security.client.utils.SecurityUtils;
 import com.xzsd.app.shoppingCart.dao.ShoppingCartDao;
 import com.xzsd.app.shoppingCart.entity.AddShoppingCart;
 import com.xzsd.app.shoppingCart.entity.CartGoodList;
@@ -33,13 +34,16 @@ public class ShoppingCartService {
         if (null == addShoppingCart.getGoodCode() || addShoppingCart.getGoodCode() == "") {
             return AppResponse.paramError("商品编号参数缺失!");
         }
-        if (null == addShoppingCart.getUserCode() || addShoppingCart.getUserCode() == "") {
-            return AppResponse.paramError("用户编号参数缺失!");
-        }
         //购买的商品的数量不能为0
         if (addShoppingCart.getGoodsNum() == 0) {
             return AppResponse.paramError("商品数量参数缺失或者不能为0!");
         }
+        //商品是否上下架
+        if(shoppingCartDao.judgeGoodIsOn(addShoppingCart.getGoodCode()) == 0){
+            return AppResponse.paramError("该商品已经下架了！");
+        }
+        //获取当前登入用户编号
+        addShoppingCart.setUserCode(SecurityUtils.getCurrentUserId());
         //判断该商品是否还有足够的库存
         int saveLibGood = shoppingCartDao.checkGoodNumEnough(addShoppingCart.getGoodCode());
         if (saveLibGood < addShoppingCart.getGoodsNum()) {
@@ -77,9 +81,6 @@ public class ShoppingCartService {
         if (null == addShoppingCart.getCartCode() || addShoppingCart.getCartCode() == "") {
             return AppResponse.paramError("购物车编号参数缺失!");
         }
-        if (null == addShoppingCart.getUserCode() || addShoppingCart.getUserCode() == "") {
-            return AppResponse.paramError("用户编号参数缺失!");
-        }
         //如果修改此购物车商品数量为0.那么直接删除购物车对应的购物车编号
         if (addShoppingCart.getGoodsNum() == 0) {
             int result = shoppingCartDao.deleteCartGood(addShoppingCart);
@@ -88,11 +89,17 @@ public class ShoppingCartService {
             }
             return AppResponse.paramError("删除购物车对应商品失败!");
         }
+        //商品是否上下架
+        if(shoppingCartDao.judgeGoodIsOn(addShoppingCart.getGoodCode()) == 0){
+            return AppResponse.paramError("该商品已经下架了！");
+        }
         //判断 该商品的库存数量 是否 大于 待修改的商品数量
         int saveLibGood = shoppingCartDao.checkGoodNumEnough(shoppingCartDao.findGoodCodeFromCart(addShoppingCart));
         if (saveLibGood < addShoppingCart.getGoodsNum()) {
             return AppResponse.paramError("该商品库存不足!仅剩余" + saveLibGood + "件,无法购买" + addShoppingCart.getGoodsNum() + "件");
         }
+        //获取用户编号
+        addShoppingCart.setUserCode(SecurityUtils.getCurrentUserId());
         //修改购物车此种商品数量
         int result = shoppingCartDao.updateCartGood(addShoppingCart);
         //结果

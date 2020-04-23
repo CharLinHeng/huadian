@@ -45,6 +45,8 @@ public class RegisterService {
         register.setUserCode(RandomCode.radmonkey());
         //密码加密
         register.setUserPass(PasswordUtils.generatePassword(register.getUserPass()));
+        //赋予 默认image地址
+        register.setImagrUrl(RandomCode.getDefaultImageUrl());
         //新增用户
         int result = registerDao.addRegister(register);
         if(result > 0){

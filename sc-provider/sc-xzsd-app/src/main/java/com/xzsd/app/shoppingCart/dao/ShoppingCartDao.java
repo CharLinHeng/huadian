@@ -77,4 +77,11 @@ public interface ShoppingCartDao {
      * @return
      */
     List<CartGoodList>queryShoppingCartList(CartGoodUserParam cartGoodUserParam);
+
+    /**
+     * 判断商品是佛
+     * @param goodCode
+     * @return
+     */
+    int judgeGoodIsOn(@Param("goodCode")String goodCode);
 }

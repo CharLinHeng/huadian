@@ -60,4 +60,5 @@ public class RandomCode {
         String url = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586715837803&di=2d13a82eb00ce746270c52459f468083&imgtype=0&src=http%3A%2F%2Fb2bfile.91jyh.com%2Ffiles%2Fproductpicture%2Fc89d6633-99c0-4fc4-a733-b3766d4b484a_%25e6%259a%2582%25e6%2597%25a0%25e5%259b%25be%25e7%2589%2587.jpg";
         return url;
     }
+
 }

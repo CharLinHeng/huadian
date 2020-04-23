@@ -95,7 +95,7 @@
     </select>
     <!--轮播图新增之 商品编号列表查询  肯定要选在售的  和  轮播图表中没有被选择的-->
     <select id="querylistGoodsSecond" parameterType="com.xzsd.pc.goods.entity.Good" resultType="com.xzsd.pc.rotaChart.entity.GoodList">
-        select distinct 
+        select distinct
             tgood.good_code goodCode,
             tgood.good_name goodName,
             tgood.good_saleNum goodSaleNum,

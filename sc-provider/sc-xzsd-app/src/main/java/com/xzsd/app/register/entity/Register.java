@@ -42,6 +42,18 @@ public class Register {
      * 邮箱
      */
     private String userEmail;
+    /**
+     * 图片头像
+     */
+    private String imagrUrl;
+
+    public String getImagrUrl() {
+        return imagrUrl;
+    }
+
+    public void setImagrUrl(String imagrUrl) {
+        this.imagrUrl = imagrUrl;
+    }
 
     public String getUserCode() {
         return userCode;

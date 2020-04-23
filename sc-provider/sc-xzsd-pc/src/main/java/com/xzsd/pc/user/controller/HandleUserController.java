@@ -1,6 +1,4 @@
 package com.xzsd.pc.user.controller;
-
-
 import com.neusoft.core.restful.AppResponse;
 import com.xzsd.pc.util.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,6 @@ import com.xzsd.pc.util.RandomCode;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
 /**
  * @Description 用户增删改查
  * @Author zhonghecheng
@@ -31,8 +28,6 @@ public class HandleUserController {
     private RedisService redisService;
     @Autowired
     private RedisTemplate redisTemplate;
-
-
     @ResponseBody
     @PostMapping("addUser")
     /**
@@ -40,7 +35,6 @@ public class HandleUserController {
      * 2020年3月24日19:20:20
      */
     public AppResponse addUser(User user){
-
         //先随机获取用户编号
         String user_code = RandomCode.radmonkey();
         user.setUserCode(user_code);
@@ -58,10 +52,8 @@ public class HandleUserController {
 
         try {
             AppResponse AppResponse = userServices.queryUser(user);
-
             return AppResponse;
         } catch (Exception e) {
-
             System.out.println(e.toString());
             throw e;
         }
@@ -73,7 +65,6 @@ public class HandleUserController {
      */
     @PostMapping("testCode")
     public String testCode(){
-
         return RandomCode.radmonkey();
     }
 
