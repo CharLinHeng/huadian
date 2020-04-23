@@ -73,7 +73,9 @@
         and
             tgood.is_delete = 0
         and
-            (tgood.good_sale_end!='' and tgood.good_sale_end is not null  and tgood.good_sale_end &lt; now())
+            tgood.good_state != 2
+--      and
+--         (tgood.good_sale_end!='' and tgood.good_sale_end is not null  and tgood.good_sale_end &lt; now())
         and
             tcart.cart_code in
           <foreach collection="list" item="item" open="(" separator="," close=")" index="index">

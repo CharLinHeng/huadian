@@ -61,7 +61,7 @@
         and
             tcart.good_num &gt; tgood.good_lib_save
     </select>
-    <!--查询哪些商品已下架-->
+    <!--查询哪些商品已下架,或者已删除-->
     <select id="goodsExpired" parameterType="com.xzsd.app.order.entity.AddOrder" resultType="com.xzsd.app.order.entity.GoodsExpired">
         select
             tcart.cart_code cartCode
@@ -71,9 +71,10 @@
         where
             tcart.good_code = tgood.good_code
         and
-            tgood.is_delete = 0
-        and
-            (tgood.good_sale_end!='' and tgood.good_sale_end is not null  and tgood.good_sale_end &lt; now())
+            ((tgood.is_delete = 0 and tgood.good_state != 2) or (tgood.is_delete = 1))
+
+--      and
+--         (tgood.good_sale_end!='' and tgood.good_sale_end is not null  and tgood.good_sale_end &lt; now())
         and
             tcart.cart_code in
           <foreach collection="list" item="item" open="(" separator="," close=")" index="index">
