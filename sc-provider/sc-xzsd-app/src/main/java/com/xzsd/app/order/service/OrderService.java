@@ -77,7 +77,9 @@ public class OrderService {
             return AppResponse.paramError("订单状态不能为0!");
         }
         //如果是取消订单状态，那么需要库存加回对应订单编号所对应 商品的数量  这里的功能[待写]
-
+        //先获取在订单详情列表的 商品编号和数量
+        //然后去更新
+        //然后将 订单商品详情列表数据 删除
         //获取当前修改人的Id
         updateOrder.setUpdateUser(SecurityUtils.getCurrentUserId());
         //修改

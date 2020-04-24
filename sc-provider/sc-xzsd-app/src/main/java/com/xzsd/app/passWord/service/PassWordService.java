@@ -38,7 +38,7 @@ public class PassWordService {
         //新密码加密
         passWord.setCinPass(PasswordUtils.generatePassword(passWord.getCinPass()));
 //        passWord.setUserPass(PasswordUtils.generatePassword(passWord.getUserPass()));
-        //店长 用户 原来密码查询
+        //店长 用户 司机 原来密码查询
         PassWord passWordOrigin = passWordDao.getOrignPass(passWord);
         //比较原密码
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();

@@ -106,5 +106,4 @@
         where
             good_code = #{goodCode}
     </update>
-
 </mapper>
