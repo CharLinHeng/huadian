@@ -37,4 +37,11 @@ public interface GoodDetailDao {
      * 根据参数查询省市区名称
      */
     UserBindStore queryPCD(UserBindStore userBindStore);
+
+    /**
+     * 浏览量+1
+     * @param goodThrough
+     * @return
+     */
+    int addGoodThrough(GoodThrough goodThrough);
 }

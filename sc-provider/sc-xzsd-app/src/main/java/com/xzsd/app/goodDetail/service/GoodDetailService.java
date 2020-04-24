@@ -6,6 +6,7 @@ import com.xzsd.app.goodDetail.dao.GoodDetailDao;
 import com.xzsd.app.goodDetail.entity.*;
 import com.xzsd.app.util.ResponceData;
 import com.xzsd.app.util.ResponceDataState;
+import com.xzsd.app.util.SecurityUtils;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -33,6 +34,10 @@ public class GoodDetailService {
         //查询
         Good goodData = goodDetailDao.queryGoodDetail(httpServletRequest.getParameter("goodCode"));
         //浏览量++
+        GoodThrough goodThrough = new GoodThrough();
+        goodThrough.setGoodCode(httpServletRequest.getParameter("goodCode"));
+        goodThrough.setUpdateUser(SecurityUtils.getCurrentUserUsername());
+        goodDetailDao.addGoodThrough(goodThrough);
         //判断结果
         if(null != goodData){
             return AppResponse.success("查询成功!",goodData);
