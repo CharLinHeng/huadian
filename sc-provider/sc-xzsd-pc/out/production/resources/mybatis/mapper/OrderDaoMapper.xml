@@ -18,6 +18,8 @@
           t_user_infomation tuser,
           t_store_information tstore
         where
+          torder.is_delete = 0
+        and
           torder.user_code = tuser.user_code
         and
           tbind.user_code = tuser.user_code

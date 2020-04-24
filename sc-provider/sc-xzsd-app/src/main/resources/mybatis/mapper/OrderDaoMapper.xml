@@ -71,8 +71,9 @@
         where
             tcart.good_code = tgood.good_code
         and
-            ((tgood.is_delete = 0 and tgood.good_state != 2) or (tgood.is_delete = 1))
-
+            tgood.is_delete = 0
+        and
+            tgood.good_state != 2
 --      and
 --         (tgood.good_sale_end!='' and tgood.good_sale_end is not null  and tgood.good_sale_end &lt; now())
         and
@@ -353,12 +354,12 @@
     </update>
     <!--订单生成后：更新商品的 售出量  还有 库存量   [商品更新条件: 在售  时间在销售时间范围 没删除 库存足够]-->
     <update id="updateGoodRelative" parameterType="com.xzsd.app.order.entity.Order">
-        <foreach collection="list" item="item" index="index" separator=";">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
             update
                 t_good_manage
             set
-                good_lib_save - #{item.goodNum},
-                good_saleNum + #{item.goodNum}
+                good_lib_save = good_lib_save -#{item.goodNum},
+                good_saleNum = good_saleNum + #{item.goodNum}
             where
                 good_lib_save &gt; #{item.goodNum}
             and

@@ -13,4 +13,11 @@ public class GoodsExpired {
     public void setCartCode(String cartCode) {
         this.cartCode = cartCode;
     }
+
+    @Override
+    public String toString() {
+        return "GoodsExpired{" +
+                "cartCode='" + cartCode + '\'' +
+                '}';
+    }
 }
