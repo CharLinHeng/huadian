@@ -114,7 +114,7 @@
         and
             tgood.is_delete = 0
         and
-            tgood.good_state = 1
+            tgood.good_state = 2
         <if test="goodName !=null and goodName !=''">
             and tgood.good_name like concat('%',#{goodName},'%')
         </if>

@@ -32,6 +32,7 @@ public class GoodDetailService {
         }
         //查询
         Good goodData = goodDetailDao.queryGoodDetail(httpServletRequest.getParameter("goodCode"));
+        //浏览量++
         //判断结果
         if(null != goodData){
             return AppResponse.success("查询成功!",goodData);

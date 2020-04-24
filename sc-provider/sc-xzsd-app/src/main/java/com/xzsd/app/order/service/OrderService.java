@@ -134,7 +134,8 @@ public class OrderService {
         updateOrder.setOrderState(HASEVA);
         updateOrder.setUpdateUser(SecurityUtils.getCurrentUserUsername());
         int updateOrderState = orderDao.updateOrder(updateOrder);
-        //更新商品星级[待做]
+        //更新商品星级
+        int updateOrdeerRank = orderDao.updateGoodRank(orderEva.getEvaList());
         //结果
         if(result > 0){
             return AppResponse.success("添加商品评论成功!",result);

@@ -372,4 +372,15 @@
                 good_code = #{item.goodCode}
         </foreach>
     </update>
+    <!--更新商品星级数-->
+    <update id="updateGoodRank" parameterType="com.xzsd.app.order.entity.OrderEva">
+          <foreach collection="list" index="index" item="item" separator=";">
+              update
+                  t_good_manage
+              set
+                  good_eva_rank = good_eva_rank+#{tiem.goodRank}/2
+              where
+                  good_code = #{item.goodCode}
+          </foreach>
+    </update>
 </mapper>

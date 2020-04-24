@@ -115,4 +115,11 @@ public interface OrderDao {
      * @return
      */
     int updateGoodRelative(@Param("list")List<Order>orderList);
+
+    /**
+     * 更新商品星级
+     * @param orderEva
+     * @return
+     */
+    int updateGoodRank(@Param("list")List<OrderEvaUnit> orderEva);
 }
