@@ -115,10 +115,6 @@
             tgood.is_delete = 0
         and
             tgood.good_state = 1
-        and
-          ((tgood.good_code = tturns.rotaChart_point_good and tturns.is_delete = 1)
-          or
-          (tgood.good_code != tturns.rotaChart_point_good and tturns.is_delete = 0))
         <if test="goodName !=null and goodName !=''">
             and tgood.good_name like concat('%',#{goodName},'%')
         </if>

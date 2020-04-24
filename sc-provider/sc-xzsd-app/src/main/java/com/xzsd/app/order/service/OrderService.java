@@ -27,7 +27,7 @@ public class OrderService {
     private OrderDao orderDao;
     @Resource
     private DriverDao driverDao;
-
+    private static final int HASEVA = 5;
     /**
      * app端-用户-查询订单详情
      * @return
@@ -128,7 +128,14 @@ public class OrderService {
         }
         //当前用户-新增至商品评价列表
         int result = orderDao.addOrderGoodsEva(orderEva.getEvaList(),orderEva.getOrderCode());
-        //更新至订单评价
+        //更新订单状态为 已评价
+        UpdateOrder updateOrder = new UpdateOrder();
+        updateOrder.setOrderCode(orderEva.getOrderCode());
+        updateOrder.setOrderState(HASEVA);
+        updateOrder.setUpdateUser(SecurityUtils.getCurrentUserUsername());
+        int updateOrderState = orderDao.updateOrder(updateOrder);
+        //更新商品星级[待做]
+        //结果
         if(result > 0){
             return AppResponse.success("添加商品评论成功!",result);
         }
