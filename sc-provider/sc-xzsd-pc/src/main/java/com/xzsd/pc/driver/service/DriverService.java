@@ -70,6 +70,10 @@ public class DriverService {
         driver.setDriverCode(RandomCode.radmonkey());
         //密码md5加密
         driver.setDriverPass(PasswordUtils.generatePassword(driver.getDriverPass()));
+        //如果没有图片地址 ，赋予 默认图片
+        if(null == driver.getDriverImage() || driver.getDriverImage() == ""){
+            driver.setDriverImage(RandomCode.defaultImageUrl());
+        }
         //新增
         int result = driverDao.addDriver(driver);
         //结果
@@ -191,8 +195,9 @@ public class DriverService {
         //从Redis中根据token获取，但是没做登入，这里先指定一个账号进行测试
         String userName = SecurityUtils.getCurrentUserUsername();
         User user = customerDao.queryCurrUser(userName);
-        driver.setUserCode(user.getUserCode());
+        driver.setCurrUserCode(user.getUserCode());
         driver.setUserRole(user.getUserRole());
+        System.out.println("角色:"+user);
         //查找
         PageHelper.startPage(driver.getPageNum(),driver.getPageSize());
         List<DriverListParamter>driverLists = driverDao.dqueryDriverList(driver);

@@ -1,16 +1,14 @@
 package com.xzsd.app.driver.service;
-
 import com.neusoft.core.restful.AppResponse;
 import com.xzsd.app.driver.dao.DriverDao;
 import com.xzsd.app.driver.entity.*;
-import com.xzsd.app.order.entity.UpdateOrder;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * 司机信息服务实现类
+ * zhc
  * 2020年4月13日18:56:26
  */
 @Service
@@ -18,7 +16,6 @@ public class DriverService {
     private static final int POIOR = 0;
     @Resource
     private DriverDao driverDao;
-
     /**
      * 司机列表查询
      * @param driver
@@ -35,7 +32,6 @@ public class DriverService {
         }
         return AppResponse.paramError("查询为空!");
     }
-
     /**
      * 门店信息详情查询
      * @param store
@@ -45,9 +41,9 @@ public class DriverService {
         if(null == store.getStoreCode() || store.getStoreCode() == ""){
             return AppResponse.paramError("门店编号为空!");
         }
-        Store store1 = driverDao.queryStoreDetail(store.getStoreCode());
-        if(null != store1){
-            return AppResponse.success("查询成功!",store1);
+        Store storeOut = driverDao.queryStoreDetail(store.getStoreCode());
+        if(null != storeOut){
+            return AppResponse.success("查询成功!",storeOut);
         }
         return AppResponse.paramError("查询为空!");
     }
@@ -105,6 +101,4 @@ public class DriverService {
         //判断结果
         return AppResponse.paramError("查询为空!");
     }
-
-
 }

@@ -95,4 +95,15 @@
         and
             dis = #{distinctCode}
     </select>
+    <!--商品浏览量+1-->
+    <update id="addGoodThrough" parameterType="com.xzsd.app.goodDetail.entity.GoodThrough">
+        update
+            t_good_manage
+        set
+            good_through_num = good_through_num + 1,
+            update_user = #{updateUser},
+            good_update_time = now()
+        where
+            good_code = #{goodCode}
+    </update>
 </mapper>

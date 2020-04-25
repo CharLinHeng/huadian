@@ -49,11 +49,26 @@ public class UpdateDriver {
      */
     private String driverDistinctCode;
 
-
+    /**
+     * 更新着
+     */
     private String updateUser;
-
+    /**
+     * 版本号
+     */
     private String version;
+    /**
+     * 司机头像
+     */
+    private String driverImage;
 
+    public String getDriverImage() {
+        return driverImage;
+    }
+
+    public void setDriverImage(String driverImage) {
+        this.driverImage = driverImage;
+    }
 
     public String getVersion() {
         return version;

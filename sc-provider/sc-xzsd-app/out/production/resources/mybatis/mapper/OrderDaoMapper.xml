@@ -372,4 +372,39 @@
                 good_code = #{item.goodCode}
         </foreach>
     </update>
+    <!--更新每种商品星级数-->
+    <update id="updateGoodRank" parameterType="com.xzsd.app.order.entity.OrderEva">
+          <foreach collection="list" index="index" item="item" separator=";">
+              update
+                  t_good_manage
+              set
+                  good_eva_rank = good_eva_rank+#{tiem.goodRank}/2
+              where
+                  good_code = #{item.goodCode}
+          </foreach>
+    </update>
+    <!--通过订单编号，关联商品表和 订单表，订单详情表，找到所有改订单商品的商品和数量-->
+    <select id="queryOrderGoodCode" parameterType="com.xzsd.app.order.entity.Order" resultType="com.xzsd.app.order.entity.GetOrderGoodCodeAndNum">
+        select
+            good_code goodCode,
+            orderG_num goodNum
+        from
+            t_order_ordergoods
+        where
+            order_code = #{orderCode}
+        and
+            is_delete = 0
+    </select>
+    <!--订单已取消的情况下 去恢复对应商品的库存和销售量-->
+    <update id="updateGoodLibSaveAndSaleNum" parameterType="com.xzsd.app.order.entity.GetOrderGoodCodeAndNum">
+        <foreach collection="list" item="item" separator=";">
+            update
+                t_good_manage
+            set
+                good_saleNum = good_saleNum - {item.goodNum},
+                good_lib_save = good_lib_save + #{item.goodNum}
+            where
+                good_code = #{goodCode}
+        </foreach>
+    </update>
 </mapper>

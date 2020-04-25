@@ -4,6 +4,9 @@ package com.xzsd.pc.store.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.neusoft.core.restful.AppResponse;
+import com.xzsd.pc.customer.dao.CustomerDao;
+import com.xzsd.pc.customer.entity.Customer;
+import com.xzsd.pc.customer.entity.User;
 import com.xzsd.pc.store.entity.QueryUserStore;
 import com.xzsd.pc.util.SecurityUtils;
 import org.springframework.stereotype.Service;
@@ -27,6 +30,8 @@ public class StoreService {
 
     @Resource
     private StoreDao storeDao;
+    @Resource
+    private CustomerDao customerDao;
     private static final int SECOND = 2;
     /**
      * 新增门店
@@ -228,8 +233,14 @@ public class StoreService {
                 || Integer.parseInt(httpServletRequest.getParameter("pageSize")) == 0){
             return AppResponse.paramError("页显示数量参数不正确");
         }
+        //获取当前用户登入编号
+        String userAccount = SecurityUtils.getCurrentUserUsername();
+        User user = customerDao.queryCurrUser(userAccount);
+
         //开始
         PageHelper.startPage(Integer.parseInt(httpServletRequest.getParameter("pageNum")),Integer.parseInt(httpServletRequest.getParameter("pageSize")));
+
+
         List<StoreListQueryEntity>listQueryEntities = storeDao.queryStoreList(storeListQueryEntity);
         PageInfo<StoreListQueryEntity>storeListQueryEntityPageInfo = new PageInfo<>(listQueryEntities);
         //判断结果

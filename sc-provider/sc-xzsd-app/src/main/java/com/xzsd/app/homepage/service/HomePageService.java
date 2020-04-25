@@ -26,12 +26,12 @@ public class HomePageService {
         List<TurnsImage> turnsImageList = homePageDao.queryRotateChartsList();
         if(turnsImageList.size() > 0){
             String msg = "";
-            //查询没过期的轮播图。之后，将其余不在结果列表的轮播图删掉。说明是过期了的。
+            //查询没过期的轮播图。之后，将其余不在结果列表的轮播图状态设为禁用。说明是过期了的。
             List<String>noOverDueCodes = new ArrayList<>();
             for(int i = 0;i < turnsImageList.size() ; i++){
                 noOverDueCodes.add(turnsImageList.get(i).getRotateChartCode());
             }
-            //删除过期的轮播图
+            //禁用过期的轮播图
             int result = homePageDao.deleteOverdue(noOverDueCodes);
             if(result > 0){
                 msg = "已更新过期的轮播图"+result+"个";

@@ -17,7 +17,8 @@
             `create_time`,
             `create_user`,
             `is_delete`,
-            `version`
+            `version`,
+            `driver_image`
       )
     VALUES
         (
@@ -33,7 +34,8 @@
             now(),
             #{createUser},
             0,
-            0
+            0,
+            #{driverImage}
         )
     </insert>
     <!--删除-->
@@ -119,7 +121,7 @@
     </select>
     <!--列表查询-->
     <select id="dqueryDriverList" parameterType="com.xzsd.pc.driver.entity.DriverListParamter" resultType="com.xzsd.pc.driver.entity.DriverListParamter">
-          select
+          select distinct
             tdriver.driver_code driverCode,
             tdriver.name driverName,
             tdriver.driver_acc driverAcct,
@@ -128,9 +130,8 @@
           from
             t_driver_information_manage tdriver
         <if test="userRole == 1">
-        ,
-            t_store_information tstore
-                </if>
+            ,t_store_information tstore
+        </if>
           where
             tdriver.is_delete = 0
           <if test="driverName !=null and driverName != ''">
@@ -164,6 +165,9 @@
           `driver_acc` = #{driverAcct},
           <if test="driverPass != null and driverPass != ''">
               `driver_pass` = #{driverPass},
+          </if>
+          <if test="driverImage != null and driverImage !=''">
+              `driver_image` = #{driverImage}
           </if>
           `driver_idcard` = #{driverIdCard},
           `name` = #{driverName},

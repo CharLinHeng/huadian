@@ -157,6 +157,9 @@
         <if test="storeDistinct != null and storeDistinct != ''">
             and tstore.distinctCode like concat('%',#{storeDistinct},'%')
         </if>
+        <if test="userRole == 1">
+            and tstore.shop_con_user = #{currUserCode}
+        </if>
         order by tstore.create_time desc
     </select>
     <!--门店信息修改-->

@@ -122,4 +122,25 @@ public interface OrderDao {
      * @return
      */
     int updateGoodRank(@Param("list")List<OrderEvaUnit> orderEva);
+
+    /**
+     * 根据订单编号找到对饮商品编号和 数量
+     * @param code
+     * @return
+     */
+    List<GetOrderGoodCodeAndNum>queryOrderGoodCode(@Param("orderCode")String code);
+
+    /**
+     * 恢复商品的数量和售出量
+     * @param getOrderGoodCodeAndNumList
+     * @return
+     */
+    int updateGoodLibSaveAndSaleNum(@Param("list")List<GetOrderGoodCodeAndNum>getOrderGoodCodeAndNumList);
+
+    /**
+     * 删除对应的 订单商品详情列表
+     * @param orderCode
+     * @return
+     */
+    int deleteOrderDetail(@Param("orderCode")String orderCode);
 }

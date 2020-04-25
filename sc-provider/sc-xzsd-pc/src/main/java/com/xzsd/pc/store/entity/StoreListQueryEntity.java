@@ -43,6 +43,26 @@ public class StoreListQueryEntity {
 
     private String storeDistinct;
 
+    private String currUserCode;
+
+    private int userRole;
+
+    public String getCurrUserCode() {
+        return currUserCode;
+    }
+
+    public void setCurrUserCode(String currUserCode) {
+        this.currUserCode = currUserCode;
+    }
+
+    public int getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(int userRole) {
+        this.userRole = userRole;
+    }
+
     public String getVersion() {
         return version;
     }

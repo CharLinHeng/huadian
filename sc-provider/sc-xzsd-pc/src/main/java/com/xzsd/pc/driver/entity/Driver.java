@@ -54,6 +54,18 @@ public class Driver {
      */
     private String createUser;
 
+    /**
+     * 司机头像地址
+     */
+    private String driverImage;
+
+    public String getDriverImage() {
+        return driverImage;
+    }
+
+    public void setDriverImage(String driverImage) {
+        this.driverImage = driverImage;
+    }
 
     public String getDriverCode() {
         return driverCode;

@@ -15,6 +15,8 @@
             rotaChart_use_time &lt;= now()
         and
             rotaChart_end_time &gt;= now()
+        and
+            rotaChart_state = 1
         order by rotaChart_sort asc
     </select>
     <!--轮播图更新，将时间范围不在当前时间的设为删除-->
