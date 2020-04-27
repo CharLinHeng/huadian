@@ -106,7 +106,8 @@
             tgood.good_name goodName,
             tcart.good_code goodCode,
             tcart.good_num goodNum,
-            tgood.good_selling_price goodPrice
+            tgood.good_selling_price goodPrice,
+            tgood.good_image_url goodImage
         from
             t_good_shopping_cart tcart,
             t_good_manage tgood
@@ -406,5 +407,16 @@
             where
                 good_code = #{goodCode}
         </foreach>
+    </update>
+    <!--更新订单总价格-->
+    <update id="updateOrderCount" parameterType="com.xzsd.app.order.entity.UpdateOrderPrice">
+        update
+            t_order_manage
+        set
+            order_price = #{price},
+            create_user = #{updateUser},
+            update_time = now()
+        where
+            order_code = #{orderCode}
     </update>
 </mapper>

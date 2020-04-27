@@ -35,5 +35,17 @@ public class RegisterController {
         }
     }
 
+    /**
+     * 信息获取
+     * @return
+     */
+    @PostMapping("getuserdata")
+    public AppResponse getuserdata(){
+        try{
+            return registerService.getuserdata();
+        }catch (Exception e){
+            throw e;
+        }
+    }
 
 }

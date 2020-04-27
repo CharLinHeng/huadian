@@ -20,6 +20,7 @@ import java.util.*;
 public class RotService {
     @Resource
     private RotaChartDao rotaChartDao;
+    private static final int DEFAULTUSE = 1;
     /**
      * 增加轮播图
      * @param rotaChart
@@ -49,6 +50,8 @@ public class RotService {
         if(rotaChartDao.countRepeat(rotaChart.getRotaChartSort(),rotaChart.getGoodCode(),null) > 0){
             return AppResponse.paramError("轮播图选择的图片已经存在或者 位排序 已存在 !");
         }
+        //设置默认是启用的
+        rotaChart.setRotaChartState(DEFAULTUSE);
         //赋值操作用户
         rotaChart.setCreateUser(SecurityUtils.getCurrentUserUsername());
         int result = rotaChartDao.addRotaChart(rotaChart);

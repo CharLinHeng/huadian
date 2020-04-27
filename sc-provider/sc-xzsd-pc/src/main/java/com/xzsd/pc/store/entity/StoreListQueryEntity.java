@@ -34,18 +34,31 @@ public class StoreListQueryEntity {
      * 其实也就是用户账号
      */
     private String storeAcc;
-
+    /**
+     *版本号
+     */
     private String version;
-
+    /**
+     *省
+     */
     private String storeProvince;
-
+    /**
+     *市
+     */
     private String storeCity;
-
+    /**
+     *区
+     */
     private String storeDistinct;
-
+    /**
+     *当前店长编号
+     */
     private String currUserCode;
-
+    /**
+     *角色
+     */
     private int userRole;
+
 
     public String getCurrUserCode() {
         return currUserCode;

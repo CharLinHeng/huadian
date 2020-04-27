@@ -28,9 +28,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         String lowCaseUsername = username.toLowerCase();
         SysUser sysUser = sysUserDao.getUserInfoByUsername(lowCaseUsername);
         if (sysUser != null) {
+            //可能是 用户 商家
             return new SecurityUser(sysUser.getId(), sysUser.getAccount(), sysUser.getName(), sysUser.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList("web,app"));
+        }else{
+            //有可能是 司机
+            sysUser = sysUserDao.getDriverInfoByUsername(lowCaseUsername);
+            if(null != sysUser){
+                return new SecurityUser(sysUser.getId(), sysUser.getAccount(), sysUser.getName(), sysUser.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList("web,app"));
+            }
         }
         throw new UsernameNotFoundException("用户" + lowCaseUsername + "不存在!");
     }
-
 }

@@ -138,9 +138,9 @@ public interface OrderDao {
     int updateGoodLibSaveAndSaleNum(@Param("list")List<GetOrderGoodCodeAndNum>getOrderGoodCodeAndNumList);
 
     /**
-     * 删除对应的 订单商品详情列表
-     * @param orderCode
+     * 更新订单总价格
+     * @param updateOrderPrice
      * @return
      */
-    int deleteOrderDetail(@Param("orderCode")String orderCode);
+    int updateOrderCount(UpdateOrderPrice updateOrderPrice);
 }

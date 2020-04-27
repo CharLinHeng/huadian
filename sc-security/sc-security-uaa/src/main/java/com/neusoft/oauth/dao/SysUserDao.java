@@ -19,4 +19,10 @@ public interface SysUserDao {
      */
     SysUser getUserInfoByUsername(@Param("username") String username);
 
+    /**
+     *  司机
+     * @param username
+     * @return
+     */
+    SysUser getDriverInfoByUsername(@Param("username") String username);
 }

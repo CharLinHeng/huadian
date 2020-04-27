@@ -16,4 +16,16 @@
         and
             t.is_delete = 0
     </select>
+    <select id="getDriverInfoByUsername" resultType="com.neusoft.oauth.entity.SysUser">
+        select
+            driver_code as id,
+            driver_acc as account,
+            driver_pass as password,
+            name as name,
+            is_delete as locked
+        from
+            t_driver_information_manage
+        where
+            driver_acc = #{username}
+    </select>
 </mapper>

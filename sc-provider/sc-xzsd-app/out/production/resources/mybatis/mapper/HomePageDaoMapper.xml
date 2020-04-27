@@ -6,7 +6,8 @@
         select
             rotaChart_code rotateChartCode,
             rotaChart_sort rotateChartSort,
-            rotaChart_image_url rotateChartImageUrl
+            rotaChart_image_url rotateChartImageUrl,
+            rotaChart_point_good goodCode
         from
             t_turns_images
         where
@@ -24,7 +25,7 @@
         update
             t_turns_images
         set
-            is_delete = 1,
+            rotaChart_state = 2,
             update_user = 'sys',
             update_time = now()
         where
@@ -43,7 +44,8 @@
             tgood.good_image_url hotGoodUrl,
             thot.hot_good_sort hotGoodCSort,
             tgood.good_price hotGoodPric,
-            tgood.good_selling_price hotGoodSale
+            tgood.good_selling_price hotGoodSale,
+            thot.good_code goodCode
         from
             t_hot_goods_manage thot,
             t_good_manage tgood

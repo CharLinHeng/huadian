@@ -54,6 +54,7 @@ public class GoodDetailService {
         //查询
         PageHelper.startPage(goodEvaParam.getPageNum(),goodEvaParam.getPageSize());
         List<GoodEva> goodEvaList = goodDetailDao.queryGoodComEvaList(goodEvaParam);
+
         PageInfo<GoodEva>goodEvaPageInfo = new PageInfo<>(goodEvaList);
         //判断结果
         if(goodEvaList.size() > 0){

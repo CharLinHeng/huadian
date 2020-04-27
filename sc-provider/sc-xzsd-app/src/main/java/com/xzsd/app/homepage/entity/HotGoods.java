@@ -30,6 +30,18 @@ public class HotGoods {
      *热门商品售价
      */
     private String hotGoodSale;
+    /**
+     * 商品编号
+     */
+    private String goodCode;
+
+    public String getGoodCode() {
+        return goodCode;
+    }
+
+    public void setGoodCode(String goodCode) {
+        this.goodCode = goodCode;
+    }
 
     public String getHotGoodCode() {
         return hotGoodCode;

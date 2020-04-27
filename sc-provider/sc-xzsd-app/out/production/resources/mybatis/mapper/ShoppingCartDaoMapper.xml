@@ -119,7 +119,8 @@
             cart.good_code goodCode,
             goods.good_name goodName,
             cart.good_num goodNum,
-            goods.good_selling_price goodSale
+            goods.good_selling_price goodSale,
+            goods.good_image_url goodImageUrl
         from
             t_good_shopping_cart cart,
             t_good_manage goods

@@ -39,7 +39,8 @@ public class CustomerService {
         User queryUser = customerDao.queryCurrUser(customer.getUserCode());
         //如果查询不到当前用户，则返回错误
         if(null == queryUser){
-            return AppResponse.paramError("查询用户为空!");
+            //说明是司机
+            return AppResponse.paramError("查询为空或者司机不能查看!");
         }
         customer.setUserRole(queryUser.getUserRole());
         customer.setUserCode(queryUser.getUserCode());

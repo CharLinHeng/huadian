@@ -195,9 +195,11 @@ public class DriverService {
         //从Redis中根据token获取，但是没做登入，这里先指定一个账号进行测试
         String userName = SecurityUtils.getCurrentUserUsername();
         User user = customerDao.queryCurrUser(userName);
+        if(null == user){
+            return AppResponse.bizError("司机不可以查看这里的模块");
+        }
         driver.setCurrUserCode(user.getUserCode());
         driver.setUserRole(user.getUserRole());
-        System.out.println("角色:"+user);
         //查找
         PageHelper.startPage(driver.getPageNum(),driver.getPageSize());
         List<DriverListParamter>driverLists = driverDao.dqueryDriverList(driver);

@@ -113,7 +113,7 @@
         <if test="goodCode != null and goodCode !=''">
             and  thotgood.good_code like concat('%',#{goodCode},'%')
         </if>
-        order by thotgood.create_time desc
+        order by thotgood.hot_good_sort asc
     </select>
     <!--热门商品位详情-->
     <select id="queryHotGoodDetail" parameterType="com.xzsd.pc.hotGood.entity.HotGood" resultType="com.xzsd.pc.hotGood.entity.HotGoodDetail">

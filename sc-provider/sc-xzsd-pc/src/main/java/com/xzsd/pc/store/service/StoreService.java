@@ -236,11 +236,13 @@ public class StoreService {
         //获取当前用户登入编号
         String userAccount = SecurityUtils.getCurrentUserUsername();
         User user = customerDao.queryCurrUser(userAccount);
-
+        if(null == user){
+            return AppResponse.bizError("司机不可以查看这里的模块");
+        }
+        storeListQueryEntity.setCurrUserCode(user.getUserCode());
+        storeListQueryEntity.setUserRole(user.getUserRole());
         //开始
         PageHelper.startPage(Integer.parseInt(httpServletRequest.getParameter("pageNum")),Integer.parseInt(httpServletRequest.getParameter("pageSize")));
-
-
         List<StoreListQueryEntity>listQueryEntities = storeDao.queryStoreList(storeListQueryEntity);
         PageInfo<StoreListQueryEntity>storeListQueryEntityPageInfo = new PageInfo<>(listQueryEntities);
         //判断结果

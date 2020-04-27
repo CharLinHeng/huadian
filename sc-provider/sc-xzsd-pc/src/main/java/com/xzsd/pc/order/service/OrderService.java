@@ -34,6 +34,9 @@ public class OrderService {
         String userCode = SecurityUtils.getCurrentUserUsername();
         //根据账号获取当前用户的角色和编号
         User user = customerDao.queryCurrUser(userCode);
+        if(null == user){
+            return AppResponse.bizError("账号没找到或者司机不能查看此模块，请重新登入!");
+        }
         orderQuery.setUserCode(user.getUserCode());
         orderQuery.setUserRole(user.getUserRole());
         //查询

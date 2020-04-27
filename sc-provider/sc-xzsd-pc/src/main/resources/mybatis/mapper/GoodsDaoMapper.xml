@@ -184,7 +184,7 @@
         where
             is_delete = 0
         and
-            (parent_node is null )or ( LENGTH(trim(parent_node)) &lt; 1)
+            ((parent_node is null )or ( LENGTH(trim(parent_node)) &lt; 1))
     </select>
     <!--商品二级分类查询-->
     <select id="querySecondClass" parameterType="com.xzsd.pc.goods.entity.GoodClassifi" resultType="com.xzsd.pc.goods.entity.GoodClassifi">

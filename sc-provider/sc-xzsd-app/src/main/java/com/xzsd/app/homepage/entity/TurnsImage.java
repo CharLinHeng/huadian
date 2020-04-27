@@ -17,6 +17,18 @@ public class TurnsImage {
      * 轮播图图片地址
      */
     private String rotateChartImageUrl;
+    /**
+     * 商品编号
+     */
+    private String goodCode;
+
+    public String getGoodCode() {
+        return goodCode;
+    }
+
+    public void setGoodCode(String goodCode) {
+        this.goodCode = goodCode;
+    }
 
     public String getRotateChartCode() {
         return rotateChartCode;

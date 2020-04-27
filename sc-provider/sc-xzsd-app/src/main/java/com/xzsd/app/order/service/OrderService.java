@@ -27,6 +27,7 @@ public class OrderService {
     @Resource
     private DriverDao driverDao;
     private static final int HASEVA = 5;
+    private static final int CANCELORDER = 0;
     /**
      * app端-用户-查询订单详情
      * @return
@@ -75,14 +76,16 @@ public class OrderService {
         if(updateOrder.getOrderState() == 0){
             return AppResponse.paramError("订单状态不能为0!");
         }
-        //如果是取消订单状态，那么需要库存加回对应订单编号所对应 商品的数量  这里的功能[待写]
-        //先获取在订单详情列表的 商品编号和数量
-        List<GetOrderGoodCodeAndNum>getOrderGoodCodeAndNumList = orderDao.queryOrderGoodCode(updateOrder.getOrderCode());
-        //然后去更新
-        int updateNum = orderDao.updateGoodLibSaveAndSaleNum(getOrderGoodCodeAndNumList);
-        //然后将 订单商品详情列表数据 删除
-        if(updateNum > 0){
-
+        //如果是取消订单状态，那么需要库存加回对应订单编号所对应 商品的数量
+        if(updateOrder.getOrderState() == CANCELORDER){
+            //先获取在订单详情列表的 商品编号和数量
+            List<GetOrderGoodCodeAndNum>getOrderGoodCodeAndNumList = orderDao.queryOrderGoodCode(updateOrder.getOrderCode());
+            //然后去更新
+            int updateNum = orderDao.updateGoodLibSaveAndSaleNum(getOrderGoodCodeAndNumList);
+            if(updateNum > 0){
+                return AppResponse.success("取消订单成功!");
+            }
+            return AppResponse.bizError("取消订单失败，请重试!");
         }
         //获取当前修改人的Id
         updateOrder.setUpdateUser(SecurityUtils.getCurrentUserId());
@@ -192,6 +195,9 @@ public class OrderService {
                     }
                 }
                 //此时list中留下来的是没有过期的商品的购物车编号
+            }else{
+                //否则保持原来的 购物车商品种类
+                newCartCodeList = cartCodeList;
             }
             //根据 购物车编号 查询待新增的 订单商品列表
             if(newCartCodeList.size() > 0){
@@ -217,19 +223,27 @@ public class OrderService {
                 }
                 //生成订单后， 需要10分钟之内进行支付，否则 订单删除，商品库存恢复，
                 // 如果支付成功[订单 这里默认支付成功]，那么将纪录添加到顾客表，并且将 订单商品详情增加到对应表
+                UpdateOrderPrice updateOrderPrice = new UpdateOrderPrice();
+                double allPrice = 0;
                 List<Order> orderList = orderDao.queryOrderList(newCartCodeList);
                 for(int i = 0;i < orderList.size();i++){
                     //给每个订单商品详情随机生成订单详情编号
                     orderList.get(i).setOrderGCode(RandomCode.radmonkey());
                     orderList.get(i).setOrderCode(addOrder.getOrderCode());
+                    //计算总价格
+                    allPrice += orderList.get(i).getGoodNum()*orderList.get(i).getGoodPrice();
                 }
                 //如果 购物车内待购买的商品种类 数量大于0， 那么 将购买的商品种类信息新增到订单详情
                 if(orderList.size() > 0){
                     // 还要将 对应的 商品库存 数量减少 指定 购买的商品数量 然后 售出数量 + 对应数量
                     orderDao.updateGoodRelative(orderList);
-                    //新增到订单详情表  [这里漏了需要存商品的图片，需要补上]
+                    //新增到订单详情表
                     result = orderDao.addOrderList(orderList);
                     //更新订单总价格  而且需要存 门店编号
+                    updateOrderPrice.setPrice(allPrice);
+                    updateOrderPrice.setUpdateUser(SecurityUtils.getCurrentUserUsername());
+                    updateOrderPrice.setOrderCode(addOrder.getOrderCode());
+                    int updateCount = orderDao.updateOrderCount(updateOrderPrice);
                     //判断新增到 订单详情列表的 结果
                     if(result > 0){
                         //添加到顾客表 addOrder 和订单编号
@@ -241,6 +255,8 @@ public class OrderService {
                         if(result > 0){
                             msg = msg + "新建客户成功!";
                         }
+                        //判断哪些商品是售空的了，需要改状态为 售空
+
                         //下单成功后，需要清空对应的购物车
                         int empty = orderDao.clearEmpty(cartCodeList);
                         if(empty > 0){
@@ -256,5 +272,14 @@ public class OrderService {
         }
         //判断结果
         return AppResponse.paramError("新增订单失败");
+    }
+
+
+    public AppResponse  buyNow(){
+        //判断商品是否 下架 和 售空
+        //新增到订单
+        //新增到订单商品详情
+        //判断商品是售空的了，需要改状态为 售空
+        return AppResponse.paramError("购买失败!");
     }
 }

@@ -28,7 +28,7 @@ public class Order {
     /**
      * 商品价格
      */
-    private String goodPrice;
+    private double goodPrice;
     /**
      * 商品图片地址
      */
@@ -41,6 +41,17 @@ public class Order {
      * 支付状态
      */
     private String payState;
+    /**
+     * 门店名称
+     */
+    private String shopCode;
+    public String getShopCode() {
+        return shopCode;
+    }
+
+    public void setShopCode(String shopCode) {
+        this.shopCode = shopCode;
+    }
 
     public String getOrderCode() {
         return orderCode;
@@ -90,11 +101,11 @@ public class Order {
         this.goodNum = goodNum;
     }
 
-    public String getGoodPrice() {
+    public double getGoodPrice() {
         return goodPrice;
     }
 
-    public void setGoodPrice(String goodPrice) {
+    public void setGoodPrice(double goodPrice) {
         this.goodPrice = goodPrice;
     }
 
