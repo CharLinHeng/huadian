@@ -76,4 +76,6 @@ public class OrderListParam {
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
     }
+
+
 }

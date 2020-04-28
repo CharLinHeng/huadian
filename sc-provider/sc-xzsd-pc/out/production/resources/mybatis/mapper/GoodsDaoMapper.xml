@@ -82,6 +82,8 @@
             t_good_manage
         where
              good_name = #{goodName}
+        and
+            is_delete = 0
         <if test="goodCode != null and goodCode !=''">
             and good_code != #{goodCode}
         </if>
@@ -94,6 +96,8 @@
            t_good_manage
         where
             good_isbn_bookSize = #{goodIsbnBookSize}
+        and
+            is_delete = 0
         <if test="goodCode != null and goodCode !=''">
             and good_code != #{goodCode}
         </if>
@@ -141,6 +145,7 @@
             tgood.good_state goodState,
             tgood.good_ad goodAd,
             tgood.good_store_name storeName,
+            tgood.good_lib_save goodLibSave,
             tgood.good_commodity_press goodCommodityPress,
             tgood.good_author goodAuthor,
             tgood.good_isbn_bookSize goodIsbnBookSize

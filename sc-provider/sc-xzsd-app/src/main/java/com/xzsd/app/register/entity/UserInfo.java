@@ -33,6 +33,18 @@ public class UserInfo {
      *用户性别
      */
     private int userSex;
+    /**
+     * 门店编号
+     */
+    private String storeCode;
+
+    public String getStoreCode() {
+        return storeCode;
+    }
+
+    public void setStoreCode(String storeCode) {
+        this.storeCode = storeCode;
+    }
 
     public String getUsuerNickName() {
         return usuerNickName;

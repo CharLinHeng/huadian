@@ -97,8 +97,9 @@ public class UserServices {
         if(null == user.getDefaultImageUrl() || user.getDefaultImageUrl() ==""){
             user.setDefaultImageUrl(RandomCode.defaultImageUrl());
         }
-        //加密密码
-        if(null != user.getUserPass() && user.getUserPass() != ""){
+        //先比较原来的密码，如果不相同，加密新密码
+        String originPassWord = userDao.getOriginPassWord(user.getUserCode());
+        if(null != user.getUserPass() && user.getUserPass() != "" && !originPassWord.equals(user.getUserPass())){
             user.setUserPass(PasswordUtils.generatePassword(user.getUserPass()));
         }
         int result = userDao.updateUser(user);

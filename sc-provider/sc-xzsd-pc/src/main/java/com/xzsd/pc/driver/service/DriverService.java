@@ -131,9 +131,15 @@ public class DriverService {
             return AppResponse.paramError("司机身份证已经存在！");
 
         }
+        //从数据库获取原加密后的密码，如果跟前台传来的是一样的，那么则不进行加密
+        String originPassWord = driverDao.getOriginPassWord(updateDriver.getDriverCode());
         //密码加密
-        if(null != updateDriver.getDriverPass() || updateDriver.getDriverPass() ==""){
+        if(null != updateDriver.getDriverPass() && updateDriver.getDriverPass() !="" && !updateDriver.getDriverPass().equals(originPassWord)){
             updateDriver.setDriverPass(PasswordUtils.generatePassword(updateDriver.getDriverPass()));
+        }
+        //如果没有图片，那么设置默认
+        if(null == updateDriver.getDriverImage() || updateDriver.getDriverImage() == ""){
+            updateDriver.setDriverImage(RandomCode.defaultImageUrl());
         }
         //修改
         int result = driverDao.updateDriver(updateDriver);

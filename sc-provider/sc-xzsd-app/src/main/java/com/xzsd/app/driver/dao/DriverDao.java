@@ -42,9 +42,4 @@ public interface DriverDao {
      * @return
      */
     AreaName queryPCD(DriverResponsibleArea driverResponsibleAreaList);
-
-    /**
-     * 司机信息查询
-     * @return
-     */
 }

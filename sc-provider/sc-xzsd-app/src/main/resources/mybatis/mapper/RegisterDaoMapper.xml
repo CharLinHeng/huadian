@@ -56,19 +56,19 @@
     <!--用户 店长 信息获取-->
     <select id="getUserInfo" parameterType="com.xzsd.app.register.entity.UserInfo" resultType="com.xzsd.app.register.entity.UserInfo">
       select
-        user_code userCode,
-        user_account userAcc,
-        user_role userRole,
-        user_image userImageUrl,
-        user_name userName,
-        user_phone userPhone,
-        user_sex userSex
+        tuser.user_code userCode,
+        tuser.user_account userAcc,
+        tuser.user_role userRole,
+        tuser.user_image userImageUrl,
+        tuser.user_name userName,
+        tuser.user_phone userPhone,
+        tuser.user_sex userSex
       from
-        t_user_infomation
+        t_user_infomation tuser
       where
-        user_code = #{userCode}
+        tuser.user_code = #{userCode}
       and
-        is_delete = 0
+        tuser.is_delete = 0
     </select>
     <!--司机 信息获取-->
     <select id="getDriverInfo" parameterType="com.xzsd.app.register.entity.UserInfo" resultType="com.xzsd.app.register.entity.UserInfo">
@@ -85,4 +85,16 @@
       and
         is_delete = 0
     </select>
+  <!--查询店长编号  第一个店铺   店长只能绑定一个店铺-->
+  <select id="getStoreCode" parameterType="com.xzsd.app.register.entity.UserInfo" resultType="java.lang.String">
+      select
+          shop_code
+      from
+          t_store_information
+      where
+          is_delete = 0
+      and
+          shop_con_user = #{userCode}
+      limit 0,1
+  </select>
 </mapper>

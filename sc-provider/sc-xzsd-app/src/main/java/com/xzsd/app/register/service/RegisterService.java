@@ -10,9 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 
 /**
- * app注册
- * zhc
- * 2020年4月15日14:28:20
+ * @Auther: zhonghecheng
+ * @Date: 2020年4月11日13:45:58
+ * @Description: app注册
  */
 @Service
 public class RegisterService {
@@ -70,6 +70,11 @@ public class RegisterService {
                 return AppResponse.success("获取司机信息成功!",userInfo);
             }
         }else{
+            //设置店长的门店编号
+            String storeCode = registerDao.getStoreCode(userInfo.getUserCode());
+            if(null != storeCode){
+                userInfo.setStoreCode(storeCode);
+            }
             return AppResponse.success("获取信息成功!",userInfo) ;
         }
         return AppResponse.bizError("获取失败");

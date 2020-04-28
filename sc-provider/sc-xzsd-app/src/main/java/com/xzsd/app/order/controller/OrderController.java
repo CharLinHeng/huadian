@@ -6,7 +6,11 @@ import com.xzsd.app.order.service.OrderService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-
+/**
+ * @Auther: zhonghecheng
+ * @Date: 2020年4月15日19:50:20
+ * @Description: APP端-用户订单Controller
+ */
 @RestController
 @RequestMapping("/customer")
 public class OrderController {
@@ -76,6 +80,20 @@ public class OrderController {
     public AppResponse addOrderGoodsEva(@RequestBody OrderEva orderEva){
         try{
             return orderService.addOrderGoodsEva(orderEva);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+    /**
+     * 快速购买
+     * @param buyNow
+     * @return
+     */
+    @PostMapping("fastBuyGoods")
+    public AppResponse fastBuyGoods(BuyNow buyNow){
+        try{
+            return orderService.buyNow(buyNow);
         }catch (Exception e){
             throw e;
         }

@@ -10,9 +10,9 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * @Deprecated 首页service
- * @author  zhc
- * @Time 2020年4月10日11:57:41
+ * @Auther: zhonghecheng
+ * @Date: 2020年4月11日13:45:58
+ * @Description: 首页Service
  */
 @Service
 public class HomePageService {

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-
 /**
  * @Deprecated  app端-商品分类列表页面Service
  * @Time 2020年4月13日16:33:13

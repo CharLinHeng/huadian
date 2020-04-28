@@ -171,4 +171,15 @@
         and
             user_account = #{userAcc}
     </select>
+    <!--获取原来的用户加密的密码-->
+    <select id="getOriginPassWord" parameterType="com.xzsd.pc.user.entity.AdminData" resultType="java.lang.String">
+        select
+            user_pass
+        from
+            t_user_infomation
+        where
+            is_delete = 0
+        and
+            user_code = #{userCode}
+    </select>
 </mapper>

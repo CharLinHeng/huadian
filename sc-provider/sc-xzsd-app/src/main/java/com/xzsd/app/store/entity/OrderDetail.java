@@ -14,11 +14,14 @@ public class OrderDetail {
      * 订单取货地址 省市区编号
      */
     private String provinceCode;
-
+    /**
+     * 市编号
+     */
     private String cityCode;
-
+    /**
+     * 区编号
+     */
     private String distinctCode;
-
     /**
      * 详细
      */

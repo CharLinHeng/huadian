@@ -5,29 +5,34 @@
     <select id="queryCustomer" parameterType="com.xzsd.pc.customer.entity.Customer"
             resultType="com.xzsd.pc.customer.entity.CustomerOut">
       select
-        tcustomer.customer_code customerCode,
-        tcustomer.customer_name customerName,
-        tcustomer.customer_acct customerAcc,
-        tcustomer.customer_sex customerSex,
-        tcustomer.customer_phone customerPhone,
-        tcustomer.customer_email customerEmail,
-        tcustomer.customer_id_card customerIdCard
+        tcustomer.user_code customerCode,
+        tcustomer.user_name customerName,
+        tcustomer.user_account customerAcc,
+        tcustomer.user_sex customerSex,
+        tcustomer.user_phone customerPhone,
+        tcustomer.user_email customerEmail,
+        tcustomer.user_id_card customerIdCard
       from
-          t_order_customer tcustomer,
-          t_store_information tstore
+        t_user_infomation tcustomer
+        <if test="userRole == 1">
+            ,t_store_information tstore,
+            t_store_bind tbind
+        </if>
       where
           tcustomer.is_delete = 0
       and
-          tcustomer.shop_code = tstore.shop_code
+          tcustomer.user_role = 3
       <if test="customerName != null and customerName != ''">
-          and tcustomer.customer_name like  concat('%',#{customerName},'%')
+          and tcustomer.user_name like  concat('%',#{customerName},'%')
       </if>
       <if test="customerAcc != null and customerAcc != ''">
-          and tcustomer.customer_acct like  concat('%',#{customerAcc},'%')
+          and tcustomer.user_account like  concat('%',#{customerAcc},'%')
       </if>
       <if test="userRole == 1">
           and tstore.shop_con_user = #{userCode}
-      </if>
+          and tstore.shop_invest_code = tbind.bind_inverst_code
+          and tbind.user_code = tcustomer.user_code
+       </if>
     </select>
     <!--查询用户信息-->
     <select id="queryCurrUser" parameterType="com.xzsd.pc.customer.entity.User" resultType="com.xzsd.pc.customer.entity.User">

@@ -28,6 +28,30 @@ public class CartGoodList {
      *商品图片地址
      */
     private String goodImageUrl;
+    /**
+     * 商品介绍
+     */
+    private String goodPre;
+    /**
+     *商品广告
+     */
+    private String goodAd;
+
+    public String getGoodPre() {
+        return goodPre;
+    }
+
+    public void setGoodPre(String goodPre) {
+        this.goodPre = goodPre;
+    }
+
+    public String getGoodAd() {
+        return goodAd;
+    }
+
+    public void setGoodAd(String goodAd) {
+        this.goodAd = goodAd;
+    }
 
     public String getCartCode() {
         return cartCode;

@@ -69,4 +69,11 @@ public interface UserDao {
      * @return
      */
     AdminData getuserdata(@Param("userAcc")String userCode);
+
+    /**
+     * 获取原来加密的密码
+     * @param userCode
+     * @return
+     */
+    String getOriginPassWord(@Param("userCode")String userCode);
 }

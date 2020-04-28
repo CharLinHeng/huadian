@@ -64,7 +64,8 @@
               tstore.provinceCode        provinceCode,
               tstore.cityCode            cityCode,
               tstore.distinctCode        distinctCode,
-              tstore.shop_detail_address deliveryStore,
+              tstore.shop_detail_address deliveryAddress,
+              tstore.shop_name           deliveryStore,
               torder.create_time         orderCreateTime,
               torder.order_state         orderState,
               tuser.user_name            userName,
@@ -72,13 +73,16 @@
           from
               t_order_manage torder,
               t_user_infomation tuser,
-              t_store_information tstore
+              t_store_information tstore,
+			  t_store_bind tbind
          where
               torder.order_code = #{orderCode}
         and
               torder.is_delete = 0
         and
-              torder.shop_code = tstore.shop_code
+              tbind.shop_code = tstore.shop_code
+        AND
+              tbind.user_code = torder.user_code
         and
               torder.user_code = tuser.user_code
     </select>

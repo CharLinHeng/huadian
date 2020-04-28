@@ -56,6 +56,15 @@ public class DriverDetail {
      */
     private String version;
 
+    private String driverImage;
+
+    public String getDriverImage() {
+        return driverImage;
+    }
+
+    public void setDriverImage(String driverImage) {
+        this.driverImage = driverImage;
+    }
 
     public String getDriverProvinceCode() {
         return driverProvinceCode;

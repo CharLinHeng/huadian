@@ -36,4 +36,11 @@ public interface RegisterDao{
      * @return
      */
     UserInfo getDriverInfo(@Param("userCode")String userCode);
+
+    /**
+     * 查询门店店长的门店编号
+     * @param userCode
+     * @return
+     */
+    String getStoreCode(@Param("userCode")String userCode);
 }

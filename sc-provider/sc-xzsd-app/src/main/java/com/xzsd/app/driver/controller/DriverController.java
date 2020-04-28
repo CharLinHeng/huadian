@@ -3,6 +3,7 @@ package com.xzsd.app.driver.controller;
 import com.neusoft.core.restful.AppResponse;
 import com.xzsd.app.driver.entity.Driver;
 import com.xzsd.app.driver.entity.DriverResponsibleArea;
+import com.xzsd.app.driver.entity.DriverVO;
 import com.xzsd.app.driver.entity.Store;
 import com.xzsd.app.driver.service.DriverService;
 import com.xzsd.app.passWord.entity.PassWord;
@@ -62,4 +63,19 @@ public class DriverController {
             throw e;
         }
     }
+
+    /**
+     * 司机详情查询
+     * @param driverVO
+     * @return
+     */
+    @PostMapping("queryDriverInformationDetail")
+    public AppResponse queryDriverInformationDetail(DriverVO driverVO){
+        try{
+            return driverService.queryDriverInformationDetail(driverVO);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
 }

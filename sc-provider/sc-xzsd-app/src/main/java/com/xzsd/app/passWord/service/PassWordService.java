@@ -9,7 +9,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 /**
- * 修改密码服务类
+ * @Auther: zhonghecheng
+ * @Date: 2020年4月11日13:45:58
+ * @Description: 修改密码服务类
  */
 @Service
 public class PassWordService {

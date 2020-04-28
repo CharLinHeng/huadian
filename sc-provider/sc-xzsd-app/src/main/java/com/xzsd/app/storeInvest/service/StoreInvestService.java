@@ -13,13 +13,14 @@ import com.xzsd.app.util.ResponceDataState;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 /**
- * 邀请码绑定门店修改或新增 服务类
+ * @Auther: zhonghecheng
+ * @Date: 2020年4月15日19:50:20
+ * @Description: 邀请码绑定门店修改或新增 服务类
  */
 @Service
 public class StoreInvestService {
     @Resource
     private StoreInvestDao storeInvestDao;
-
     /**
      * 门店邀请码绑定
      * @param investCode

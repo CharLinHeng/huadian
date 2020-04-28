@@ -58,6 +58,10 @@ public interface DriverDao {
 
     List<DriverListParamter>dqueryDriverList(DriverListParamter driverListParamter);
 
-
-
+    /**
+     * 获得原来的加密后的密码
+     * @param driverCode
+     * @return
+     */
+    String getOriginPassWord(@Param("driverCode")String driverCode);
 }

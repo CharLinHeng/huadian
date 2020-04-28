@@ -24,6 +24,30 @@ public class OrderListUnit {
      * 商品图片
      */
     private String imageUrl;
+    /**
+     * 商品广告
+     */
+    private String goodAd;
+    /**
+     * 商品介绍
+     */
+    private String goodPre;
+
+    public String getGoodAd() {
+        return goodAd;
+    }
+
+    public void setGoodAd(String goodAd) {
+        this.goodAd = goodAd;
+    }
+
+    public String getGoodPre() {
+        return goodPre;
+    }
+
+    public void setGoodPre(String goodPre) {
+        this.goodPre = goodPre;
+    }
 
     public String getImageUrl() {
         return imageUrl;

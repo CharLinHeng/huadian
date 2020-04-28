@@ -7,6 +7,7 @@ import com.neusoft.security.client.utils.SecurityUtils;
 import com.xzsd.app.driver.dao.DriverDao;
 import com.xzsd.app.driver.entity.AreaName;
 import com.xzsd.app.driver.entity.DriverResponsibleArea;
+import com.xzsd.app.goodDetail.dao.GoodDetailDao;
 import com.xzsd.app.order.dao.OrderDao;
 import com.xzsd.app.order.entity.*;
 import com.xzsd.app.util.RandomCode;
@@ -18,7 +19,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 /**
- * APP端-用户订单Service
+ * @Auther: zhonghecheng
+ * @Date: 2020年4月15日19:50:20
+ * @Description: APP端-用户订单Service
  */
 @Service
 public class OrderService {
@@ -28,8 +31,9 @@ public class OrderService {
     private DriverDao driverDao;
     private static final int HASEVA = 5;
     private static final int CANCELORDER = 0;
+    private static final int HASPAY = 1;
     /**
-     * app端-用户-查询订单详情
+     * app端-用户查询订单详情
      * @return
      */
     public AppResponse queryOrderDetail(OrderDetail orderDetail){
@@ -256,11 +260,11 @@ public class OrderService {
                             msg = msg + "新建客户成功!";
                         }
                         //判断哪些商品是售空的了，需要改状态为 售空
-
                         //下单成功后，需要清空对应的购物车
                         int empty = orderDao.clearEmpty(cartCodeList);
                         if(empty > 0){
                             msg = msg + "已清空购物车!下单成功!";
+                            msg =  "下单成功!";
                         }
                         return AppResponse.success(msg);
                     }
@@ -274,11 +278,50 @@ public class OrderService {
         return AppResponse.paramError("新增订单失败");
     }
 
-
-    public AppResponse  buyNow(){
+    /**
+     * 立即购买 新增订单 接口
+     * @param buyNow
+     * @return
+     */
+    public AppResponse  buyNow(BuyNow  buyNow){
+        //判断参数
+        if(null == buyNow.getGoodCode() || buyNow.getGoodCode() == ""){
+            return AppResponse.paramError("商品编号参数不存在!");
+        }
+        if(buyNow.getGoodNum() == 0){
+            return AppResponse.paramError("购买的商品数量不能为0!");
+        }
         //判断商品是否 下架 和 售空
-        //新增到订单
-        //新增到订单商品详情
+        Order addOrderDetailOut = orderDao.queryIsNullOrExpired(buyNow);
+        if(null == addOrderDetailOut){
+           return AppResponse.paramError("购买失败!商品库存不足或者已下架!");
+        }
+        //随机生成订单编号
+        buyNow.setOrderCode(RandomCode.radmonkey());
+        buyNow.setUserCode(SecurityUtils.getCurrentUserId());
+        //订单总价格
+        addOrderDetailOut.setGoodNum(buyNow.getGoodNum());
+        buyNow.setOrderPrice(addOrderDetailOut.getGoodNum()*addOrderDetailOut.getGoodPrice());
+        addOrderDetailOut.setOrderGCode(RandomCode.radmonkey());
+        addOrderDetailOut.setOrderCode(buyNow.getOrderCode());
+        addOrderDetailOut.setUserCode(SecurityUtils.getCurrentUserId());
+        addOrderDetailOut.setCreateUser(SecurityUtils.getCurrentUserUsername());
+        addOrderDetailOut.setPayState(String.format("%d",HASPAY));
+        //获得取货门店门店编号
+        //新增到订单  和新增到订单商品详情
+        int result = orderDao.addFastBuyOrder(buyNow);
+        if(result > 0){
+            List<Order>goods = new ArrayList<>();
+            goods.add(addOrderDetailOut);
+            int finallyInsert = orderDao.addOrderList(goods);
+            if(finallyInsert > 0){
+                //增加 销售量和 减少库存
+                int finallyUpdate = orderDao.updateGoodRelative(goods);
+                if(finallyUpdate > 0){
+                    return AppResponse.success("下单成功!");
+                }
+            }
+        }
         //判断商品是售空的了，需要改状态为 售空
         return AppResponse.paramError("购买失败!");
     }

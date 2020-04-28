@@ -99,7 +99,7 @@
               #{item}
           </foreach>
     </update>
-    <!--查询-->
+    <!--查询订单列表-->
     <select id="queryOrderList" parameterType="com.xzsd.app.order.entity.AddOrder" resultType="com.xzsd.app.order.entity.Order">
         select
             tcart.user_code userCode,
@@ -122,6 +122,7 @@
             tcart.good_num &gt; 0
         and
             tcart.good_code = tgood.good_code
+        order by tcart.create_time asc
     </select>
     <!--新增订单详情表-->
     <insert id="addOrderList" parameterType="com.xzsd.app.order.entity.Order" >
@@ -210,9 +211,7 @@
         and
             tuser.user_code = #{userCode}
     </select>
-
-
-    <!--订单编号-->
+    <!--订单详情-->
     <select id="queryOrderDetail" parameterType="com.xzsd.app.order.entity.OrderDetail" resultMap="queryOrderDetailResultMap">
         select
            torder.order_code,
@@ -237,7 +236,6 @@
             torder.is_delete = 0
     </select>
     <!--根据门店编号获取对应的省市区名称以及详细地址-->
-    <!--collection select-->
     <select id="selectList" parameterType="com.xzsd.app.order.entity.OrderDetail" resultType="com.xzsd.app.order.entity.OrderDetailGoodsList">
         select
             tgoods.good_code goodCode,
@@ -287,21 +285,31 @@
               user_code = #{userCode}
           and
               is_delete = 0
+          <if test="orderState != null and orderState != ''">
+              and
+                  order_state = cast(#{orderState} as signed)
+          </if>
+          order by create_time desc
     </select>
     <!--查询用户订单列表详情-->
     <select id="queryOrderListListUnit" parameterType="com.xzsd.app.order.entity.OrderListParam" resultType="com.xzsd.app.order.entity.OrderListUnit">
           select
-              good_code goodCode,
-              orderG_name goodName,
-              orderG_s_price goodSale,
-              orderG_num goodNum,
-              orderG_image imageUrl
+              torder.good_code goodCode,
+              torder.orderG_name goodName,
+              torder.orderG_s_price goodSale,
+              torder.orderG_num goodNum,
+              torder.orderG_image imageUrl,
+              tgood.good_ad goodAd,
+              tgood.good_prec goodPre
           from
-              t_order_ordergoods
+              t_order_ordergoods torder,
+              t_good_manage tgood
           where
-              order_code = #{orderCode}
+              torder.order_code = #{orderCode}
           and
-              is_delete = 0
+              torder.good_code = tgood.good_code
+          and
+              torder.is_delete = 0
     </select>
     <!--订单列表查询resultMap-->
     <resultMap id="queryOrderList" type="com.xzsd.app.order.entity.OrderList">
@@ -368,18 +376,19 @@
             and
                 good_state = 2
             and
-                now() between good_sale_time and good_sale_end
+                now() &gt; good_sale_time
             and
                 good_code = #{item.goodCode}
         </foreach>
     </update>
     <!--更新每种商品星级数-->
-    <update id="updateGoodRank" parameterType="com.xzsd.app.order.entity.OrderEva">
+    <update id="updateGoodRank" parameterType="com.xzsd.app.order.entity.OrderEvaUnit">
           <foreach collection="list" index="index" item="item" separator=";">
               update
-                  t_good_manage
+                  t_good_manage,
+                  (select avg(comment_rank) as rank from t_goods_goodseva where comment_good = #{item.goodCode} and is_delete = 0) ranks
               set
-                  good_eva_rank = good_eva_rank+#{tiem.goodRank}/2
+                  good_eva_rank = ROUND((ranks.rank+#{tiem.goodRank})/2),1)
               where
                   good_code = #{item.goodCode}
           </foreach>
@@ -419,4 +428,61 @@
         where
             order_code = #{orderCode}
     </update>
+    <!--查看商品是否下架和售空-->
+    <select id="queryIsNullOrExpired" parameterType="com.xzsd.app.order.entity.BuyNow" resultType="com.xzsd.app.order.entity.Order">
+        select
+         good_name goodName,
+         good_code goodCode,
+         good_selling_price goodPrice,
+         good_image_url goodImage
+        from
+          t_good_manage
+        where
+            good_code = #{goodCode}
+        and
+            is_delete  = 0
+        and
+            now() &gt;= good_sale_time
+        and
+            good_state = 2
+        and
+            good_lib_save &gt;= #{goodNum}
+    </select>
+    <!--快速购买 新增订单-->
+    <insert id="addFastBuyOrder" parameterType="com.xzsd.app.order.entity.BuyNow">
+        INSERT
+            INTO
+              `t_order_manage`(
+                `order_code`,
+                `user_code`,
+                `order_price`,
+                `order_state`,
+                `order_play_state`,
+                `shop_code`,
+                `order_pre`,
+                `order_sure_pay_time`,
+                `create_time`,
+                `create_user`,
+                `update_time`,
+                `update_user`,
+                `is_delete`,
+                `version`
+              )
+            VALUES(
+              #{orderCode},
+              #{userCode},
+              #{orderPrice},
+              1,
+              1,
+              #{shopCode},
+              #{orderPre},
+              now(),
+              now(),
+              #{userCode},
+              now(),
+              #{userCode},
+              0,
+              0
+            )
+    </insert>
 </mapper>

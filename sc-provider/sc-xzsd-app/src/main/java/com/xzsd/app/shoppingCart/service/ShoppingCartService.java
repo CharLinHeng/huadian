@@ -14,9 +14,9 @@ import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
 /**
- * @author zhc
- * @Deprecated 购物车Service
- * @time 2020年4月11日13:45:58
+ * @Auther: zhonghecheng
+ * @Date: 2020年4月11日13:45:58
+ * @Description: 购物车Service
  */
 @Service
 public class ShoppingCartService {

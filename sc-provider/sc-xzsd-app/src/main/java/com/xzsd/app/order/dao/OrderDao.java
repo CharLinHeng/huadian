@@ -143,4 +143,17 @@ public interface OrderDao {
      * @return
      */
     int updateOrderCount(UpdateOrderPrice updateOrderPrice);
+
+    /**
+     * 查看该商品是否已经下架或者卖完
+     * @param buyNow
+     * @return
+     */
+    Order queryIsNullOrExpired(BuyNow buyNow);
+    /**
+     * 快速购买新增订单
+     * @param buyNow
+     * @return
+     */
+    int addFastBuyOrder(BuyNow buyNow);
 }

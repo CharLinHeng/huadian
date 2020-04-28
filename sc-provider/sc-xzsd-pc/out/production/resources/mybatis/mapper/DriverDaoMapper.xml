@@ -62,6 +62,7 @@
         datas.dict_code driverDistinctCode,
         tdriver.name driverName,
         tdriver.phone driverPhone,
+        tdriver.driver_image driverImage,
         tdriver.driver_acc driverAcct,
         tdriver.driver_pass driverPass,
         tdriver.driver_idcard driverIdCard,
@@ -167,7 +168,7 @@
               `driver_pass` = #{driverPass},
           </if>
           <if test="driverImage != null and driverImage !=''">
-              `driver_image` = #{driverImage}
+              `driver_image` = #{driverImage},
           </if>
           `driver_idcard` = #{driverIdCard},
           `name` = #{driverName},
@@ -184,4 +185,16 @@
           `driver_code` = #{driverCode}
     </update>
     <!--省市区编号变成对应名称-->
+    <!--获取原来的密码-->
+    <select id="getOriginPassWord" parameterType="com.xzsd.pc.driver.entity.UpdateDriver" resultType="java.lang.String">
+        select
+            driver_pass
+        from
+            t_driver_information_manage
+        where
+            is_delete = 0
+        and
+            driver_code = #{driverCode}
+    </select>
+
 </mapper>
