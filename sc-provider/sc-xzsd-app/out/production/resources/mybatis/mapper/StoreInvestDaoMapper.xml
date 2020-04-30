@@ -74,8 +74,6 @@
         where
             is_delete = 0
         and
-            bind_inverst_code = #{invitationCode}
-        and
             user_code = #{userCode}
     </select>
 </mapper>

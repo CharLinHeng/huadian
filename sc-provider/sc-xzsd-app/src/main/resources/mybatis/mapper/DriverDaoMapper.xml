@@ -62,6 +62,7 @@
             tdriver.distinctCode distinctCode,
             tstore.shop_detail_address detailAddress,
             tstore.shop_name storeName,
+            tstore.shop_code storeCode,
             tuser.user_name userName,
             tuser.user_phone userPhone
         from

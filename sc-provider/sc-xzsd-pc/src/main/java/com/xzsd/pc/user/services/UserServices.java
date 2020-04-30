@@ -22,8 +22,8 @@ public class UserServices {
     private UserDao userDao;
     /**
      * 查询用户
-     * @param
-     * @return
+     * @param user
+     * @return AppResponce
      * @Author zhc
      * @Date 2020-03-24
      */
@@ -44,7 +44,6 @@ public class UserServices {
             //判断参数
             if(null == user.getUserEmail()){
                 user.setUserEmail("");
-//                AppResponse.success,"用户邮箱参数为空!",null);
             }
             if(null == user.getUserPass()){
                 return AppResponse.paramError("用户密码参数为空!");
@@ -58,14 +57,14 @@ public class UserServices {
             if(null == user.getUserPhone()){
                return AppResponse.paramError("用户手机号为空!");
             }
-            //先查询 是否存在账号、手机
-            if(userDao.countUserAcct(user)>0){
+            //判断 是否存在账号、手机
+            if(userDao.countUserAcct(user) > 0){
                 return AppResponse.paramError("用户账号已存在!");
             }
-            if(userDao.countUserPhone(user)>0){
+            if(userDao.countUserPhone(user) > 0){
                 return AppResponse.paramError("用户手机号已存在!");
             }
-            //设置默认头像
+            //如果没上传头像，设置默认头像
             if(null == user.getDefaultImageUrl() || user.getDefaultImageUrl() ==""){
                 user.setDefaultImageUrl(RandomCode.defaultImageUrl());
             }
@@ -131,7 +130,6 @@ public class UserServices {
      }
     /**
      * 用户列表查询
-     *  联合 用户表 和 司机表 进行查询 因为我是分开来写的
      * author: zhc
      * 2020年3月25日10:56:26
      */
@@ -145,9 +143,10 @@ public class UserServices {
         }
         return AppResponse.success("查询成功",pageData);
     }
-
     /**
      * 获取当前登入用户信息
+     * @author zhc
+     * @date 2020年3月25日 14:24:47
      * @return
      */
     public AppResponse getuserdata(){

@@ -241,15 +241,18 @@
             tgoods.good_code goodCode,
             tgoods.orderG_name goodName,
             tgoods.orderG_s_price goodSale,
-            tgoods.orderG_pre goodPrec,
+            good.good_prec goodPrec,
             tgoods.orderG_num goodNum,
             tgoods.orderG_image goodImageUrl
         from
-            t_order_ordergoods tgoods
+            t_order_ordergoods tgoods,
+            t_good_manage good
         where
             tgoods.order_code = #{orderCode}
         and
             tgoods.is_delete = 0
+        and
+            tgoods.good_code = good.good_code
     </select>
     <!--查询订单详情映射resultMapp-->
     <resultMap id="queryOrderDetailResultMap" type="com.xzsd.app.order.entity.OrderDetail">
@@ -273,6 +276,8 @@
               update_user = #{updateUser}
           where
               order_code = #{orderCode}
+          and
+              is_delete = 0
     </update>
     <!--查询用户订单列表-->
     <select id="queryUserOrderList" parameterType="com.xzsd.app.order.entity.OrderListParam" resultMap="queryOrderList">
@@ -386,9 +391,9 @@
           <foreach collection="list" index="index" item="item" separator=";">
               update
                   t_good_manage,
-                  (select avg(comment_rank) as rank from t_goods_goodseva where comment_good = #{item.goodCode} and is_delete = 0) ranks
+                  (select avg(comment_rank) as rank from t_goods_goodseva where comment_good = '${item.goodCode}' and is_delete = 0) ranks
               set
-                  good_eva_rank = ROUND((ranks.rank+#{tiem.goodRank})/2),1)
+                  good_eva_rank = ROUND(((ranks.rank+#{item.goodRank})/2),1)
               where
                   good_code = #{item.goodCode}
           </foreach>
@@ -411,10 +416,10 @@
             update
                 t_good_manage
             set
-                good_saleNum = good_saleNum - {item.goodNum},
+                good_saleNum = good_saleNum - #{item.goodNum},
                 good_lib_save = good_lib_save + #{item.goodNum}
             where
-                good_code = #{goodCode}
+                good_code = #{item.goodCode}
         </foreach>
     </update>
     <!--更新订单总价格-->

@@ -36,6 +36,18 @@ public class DriverResponsibleArea {
      * 店长手机
      */
     private String userPhone;
+    /**
+     * 门店编号
+     */
+    private String storeCode;
+
+    public String getStoreCode() {
+        return storeCode;
+    }
+
+    public void setStoreCode(String storeCode) {
+        this.storeCode = storeCode;
+    }
 
     public String getStoreName() {
         return storeName;

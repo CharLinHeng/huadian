@@ -25,7 +25,7 @@
         and
             tgoodclass.parent_node = #{classCode}
     </select>
-    <!--高级映射中的goodsList关联查询-->
+    <!--高级映射中的goodsList关联查询   查找直系商品 需要是 没删除而且在售的-->
     <select id="selectList" resultType="com.xzsd.app.goodClassification.entity.Good">
         select
             tgoods.good_code goodCode,
@@ -37,6 +37,10 @@
             t_good_manage tgoods
         where
             tgoods.good_second_clas = #{classCode}
+        and
+            tgoods.is_delete = 0
+        and
+            tgoods.good_state = 2
     </select>
     <!--二级分类及其所属的的商品 映射resultMapp-->
     <resultMap id="querySecondResultMap" type="com.xzsd.app.goodClassification.entity.GoodClassiSecond">

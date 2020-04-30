@@ -73,13 +73,14 @@ public class OrderController {
 
     /**
      * 新增订单商品评价
-     * @param orderEva
+     * @param evaJson
      * @return
      */
-    @PostMapping(value = "addOrderGoodsEva",headers = {"content-type=application/json"})
-    public AppResponse addOrderGoodsEva(@RequestBody OrderEva orderEva){
+
+    @PostMapping("addOrderGoodsEva")
+    public AppResponse addOrderGoodsEva(EvaJson evaJson){
         try{
-            return orderService.addOrderGoodsEva(orderEva);
+            return orderService.addOrderGoodsEva(evaJson);
         }catch (Exception e){
             throw e;
         }

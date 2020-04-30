@@ -44,13 +44,17 @@
               torderg.orderG_name goodName,
               torderg.orderG_s_price goodSale,
               torderg.orderG_num goodNum,
-              torderg.orderG_image goodImage
+              torderg.orderG_image goodImage,
+              tgood.good_prec goodPrec
           from
-              t_order_ordergoods torderg
+              t_order_ordergoods torderg,
+              t_good_manage tgood
           where
               torderg.order_code = #{orderCode}
           and
               torderg.is_delete = 0
+          and
+              tgood.good_code = torderg.good_code
     </select>
     <!--店长订单列表查询ResultMap-->
     <resultMap id="queryStoreOrderList" type="com.xzsd.app.store.entity.StoreOrderList">
@@ -89,18 +93,21 @@
     <!--订单商品详情列表-->
     <select id="goodDetailList" parameterType="com.xzsd.app.store.entity.OrderDetail" resultType="com.xzsd.app.store.entity.OrderDetailGood">
           select
-             good_code goodCode,
-             orderG_name goodName,
-             orderG_s_price goodSale,
-             orderG_pre goodPrec,
-             orderG_num goodNum,
-             orderG_image goodImage
+             torderG.good_code goodCode,
+             torderG.orderG_name goodName,
+             torderG.orderG_s_price goodSale,
+             tgood.good_prec goodPrec,
+             torderG.orderG_num goodNum,
+             torderG.orderG_image goodImage
           from
-              t_order_ordergoods
+              t_order_ordergoods torderG,
+              t_good_manage tgood
           where
-              order_code = #{orderCode}
+              torderG.order_code = #{orderCode}
           and
-              is_delete = 0
+              torderG.good_code = tgood.good_code
+          and
+              torderG.is_delete = 0
     </select>
     <!--订单详情映射-->
     <resultMap id="queryStoreOrderDetail" type="com.xzsd.app.store.entity.OrderDetail">

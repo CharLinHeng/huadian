@@ -99,7 +99,7 @@
         tgoods.good_code goodCode,
         tgoods.good_name  goodName,
         tgoods.good_price goodPrice,
-        tgoods.good_selling_price  goodPre
+        tgoods.good_prec  goodPre
         from
         t_hot_goods_manage thotgood,
         t_good_manage tgoods

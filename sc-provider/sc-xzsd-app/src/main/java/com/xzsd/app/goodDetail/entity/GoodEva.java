@@ -17,6 +17,10 @@ public class GoodEva {
      */
     private String evaUserName;
     /**
+     * 评价用户头像
+     */
+    private String userImage;
+    /**
      *评价者评论
      */
     private String evaContent;
@@ -28,6 +32,14 @@ public class GoodEva {
      * 评价图片
      */
     private String conmentImage;
+
+    public String getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
+    }
 
     public String getConmentImage() {
         return conmentImage;

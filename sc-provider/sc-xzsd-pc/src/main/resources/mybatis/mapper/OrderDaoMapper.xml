@@ -58,15 +58,20 @@
             tOrderGoods.orderG_name goodName,
             tOrderGoods.orderG_num goodNum,
             tOrderGoods.orderG_Count goodCount,
-            tOrderGoods.orderG_price goodPrice,
-            tOrderGoods.orderG_s_price goodSalePri
+            tgood.good_price goodPrice,
+            tgood.good_selling_price goodSalePri
         from
             t_order_ordergoods tOrderGoods,
-            t_order_manage tOrder
+            t_order_manage tOrder,
+            t_good_manage tgood
         where
+            tOrderGoods.is_delete = 0
+        and
             tOrderGoods.order_code = tOrder.order_code
         and
             tOrderGoods.order_code = #{orderCode}
+        and
+            tgood.good_code = tOrderGoods.good_code
         order by tOrder.create_time desc
     </select>
     <!--订单状态修改-->

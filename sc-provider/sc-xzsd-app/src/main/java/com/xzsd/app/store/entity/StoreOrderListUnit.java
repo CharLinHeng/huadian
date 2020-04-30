@@ -16,10 +16,10 @@ public class StoreOrderListUnit {
      *商品售价
      */
     private double goodSale;
-//    /**
-//     *商品描述
-//     */
-//    private String goodPrec;
+    /**
+     *商品描述
+     */
+    private String goodPrec;
     /**
      *商品数量
      */
@@ -29,6 +29,14 @@ public class StoreOrderListUnit {
      * 商品图片
      */
     private String goodImage;
+
+    public String getGoodPrec() {
+        return goodPrec;
+    }
+
+    public void setGoodPrec(String goodPrec) {
+        this.goodPrec = goodPrec;
+    }
 
     public String getGoodImage() {
         return goodImage;

@@ -1,5 +1,5 @@
 package com.xzsd.app.order.service;
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.neusoft.core.restful.AppResponse;
@@ -7,7 +7,6 @@ import com.neusoft.security.client.utils.SecurityUtils;
 import com.xzsd.app.driver.dao.DriverDao;
 import com.xzsd.app.driver.entity.AreaName;
 import com.xzsd.app.driver.entity.DriverResponsibleArea;
-import com.xzsd.app.goodDetail.dao.GoodDetailDao;
 import com.xzsd.app.order.dao.OrderDao;
 import com.xzsd.app.order.entity.*;
 import com.xzsd.app.util.RandomCode;
@@ -17,7 +16,6 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 /**
  * @Auther: zhonghecheng
  * @Date: 2020年4月15日19:50:20
@@ -77,9 +75,7 @@ public class OrderService {
         if(null == updateOrder.getOrderCode()){
             return AppResponse.paramError("订单编号为空!");
         }
-        if(updateOrder.getOrderState() == 0){
-            return AppResponse.paramError("订单状态不能为0!");
-        }
+        String msg = "";
         //如果是取消订单状态，那么需要库存加回对应订单编号所对应 商品的数量
         if(updateOrder.getOrderState() == CANCELORDER){
             //先获取在订单详情列表的 商品编号和数量
@@ -87,16 +83,17 @@ public class OrderService {
             //然后去更新
             int updateNum = orderDao.updateGoodLibSaveAndSaleNum(getOrderGoodCodeAndNumList);
             if(updateNum > 0){
-                return AppResponse.success("取消订单成功!");
+                msg = "取消订单成功!";
+            }else{
+                return AppResponse.bizError("取消订单失败，请重试!");
             }
-            return AppResponse.bizError("取消订单失败，请重试!");
         }
         //获取当前修改人的Id
         updateOrder.setUpdateUser(SecurityUtils.getCurrentUserId());
         //修改
         int result = orderDao.updateOrder(updateOrder);
         if(result > 0){
-            return AppResponse.success("更新状态成功!");
+            return AppResponse.success("更新状态成功!"+msg);
         }
         return AppResponse.bizError("修改失败!");
     }
@@ -124,11 +121,15 @@ public class OrderService {
 
     /**
      * 增加订单商品评价
-     * @param orderEva
+     * @param evaJson
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public AppResponse addOrderGoodsEva(OrderEva orderEva){
+    public AppResponse addOrderGoodsEva(EvaJson evaJson){
+        if(null == evaJson.getEvaJson()){
+            return AppResponse.paramError("评价json不能为空!");
+        }
+        OrderEva orderEva = JSONObject.parseObject(evaJson.getEvaJson(),OrderEva.class);
         //开始处理对象
         if(null == orderEva.getOrderCode()){
             return AppResponse.paramError("订单编号缺失!");

@@ -2,6 +2,8 @@ package com.xzsd.app;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
@@ -16,7 +18,7 @@ import javax.annotation.Resource;
  *
  * @author 杨洲 yangzhou@neusoft.com
  */
-@SpringBootApplication
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 @EnableDiscoveryClient
 @EnableResourceServer
 @EnableSwagger2

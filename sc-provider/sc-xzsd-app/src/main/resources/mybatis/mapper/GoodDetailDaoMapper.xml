@@ -9,7 +9,10 @@
             good_lib_save goodNum,
             good_price goodPrice,
             good_selling_price goodSale,
-            good_image_url goodImageList
+            good_image_url goodImageList,
+            good_saleNum goodSaleNum,
+            good_eva_rank goodRank,
+            good_through_num goodThrought
         from
             t_good_manage
         where
@@ -23,6 +26,7 @@
             comment_code evaCode,
             comment_rank evaRank,
             tuser.user_name evaUserName,
+            tuser.user_image userImage,
             teva.comment_content evaContent,
             teva.comment_images conmentImage,
             teva.comment_time evaTime
@@ -44,6 +48,7 @@
         <if test="evaRank == 3">
             and ( teva.comment_rank &gt; 3 and teva.comment_rank &lt;= 5)
         </if>
+        order by comment_time desc
     </select>
     <!--客户绑定店铺查询,先查找 省市区编号-->
     <select id="queryUserBindStore" parameterType="com.xzsd.app.goodDetail.entity.UserParam" resultType="com.xzsd.app.goodDetail.entity.UserBindStore">

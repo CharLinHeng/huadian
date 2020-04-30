@@ -27,12 +27,12 @@ public class HotGoodList {
     /**
      * 价格
      */
-    private double goodPrice;
+    private String goodPrice;
 
     /**
-     * 售价
+     * 介绍
      */
-    private double goodPre;
+    private String goodPre;
 
     public String getHotGoodSort() {
         return hotGoodSort;
@@ -66,19 +66,19 @@ public class HotGoodList {
         this.goodName = goodName;
     }
 
-    public double getGoodPrice() {
+    public String getGoodPrice() {
         return goodPrice;
     }
 
-    public void setGoodPrice(double goodPrice) {
+    public void setGoodPrice(String goodPrice) {
         this.goodPrice = goodPrice;
     }
 
-    public double getGoodPre() {
+    public String getGoodPre() {
         return goodPre;
     }
 
-    public void setGoodPre(double goodPre) {
+    public void setGoodPre(String goodPre) {
         this.goodPre = goodPre;
     }
 }

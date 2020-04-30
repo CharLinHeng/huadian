@@ -56,8 +56,6 @@
       <module name="sc-web-static_test" target="1.8" />
       <module name="sc-web_main" target="1.8" />
       <module name="sc-web_test" target="1.8" />
-      <module name="sc-xzsd-a_main" target="1.8" />
-      <module name="sc-xzsd-a_test" target="1.8" />
       <module name="sc-xzsd-app_main" target="1.8" />
       <module name="sc-xzsd-app_test" target="1.8" />
       <module name="sc-xzsd-pc_main" target="1.8" />

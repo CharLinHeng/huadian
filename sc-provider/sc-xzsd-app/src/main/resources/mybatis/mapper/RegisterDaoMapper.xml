@@ -19,7 +19,8 @@
                 `is_delete`,
                 `create_time`,
                 `create_user`,
-                `version`
+                `version`,
+                `user_image`
               )
             VALUES(
               #{userCode},
@@ -35,7 +36,8 @@
               0,
               now(),
               #{userCode},
-              0
+              0,
+              #{imagrUrl}
               )
     </insert>
   <!--判断重复-->

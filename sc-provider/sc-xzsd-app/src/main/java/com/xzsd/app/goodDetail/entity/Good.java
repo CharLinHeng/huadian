@@ -29,6 +29,42 @@ public class Good {
      *商品图片地址
      */
     private String goodImageList;
+    /**
+     * 商品星级
+     */
+    private double goodRank;
+    /**
+     * 商品浏览量
+     */
+    private int goodThrought;
+    /**
+     * 商品销售量
+     */
+    private int goodSaleNum;
+
+    public double getGoodRank() {
+        return goodRank;
+    }
+
+    public void setGoodRank(double goodRank) {
+        this.goodRank = goodRank;
+    }
+
+    public int getGoodThrought() {
+        return goodThrought;
+    }
+
+    public void setGoodThrought(int goodThrought) {
+        this.goodThrought = goodThrought;
+    }
+
+    public int getGoodSaleNum() {
+        return goodSaleNum;
+    }
+
+    public void setGoodSaleNum(int goodSaleNum) {
+        this.goodSaleNum = goodSaleNum;
+    }
 
     public String getGoodName() {
         return goodName;
