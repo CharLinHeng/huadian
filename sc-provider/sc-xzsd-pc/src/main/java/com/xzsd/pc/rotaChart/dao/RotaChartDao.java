@@ -1,14 +1,10 @@
 package com.xzsd.pc.rotaChart.dao;
-
-
 import com.xzsd.pc.rotaChart.entity.GoodList;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import com.xzsd.pc.goods.entity.Good;
 import com.xzsd.pc.rotaChart.entity.RotaChart;
-
 import java.util.List;
-
 /**
  * 轮播图
  * 2020年3月27日14:30:12

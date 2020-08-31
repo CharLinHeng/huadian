@@ -1,5 +1,8 @@
 package com.xzsd.pc.order.entity;
 
+/**
+ * 订单详情实体类
+ */
 public class OrderDetail {
 
     /**

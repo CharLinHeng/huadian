@@ -1,5 +1,8 @@
 package com.xzsd.pc.goods.entity;
 
+/**
+ * 商品分类实体类
+ */
 public class GoodClassifi {
     /**
      * 商品分类编号

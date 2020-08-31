@@ -1,5 +1,8 @@
 package com.xzsd.pc.rotaChart.entity;
 
+/**
+ * 商品列表实体类
+ */
 public class GoodList {
     /**
      * 货物编号
@@ -10,7 +13,6 @@ public class GoodList {
      * 货物名称
      */
     private String goodName;
-
     /**
      * 商品价格
      */
@@ -19,7 +21,6 @@ public class GoodList {
      * 商品销售的数量
      */
     private int goodSaleNum;
-
     /**
      * 商品一级分类
      */

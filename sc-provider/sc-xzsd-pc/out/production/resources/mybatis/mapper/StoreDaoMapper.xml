@@ -183,7 +183,6 @@
         and
               version =  CAST(#{version} AS SIGNED)
     </update>
-
     <!--商家信息列表-->
     <select id="queryUserStore" parameterType="com.xzsd.pc.store.entity.QueryUserStore" resultType="com.xzsd.pc.store.entity.QueryUserStore">
         select
@@ -210,5 +209,18 @@
             and user_phone like concat('%',#{userPhone},'%')
         </if>
     </select>
-
+    <!--判断店长是否已经绑定了该店铺-->
+    <select id="countUserHasBindStore" parameterType="com.xzsd.pc.store.entity.Store" resultType="int">
+        select
+            count(*)
+        from
+            t_store_information
+        where
+            is_delete = 0
+        and
+            shop_con_user = #{userCode}
+        <if test="storeCode != null and storeCode != ''">
+            and shop_code != #{storeCode}
+        </if>
+    </select>
 </mapper>

@@ -35,7 +35,6 @@ public class DriverController {
             throw e;
         }
     }
-
     /**
      * 门店详情查询
      * @param store

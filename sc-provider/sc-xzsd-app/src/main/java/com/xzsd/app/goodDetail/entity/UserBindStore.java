@@ -4,10 +4,25 @@ package com.xzsd.app.goodDetail.entity;
  * 客户绑定店铺查询-临时实体类
  */
 public class UserBindStore {
+    /**
+     * 门店名称
+     */
     private String storeName;
+    /**
+     *门店地址
+     */
     private String storeAddress;
+    /**
+     *门店编号
+     */
     private String provinceCode;
+    /**
+     *市编号
+     */
     private String cityCode;
+    /**
+     *区编号
+     */
     private String distinctCode;
     public String getStoreName() {
         return storeName;

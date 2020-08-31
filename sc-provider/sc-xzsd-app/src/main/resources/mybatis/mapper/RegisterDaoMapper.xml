@@ -64,7 +64,9 @@
         tuser.user_image userImageUrl,
         tuser.user_name userName,
         tuser.user_phone userPhone,
-        tuser.user_sex userSex
+        tuser.user_sex userSex,
+        tuser.user_id_card IdCard,
+        tuser.user_email email
       from
         t_user_infomation tuser
       where
@@ -99,4 +101,30 @@
           shop_con_user = #{userCode}
       limit 0,1
   </select>
+    <!--修改用户的信息-->
+    <update id="updateUserInfo" parameterType="com.xzsd.app.register.entity.UserInfo" >
+        update
+            t_user_infomation
+        set
+            user_sex = #{userSex},
+            <if test="userImageUrl != null and userImageUrl != ''">
+                user_image = #{userImageUrl},
+            </if>
+            <if test="userPhone != null and userPhone != ''">
+                user_phone = #{userPhone},
+            </if>
+            <if test="userName != null and userName != ''">
+                user_name = #{userName},
+            </if>
+            <if test="IdCard != null and IdCard != ''">
+                user_id_card = #{IdCard},
+            </if>
+            <if test="email != null and email != ''">
+                user_email = #{email}
+            </if>
+        where
+            user_code = #{userCode}
+        and
+            is_delete = 0
+    </update>
 </mapper>

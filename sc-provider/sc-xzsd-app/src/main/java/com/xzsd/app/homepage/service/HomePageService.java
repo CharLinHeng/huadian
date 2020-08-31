@@ -3,8 +3,6 @@ import com.neusoft.core.restful.AppResponse;
 import com.xzsd.app.homepage.dao.HomePageDao;
 import com.xzsd.app.homepage.entity.HotGoods;
 import com.xzsd.app.homepage.entity.TurnsImage;
-import com.xzsd.app.util.ResponceData;
-import com.xzsd.app.util.ResponceDataState;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.ArrayList;

@@ -1,11 +1,9 @@
 package com.xzsd.app.driver.dao;
-
 import com.xzsd.app.driver.entity.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
 /**
  * 司机app端 dao
  */

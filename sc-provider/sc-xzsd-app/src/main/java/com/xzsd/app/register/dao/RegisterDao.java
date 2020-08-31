@@ -43,4 +43,11 @@ public interface RegisterDao{
      * @return
      */
     String getStoreCode(@Param("userCode")String userCode);
+
+    /**
+     * 修改用户信息
+     * @param userInfo
+     * @return
+     */
+    int updateUserInfo(UserInfo userInfo);
 }

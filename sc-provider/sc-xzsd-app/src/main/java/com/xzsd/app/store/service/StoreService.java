@@ -20,7 +20,6 @@ import java.util.List;
 public class StoreService {
     @Resource
     private StoreDao storeDao;
-
     /**
      * 订单状态更新
      * @param orderUpdate
@@ -52,7 +51,6 @@ public class StoreService {
         }
         return AppResponse.bizError("查询为空");
     }
-
     /**
      * 2 店长订单详情查询
      * @param orderDetail

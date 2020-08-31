@@ -1,5 +1,7 @@
 package com.xzsd.app.order.entity;
-
+/**
+ *增加订单实体类
+ */
 public class AddOrder {
     /**
      * 用户编号

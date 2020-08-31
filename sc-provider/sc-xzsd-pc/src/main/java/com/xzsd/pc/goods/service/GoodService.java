@@ -2,6 +2,7 @@ package com.xzsd.pc.goods.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.neusoft.core.restful.AppResponse;
+import com.xzsd.pc.customer.entity.User;
 import com.xzsd.pc.goods.entity.GoodClassifi;
 import com.xzsd.pc.goods.entity.GoodList;
 import com.xzsd.pc.util.SecurityUtils;
@@ -31,7 +32,7 @@ public class GoodService {
     private ResponceData responceData;
     @Autowired
     private StringRedisTemplate redisTemplate;
-
+    private final static int SHOPPER = 1;
     /**
      *商品详情查询
      * zhc
@@ -57,16 +58,25 @@ public class GoodService {
             return AppResponse.paramError("商品名称已存在！");
         }
         //查询商品书号是否已经存在
-        int countGoodBookSIzeNum = goodDao.countGoodBookSize(good.getGoodIsbnBookSize(),null);
-        if(countGoodBookSIzeNum>0){
-            return AppResponse.paramError("商品书号已存在！");
+//        int countGoodBookSIzeNum = goodDao.countGoodBookSize(good.getGoodIsbnBookSize(),null);
+//        if(countGoodBookSIzeNum>0){
+//            return AppResponse.paramError("商品书号已存在！");
+//        }
+        User roleQuery = goodDao.getUserRole(com.neusoft.security.client.utils.SecurityUtils.getCurrentUserId());
+        if(null != roleQuery && roleQuery.getUserRole() == SHOPPER){
+            good.setGoodShopCode(roleQuery.getShopCode());
+        }else{
+            return AppResponse.bizError("该用户没有申请店铺");
         }
+        good.setGoodShopCode(roleQuery.getShopCode());
         //新增 ,先获取编号
         String goodCode = RandomCode.radmonkey();
         //获取创建者
         good.setCreateUser(SecurityUtils.getCurrentUserUsername());
         good.setGoodCode(goodCode);
         //如果商品图片地址没有，那么设置默认图片地址
+
+        System.out.println("当前id:"+good.getGoodShopCode());
         if(null == good.getGoodImageUrl() || good.getGoodImageUrl() == ""){
             good.setGoodImageUrl(RandomCode.defaultImageUrl());
         }
@@ -113,15 +123,15 @@ public class GoodService {
             return AppResponse.success("商品编号参数为空!");
         }
         //判断是否重复 除了它自己本身
-        int result = goodDao.countGoodBookSize(good.getGoodIsbnBookSize(),good.getGoodCode());
-        if(result > 0){
-            return AppResponse.paramError("书号已经存在!");
-        }
+        int result  = 0;
+//        if(result > 0){
+//            return AppResponse.paramError("书号已经存在!");
+//        }
         //查询商品名称是否存在
-        int countGood_name = goodDao.countGood(good.getGoodName(),good.getGoodCode());
-        if(countGood_name>0){
-            return AppResponse.paramError("商品名称已存在!");
-        }
+//        int countGood_name = goodDao.countGood(good.getGoodName(),good.getGoodCode());
+//        if(countGood_name>0){
+//            return AppResponse.paramError("商品名称已存在!");
+//        }
         good.setUpdateUser(SecurityUtils.getCurrentUserUsername());
         result = goodDao.updateGood(good);
         //如果数量
@@ -140,6 +150,13 @@ public class GoodService {
      */
     public AppResponse queryGoodList(Good good){
         //分页
+        //根绝角色id查找这个用户属于什么角色
+        User roleQuery = goodDao.getUserRole(com.neusoft.security.client.utils.SecurityUtils.getCurrentUserId());
+        if(null != roleQuery && roleQuery.getUserRole() == SHOPPER){
+            good.setGoodShopCode(roleQuery.getShopCode());
+        }else{
+            good.setGoodShopCode("");
+        }
         PageHelper.startPage(good.getPageNum(),good.getPageSize());
         List<GoodList> goodsList = goodDao.queryGoodList(good);
         PageInfo<GoodList> pageData = new PageInfo<GoodList>(goodsList);
@@ -173,7 +190,6 @@ public class GoodService {
         List<GoodClassifi>goodClassifiList = goodDao.queryFirstClass();
         return AppResponse.success("查询成功!",goodClassifiList);
     }
-
     /**
      * 商品二级分类查询
      * @param goodClassifi

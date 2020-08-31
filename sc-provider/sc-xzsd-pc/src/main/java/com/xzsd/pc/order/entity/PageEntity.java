@@ -1,14 +1,23 @@
 package com.xzsd.pc.order.entity;
-
-
 /**
  * 页号和页数、版本号
  */
 public class PageEntity {
+    /**
+     * 页数量
+     */
     private int pageSize;
+    /**
+     *页号
+     */
     private int pageNum;
-
+    /**
+     *版本号
+     */
     private int version;
+    /**
+     *订单表编号
+     */
     private String orderCode;
     public int getPageSize() {
         return pageSize;

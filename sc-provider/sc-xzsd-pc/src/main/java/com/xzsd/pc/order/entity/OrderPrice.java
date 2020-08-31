@@ -1,5 +1,8 @@
 package com.xzsd.pc.order.entity;
 
+/**
+ * 订单价格实体类
+ */
 public class OrderPrice {
     /**
      * 价格

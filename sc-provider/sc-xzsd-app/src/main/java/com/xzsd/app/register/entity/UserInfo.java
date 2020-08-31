@@ -1,5 +1,7 @@
 package com.xzsd.app.register.entity;
-
+/**
+ *用户信息实体类
+ */
 public class UserInfo {
     /**
      *用户角色
@@ -37,6 +39,30 @@ public class UserInfo {
      * 门店编号
      */
     private String storeCode;
+    /**
+     * 身份证
+     */
+    private String IdCard;
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getIdCard() {
+        return IdCard;
+    }
+
+    public void setIdCard(String idCard) {
+        IdCard = idCard;
+    }
 
     public String getStoreCode() {
         return storeCode;

@@ -1,5 +1,4 @@
 package com.xzsd.pc.customer.service;
-
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.neusoft.core.restful.AppResponse;
@@ -8,9 +7,6 @@ import com.xzsd.pc.util.SecurityUtils;
 import org.springframework.stereotype.Service;
 import com.xzsd.pc.customer.dao.CustomerDao;
 import com.xzsd.pc.customer.entity.Customer;
-import com.xzsd.pc.util.ResponceData;
-import com.xzsd.pc.util.ResponceDataState;
-
 import javax.annotation.Resource;
 import java.util.List;
 /**

@@ -1,11 +1,8 @@
 package com.xzsd.pc.goodclassification.entity;
 
-
-
-
-
-
-//t_goods_classification_manage
+/**
+ * 商品分类实体列
+ */
 public class GoodClassification {
     /**
      * 分类编号

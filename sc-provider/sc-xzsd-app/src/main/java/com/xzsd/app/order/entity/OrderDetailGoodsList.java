@@ -28,6 +28,8 @@ public class OrderDetailGoodsList {
      * 商品图片地址
      */
     private String goodImageUrl;
+    //店名
+    private String shopName;
 
     public String getGoodCode() {
         return goodCode;

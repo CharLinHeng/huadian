@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.neusoft.oauth.dao.SysUserDao">
-
     <select id="getUserInfoByUsername" resultType="com.neusoft.oauth.entity.SysUser">
         SELECT
             t.user_code as id,
@@ -15,6 +12,7 @@
         WHERE t.user_account = #{username}
         and
             t.is_delete = 0
+        limit 0,1
     </select>
     <select id="getDriverInfoByUsername" resultType="com.neusoft.oauth.entity.SysUser">
         select
@@ -27,5 +25,6 @@
             t_driver_information_manage
         where
             driver_acc = #{username}
+        limit 0,1
     </select>
 </mapper>

@@ -1,6 +1,4 @@
 package com.xzsd.pc.user.entity;
-
-
 /**
  * @Description 用户实体类
  * @Author zhonghecheng
@@ -35,7 +33,6 @@ public class User {
      *用户角色
      */
     private String userRole;
-
     /**
      * 用户电话
      */
@@ -45,14 +42,10 @@ public class User {
      * 用户手机
      */
     private String userPhone;
-
-
     /**
      * 用户积分
      */
     private int userIntegral;
-
-
     /**
      * 用户邮箱
      */
@@ -68,13 +61,11 @@ public class User {
     /**
      * 创建作者
      */
-
     private String createUser;
     /**
      * 更新作者
      */
     private String updateUser;
-
     /**
      * 版本
      */
@@ -90,6 +81,16 @@ public class User {
      * 版本号
      */
     private int version;
+
+    private String userJudgeExamine;
+
+    public String getUserJudgeExamine() {
+        return userJudgeExamine;
+    }
+
+    public void setUserJudgeExamine(String userJudgeExamine) {
+        this.userJudgeExamine = userJudgeExamine;
+    }
 
     public String getDefaultImageUrl() {
         return defaultImageUrl;

@@ -1,6 +1,4 @@
 package com.xzsd.pc.goods.entity;
-
-
 /**
  * 商品实体
  * author:zhc
@@ -115,6 +113,18 @@ public class Good {
      * 商品更新用户
      */
     private String updateUser;
+
+
+    //商品对应的店铺编号
+    private String goodShopCode;
+
+    public String getGoodShopCode() {
+        return goodShopCode;
+    }
+
+    public void setGoodShopCode(String goodShopCode) {
+        this.goodShopCode = goodShopCode;
+    }
 
     public String getStoreName() {
         return storeName;

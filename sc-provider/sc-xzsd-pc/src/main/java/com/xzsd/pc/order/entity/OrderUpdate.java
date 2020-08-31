@@ -1,9 +1,19 @@
 package com.xzsd.pc.order.entity;
-
+/**
+ * 订单更新实体类
+ */
 public class OrderUpdate {
-
+    /**
+     * 订单状态
+     */
     private String  orderState;
+    /**
+     * 订单更新用户
+     */
     private String updateUser;
+    /**
+     * 订单版本号
+     */
     private int version;
 
     public int getVersion() {
@@ -30,12 +40,4 @@ public class OrderUpdate {
         this.updateUser = updateUser;
     }
 
-    @Override
-    public String toString() {
-        return "OrderUpdate{" +
-                "orderState='" + orderState + '\'' +
-                ", updateUser='" + updateUser + '\'' +
-                ", version=" + version +
-                '}';
-    }
 }

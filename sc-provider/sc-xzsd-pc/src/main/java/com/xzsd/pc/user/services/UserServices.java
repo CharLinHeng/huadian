@@ -34,10 +34,13 @@ public class UserServices {
         }
         return AppResponse.success("查询成功!",appResponse);
     }
+
     /**
      * 增加用户
-     * author: zhc
-     * 2020年3月24日19:05:18
+     * @param user
+     * @return AppResponce
+     * @Author zhc
+     * @Date 2020-03-24
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse addUser(User user){
@@ -77,11 +80,12 @@ public class UserServices {
             }
             return AppResponse.success("增加成功");
     }
-
     /**
      * 更新用户
-     * author: zhc
-     * 2020年3月24日22:52:47
+     * @param user
+     * @return AppResponce
+     * @Author zhc
+     * @Date 2020年3月24日22:52:47
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse updateUser(User user){
@@ -109,8 +113,10 @@ public class UserServices {
     }
     /**
      * 删除用户
-     * author: zhc
-     * 2020年3月25日09:16:14
+     * @param user
+     * @return AppResponce
+     * @Author zhc
+     * @Date 2020年3月24日22:52:47
      */
     @Transactional(rollbackFor = Exception.class)
      public AppResponse deleteUser(User user){
@@ -130,11 +136,14 @@ public class UserServices {
      }
     /**
      * 用户列表查询
-     * author: zhc
-     * 2020年3月25日10:56:26
+     * @param user
+     * @return AppResponce
+     * @Author zhc
+     * @Date 020年3月25日10:56:26
      */
     public AppResponse queryUserList(User user){
         //分页
+
         PageHelper.startPage(user.getPageNum(),user.getPageSize());
         List<User> userInfoList = userDao.listUsers(user);
         PageInfo<User> pageData = new PageInfo<User>(userInfoList);
@@ -145,9 +154,9 @@ public class UserServices {
     }
     /**
      * 获取当前登入用户信息
-     * @author zhc
-     * @date 2020年3月25日 14:24:47
-     * @return
+     * @return AppResponce
+     * @Author zhc
+     * @Date 020年3月25日10:56:26
      */
     public AppResponse getuserdata(){
         String userCode = SecurityUtils.getCurrentUserUsername();

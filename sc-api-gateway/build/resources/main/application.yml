@@ -9,10 +9,12 @@ security:
       access-token-uri: http://sc-security-uaa/oauth/token
       user-authorization-uri: http://sc-security-uaa/oauth/authorize
 spring:
+  multipart.maxFileSize: 100Mb
+  multipart.maxRequestSize: 100Mb
   redis:
     database: 9
-    host: 47.92.101.6
-    password: dnc.2009
+    host: 127.0.0.1
+#    password: dnc.2009
 zuul:
   routes:
     uaa:

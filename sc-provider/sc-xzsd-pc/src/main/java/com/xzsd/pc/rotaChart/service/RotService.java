@@ -32,6 +32,7 @@ public class RotService {
         if(null == rotaChart.getRotaChartImageUrl() || rotaChart.getRotaChartImageUrl() == ""){
             return AppResponse.paramError("轮播图图片地址参数缺失!");
         }
+        //轮播图位排序校验
         if(rotaChart.getRotaChartSort() == 0){
             return AppResponse.paramError("轮播图位排序不能为0或者参数缺失!");
         }
@@ -39,10 +40,11 @@ public class RotService {
         if (null == rotaChart.getGoodCode() || rotaChart.getGoodCode() == "") {
             return AppResponse.paramError("轮播图选择的商品编号参数为空!");
         }
-        //时间
+        //开始时间
         if(null == rotaChart.getRotaChartStartTime()|| null ==  rotaChart.getRotaChartEndTime()){
             return AppResponse.paramError("轮播图起始时间或者结束时间为空!");
         }
+        //结束时间
         if(rotaChart.getRotaChartStartTime() == ""|| rotaChart.getRotaChartEndTime() == ""){
             return AppResponse.paramError("轮播图起始时间或者结束时间为空!");
         }
@@ -50,9 +52,9 @@ public class RotService {
         if(rotaChartDao.countRepeat(rotaChart.getRotaChartSort(),rotaChart.getGoodCode(),null) > 0){
             return AppResponse.paramError("轮播图选择的图片已经存在或者 位排序 已存在 !");
         }
-        //设置默认是启用的
+        //设置默认 是启用的
         rotaChart.setRotaChartState(DEFAULTUSE);
-        //赋值操作用户
+        //设定创建用户
         rotaChart.setCreateUser(SecurityUtils.getCurrentUserUsername());
         int result = rotaChartDao.addRotaChart(rotaChart);
         if(result > 0 ){
@@ -123,7 +125,6 @@ public class RotService {
      * @return
      */
     public AppResponse querylistGoodsSecond(Good good){
-        //查询参数是否为空
         //如果参数不完整
         if(good.getPageNum() == 0||good.getPageSize() == 0){
             return AppResponse.paramError("页号或者页数量不能为空!");

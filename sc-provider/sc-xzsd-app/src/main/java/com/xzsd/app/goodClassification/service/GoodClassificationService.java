@@ -1,11 +1,9 @@
 package com.xzsd.app.goodClassification.service;
-
 import com.neusoft.core.restful.AppResponse;
 import com.xzsd.app.goodClassification.dao.GoodClassiDao;
 import com.xzsd.app.goodClassification.entity.GoodClassiSecond;
 import com.xzsd.app.goodClassification.entity.GoodClassification;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.List;
 /**

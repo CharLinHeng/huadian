@@ -1,5 +1,7 @@
 package com.xzsd.app.order.entity;
-
+/**
+ *商品过期实体类
+ */
 public class GoodsExpired {
     /**
      * 购物车编号

@@ -12,7 +12,8 @@
             good_image_url goodImageList,
             good_saleNum goodSaleNum,
             good_eva_rank goodRank,
-            good_through_num goodThrought
+            good_through_num goodThrought,
+            good_state goodState
         from
             t_good_manage
         where

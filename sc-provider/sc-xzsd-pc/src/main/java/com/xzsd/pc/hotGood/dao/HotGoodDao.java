@@ -1,13 +1,9 @@
 package com.xzsd.pc.hotGood.dao;
-
-
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import com.xzsd.pc.hotGood.entity.*;
 
 import java.util.List;
-
-
 /**
  * 热门商品位Dao
  * zhc

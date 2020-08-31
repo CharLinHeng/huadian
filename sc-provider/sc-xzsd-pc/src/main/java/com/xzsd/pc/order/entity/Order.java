@@ -1,5 +1,4 @@
 package com.xzsd.pc.order.entity;
-
 /**
  * 订单 实体类
  */
@@ -8,13 +7,10 @@ public class Order {
      * 编号
      */
    private String orderCode;
-
-
     /**
      * 订单总价格
      */
    private String orderCountPrice;
-
     /**
      * 订单状态
      */
@@ -58,6 +54,26 @@ public class Order {
      * 版本号
      */
     private String version;
+    //公司
+    private String logisticsCompany;
+    //快递单号
+    private String logisticsCourierNumber;
+
+    public String getLogisticsCompany() {
+        return logisticsCompany;
+    }
+
+    public void setLogisticsCompany(String logisticsCompany) {
+        this.logisticsCompany = logisticsCompany;
+    }
+
+    public String getLogisticsCourierNumber() {
+        return logisticsCourierNumber;
+    }
+
+    public void setLogisticsCourierNumber(String logisticsCourierNumber) {
+        this.logisticsCourierNumber = logisticsCourierNumber;
+    }
 
     public String getOrderCode() {
         return orderCode;

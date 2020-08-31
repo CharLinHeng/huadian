@@ -88,8 +88,8 @@
     <orderEntry type="library" name="Gradle: io.github.openfeign:feign-slf4j:9.5.0" level="project" />
     <orderEntry type="library" name="Gradle: io.github.openfeign:feign-core:9.5.0" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-tomcat:1.5.10.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-validator:5.3.6.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: io.reactivex:rxnetty-contexts:0.4.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-validator:5.3.6.Final" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.8.10" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: io.reactivex:rxnetty-servo:0.4.9" level="project" />
     <orderEntry type="library" name="Gradle: org.aspectj:aspectjweaver:1.8.13" level="project" />
@@ -120,8 +120,8 @@
     <orderEntry type="library" name="Gradle: org.apache.tomcat.embed:tomcat-embed-websocket:8.5.27" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.tomcat.embed:tomcat-embed-core:8.5.27" level="project" />
-    <orderEntry type="library" name="Gradle: org.apache.tomcat.embed:tomcat-embed-el:8.5.27" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.netflix.netflix-commons:netflix-commons-util:0.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.tomcat.embed:tomcat-embed-el:8.5.27" level="project" />
     <orderEntry type="library" name="Gradle: javax.validation:validation-api:1.1.0.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.netflix.netflix-commons:netflix-statistics:0.1.1" level="project" />
     <orderEntry type="library" name="Gradle: org.jboss.logging:jboss-logging:3.3.1.Final" level="project" />
@@ -133,12 +133,12 @@
     <orderEntry type="library" name="Gradle: org.mapstruct:mapstruct:1.2.0.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: commons-collections:commons-collections:3.2.2" level="project" />
     <orderEntry type="library" name="Gradle: commons-lang:commons-lang:2.6" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.sun.jersey:jersey-client:1.19.1" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpcore:4.4.9" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.sun.jersey:jersey-client:1.19.1" level="project" />
     <orderEntry type="library" name="Gradle: org.hdrhistogram:HdrHistogram:2.1.9" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-annotations-api:8.5.27" level="project" />
-    <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-jdbc:8.5.27" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.yaml:snakeyaml:1.17" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-jdbc:8.5.27" level="project" />
     <orderEntry type="library" name="Gradle: ch.qos.logback:logback-core:1.1.11" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-juli:8.5.27" level="project" />
     <orderEntry type="library" name="Gradle: net.bytebuddy:byte-buddy:1.7.9" level="project" />

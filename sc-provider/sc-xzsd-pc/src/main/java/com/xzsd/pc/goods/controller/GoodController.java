@@ -12,21 +12,17 @@ import com.xzsd.pc.util.RandomCode;
 import com.xzsd.pc.util.ResponceData;
 
 import javax.annotation.Resource;
-
 /**
  * 商品控制类
  * zhc
  * 2020年3月25日16:07:15
  */
-
 @RestController
 @RequestMapping("/goods")
 public class GoodController {
     @Resource
     private GoodService goodService;
     private AppResponse responceData;
-//    private static final Logger logger = LoggerFactory.getLogger(GoodController.class);
-
     /**
      *  增加商品
      * @param good
@@ -52,7 +48,6 @@ public class GoodController {
      */
     @PostMapping("queryDetail")
     public AppResponse queryGoodDetail(Good good){
-
         try{
             return goodService.queryGoodDetail(good);
         }catch (Exception e){
@@ -61,7 +56,6 @@ public class GoodController {
     }
     @PostMapping("deleteGood")
     public AppResponse deleteGoods(String goodCode){
-
         try{
             String updateUser = SecurityUtils.getCurrentUserUsername();
             return goodService.deleteGoods(goodCode,updateUser);
@@ -100,7 +94,8 @@ public class GoodController {
             responceData = goodService.queryGoodList(good);
             return responceData;
         }catch (Exception e){
-            return AppResponse.bizError("执行过程有错误,抛出异常!"+e.getMessage());
+            throw e;
+//            return AppResponse.bizError("执行过程有错误,抛出异常!"+e.getMessage());
         }
 
     }
@@ -113,7 +108,6 @@ public class GoodController {
      */
     @PostMapping("upperOrLowerShelf")
     public AppResponse upperOrLowerShelf(Good good){
-
         try{
             responceData = goodService.updateGoodState(good,SecurityUtils.getCurrentUserUsername());
             return responceData;

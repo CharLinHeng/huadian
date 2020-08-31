@@ -1,5 +1,4 @@
 package com.xzsd.pc.imageUpLoad.service;
-
 import com.neusoft.core.restful.AppResponse;
 import com.qcloud.cos.COSClient;
 import com.qcloud.cos.ClientConfig;
@@ -32,7 +31,6 @@ public class ImageService {
      * @return
      */
     public AppResponse upLoadImage(MultipartFile uploadFile) throws IOException {
-        //先判断文件
         // 获取文件名
         String fileName = uploadFile.getOriginalFilename();
         // 获取文件后缀
@@ -45,8 +43,8 @@ public class ImageService {
         }
         //
         // 1 初始化用户身份信息（secretId, secretKey）。
-        String secretId = "AKIDOdFdvwrpMo7uQphDAqHWUIxRwEG1k1Ln";
-        String secretKey = "ppYIrDLr1v7p9DUYeW8dW4NiolVyOcMp";
+        String secretId = "AKIDJOFs76oZv0rVO8dO9euvnQo1JOCk3A3g";
+        String secretKey = "p67LUMyKPYS6XhC7rNdfQ3RglcERQ8g1";
         COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
         // 2 设置 bucket 的区域, COS 地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
         // clientConfig 中包含了设置 region, https(默认 http), 超时, 代理等 set 方法, 使用可参见源码或者常见问题 Java SDK 部分。
@@ -63,7 +61,6 @@ public class ImageService {
         PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, toFile);
         PutObjectResult putObjectResult = cosClient.putObject(putObjectRequest);
         // 关闭客户端(关闭后台线程)
-
         Image image = new Image();
         image.setUploadTime(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()));
         Date expiration = new Date(System.currentTimeMillis() + 3600L * 1000 * 24 * 365 * 10);

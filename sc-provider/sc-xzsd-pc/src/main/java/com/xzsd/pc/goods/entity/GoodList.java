@@ -1,6 +1,4 @@
 package com.xzsd.pc.goods.entity;
-
-
 /**
  * 商品实体
  * author:zhc

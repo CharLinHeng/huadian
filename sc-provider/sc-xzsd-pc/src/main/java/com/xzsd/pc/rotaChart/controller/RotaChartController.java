@@ -10,7 +10,6 @@ import com.xzsd.pc.rotaChart.service.RotService;
 import com.xzsd.pc.util.RandomCode;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
 @RestController
 @RequestMapping("/rotaChart")
 /**
@@ -30,14 +29,12 @@ public class RotaChartController {
      *
      */
     public AppResponse addRotaChart(RotaChart rotaChart){
-        
         try{
             rotaChart.setRotaChartCode(RandomCode.radmonkey());
             return rotService.addRotaChart(rotaChart);
         }
         catch (Exception e){
             throw e;
-
         }
     }
     /**
@@ -50,11 +47,9 @@ public class RotaChartController {
         try{
             return rotService.deleteRotaChart(rotaChart);
         }
-        catch
-        (Exception e){
+        catch(Exception e){
             throw e;
         }
-
     }
 
     /**
@@ -69,8 +64,7 @@ public class RotaChartController {
         try{
            return rotService.queryRotaChartList(rotaChart);
         }
-        catch
-        (Exception e){
+        catch(Exception e){
             throw e;
         }
     }
@@ -82,11 +76,9 @@ public class RotaChartController {
      */
     @PostMapping("updateRotaChartState")
     public AppResponse updateRotaChartState(HttpServletRequest httpServletRequest){
-
         try{
             return rotService.updateRotaChartState(httpServletRequest.getParameter("rotaChartStateCode"),
                     httpServletRequest.getParameter("rotaChartState"));
-
         }catch (Exception e){
             throw e;
         }
@@ -105,6 +97,4 @@ public class RotaChartController {
             throw e;
         }
     }
-
-
 }

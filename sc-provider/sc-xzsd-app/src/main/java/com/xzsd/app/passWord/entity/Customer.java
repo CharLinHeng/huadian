@@ -1,5 +1,7 @@
 package com.xzsd.app.passWord.entity;
-
+/**
+ *顾客实体类
+ */
 public class Customer {
     /**
      * 顾客编号

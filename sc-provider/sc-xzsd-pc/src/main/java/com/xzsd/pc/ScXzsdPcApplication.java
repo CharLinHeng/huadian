@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -31,6 +32,10 @@ public class ScXzsdPcApplication {
     private StringRedisTemplate template;
 
     public static void main(String[] args) {
+//        BCryptPasswordEncoder b = new BCryptPasswordEncoder();
+//        String s = b.encode("123456");
+//        System.out.println("**-********************");
+//        System.out.println(s);
         SpringApplication.run(ScXzsdPcApplication.class, args);
     }
 

@@ -1,6 +1,4 @@
 package com.xzsd.pc.goodclassification.controller;
-
-
 import com.neusoft.core.restful.AppResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +10,6 @@ import com.xzsd.pc.util.RandomCode;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
 @RestController
 @RequestMapping("goodTypeManger")
 /**
@@ -24,7 +21,6 @@ public class GoodClassifiController {
     @Resource
     GoodClassifiService goodClassifiService;
     @ResponseBody
-
     /**
      * 商品一级分类新增
      */
@@ -36,7 +32,6 @@ public class GoodClassifiController {
             throw e;
         }
     }
-
     /**
      * 新增二级分类
      * @param goodClassification

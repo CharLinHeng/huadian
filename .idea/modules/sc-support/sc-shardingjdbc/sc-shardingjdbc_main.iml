@@ -180,8 +180,8 @@
     <orderEntry type="library" name="Gradle: org.bouncycastle:bcpkix-jdk15on:1.56" level="project" />
     <orderEntry type="library" name="Gradle: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.sun.jersey:jersey-core:1.19.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.ws.rs:jsr311-api:1.1.1" level="project" />
     <orderEntry type="library" name="Gradle: ch.qos.logback:logback-core:1.1.11" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.ws.rs:jsr311-api:1.1.1" level="project" />
     <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.10" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.codehaus.woodstox:woodstox-core-asl:4.4.1" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />

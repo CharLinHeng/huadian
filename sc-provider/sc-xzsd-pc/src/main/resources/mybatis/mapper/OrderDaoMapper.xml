@@ -3,28 +3,23 @@
 <mapper namespace="com.xzsd.pc.order.dao.OrderDao">
     <!--订单列表查询-->
     <select id="queryOrderList" parameterType="com.xzsd.pc.order.entity.OrderQuery" resultType="com.xzsd.pc.order.entity.Order">
-        select
-          torder.order_code orderCode,
-          torder.order_price orderCountPrice,
-          torder.order_state orderState,
-          torder.order_play_state orderPayState,
-          tbind.shop_code storeCode,
-          tuser.user_name orderUserName,
-          tuser.user_phone orderUserPhone,
-          torder.order_sure_pay_time orderPayTime
-        from
-          t_order_manage torder,
-          t_store_bind tbind,
-          t_user_infomation tuser,
-          t_store_information tstore
-        where
-          torder.is_delete = 0
-        and
-          torder.user_code = tuser.user_code
-        and
-          tbind.user_code = tuser.user_code
-        and
-          tstore.shop_code = tbind.shop_code
+            select
+            torder.order_code orderCode,
+            torder.order_price orderCountPrice,
+            torder.order_state orderState,
+            torder.order_play_state orderPayState,
+            tuser.user_name orderUserName,
+            tuser.user_phone orderUserPhone,
+            torder.order_sure_pay_time orderPayTime,
+            logistics_company as logisticsCompany ,
+            logistics_courier_number as logisticsCourierNumber
+            from
+            t_order_manage torder,
+            t_user_infomation tuser
+            where
+            torder.is_delete = 0
+            and
+            torder.user_code = tuser.user_code
         <if test="orderUserName !=null and orderUserName != ''">
             and tuser.user_name like concat('%',#{orderUserName},'%')
         </if>

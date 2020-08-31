@@ -117,6 +117,12 @@ public interface OrderDao {
     int updateGoodRelative(@Param("list")List<Order>orderList);
 
     /**
+     * 更新商品售空状态
+     * @param orderList
+     * @return
+     */
+    int updateGoodState(@Param("list")List<Order>orderList);
+    /**
      * 更新商品星级
      * @param orderEva
      * @return
@@ -137,6 +143,12 @@ public interface OrderDao {
      */
     int updateGoodLibSaveAndSaleNum(@Param("list")List<GetOrderGoodCodeAndNum>getOrderGoodCodeAndNumList);
 
+    /**
+     * 更新商品状态为  在售
+     * @param getOrderGoodCodeAndNumList
+     * @return
+     */
+    int updateGoodSaleState(@Param("list")List<GetOrderGoodCodeAndNum>getOrderGoodCodeAndNumList);
     /**
      * 更新订单总价格
      * @param updateOrderPrice

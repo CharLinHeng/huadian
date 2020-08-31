@@ -1,11 +1,12 @@
 package com.xzsd.pc.driver.entity;
-
+/**
+ * 司机列表
+ */
 public class DriverList {
     /**
      * 司机编号
      */
     private String driverCode;
-
     /**
      * 司机名称
      */
@@ -18,8 +19,6 @@ public class DriverList {
      *司机手机
      */
     private String driverPhone;
-
-
     /**
      * 司机身份证
      */

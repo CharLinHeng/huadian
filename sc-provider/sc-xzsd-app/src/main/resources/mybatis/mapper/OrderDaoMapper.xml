@@ -139,7 +139,9 @@
                 `create_time`,
                 `create_user`,
                 `is_delete`,
-                `version`
+                `version`,
+                `update_time`,
+                `update_user`
                 )
         VALUES
         <foreach collection="list" item="item" index="index" separator=",">
@@ -154,7 +156,9 @@
             now(),
             #{item.createUser},
             0,
-            0
+            0,
+            now(),
+            #{item.createUser}
             )
         </foreach>
     </insert>
@@ -217,21 +221,11 @@
            torder.order_code,
            torder.create_time,
            torder.order_state,
-           tstore.shop_name,
-           tstore.provinceCode,
-           tstore.cityCode,
-           tstore.distinctCode,
-           tstore.shop_detail_address
+           torder.order_address
         from
-            t_order_manage torder,
-            t_store_bind tbind,
-            t_store_information tstore
+            t_order_manage torder
         where
             torder.order_code = #{orderCode}
-         and
-            tbind.user_code = torder.user_code
-        and
-            tstore.shop_code = tbind.shop_code
          and
             torder.is_delete = 0
     </select>
@@ -243,16 +237,20 @@
             tgoods.orderG_s_price goodSale,
             good.good_prec goodPrec,
             tgoods.orderG_num goodNum,
-            tgoods.orderG_image goodImageUrl
+            tgoods.orderG_image goodImageUrl,
+            store.shop_name as shopName
         from
             t_order_ordergoods tgoods,
-            t_good_manage good
+            t_good_manage good,
+            t_store_information as store
         where
             tgoods.order_code = #{orderCode}
         and
             tgoods.is_delete = 0
         and
             tgoods.good_code = good.good_code
+        and
+            good.good_shop_code =  store.shop_code
     </select>
     <!--查询订单详情映射resultMapp-->
     <resultMap id="queryOrderDetailResultMap" type="com.xzsd.app.order.entity.OrderDetail">
@@ -263,7 +261,7 @@
         <result property="provinceCode" column="provinceCode"/>
         <result property="cityCode" column="cityCode"/>
         <result property="distinctCode" column="distinctCode"/>
-        <result property="detailAddress" column="shop_detail_address"/>
+        <result property="detailAddress" column="order_address"/>
         <collection property="orderGoodsList" javaType="list"  column="orderCode=torder.order_code"  select="selectList" ofType="com.xzsd.app.order.entity.OrderDetailGoodsList">
         </collection>
     </resultMap>
@@ -375,13 +373,30 @@
                 good_lib_save = good_lib_save -#{item.goodNum},
                 good_saleNum = good_saleNum + #{item.goodNum}
             where
-                good_lib_save &gt; #{item.goodNum}
+                good_lib_save &gt;= #{item.goodNum}
             and
                 is_delete = 0
             and
                 good_state = 2
             and
                 now() &gt; good_sale_time
+            and
+                good_code = #{item.goodCode}
+        </foreach>
+    </update>
+    <!--更新商品 状态-->
+    <update id="updateGoodState" parameterType="com.xzsd.app.order.entity.Order">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update
+                t_good_manage
+            set
+                good_state = 4
+            where
+                good_lib_save = 0
+            and
+                is_delete = 0
+            and
+                good_state = 2
             and
                 good_code = #{item.goodCode}
         </foreach>
@@ -420,6 +435,21 @@
                 good_lib_save = good_lib_save + #{item.goodNum}
             where
                 good_code = #{item.goodCode}
+        </foreach>
+    </update>
+    <!--更新商品状态为  在售，因为  有些商品 在没有取消订单之前 是 售空状态 但是库存加回去后，就变成了 在售状态-->
+    <update id="updateGoodSaleState" parameterType="com.xzsd.app.order.entity.GetOrderGoodCodeAndNum">
+        <foreach collection="list" item="item" separator=";">
+            update
+                t_good_manage
+            set
+                good_state = 2
+            where
+                good_code = #{item.goodCode}
+            and
+                good_state  = 4
+            and
+                good_lib_save &gt; 0
         </foreach>
     </update>
     <!--更新订单总价格-->

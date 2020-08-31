@@ -1,5 +1,8 @@
 package com.xzsd.pc.customer.entity;
 
+/**
+ * 用户实体类
+ */
 public class User {
     /**
      * 用户编号
@@ -9,6 +12,16 @@ public class User {
      * 用户角色
      */
     private int userRole;
+    //对应店铺的店铺编号
+    private String shopCode;
+
+    public String getShopCode() {
+        return shopCode;
+    }
+
+    public void setShopCode(String shopCode) {
+        this.shopCode = shopCode;
+    }
 
     public String getUserCode() {
         return userCode;
@@ -31,6 +44,7 @@ public class User {
         return "User{" +
                 "userCode='" + userCode + '\'' +
                 ", userRole=" + userRole +
+                ", shopCode='" + shopCode + '\'' +
                 '}';
     }
 }

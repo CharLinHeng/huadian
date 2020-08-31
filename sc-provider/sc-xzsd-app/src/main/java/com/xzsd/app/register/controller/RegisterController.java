@@ -1,6 +1,7 @@
 package com.xzsd.app.register.controller;
 import com.neusoft.core.restful.AppResponse;
 import com.xzsd.app.register.entity.Register;
+import com.xzsd.app.register.entity.UserInfo;
 import com.xzsd.app.register.service.RegisterService;
 import com.xzsd.app.util.ResponceData;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,4 +49,17 @@ public class RegisterController {
         }
     }
 
+    /**
+     * 修改用户信息
+     * @param userInfo
+     * @return
+     */
+    @PostMapping("udateUserData")
+    public AppResponse udateUserData(UserInfo userInfo){
+        try{
+            return registerService.udateUserData(userInfo);
+        }catch (Exception e){
+            throw e;
+        }
+    }
 }

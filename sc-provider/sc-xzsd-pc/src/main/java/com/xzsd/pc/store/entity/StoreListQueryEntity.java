@@ -23,7 +23,7 @@ public class StoreListQueryEntity {
 
     /**
      *   * 店长姓名
-     *      *
+     *
      */
     private String storeUserName;
     /**
@@ -39,15 +39,15 @@ public class StoreListQueryEntity {
      */
     private String version;
     /**
-     *省
+     *省编号
      */
     private String storeProvince;
     /**
-     *市
+     *市编号
      */
     private String storeCity;
     /**
-     *区
+     *区编号
      */
     private String storeDistinct;
     /**
@@ -58,7 +58,6 @@ public class StoreListQueryEntity {
      *角色
      */
     private int userRole;
-
 
     public String getCurrUserCode() {
         return currUserCode;

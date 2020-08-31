@@ -92,6 +92,8 @@ public class DriverService {
             driverResponsibleAreaOut.setUserName(driverResponsibleAreas.get(i).getUserName());
             //门店手机号
             driverResponsibleAreaOut.setUserPhone(driverResponsibleAreas.get(i).getUserPhone());
+            //门店编号
+            driverResponsibleAreaOut.setStoreCode(driverResponsibleAreas.get(i).getStoreCode());
             //添加到输出队列
             driverResponsibleAreaOuts.add(driverResponsibleAreaOut);
         }

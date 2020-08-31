@@ -1,5 +1,7 @@
 package com.xzsd.app.order.entity;
-
+/**
+ *订单实体类
+ */
 public class Order {
     /**
      * 订单编号

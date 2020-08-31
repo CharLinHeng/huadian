@@ -36,25 +36,16 @@ public class OrderService {
      */
     public AppResponse queryOrderDetail(OrderDetail orderDetail){
         //判断订单编号参数
-        if(null == orderDetail.getOrderCode() || orderDetail.getOrderCode() == ""){
+     if(null == orderDetail.getOrderCode() || orderDetail.getOrderCode() == ""){
             return AppResponse.paramError("订单编号为空!");
         }
         //查询订单详情 这里查到的是还没有转化成地址名称的地址编号结果集 [因为无法用一次sql查出省市区名称，所以我分两步来写]
         OrderDetail orderDetailOut = orderDao.queryOrderDetail(orderDetail.getOrderCode());
-        //拼接待查询的参数实体类
-        DriverResponsibleArea driverResponsibleArea = new DriverResponsibleArea();
-        driverResponsibleArea.setCityCode(orderDetailOut.getCityCode());
-        driverResponsibleArea.setDistinctCode(orderDetailOut.getDistinctCode());
-        driverResponsibleArea.setProvinceCode(orderDetailOut.getProvinceCode());
-        //根据 省市区编号 查询 省市区名称
-        AreaName areaNameList = driverDao.queryPCD(driverResponsibleArea);
-        //将信息传至输出实体类
+
         OrderDetailOut orderDetailOutFinal = new OrderDetailOut();
         //赋值给输出实体类
-        String address = areaNameList.getProvinceName()+areaNameList.getCityName()+areaNameList.getDistinctName()+
-                orderDetailOut.getDetailAddress();
+        String address = orderDetailOut.getDetailAddress();
         orderDetailOutFinal.setDeliveryAddress(address);
-        orderDetailOutFinal.setDeliveryStore(orderDetailOut.getDeliveryStore());
         orderDetailOutFinal.setOrderCode(orderDetailOut.getOrderCode());
         orderDetailOutFinal.setOrderCreateTime(orderDetailOut.getOrderCreateTime());
         orderDetailOutFinal.setOrderGoodsList(orderDetailOut.getOrderGoodsList());
@@ -71,6 +62,7 @@ public class OrderService {
      * @param updateOrder
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public AppResponse updateOrder(UpdateOrder updateOrder){
         if(null == updateOrder.getOrderCode()){
             return AppResponse.paramError("订单编号为空!");
@@ -80,9 +72,11 @@ public class OrderService {
         if(updateOrder.getOrderState() == CANCELORDER){
             //先获取在订单详情列表的 商品编号和数量
             List<GetOrderGoodCodeAndNum>getOrderGoodCodeAndNumList = orderDao.queryOrderGoodCode(updateOrder.getOrderCode());
-            //然后去更新
+            //恢复库存和 减少销售量
             int updateNum = orderDao.updateGoodLibSaveAndSaleNum(getOrderGoodCodeAndNumList);
             if(updateNum > 0){
+                //如果此商品之前是售空状态，那么在加回库存的同时，需要 更新商品状态为 [售空]  到 [在售]
+                orderDao.updateGoodSaleState(getOrderGoodCodeAndNumList);
                 msg = "取消订单成功!";
             }else{
                 return AppResponse.bizError("取消订单失败，请重试!");
@@ -227,7 +221,7 @@ public class OrderService {
                     }
                 }
                 //生成订单后， 需要10分钟之内进行支付，否则 订单删除，商品库存恢复，
-                // 如果支付成功[订单 这里默认支付成功]，那么将纪录添加到顾客表，并且将 订单商品详情增加到对应表
+                // 如果支付成功[订单这里  默认支付成功]，将 订单商品详情 增加到对应的订单详情表
                 UpdateOrderPrice updateOrderPrice = new UpdateOrderPrice();
                 double allPrice = 0;
                 List<Order> orderList = orderDao.queryOrderList(newCartCodeList);
@@ -235,6 +229,8 @@ public class OrderService {
                     //给每个订单商品详情随机生成订单详情编号
                     orderList.get(i).setOrderGCode(RandomCode.radmonkey());
                     orderList.get(i).setOrderCode(addOrder.getOrderCode());
+                    //生成创建用户
+                    orderList.get(i).setCreateUser(SecurityUtils.getCurrentUserUsername());
                     //计算总价格
                     allPrice += orderList.get(i).getGoodNum()*orderList.get(i).getGoodPrice();
                 }
@@ -242,6 +238,8 @@ public class OrderService {
                 if(orderList.size() > 0){
                     // 还要将 对应的 商品库存 数量减少 指定 购买的商品数量 然后 售出数量 + 对应数量
                     orderDao.updateGoodRelative(orderList);
+                    //更改状态，比如 商品数量为0 则改为售空状态
+                    orderDao.updateGoodState(orderList);
                     //新增到订单详情表
                     result = orderDao.addOrderList(orderList);
                     //更新订单总价格  而且需要存 门店编号
@@ -251,16 +249,7 @@ public class OrderService {
                     int updateCount = orderDao.updateOrderCount(updateOrderPrice);
                     //判断新增到 订单详情列表的 结果
                     if(result > 0){
-                        //添加到顾客表 addOrder 和订单编号
-                        Customer customer = orderDao.queryCustomerData(addOrder.getUserCode());
-                        customer.setCustomerCode(RandomCode.radmonkey());
-                        customer.setUserCode(addOrder.getUserCode());
-                        customer.setCustomerOrder(addOrder.getOrderCode());
-                        result = orderDao.addCustomer(customer);
-                        if(result > 0){
-                            msg = msg + "新建客户成功!";
-                        }
-                        //判断哪些商品是售空的了，需要改状态为 售空
+                        //由于已经在商品详情页判断商品是否售空的了，所以这里不许需要改状态为售空
                         //下单成功后，需要清空对应的购物车
                         int empty = orderDao.clearEmpty(cartCodeList);
                         if(empty > 0){

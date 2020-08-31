@@ -35,11 +35,15 @@ public class PassWordService {
         passWord.setUserCode(SecurityUtils.getCurrentUserId());
         //根据编号，获取当前登入用户的  角色
         User user = passWordDao.queryCurrUser(passWord.getUserCode());
+        //如果没获取到，那么去司机表中找
+        if(null == user){
+            user = passWordDao.queryCurrDriver(passWord.getUserCode());
+            user.setUserRole(DRIVERROLE);
+        }
         //设置角色
         passWord.setUserRole(user.getUserRole());
         //新密码加密
         passWord.setCinPass(PasswordUtils.generatePassword(passWord.getCinPass()));
-//        passWord.setUserPass(PasswordUtils.generatePassword(passWord.getUserPass()));
         //店长 用户 司机 原来密码查询
         PassWord passWordOrigin = passWordDao.getOrignPass(passWord);
         //比较原密码

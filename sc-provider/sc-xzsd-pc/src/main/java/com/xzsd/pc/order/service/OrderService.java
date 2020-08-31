@@ -74,8 +74,8 @@ public class OrderService {
                 msg = "";
         }
         //修改
-        int result = orderDao.updateOrderState(stringList,Integer.parseInt(orderUpdate.getOrderState()),orderUpdate.getUpdateUser(),
-                orderUpdate.getVersion());
+        int result = orderDao.updateOrderState(stringList,Integer.parseInt(orderUpdate.getOrderState()),
+                orderUpdate.getUpdateUser(), orderUpdate.getVersion());
         if(result > 0 ){
             return AppResponse.success("修改成功!",result);
         }

@@ -24,4 +24,11 @@ public interface PassWordDao {
      * @return
      */
     User queryCurrUser(@Param("userCode")String userCode);
+
+    /**
+     * 查询司机信息
+     * @param userCode
+     * @return
+     */
+    User queryCurrDriver(@Param("userCode")String userCode);
 }

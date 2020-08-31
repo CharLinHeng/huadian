@@ -21,7 +21,6 @@ import java.util.List;
 public class GoodClassifiService {
     @Resource
     GoodClassifiDao goodClassifiDao;
-    final static int MAXNODE = 100000;
     /**
      * 新增一级分类
      * @param goodClassification
@@ -132,15 +131,15 @@ public class GoodClassifiService {
         //如果是1级分类，那么还要判断是否拥有 二级分类 否则不能删
         if(rank.equals("1")){
             //删除一级分类所拥有的二级分类
-            int result_deleteSec = goodClassifiDao.countOneBelongSecondClassNum(codesList.get(0));
-            if(result_deleteSec > 0){
-                return AppResponse.paramError("该一级分类附属的二级分类有"+String.format("%d",result_deleteSec)+"个，因此不能删除!");
+            int resultDeleteSec = goodClassifiDao.countOneBelongSecondClassNum(codesList.get(0));
+            if(resultDeleteSec > 0){
+                return AppResponse.paramError("该一级分类附属的二级分类有"+String.format("%d",resultDeleteSec)+"个，因此不能删除!");
             }
         }else{
             //这里是想删二级分类 需要判断是否还有对应的商品，否则不能删
-            int result_deleteSec = goodClassifiDao.countSecondClassBelongGood(codesList.get(0));
-            if(result_deleteSec > 0){
-                return AppResponse.paramError("该二级分类附属的商品有"+String.format("%d",result_deleteSec)+"个，因此不能删除!");
+            int resultDeleteSec = goodClassifiDao.countSecondClassBelongGood(codesList.get(0));
+            if(resultDeleteSec > 0){
+                return AppResponse.paramError("该二级分类附属的商品有"+String.format("%d",resultDeleteSec)+"个，因此不能删除!");
             }
         }
         //可以删除

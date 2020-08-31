@@ -22,7 +22,6 @@ import java.util.List;
 public class ShoppingCartService {
     @Resource
     private ShoppingCartDao shoppingCartDao;
-
     /**
      * 新增购物车
      * @param addShoppingCart

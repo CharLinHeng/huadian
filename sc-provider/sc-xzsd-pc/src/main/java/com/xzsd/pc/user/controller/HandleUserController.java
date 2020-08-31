@@ -11,9 +11,7 @@ import com.xzsd.pc.user.entity.User;
 import com.xzsd.pc.user.services.RedisService;
 import com.xzsd.pc.user.services.UserServices;
 import com.xzsd.pc.util.RandomCode;
-
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 /**
  * @Description 用户增删改查
  * @Author zhonghecheng
@@ -49,7 +47,6 @@ public class HandleUserController {
      */
     @PostMapping("queryUser")
     public AppResponse queryUser(User user){
-
         try {
             AppResponse AppResponse = userServices.queryUser(user);
             return AppResponse;
@@ -73,7 +70,6 @@ public class HandleUserController {
      */
     @PostMapping("updateUser")
     public AppResponse updateUser(User user){
-
         try {
             user.setUpdateUser(SecurityUtils.getCurrentUserUsername());
             AppResponse AppResponse = userServices.updateUser(user);
@@ -111,7 +107,6 @@ public class HandleUserController {
      */
     @PostMapping("queryUserList")
     public AppResponse queryUserList(User user){
-
         try {
             AppResponse AppResponse = userServices.queryUserList(user);
             return AppResponse;

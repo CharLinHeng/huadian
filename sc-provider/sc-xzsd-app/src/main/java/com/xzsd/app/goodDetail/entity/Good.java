@@ -41,6 +41,18 @@ public class Good {
      * 商品销售量
      */
     private int goodSaleNum;
+    /**
+     * 商品状态
+     */
+    private int goodState;
+
+    public int getGoodState() {
+        return goodState;
+    }
+
+    public void setGoodState(int goodState) {
+        this.goodState = goodState;
+    }
 
     public double getGoodRank() {
         return goodRank;

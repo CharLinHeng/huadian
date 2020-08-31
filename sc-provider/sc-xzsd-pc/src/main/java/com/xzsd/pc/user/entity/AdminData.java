@@ -1,5 +1,4 @@
 package com.xzsd.pc.user.entity;
-
 public class AdminData {
     /**
      *用户编号

@@ -1,6 +1,4 @@
 package com.xzsd.pc.driver.controller;
-
-
 import com.neusoft.core.restful.AppResponse;
 import com.xzsd.pc.driver.entity.Driver;
 import com.xzsd.pc.driver.entity.DriverListParamter;
@@ -12,21 +10,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-
 @RestController
 @RequestMapping("/driver")
 public class DriverController {
     @Resource
     private DriverService driverService;
     @ResponseBody
-
     /**
      * 司机信息新增
      * zhc
      * 2020年4月8日11:00:02
      */
     @PostMapping("addDriver")
-
     public AppResponse addDriver(Driver driver){
         try{
             return driverService.addDriver(driver);
@@ -34,7 +29,6 @@ public class DriverController {
             throw  e;
         }
     }
-
     /**
      * 司机信息修改
      * @param updateDriver

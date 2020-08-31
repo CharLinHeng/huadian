@@ -28,7 +28,6 @@ public class HotGoodService {
     @Transactional(rollbackFor = Exception.class)
     public AppResponse addHotGood(HotGood hotGood) {
         if(null == hotGood.getGoodCode() || hotGood.getGoodCode()==""){
-            
             return AppResponse.paramError("商品编号参数需指定");
         }
         if(hotGood.getHotGoodSort() == 0){
@@ -58,12 +57,12 @@ public class HotGoodService {
      */
     public AppResponse queryGoodsList(HttpServletRequest httpServletRequestrequest, HotGoodQuery hotGoodQuery){
         //判断前端是否有参数传过来
-        if(null == httpServletRequestrequest.getParameter("pageNum") || httpServletRequestrequest.getParameter("pageNum") ==""
-                || Integer.parseInt(httpServletRequestrequest.getParameter("pageNum")) == 0){
+        if(null == httpServletRequestrequest.getParameter("pageNum") || httpServletRequestrequest.getParameter("pageNum")
+                =="" || Integer.parseInt(httpServletRequestrequest.getParameter("pageNum")) == 0){
             return AppResponse.paramError("分页号不能为空或者为0!");
         }
-        if(null == httpServletRequestrequest.getParameter("pageSize") || httpServletRequestrequest.getParameter("pageSize") ==""
-                || Integer.parseInt(httpServletRequestrequest.getParameter("pageSize")) == 0){
+        if(null == httpServletRequestrequest.getParameter("pageSize") || httpServletRequestrequest.getParameter("pageSize")
+                =="" || Integer.parseInt(httpServletRequestrequest.getParameter("pageSize")) == 0){
             return AppResponse.paramError("分页显示数量不能为空或者为0!");
         }
         //查询
@@ -162,10 +161,12 @@ public class HotGoodService {
         if(null == httpServletRequest.getParameter("pageNum") || httpServletRequest.getParameter("pageNum") == ""){
             return AppResponse.paramError("页号不能为空");
         }
-        if(null == httpServletRequest.getParameter("pageSize") || httpServletRequest.getParameter("pageSize") =="" || Integer.parseInt(httpServletRequest.getParameter("pageSize")) == 0){
+        if(null == httpServletRequest.getParameter("pageSize") || httpServletRequest.getParameter("pageSize") ==""
+                || Integer.parseInt(httpServletRequest.getParameter("pageSize")) == 0){
             return AppResponse.paramError("分页显示数量不能为空或者为0!");
         }
-        PageHelper.startPage(Integer.parseInt(httpServletRequest.getParameter("pageNum")),Integer.parseInt(httpServletRequest.getParameter("pageSize")));
+        PageHelper.startPage(Integer.parseInt(httpServletRequest.getParameter("pageNum")),
+                Integer.parseInt(httpServletRequest.getParameter("pageSize")));
         List<HotGoodList>hotGoodLists = hotGoodDao.queryHotGoodsList(hotGoodList);
         PageInfo<HotGoodList>hotGoodListPageInfo = new PageInfo<>(hotGoodLists);
         if(hotGoodLists.size() == 0){
@@ -173,7 +174,6 @@ public class HotGoodService {
         }
         return AppResponse.success("查询成功!",hotGoodListPageInfo);
     }
-
     /**
      *  热门商品位详情
      * @param hotGood
@@ -189,6 +189,11 @@ public class HotGoodService {
         }
         return AppResponse.success("查询成功",hotGoodDetail);
     }
+
+    /**
+     * 查询热门商品展示数量
+     * @return
+     */
     public AppResponse queryHotGoodNum(){
         return AppResponse.success("查询成功!",hotGoodDao.queryGoodNum());
     }

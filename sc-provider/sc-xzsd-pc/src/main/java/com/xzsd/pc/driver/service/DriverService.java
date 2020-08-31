@@ -1,5 +1,4 @@
 package com.xzsd.pc.driver.service;
-
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.neusoft.core.restful.AppResponse;
@@ -10,11 +9,9 @@ import com.xzsd.pc.driver.entity.*;
 import com.xzsd.pc.util.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
-
 /**
  * @DescriptionDemo 司机服务类
  * @Author zhonghecheng
@@ -198,7 +195,6 @@ public class DriverService {
             return AppResponse.paramError("页号或者页数量参数不能为空!");
         }
         //获取当前登入用户的编号和角色 ,如果是店长，那么只查找它的店的地址
-        //从Redis中根据token获取，但是没做登入，这里先指定一个账号进行测试
         String userName = SecurityUtils.getCurrentUserUsername();
         User user = customerDao.queryCurrUser(userName);
         if(null == user){

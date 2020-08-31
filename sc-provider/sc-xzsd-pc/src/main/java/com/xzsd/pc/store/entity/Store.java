@@ -13,15 +13,14 @@ public class Store {
      *
      */
     private String storeName;
-
     /**
      * 联系电话
      *
      */
     private String storePhone;
     /**
-     *   * 店长编号
-     *      *
+     * 店长编号
+     *
      */
     private String userCode;
     /**
@@ -31,24 +30,20 @@ public class Store {
     private String storeBusinessLicense;
     /**
      * * 省编号
-
      */
     private String storeProvinceCode;
     /**
      *   市编号
-
      */
     private String storeCityCode;
     /**
      *  区编号
-
      */
     private String storeDistinctCode;
     /**
      *  详细地址
      */
     private String storeDetailAddress;
-
     /**
      * 门店邀请码
      */
@@ -57,11 +52,9 @@ public class Store {
      * 修改用户
      */
     private String updateUser;
-
     /**
      * 版本号
      */
-
     private String version;
 
     public String getVersion() {

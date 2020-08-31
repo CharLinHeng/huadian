@@ -1,5 +1,7 @@
 package com.xzsd.pc.driver.entity;
-
+/**
+ * 司机列表参数实体类
+ */
 public class DriverListParamter {
     /**
      * 司机编号

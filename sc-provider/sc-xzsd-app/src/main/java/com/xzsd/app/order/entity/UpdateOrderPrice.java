@@ -1,8 +1,19 @@
 package com.xzsd.app.order.entity;
-
+/**
+ *更新订单价格
+ */
 public class UpdateOrderPrice {
+    /**
+     *订单编号
+     */
     private String orderCode;
+    /**
+     *价格
+     */
     private double price;
+    /**
+     *更新用户
+     */
     private String updateUser;
 
     public String getOrderCode() {

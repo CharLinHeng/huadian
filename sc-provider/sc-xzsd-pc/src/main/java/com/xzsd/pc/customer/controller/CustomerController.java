@@ -1,16 +1,11 @@
 package com.xzsd.pc.customer.controller;
-
-
 import com.neusoft.core.restful.AppResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.xzsd.pc.customer.entity.Customer;
 import com.xzsd.pc.customer.service.CustomerService;
-import com.xzsd.pc.util.ResponceData;
-
 import javax.annotation.Resource;
-
 /**
  * 顾客列表查询
  */
@@ -19,7 +14,6 @@ import javax.annotation.Resource;
 public class CustomerController {
     @Resource
     private CustomerService customerService;
-
     @PostMapping("queryCustomer")
     public AppResponse queryCustomer(Customer customer){
         try{

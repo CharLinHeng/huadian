@@ -1,5 +1,8 @@
 package com.xzsd.pc.customer.entity;
 
+/**
+ * 顾客实体列
+ */
 public class Customer {
     /**
      * 顾客编号
@@ -15,8 +18,6 @@ public class Customer {
      * 顾客账号
      */
     private String customerAcc;
-
-
     /**
      * 顾客性别
      */

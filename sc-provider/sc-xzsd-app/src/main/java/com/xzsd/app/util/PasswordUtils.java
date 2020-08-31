@@ -12,7 +12,6 @@ public class PasswordUtils {
 
     /**
      * 生成加密后的密码
-     *
      * @param rawPassword 原密码
      * @return 加密后的密码
      */

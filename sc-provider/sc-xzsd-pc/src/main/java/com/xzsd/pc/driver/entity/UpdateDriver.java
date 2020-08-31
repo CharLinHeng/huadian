@@ -1,5 +1,8 @@
 package com.xzsd.pc.driver.entity;
 
+/**
+ * 司机更新实体类
+ */
 public class UpdateDriver {
     /**
      * 司机编号

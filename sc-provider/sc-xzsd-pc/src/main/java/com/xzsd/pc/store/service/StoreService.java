@@ -1,6 +1,4 @@
 package com.xzsd.pc.store.service;
-
-
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.neusoft.core.restful.AppResponse;
@@ -27,7 +25,6 @@ import java.util.List;
  */
 @Service
 public class StoreService {
-
     @Resource
     private StoreDao storeDao;
     @Resource
@@ -38,10 +35,8 @@ public class StoreService {
      * @param store
      * @return
      */
-    
     @Transactional(rollbackFor = Exception.class)
     public AppResponse addStore(Store store){
-
         //判断参数
         if(null == store.getStoreName() || store.getStoreName() == ""){
             return AppResponse.paramError("门店名称不能为空!");
@@ -67,12 +62,7 @@ public class StoreService {
         if(null == store.getStoreDetailAddress() || store.getStoreDetailAddress() == ""){
             return AppResponse.paramError("详细地址不能为空!");
         }
-        //判断店铺是否已经存在
-        //门店名称
-        if(storeDao.count(store.getStoreName(),null,null) > 0 ){
-            return AppResponse.paramError("门店名称已经存在！");
-        }
-        //营业执照
+        //判断店铺是否已经存在 营业执照
         if(storeDao.count(null,store.getStoreBusinessLicense(),null) > 0 ){
             return AppResponse.paramError("门店营业执照已经存在！");
         }
@@ -81,6 +71,10 @@ public class StoreService {
         queryUserStore.setUserCode(store.getUserCode());
         if(storeDao.countStoreUserCode(queryUserStore) == 0){
             return AppResponse.paramError("门店商家不存在！");
+        }
+        //判断该店长是否已经绑定了店铺
+        if(storeDao.countUserHasBindStore(store) > 0){
+            return AppResponse.bizError("该店长已经绑定了店铺了!");
         }
         //邀请码
         store.setInvestCode(RandomCode.random_GoodClassifiCationCode());
@@ -94,7 +88,6 @@ public class StoreService {
         }
         return AppResponse.paramError("新增失败!");
     }
-
     /**
      * 省数据查询
      * @return
@@ -129,7 +122,7 @@ public class StoreService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse updateStore(Store store){
-        //各种判断
+        //判断
         if(null == store.getStoreCode() || store.getStoreCode() =="" ){
             return AppResponse.paramError("门店编号参数为空!");
         }
@@ -138,9 +131,6 @@ public class StoreService {
         }
         if(null == store.getStorePhone() || store.getStorePhone() =="" ){
             return AppResponse.paramError("联系电话参数为空!");
-        }
-        if(null == store.getUserCode() || store.getUserCode() =="" ){
-            return AppResponse.paramError("店长编号参数为空!");
         }
         if(null == store.getStoreBusinessLicense() || store.getStoreBusinessLicense() =="" ){
             return AppResponse.paramError("营业执照参数为空!");
@@ -160,11 +150,6 @@ public class StoreService {
         if(null == store.getVersion() || store.getVersion() =="" ){
             return AppResponse.paramError("版本号参数为空!");
         }
-        //判断 店名称、营业执照
-        //门店名称
-        if(storeDao.count(store.getStoreName(),null,store.getStoreCode()) > 0 ){
-            return AppResponse.paramError("门店名称已经存在！");
-        }
         //营业执照
         if(storeDao.count(null,store.getStoreBusinessLicense(),store.getStoreCode()) > 0 ){
             return AppResponse.paramError("门店营业执照已经存在！");
@@ -174,6 +159,10 @@ public class StoreService {
         queryUserStore.setUserCode(store.getUserCode());
         if(storeDao.countStoreUserCode(queryUserStore) == 0){
             return AppResponse.paramError("门店商家不存在！");
+        }
+        //判断该店长是否已经绑定了店铺
+        if(storeDao.countUserHasBindStore(store) > 0){
+            return AppResponse.bizError("该店长已经绑定了店铺了!");
         }
         //当前用户
         store.setUpdateUser(SecurityUtils.getCurrentUserUsername());
@@ -201,7 +190,6 @@ public class StoreService {
         }
         return AppResponse.paramError("删除失败!");
     }
-
     /**
      *  门店信息详情
      * @param store
@@ -221,6 +209,7 @@ public class StoreService {
     /**
      * 门店信息列表查询
      * @param storeListQueryEntity
+     * @param httpServletRequest
      * @return
      */
     public AppResponse queryStoreList(StoreListQueryEntity storeListQueryEntity, HttpServletRequest httpServletRequest){
@@ -235,14 +224,15 @@ public class StoreService {
         }
         //获取当前用户登入编号
         String userAccount = SecurityUtils.getCurrentUserUsername();
+        //查询当前登入用户信息
         User user = customerDao.queryCurrUser(userAccount);
         if(null == user){
             return AppResponse.bizError("司机不可以查看这里的模块");
         }
         storeListQueryEntity.setCurrUserCode(user.getUserCode());
         storeListQueryEntity.setUserRole(user.getUserRole());
-        //开始
-        PageHelper.startPage(Integer.parseInt(httpServletRequest.getParameter("pageNum")),Integer.parseInt(httpServletRequest.getParameter("pageSize")));
+        PageHelper.startPage(Integer.parseInt(httpServletRequest.getParameter("pageNum")),
+                Integer.parseInt(httpServletRequest.getParameter("pageSize")));
         List<StoreListQueryEntity>listQueryEntities = storeDao.queryStoreList(storeListQueryEntity);
         PageInfo<StoreListQueryEntity>storeListQueryEntityPageInfo = new PageInfo<>(listQueryEntities);
         //判断结果
@@ -253,7 +243,9 @@ public class StoreService {
     }
 
     /**
-     * 新增门店之 商家列表查询
+     * 新增门店的   商家列表查询
+     * @param queryUserStore
+     * @param httpServletRequest
      * @return
      */
     public AppResponse queryUserStore(QueryUserStore queryUserStore,HttpServletRequest httpServletRequest){

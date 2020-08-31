@@ -1,13 +1,10 @@
 package com.xzsd.pc.customer.dao;
-
-
 import com.xzsd.pc.customer.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import com.xzsd.pc.customer.entity.Customer;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
 @Mapper
 public interface CustomerDao {
     /**

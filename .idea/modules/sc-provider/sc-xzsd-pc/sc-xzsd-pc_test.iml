@@ -133,12 +133,12 @@
     <orderEntry type="library" name="Gradle: org.springframework:spring-expression:4.3.14.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: io.reactivex:rxnetty-contexts:0.4.9" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-core:4.3.14.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.reactivex:rxnetty:0.4.9" level="project" />
     <orderEntry type="library" name="Gradle: com.netflix.eureka:eureka-client:1.7.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.reactivex:rxnetty:0.4.9" level="project" />
     <orderEntry type="library" name="Gradle: com.netflix.eureka:eureka-core:1.7.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.netflix.netflix-commons:netflix-commons-util:0.1.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.netflix.netflix-commons:netflix-statistics:0.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.netflix.ribbon:ribbon-eureka:2.2.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.netflix.netflix-commons:netflix-statistics:0.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.thoughtworks.xstream:xstream:1.4.10" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.tomcat.embed:tomcat-embed-websocket:8.5.27" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.tomcat.embed:tomcat-embed-core:8.5.27" level="project" />
@@ -161,8 +161,8 @@
     <orderEntry type="library" name="Gradle: com.netflix.hystrix:hystrix-core:1.5.12" level="project" />
     <orderEntry type="library" name="Gradle: com.netflix.archaius:archaius-core:0.7.4" level="project" />
     <orderEntry type="library" name="Gradle: commons-configuration:commons-configuration:1.8" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.yaml:snakeyaml:1.17" level="project" />
     <orderEntry type="library" name="Gradle: com.netflix.ribbon:ribbon:2.2.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.yaml:snakeyaml:1.17" level="project" />
     <orderEntry type="library" name="Gradle: com.netflix.ribbon:ribbon-core:2.2.5" level="project" />
     <orderEntry type="library" name="Gradle: com.netflix.ribbon:ribbon-httpclient:2.2.5" level="project" />
     <orderEntry type="library" name="Gradle: com.netflix.ribbon:ribbon-loadbalancer:2.2.5" level="project" />
@@ -186,10 +186,10 @@
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.sun.jersey:jersey-client:1.19.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.sun.jersey:jersey-core:1.19.1" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.12" level="project" />
-    <orderEntry type="library" name="Gradle: org.javassist:javassist:3.21.0-GA" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.ws.rs:jsr311-api:1.1.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.codehaus.woodstox:woodstox-core-asl:4.4.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.javassist:javassist:3.21.0-GA" level="project" />
     <orderEntry type="library" name="Gradle: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.codehaus.woodstox:woodstox-core-asl:4.4.1" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
     <orderEntry type="library" name="Gradle: org.jvnet:animal-sniffer-annotation:1.0" level="project" />
     <orderEntry type="library" name="Gradle: net.bytebuddy:byte-buddy:1.7.9" level="project" />

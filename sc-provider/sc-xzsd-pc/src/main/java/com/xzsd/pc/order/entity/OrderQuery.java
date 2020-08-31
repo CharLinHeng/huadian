@@ -43,6 +43,27 @@ public class OrderQuery {
      */
     private int userRole;
 
+
+    private String logisticsCompany;
+
+    private String logisticsCourierNumber;
+
+    public String getLogisticsCompany() {
+        return logisticsCompany;
+    }
+
+    public void setLogisticsCompany(String logisticsCompany) {
+        this.logisticsCompany = logisticsCompany;
+    }
+
+    public String getLogisticsCourierNumber() {
+        return logisticsCourierNumber;
+    }
+
+    public void setLogisticsCourierNumber(String logisticsCourierNumber) {
+        this.logisticsCourierNumber = logisticsCourierNumber;
+    }
+
     public String getUserCode() {
         return userCode;
     }

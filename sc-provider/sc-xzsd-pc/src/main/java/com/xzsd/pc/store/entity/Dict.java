@@ -8,15 +8,14 @@ public class Dict {
      * 地区编号
      */
     private String areaCode;
-
     /**
      * 地区名称
      */
     private String areaName;
-
-
+    /**
+     * 字典类型
+     */
     private String dictType;
-
     public String getDictType() {
         return dictType;
     }

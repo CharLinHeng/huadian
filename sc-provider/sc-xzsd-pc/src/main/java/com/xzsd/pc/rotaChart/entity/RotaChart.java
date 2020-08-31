@@ -1,5 +1,7 @@
 package com.xzsd.pc.rotaChart.entity;
-
+/**
+ * 轮播图实体列
+ */
 public class RotaChart {
     /**
      * 轮播图编号

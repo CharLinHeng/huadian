@@ -79,4 +79,16 @@ public class RegisterService {
         }
         return AppResponse.bizError("获取失败");
     }
+    /**
+     * 修改用户信息
+     * @return
+     */
+    public AppResponse udateUserData(UserInfo userInfo){
+        userInfo.setUserCode(SecurityUtils.getCurrentUserId());
+        int result = registerDao.updateUserInfo(userInfo);
+        if(result > 0){
+            return AppResponse.success("修改成功!");
+        }
+        return AppResponse.bizError("修改失败!");
+    }
 }

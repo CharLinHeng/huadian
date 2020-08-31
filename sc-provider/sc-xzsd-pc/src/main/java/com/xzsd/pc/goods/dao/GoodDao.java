@@ -1,6 +1,5 @@
 package com.xzsd.pc.goods.dao;
-
-
+import com.xzsd.pc.customer.entity.User;
 import com.xzsd.pc.goods.entity.GoodClassifi;
 import com.xzsd.pc.goods.entity.GoodList;
 import org.apache.ibatis.annotations.Mapper;
@@ -77,5 +76,12 @@ public interface GoodDao {
      * @return
      */
     int deleteHotGoods(@Param("list")List<String>listCodes);
+
+    /**
+     * 根据用户id查找角色
+     * @param user
+     * @return
+     */
+    User getUserRole(@Param("userCode") String  user);
 
 }

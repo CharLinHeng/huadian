@@ -1,13 +1,9 @@
 package com.xzsd.pc.driver.dao;
-
-
 import com.xzsd.pc.driver.entity.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
-
 @Mapper
 public interface DriverDao {
 

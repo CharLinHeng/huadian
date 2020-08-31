@@ -114,7 +114,8 @@
         user_email userEmail,
         user_id_card userIdCard,
         user_integral userIntegral,
-        user_role userRole
+        user_role userRole,
+        user_judge_examine as userJudgeExamine
         from
         t_user_infomation
         where
@@ -182,4 +183,25 @@
         and
             user_code = #{userCode}
     </select>
+
+    <!--批量设置通过-->
+    <!--<update id="updateUserJudgePass" parameterType="com.xzsd.pc.customer.entity.User" >-->
+          <!--update-->
+              <!--t_user_infomation-->
+          <!--set-->
+              <!--user_judge_examine = '1',-->
+              <!--version = version + 1,-->
+              <!--update_time = now(),-->
+              <!--update_by = #{userCode}-->
+          <!--where-->
+              <!--is_delete = 0-->
+          <!--and-->
+              <!--user_code in-->
+              <!--<foreach collection="list" item="item" index="index" separator="," open="(" close=")">-->
+                  <!--#{item}-->
+              <!--</foreach>-->
+    <!--</update>-->
+
+
+
 </mapper>

@@ -36,6 +36,7 @@
               torder.user_code = tbind.user_code
           and
               torder.user_code = tuser.user_code
+          order by torder.create_time desc
     </select>
     <!--查询用户订单列表详情-->
     <select id="queryStoreOrderListListUnit" parameterType="com.xzsd.app.store.entity.StoreOrderListParam" resultType="com.xzsd.app.store.entity.StoreOrderListUnit">

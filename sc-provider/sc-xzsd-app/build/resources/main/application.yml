@@ -15,14 +15,14 @@ security:
   sessions: stateless
 spring:
   redis:
-    host: 47.92.101.6
-    password: dnc.2009
+    host: 127.0.0.1
+#    password: dnc.2009
     database: 9
   datasource:
     name: dataSource
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/xzsd?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/movestore?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true
     username: root
     password: root
     druid:
@@ -59,7 +59,7 @@ mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
 sc:
   cloud:
-    dev: true
+    debug: true
     task:
       core-pool-size: 20
       max-pool-size: 50

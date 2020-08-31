@@ -1,5 +1,7 @@
 package com.xzsd.pc.driver.entity;
-
+/**
+ * 司机详情实体类
+ */
 public class DriverDetail {
     /**
      * 司机名称
@@ -13,8 +15,6 @@ public class DriverDetail {
      * 司机手机
      */
     private String driverPhone;
-
-
     /**
      * 司机密码
      */
@@ -55,7 +55,9 @@ public class DriverDetail {
      * 版本号
      */
     private String version;
-
+    /**
+     * 司机头像
+     */
     private String driverImage;
 
     public String getDriverImage() {

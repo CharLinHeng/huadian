@@ -1,6 +1,4 @@
 package com.xzsd.pc.hotGood.controller;
-
-
 import com.neusoft.core.restful.AppResponse;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,30 +9,22 @@ import com.xzsd.pc.hotGood.entity.*;
 import com.xzsd.pc.hotGood.service.HotGoodService;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
 @RestController
 @RequestMapping("/hotGoodManage")
 public class HotGoodController {
     @Resource
     private HotGoodService hotGoodService;
-
-
     @ResponseBody
-
     /**
      * 热门商品位新增
      */
     @PostMapping("addHotGood")
     public AppResponse addHotGood(HotGood hotGood){
         try{
-            
            return hotGoodService.addHotGood(hotGood);
-            
         }catch (Exception e){
             throw e;
         }
-
-
     }
 
     /**

@@ -1,5 +1,8 @@
 package com.xzsd.pc.hotGood.entity;
 
+/**
+ * 热门商品实体类
+ */
 public class HotGood {
     /**
      * 热门商品位编号

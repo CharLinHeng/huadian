@@ -69,31 +69,6 @@
             #{item}
         </foreach>
     </update>
-    <!--商品列表查询之子查询-->
-    <!--<select id="llistSecond" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassificationSon"-->
-    <!--resultType="com.xzsd.pc.goodclassification.entity.GoodClassificationSon">-->
-    <!--select-->
-    <!--clas_code classCode,-->
-    <!--clas_name className,-->
-    <!--clas_rank classRank-->
-    <!--from-->
-    <!--t_goods_classification_manage-->
-    <!--where-->
-    <!--is_delete = 0-->
-    <!--</select>-->
-    <!--resultMap 返回双重嵌套[方法2]-->
-    <!--<resultMap id="queryGoodClassListMap" type="com.xzsd.pc.goodclassification.entity.GoodClassificationList">-->
-    <!--<id property="classCode" column="clas_code"/>-->
-    <!--<result property="className" column="clas_name"/>-->
-    <!--&lt;!&ndash;<collection property="secondClassificationList"  column="clas_code"  javaType="List"&ndash;&gt;-->
-    <!--&lt;!&ndash;ofType="com.xzsd.pc.goodclassification.entity.GoodClassificationSon" resultMap="sonResult" select="llistSecond"/>&ndash;&gt;-->
-    <!--</resultMap>-->
-    <!--<resultMap type="com.xzsd.pc.goodclassification.entity.GoodClassificationSon" id="sonResult">-->
-    <!--<id property="classCode" column="clas_code"/>-->
-    <!--<result property="className" column="clas_name"/>-->
-    <!--</resultMap>-->
-
-
     <!--计数，是否含有同类名称的分了,自己需要排除-->
     <select id="countClassName" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification" resultType="int">
         select count(*) from t_goods_classification_manage
@@ -146,7 +121,6 @@
       and
          clas_code = #{classCode}
     </update>
-
     <!--判断一级分类附属的二级分类数量-->
     <select id="countOneBelongSecondClassNum" parameterType="com.xzsd.pc.goodclassification.entity.GoodClassification" resultType="int">
         select

@@ -29,7 +29,8 @@
             `update_user`,
             `is_delete`,
             `version`,
-            `good_store_name`
+            `good_store_name`,
+            `good_shop_code`
             )
          VALUES
         (
@@ -57,7 +58,8 @@
             '',
             0,
             0,
-            #{storeName}
+            #{storeName},
+            #{goodShopCode}
         )
     </insert>
     <!--删除商品-->
@@ -175,6 +177,9 @@
         <if test="null !=goodState and goodState!=''">
             and tgood.good_state = #{goodState}
         </if>
+        <if test="null != goodShopCode and goodShopCode != ''">
+            and tgood.good_shop_code = #{goodShopCode}
+        </if>
         order  by
             tgood.good_createTime
         desc
@@ -267,4 +272,20 @@
         and
             is_delete = 0
     </update>
+    <!--根据角色id，返回角色权限 再找到该店家的id-->
+    <select id="getUserRole" parameterType="java.lang.String" resultType="com.xzsd.pc.customer.entity.User">
+        select
+            t.user_role as userRole,
+            store.shop_code  as shopCode
+        from
+            t_user_infomation  as t,
+            t_store_information as store
+        where
+          t.is_delete = 0
+        and
+          t.user_code = #{userCode}
+        and
+          t.user_code =  store.shop_con_user
+        limit 0,1
+    </select>
 </mapper>

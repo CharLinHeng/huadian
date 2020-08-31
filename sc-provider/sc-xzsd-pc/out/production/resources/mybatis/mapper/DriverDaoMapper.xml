@@ -196,5 +196,4 @@
         and
             driver_code = #{driverCode}
     </select>
-
 </mapper>

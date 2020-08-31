@@ -1,6 +1,4 @@
 package com.xzsd.pc.store.controller;
-
-
 import com.neusoft.core.restful.AppResponse;
 import com.xzsd.pc.store.entity.QueryUserStore;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,16 +9,13 @@ import com.xzsd.pc.store.entity.Dict;
 import com.xzsd.pc.store.entity.Store;
 import com.xzsd.pc.store.entity.StoreListQueryEntity;
 import com.xzsd.pc.store.service.StoreService;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
 @RestController
 @RequestMapping("/store")
 public class StoreController {
     @Resource
     private StoreService storeService;
-
     /**
      * 新增门店
      * @return
@@ -29,15 +24,11 @@ public class StoreController {
     @PostMapping("addStore")
     public AppResponse addStore(Store store){
         try {
-            
             return  storeService.addStore(store);
-            
         }catch (Exception e){
             throw e;
         }
-
     }
-
     /**
      * 省数据查询
      * @return

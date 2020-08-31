@@ -1,5 +1,7 @@
 package com.xzsd.pc.driver.entity;
-
+/**
+ * 司机实体类
+ */
 public class Driver {
     /**
      * 司机编号

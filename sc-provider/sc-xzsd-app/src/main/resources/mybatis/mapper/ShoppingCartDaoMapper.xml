@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzsd.app.shoppingCart.dao.ShoppingCartDao">
     <!--新增购物车时,查询该商品库存数量-->
-
     <select id="checkGoodNumEnough" parameterType="com.xzsd.app.shoppingCart.entity.AddShoppingCart" resultType="int">
         select
             good_lib_save goodsNum

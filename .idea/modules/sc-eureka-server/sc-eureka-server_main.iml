@@ -97,8 +97,8 @@
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-tomcat:1.5.10.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.8.10" level="project" />
     <orderEntry type="library" name="Gradle: org.hibernate:hibernate-validator:5.3.6.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.reactivex:rxnetty-servo:0.4.9" level="project" />
     <orderEntry type="library" name="Gradle: org.freemarker:freemarker:2.3.27-incubating" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.reactivex:rxnetty-servo:0.4.9" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.netflix.servo:servo-core:0.10.1" level="project" />
     <orderEntry type="library" name="Gradle: com.sun.jersey:jersey-core:1.19.1" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.woodstox:woodstox-core:5.0.3" level="project" />

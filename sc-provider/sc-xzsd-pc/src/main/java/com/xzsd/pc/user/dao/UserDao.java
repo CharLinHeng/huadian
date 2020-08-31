@@ -76,4 +76,12 @@ public interface UserDao {
      * @return
      */
     String getOriginPassWord(@Param("userCode")String userCode);
+
+    /**
+     * 一键设置审核通过
+     * @param usercode
+     * @param username
+     * @return
+     */
+    int updateUserJudgePass(@Param("list")List<String>usercode,@Param("userCode")String username);
 }
