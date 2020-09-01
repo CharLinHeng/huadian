@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.pc.comment.dao.CommentDao">
+    <!--删除商品-->
+    <update id="deleteComments" parameterType="com.xzsd.pc.comment.entity.Comment">
+        update
+           t_goods_goodseva
+        set
+           is_delete = 1,
+           update_user=#{userCode},
+           update_time = now()
+        where
+          comment_code in
+          <foreach collection="listCode" index="index" item="item" open="(" close=")" separator=",">
+               #{item}
+          </foreach>
+    </update>
+    <!--商品列表查询-->
+    <select id="listComments" parameterType="com.xzsd.pc.comment.entity.Comment" resultType="com.xzsd.pc.comment.entity.Comment">
+        select
+            comment_code evaCode,
+            user_code userCode,
+            comment_content evaContent,
+            comment_time evaTime,
+            comment_good evaGoods
+        from
+            t_goods_goodseva
+        where
+            is_delete = 0
+            <if test="evaCode != null and evaCode != ''">
+                and comment_code like concat('%', #{evaCode}, '%')
+            </if>
+            <if test="userCode != null and userCode != ''">
+                and user_code like concat('%', #{userCode}, '%')
+            </if>
+            <if test="evaContent != null and evaContent != ''">
+                and comment_content like concat('%', #{evaContent}, '%')
+            </if>
+            <if test="evaGoods != null and evaGoods != ''">
+                and comment_good like concat('%', #{evaGoods}, '%')
+            </if>
+            <if test="timeEnd != null and timeEnd != ''">
+                and comment_time &lt; #{timeEnd}
+            </if>
+            <if test="timeStart != null and timeStart != ''">
+                and comment_time &gt;= #{timeStart}
+            </if>
+        order by comment_time desc
+    </select>
+
+</mapper>
