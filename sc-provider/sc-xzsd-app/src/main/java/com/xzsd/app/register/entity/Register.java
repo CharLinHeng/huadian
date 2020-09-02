@@ -7,6 +7,9 @@ public class Register {
      * 用户编号
      */
     private String userCode;
+
+
+
     /**
      * 用户账号
      */
@@ -46,6 +49,17 @@ public class Register {
      * 图片头像
      */
     private String imagrUrl;
+    /**
+     * 用户角色
+     */
+    private String role;
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public String getImagrUrl() {
         return imagrUrl;

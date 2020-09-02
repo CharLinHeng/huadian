@@ -33,6 +33,16 @@ public class Store {
      */
     private String userName;
 
+    private String is_judge;
+
+    public String getIs_judge() {
+        return is_judge;
+    }
+
+    public void setIs_judge(String is_judge) {
+        this.is_judge = is_judge;
+    }
+
     public String getStoreCode() {
         return storeCode;
     }

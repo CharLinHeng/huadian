@@ -29,7 +29,8 @@
             tstore.shop_invest_code storeInvitation,
             tuser.user_name userCode,
             tuser.user_image userImageUrl,
-            tuser.user_name userName
+            tuser.user_name userName,
+            tstore.is_judge as is_judge
        from
             t_store_information tstore,
             t_user_infomation tuser

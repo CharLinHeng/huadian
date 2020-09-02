@@ -16,7 +16,8 @@ public class StaticAuthorizeConfigProvider implements AuthorizeConfigProvider {
     @Override
     public boolean config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry config) {
         config
-                .antMatchers("/**/favicon.ico", "/js/**", "/css/**", "/img/**", "/html/**", "/error/**","/**/customer/register","/**/user/addUser").permitAll()
+                .antMatchers("/**/favicon.ico", "/js/**", "/css/**", "/img/**", "/html/**", "/error/**","/**/customer/register"
+                        ,"/**/user/addUser","/**/customer/queryRotateChartsList","/**/customer/queryHotGoodsList").permitAll()
                 .antMatchers("/druid/**", "/swagger-ui.html", "/swagger-resources/**", "/v2/api-docs").permitAll();
         return false;
     }

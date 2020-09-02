@@ -73,6 +73,26 @@ public class Comment {
      */
     private int pageSize;
 
+    private String is_judge;
+
+    private String isJudge;
+
+    public String getIsJudge() {
+        return isJudge;
+    }
+
+    public void setIsJudge(String isJudge) {
+        this.isJudge = isJudge;
+    }
+
+    public String getIs_judge() {
+        return is_judge;
+    }
+
+    public void setIs_judge(String is_judge) {
+        this.is_judge = is_judge;
+    }
+
     public String getEvaGoods() {
         return evaGoods;
     }

@@ -1,10 +1,7 @@
 package com.xzsd.app.store.dao;
 
 import com.xzsd.app.driver.entity.AreaName;
-import com.xzsd.app.store.entity.OrderDetail;
-import com.xzsd.app.store.entity.OrderUpdate;
-import com.xzsd.app.store.entity.StoreOrderList;
-import com.xzsd.app.store.entity.StoreOrderListParam;
+import com.xzsd.app.store.entity.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -37,4 +34,25 @@ public interface StoreDao {
      * 根据省市区编号 查询 名称
      */
     AreaName queryPCD(OrderDetail orderDetail);
+
+    /**
+     * 判断此用户是否存在店铺
+     * @param username
+     * @return
+     */
+    int getUserHasStore(@Param("username")String username);
+
+    /**
+     * 新增门店
+     * @param store
+     * @return
+     */
+    int addStore(Store store);
+
+    /**
+     * 商店审核
+     * @param store
+     * @return
+     */
+    int updateStoreJudgeState(Store store);
 }
