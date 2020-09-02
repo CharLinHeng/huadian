@@ -29,7 +29,7 @@
               #{userPass},
               #{userIdCard},
               CAST(#{userSex} AS SIGNED),
-              3,
+              #{role},
               #{userPhone},
               0,
               #{userEmail},

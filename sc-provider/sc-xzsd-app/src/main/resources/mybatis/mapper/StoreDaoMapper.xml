@@ -145,4 +145,79 @@
         having
             code1 = #{provinceCode} AND code2 = #{cityCode} and dict_code = #{distinctCode}
     </select>
+
+    <!--查询此用户是否存在店铺-->
+    <select id="getUserHasStore" parameterType="java.lang.String" resultType="int">
+        select
+            count(id)
+        from
+            t_store_information
+        where
+            is_delete = 0
+        and
+            shop_con_user = #{username}
+    </select>
+
+    <!--门店审核-->
+    <insert id="addStore" parameterType="com.xzsd.app.store.entity.Store">
+        INSERT
+            INTO
+              `t_store_information`(
+                `shop_code`,
+                `shop_idCard`,
+                `shop_name`,
+                `shop_invest_code`,
+                `shop_con_user`,
+                `shop_phone`,
+                `shop_email`,
+                `shop_desc`,
+                `provinceCode`,
+                `is_judge`,
+                `cityCode`,
+                `distinctCode`,
+                `shop_detail_address`,
+                `create_user`,
+                `create_time`,
+                `update_user`,
+                `update_time`,
+                `version`,
+                `is_delete`
+              )
+            VALUES(
+              #{shop_code},
+              #{shop_idCard},
+              #{shop_name},
+              '',
+              #{shop_con_user},
+              #{shop_phone},
+              #{shop_email},
+              #{shop_desc},
+              #{provinceCode},
+              '2',
+              #{cityCode},
+              #{distinctCode},
+              #{shop_detail_address},
+              #{create_user},
+              now(),
+              #{create_user},
+              now(),
+              0,
+              0
+            )
+    </insert>
+
+    <!--更新状态-->
+    <update id="updateStoreJudgeState" parameterType="com.xzsd.app.store.entity.Store">
+        update
+            t_store_information
+        set
+            is_judge = #{is_judge},
+            version = version + 1,
+            update_time = now(),
+            update_user = #{update_user}
+        where
+            is_delete = 0
+        and
+            shop_code = #{shop_code}
+    </update>
 </mapper>

@@ -2,6 +2,7 @@ package com.xzsd.app.store.controller;
 import com.neusoft.core.restful.AppResponse;
 import com.xzsd.app.store.entity.OrderDetail;
 import com.xzsd.app.store.entity.OrderUpdate;
+import com.xzsd.app.store.entity.Store;
 import com.xzsd.app.store.entity.StoreOrderListParam;
 import com.xzsd.app.store.service.StoreService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -58,4 +59,30 @@ public class StoreController {
             throw e;
         }
     }
+
+    /**
+     * 新增门店
+     * @param orderDetail
+     * @return
+     */
+    @PostMapping("addStore")
+    public AppResponse addStore(Store orderDetail){
+        try{
+            return storeService.addStore(orderDetail);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+    @PostMapping("updateStoreJudgeState")
+    public AppResponse updateStoreJudgeState(Store orderDetail){
+        try{
+            return storeService.updateStoreJudgeState(orderDetail);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+
+
 }

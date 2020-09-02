@@ -10,6 +10,8 @@
            update_user=#{userCode},
            update_time = now()
         where
+          is_delete = 0
+        and
           comment_code in
           <foreach collection="listCode" index="index" item="item" open="(" close=")" separator=",">
                #{item}
@@ -18,34 +20,42 @@
     <!--商品列表查询-->
     <select id="listComments" parameterType="com.xzsd.pc.comment.entity.Comment" resultType="com.xzsd.pc.comment.entity.Comment">
         select
-            comment_code evaCode,
-            user_code userCode,
-            comment_content evaContent,
-            comment_time evaTime,
-            comment_good evaGoods
+            t_goods_goodseva.comment_code evaCode,
+            t_user_infomation.user_name userCode,
+            t_goods_goodseva.comment_content evaContent,
+            t_goods_goodseva.comment_rank evaRank,
+            t_goods_goodseva.comment_time evaTime,
+            t_good_manage.good_name evaGoods,
+            t_goods_goodseva.is_judge is_judge
         from
-            t_goods_goodseva
+            t_goods_goodseva,
+            t_good_manage,
+            t_user_infomation
         where
-            is_delete = 0
+            t_goods_goodseva.is_delete = 0
+        and
+            t_good_manage.good_code = t_goods_goodseva.comment_good
+        and
+            t_user_infomation.user_code  = t_goods_goodseva.user_code
             <if test="evaCode != null and evaCode != ''">
-                and comment_code like concat('%', #{evaCode}, '%')
+                and t_goods_goodseva.comment_code like concat('%', #{evaCode}, '%')
             </if>
             <if test="userCode != null and userCode != ''">
-                and user_code like concat('%', #{userCode}, '%')
+                and t_user_infomation.user_name like concat('%', #{userCode}, '%')
             </if>
             <if test="evaContent != null and evaContent != ''">
-                and comment_content like concat('%', #{evaContent}, '%')
+                and t_goods_goodseva.comment_content like concat('%', #{evaContent}, '%')
             </if>
             <if test="evaGoods != null and evaGoods != ''">
-                and comment_good like concat('%', #{evaGoods}, '%')
+                and t_goods_goodseva.comment_good like concat('%', #{evaGoods}, '%')
             </if>
             <if test="timeEnd != null and timeEnd != ''">
-                and comment_time &lt; #{timeEnd}
+                and t_goods_goodseva.comment_time &lt; #{timeEnd}
             </if>
             <if test="timeStart != null and timeStart != ''">
-                and comment_time &gt;= #{timeStart}
+                and t_goods_goodseva.comment_time &gt;= #{timeStart}
             </if>
-        order by comment_time desc
+        order by t_goods_goodseva.comment_time desc
     </select>
 
 </mapper>
