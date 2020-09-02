@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzsd.app.address.dao.AddressDao">
+    <insert id="addAddress" parameterType="com.xzsd.app.address.entity.Address">
+        insert into t_c_address (
+          address_code,
+          address_detail,
+          user_code,
+          user_phone,
+          user_name,
+          update_time,
+          update_user,
+          is_delete,
+          version
+        ) values (
+          #{addressCode},
+          #{addressDetail},
+          #{userCode},
+          #{userPhone},
+          #{userName},
+          now(),
+          #{updateUser},
+          0,
+          0
+        );
+    </insert>
+    <update id="updateAddress" parameterType="com.xzsd.app.address.entity.Address">
+        update t_c_address
+        set
+          address_detail = #{addressDetail},
+          user_phone = #{userPhone},
+          user_name = #{userName},
+          update_time = now(),
+          update_user = #{updateUser}
+        where
+          address_code = #{addressCode}
+        and
+          is_delete = 0
+    </update>
+    <update id="deleteAddress">
+        update t_c_address
+        set is_delete = 1,
+        update_user = #{userCode},
+        update_time = now()
+        where
+        address_code in
+        <foreach item="item" index="index" collection="addressCode" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        ;
+    </update>
+    <select id="addressList" parameterType="com.xzsd.app.address.entity.Address" resultType="com.xzsd.app.address.entity.Address">
+        select
+          address_code addressCode,
+          address_detail addressDetail,
+          user_name userName,
+          user_phone userPhone
+        from t_c_address
+        where 
+        is_delete = 0
+        and
+        user_code = #{userCode}
+    </select>
+    <select id="getAddress" parameterType="java.lang.String" resultType="com.xzsd.app.address.entity.Address">
+        select
+          address_code addressCode,
+          address_detail addressDetail,
+          user_name userName,
+          user_phone userPhone
+        from t_c_address
+        where
+        is_delete = 0
+        and
+        address_code = #{addressCode}
+    </select>
+</mapper>
